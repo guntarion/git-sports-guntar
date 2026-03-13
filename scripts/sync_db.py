@@ -226,6 +226,20 @@ def _replace_hr_zones(cur: Any, activity_id: str, zones: List[Dict]) -> None:
         )
 
 
+def _clean_database_url(url: str) -> str:
+    """Strip psycopg2-incompatible query params (e.g. connection_limit from Prisma URLs)."""
+    from urllib.parse import urlparse, urlencode, parse_qs, urlunparse
+
+    _UNSUPPORTED = {"connection_limit", "pool_timeout", "pgbouncer", "sslaccept"}
+    parsed = urlparse(url)
+    if not parsed.query:
+        return url
+    params = {k: v for k, v in parse_qs(parsed.query, keep_blank_values=True).items()
+              if k.lower() not in _UNSUPPORTED}
+    cleaned_query = urlencode(params, doseq=True)
+    return urlunparse(parsed._replace(query=cleaned_query))
+
+
 def sync_to_db(database_url: str) -> Dict[str, Any]:
     try:
         import psycopg2
@@ -233,6 +247,8 @@ def sync_to_db(database_url: str) -> Dict[str, Any]:
         raise RuntimeError(
             "Missing dependency 'psycopg2-binary'. Add it to requirements.txt."
         ) from exc
+
+    database_url = _clean_database_url(database_url)
 
     config = load_config()
     source = normalize_source(config.get("source", "strava"))
