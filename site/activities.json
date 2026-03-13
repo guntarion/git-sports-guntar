@@ -1,0 +1,1109 @@
+{
+  "activities": [
+    {
+      "aerobic_te": 0.4,
+      "avg_cadence": 76,
+      "avg_hr": 111,
+      "avg_pace_secs_per_km": 884,
+      "avg_stride_len": 88.57,
+      "calories": 27,
+      "date": "2026-03-11",
+      "distance": 308.4,
+      "elevation_gain": 15.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 155,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 117,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22135859288",
+      "max_hr": 121,
+      "moving_time": 207.0,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 111,
+          "avg_speed_mps": 1.131,
+          "distance": 308.4,
+          "duration": 207.0,
+          "elevation_gain": 15.0,
+          "max_hr": 121,
+          "pace_secs_per_km": 884
+        }
+      ],
+      "start_date_local": "2026-03-11T16:01:07",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 0.7,
+      "avg_hr": 104,
+      "calories": 86,
+      "date": "2026-03-10",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 855,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 119,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22124617150",
+      "max_hr": 133,
+      "moving_time": 1022.3,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-03-10T17:16:38",
+      "type": "WeightTraining"
+    },
+    {
+      "aerobic_te": 2.2,
+      "avg_cadence": 56,
+      "avg_hr": 120,
+      "avg_pace_secs_per_km": 886,
+      "avg_stride_len": 43.51,
+      "calories": 108,
+      "date": "2026-03-08",
+      "distance": 1010.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 292,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 488,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 63,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22100713925",
+      "max_hr": 149,
+      "moving_time": 429.0,
+      "name": "Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 120,
+          "avg_speed_mps": 0.407,
+          "distance": 363.8,
+          "duration": 429.0,
+          "max_hr": 149,
+          "pace_secs_per_km": 2457
+        }
+      ],
+      "start_date_local": "2026-03-08T17:03:01",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 3.2,
+      "anaerobic_te": 1.8,
+      "avg_cadence": 153,
+      "avg_ground_contact": 314,
+      "avg_hr": 145,
+      "avg_pace_secs_per_km": 539,
+      "avg_stride_len": 72.28,
+      "avg_vertical_osc": 7.9,
+      "calories": 385,
+      "date": "2026-03-07",
+      "distance": 5617.7,
+      "elevation_gain": 3.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 35,
+          "zone": 1
+        },
+        {
+          "low_bpm": 115,
+          "seconds": 1295,
+          "zone": 2
+        },
+        {
+          "low_bpm": 143,
+          "seconds": 1347,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 346,
+          "zone": 4
+        },
+        {
+          "low_bpm": 172,
+          "seconds": 8,
+          "zone": 5
+        }
+      ],
+      "id": "22089445309",
+      "max_hr": 172,
+      "moving_time": 3026.0,
+      "name": "Ramadhan 5K with fastest 1K",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 128,
+          "avg_speed_mps": 1.804,
+          "distance": 1000.0,
+          "duration": 552.0,
+          "elevation_gain": 1.0,
+          "max_hr": 136,
+          "pace_secs_per_km": 554
+        },
+        {
+          "avg_hr": 136,
+          "avg_speed_mps": 1.771,
+          "distance": 1000.0,
+          "duration": 564.8,
+          "elevation_gain": 1.0,
+          "max_hr": 142,
+          "pace_secs_per_km": 565
+        },
+        {
+          "avg_hr": 144,
+          "avg_speed_mps": 1.929,
+          "distance": 1000.0,
+          "duration": 518.0,
+          "elevation_gain": 1.0,
+          "max_hr": 158,
+          "pace_secs_per_km": 518
+        },
+        {
+          "avg_hr": 160,
+          "avg_speed_mps": 2.091,
+          "distance": 1000.0,
+          "duration": 478.2,
+          "max_hr": 172,
+          "pace_secs_per_km": 478
+        },
+        {
+          "avg_hr": 151,
+          "avg_speed_mps": 1.753,
+          "distance": 1000.0,
+          "duration": 570.0,
+          "max_hr": 156,
+          "pace_secs_per_km": 570
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 1.795,
+          "distance": 617.7,
+          "duration": 343.0,
+          "max_hr": 161,
+          "pace_secs_per_km": 557
+        }
+      ],
+      "start_date_local": "2026-03-07T16:19:35",
+      "type": "Run",
+      "vo2_max": 33.0
+    },
+    {
+      "aerobic_te": 1.5,
+      "anaerobic_te": 0.4,
+      "avg_hr": 117,
+      "calories": 81,
+      "date": "2026-03-06",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 312,
+          "zone": 1
+        },
+        {
+          "low_bpm": 115,
+          "seconds": 387,
+          "zone": 2
+        },
+        {
+          "low_bpm": 143,
+          "seconds": 7,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 172,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22081303015",
+      "max_hr": 144,
+      "moving_time": 705.9,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-03-06T20:54:37",
+      "type": "WeightTraining"
+    },
+    {
+      "aerobic_te": 2.5,
+      "avg_cadence": 91,
+      "avg_hr": 132,
+      "avg_pace_secs_per_km": 802,
+      "avg_stride_len": 67.23,
+      "calories": 114,
+      "date": "2026-03-06",
+      "distance": 1010.0,
+      "elevation_gain": 116.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 128,
+          "zone": 1
+        },
+        {
+          "low_bpm": 115,
+          "seconds": 490,
+          "zone": 2
+        },
+        {
+          "low_bpm": 143,
+          "seconds": 192,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 172,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22081166864",
+      "max_hr": 151,
+      "moving_time": 620.0,
+      "name": "Hiking",
+      "raw_type": "hiking",
+      "splits": [
+        {
+          "avg_hr": 132,
+          "avg_speed_mps": 1.021,
+          "distance": 826.8,
+          "duration": 620.0,
+          "max_hr": 151,
+          "pace_secs_per_km": 979
+        }
+      ],
+      "start_date_local": "2026-03-06T20:37:19",
+      "type": "Hike"
+    },
+    {
+      "avg_pace_secs_per_km": 496,
+      "date": "2026-03-04",
+      "distance": 5063.9,
+      "elevation_gain": 2.0,
+      "id": "22056440274",
+      "moving_time": 2511.3,
+      "name": "Ramadhan 5K Personal Best",
+      "raw_type": "running",
+      "start_date_local": "2026-03-04T16:25:16",
+      "type": "Run"
+    },
+    {
+      "date": "2026-03-03",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "22044744906",
+      "moving_time": 916.0,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-03-03T17:15:41",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 417,
+      "date": "2026-03-03",
+      "distance": 1070.0,
+      "elevation_gain": 116.0,
+      "id": "22044564542",
+      "moving_time": 446.0,
+      "name": "Hiking",
+      "raw_type": "hiking",
+      "start_date_local": "2026-03-03T16:53:30",
+      "type": "Hike"
+    },
+    {
+      "avg_pace_secs_per_km": 585,
+      "date": "2026-03-01",
+      "distance": 4037.8,
+      "elevation_gain": 4.0,
+      "id": "22022156041",
+      "moving_time": 2360.5,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-03-01T16:20:13",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 867,
+      "date": "2026-02-28",
+      "distance": 2000.0,
+      "elevation_gain": 0.0,
+      "id": "22011655216",
+      "moving_time": 1734.0,
+      "name": "Treadmill Running",
+      "raw_type": "treadmill_running",
+      "start_date_local": "2026-02-28T16:55:06",
+      "type": "VirtualRun"
+    },
+    {
+      "avg_pace_secs_per_km": 471,
+      "date": "2026-02-28",
+      "distance": 562.0,
+      "elevation_gain": 1.0,
+      "id": "22011129707",
+      "moving_time": 265.0,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-02-28T16:41:40",
+      "type": "Run"
+    },
+    {
+      "date": "2026-02-27",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "22001066361",
+      "moving_time": 915.2,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-02-27T16:54:00",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 592,
+      "date": "2026-02-27",
+      "distance": 3000.0,
+      "elevation_gain": 0.0,
+      "id": "22000936598",
+      "moving_time": 1777.0,
+      "name": "Treadmill Running",
+      "raw_type": "treadmill_running",
+      "start_date_local": "2026-02-27T16:01:40",
+      "type": "VirtualRun"
+    },
+    {
+      "avg_pace_secs_per_km": 664,
+      "date": "2026-02-26",
+      "distance": 2000.0,
+      "elevation_gain": 0.0,
+      "id": "21990401873",
+      "moving_time": 1328.0,
+      "name": "Treadmill Running",
+      "raw_type": "treadmill_running",
+      "start_date_local": "2026-02-26T16:57:43",
+      "type": "VirtualRun"
+    },
+    {
+      "avg_pace_secs_per_km": 768,
+      "date": "2026-02-25",
+      "distance": 1200.0,
+      "elevation_gain": 0.0,
+      "id": "21978916996",
+      "moving_time": 922.0,
+      "name": "Treadmill Running",
+      "raw_type": "treadmill_running",
+      "start_date_local": "2026-02-25T16:55:00",
+      "type": "VirtualRun"
+    },
+    {
+      "avg_pace_secs_per_km": 534,
+      "date": "2026-02-24",
+      "distance": 5324.3,
+      "elevation_gain": 0.0,
+      "id": "21967410066",
+      "moving_time": 2843.7,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-02-24T16:19:27",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 1025,
+      "date": "2026-02-23",
+      "distance": 613.9,
+      "elevation_gain": 0.0,
+      "id": "21956779534",
+      "moving_time": 629.0,
+      "name": "Treadmill Running",
+      "raw_type": "treadmill_running",
+      "start_date_local": "2026-02-23T16:57:57",
+      "type": "VirtualRun"
+    },
+    {
+      "date": "2026-02-22",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21949401556",
+      "moving_time": 1357.3,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-02-22T20:56:26",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 567,
+      "date": "2026-02-21",
+      "distance": 6404.2,
+      "elevation_gain": 4.0,
+      "id": "21935455229",
+      "moving_time": 3633.7,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-02-21T15:53:02",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 550,
+      "date": "2026-02-20",
+      "distance": 4091.6,
+      "elevation_gain": 1.0,
+      "id": "21921566146",
+      "moving_time": 2251.0,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-02-20T02:56:08",
+      "type": "Run"
+    },
+    {
+      "date": "2026-02-18",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21904925020",
+      "moving_time": 510.3,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-02-18T16:40:50",
+      "type": "WeightTraining"
+    },
+    {
+      "date": "2026-02-17",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21891792396",
+      "moving_time": 811.2,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-02-17T09:30:46",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 597,
+      "date": "2026-02-16",
+      "distance": 8832.7,
+      "elevation_gain": 17.0,
+      "id": "21881044674",
+      "moving_time": 5270.7,
+      "name": "Probolinggo Multisport",
+      "raw_type": "multi_sport",
+      "start_date_local": "2026-02-16T05:36:58",
+      "type": "multi_sport"
+    },
+    {
+      "avg_pace_secs_per_km": 822,
+      "date": "2026-02-16",
+      "distance": 620.6,
+      "elevation_gain": 1.0,
+      "id": "21880477532",
+      "moving_time": 510.0,
+      "name": "Probolinggo Walking",
+      "raw_type": "walking",
+      "start_date_local": "2026-02-16T03:59:13",
+      "type": "Walk"
+    },
+    {
+      "avg_pace_secs_per_km": 765,
+      "date": "2026-02-15",
+      "distance": 616.9,
+      "elevation_gain": 0.0,
+      "id": "21872747685",
+      "moving_time": 472.0,
+      "name": "Probolinggo Walking",
+      "raw_type": "walking",
+      "start_date_local": "2026-02-15T16:05:49",
+      "type": "Walk"
+    },
+    {
+      "avg_pace_secs_per_km": 500,
+      "date": "2026-02-15",
+      "distance": 3108.2,
+      "elevation_gain": 1.0,
+      "id": "21870486156",
+      "moving_time": 1555.0,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-02-15T06:30:11",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 683,
+      "date": "2026-02-15",
+      "distance": 526.9,
+      "elevation_gain": 0.0,
+      "id": "21870231590",
+      "moving_time": 360.0,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-02-15T05:59:41",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 1238,
+      "date": "2026-02-14",
+      "distance": 2323.1,
+      "elevation_gain": 0.0,
+      "id": "21860924355",
+      "moving_time": 2877.1,
+      "name": "Multisport",
+      "raw_type": "multi_sport",
+      "start_date_local": "2026-02-14T08:41:08",
+      "type": "multi_sport"
+    },
+    {
+      "avg_pace_secs_per_km": 759,
+      "date": "2026-02-13",
+      "distance": 680.1,
+      "elevation_gain": 0.0,
+      "id": "21854864923",
+      "moving_time": 516.0,
+      "name": "Surabaya Walking",
+      "raw_type": "walking",
+      "start_date_local": "2026-02-13T19:08:58",
+      "type": "Walk"
+    },
+    {
+      "avg_pace_secs_per_km": 700,
+      "date": "2026-02-13",
+      "distance": 168.7,
+      "elevation_gain": 0.0,
+      "id": "21852277623",
+      "moving_time": 118.0,
+      "name": "Bangkalan Walking",
+      "raw_type": "walking",
+      "start_date_local": "2026-02-13T13:32:22",
+      "type": "Walk"
+    },
+    {
+      "avg_pace_secs_per_km": 498,
+      "date": "2026-02-11",
+      "distance": 3548.0,
+      "elevation_gain": 0.0,
+      "id": "21830048397",
+      "moving_time": 1768.0,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-02-11T06:47:13",
+      "type": "Run"
+    },
+    {
+      "date": "2026-02-10",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21822057191",
+      "moving_time": 1473.2,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-02-10T16:49:22",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 504,
+      "date": "2026-02-09",
+      "distance": 5128.6,
+      "elevation_gain": 0.0,
+      "id": "21808634596",
+      "moving_time": 2587.0,
+      "name": "Runmadan 5 km",
+      "raw_type": "running",
+      "start_date_local": "2026-02-09T05:27:50",
+      "type": "Run"
+    },
+    {
+      "date": "2026-02-07",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21790633171",
+      "moving_time": 604.4,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-02-07T17:09:59",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 557,
+      "date": "2026-02-06",
+      "distance": 5018.8,
+      "elevation_gain": 2.0,
+      "id": "21778365589",
+      "moving_time": 2793.0,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-02-06T07:21:56",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 604,
+      "date": "2026-02-06",
+      "distance": 728.5,
+      "elevation_gain": 0.0,
+      "id": "21778071195",
+      "moving_time": 439.9,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "start_date_local": "2026-02-06T07:06:38",
+      "type": "Walk"
+    },
+    {
+      "date": "2026-02-03",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21749316105",
+      "moving_time": 746.3,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-02-03T17:33:23",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 558,
+      "date": "2026-02-01",
+      "distance": 1159.4,
+      "elevation_gain": 2.0,
+      "id": "21725927246",
+      "moving_time": 647.0,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-02-01T09:04:14",
+      "type": "Run"
+    },
+    {
+      "date": "2026-02-01",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21725927191",
+      "moving_time": 81.7,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-02-01T09:02:23",
+      "type": "Workout"
+    },
+    {
+      "avg_pace_secs_per_km": 520,
+      "date": "2026-02-01",
+      "distance": 5265.9,
+      "elevation_gain": 2.0,
+      "id": "21725466357",
+      "moving_time": 2736.0,
+      "name": "Surabaya Running",
+      "raw_type": "running",
+      "start_date_local": "2026-02-01T06:38:41",
+      "type": "Run"
+    },
+    {
+      "date": "2026-01-30",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21708918237",
+      "moving_time": 562.4,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-01-30T17:14:38",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 923,
+      "date": "2026-01-29",
+      "distance": 416.0,
+      "elevation_gain": 0.0,
+      "id": "21696178713",
+      "moving_time": 384.0,
+      "name": "Treadmill Running",
+      "raw_type": "treadmill_running",
+      "start_date_local": "2026-01-29T06:33:10",
+      "type": "VirtualRun"
+    },
+    {
+      "avg_pace_secs_per_km": 580,
+      "date": "2026-01-28",
+      "distance": 3345.6,
+      "elevation_gain": 10.0,
+      "id": "21688561640",
+      "moving_time": 1942.0,
+      "name": "Jakarta Running",
+      "raw_type": "running",
+      "start_date_local": "2026-01-28T16:12:41",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 447,
+      "date": "2026-01-27",
+      "distance": 1010.3,
+      "elevation_gain": 0.0,
+      "id": "21678507239",
+      "moving_time": 452.0,
+      "name": "Jakarta Running",
+      "raw_type": "running",
+      "start_date_local": "2026-01-27T18:06:51",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 497,
+      "date": "2026-01-25",
+      "distance": 5008.7,
+      "elevation_gain": 6.0,
+      "id": "21654716254",
+      "moving_time": 2487.0,
+      "name": "Surabaya - Run for Everyone 2026 LMI",
+      "raw_type": "running",
+      "start_date_local": "2026-01-25T05:54:16",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 493,
+      "date": "2026-01-24",
+      "distance": 2304.1,
+      "elevation_gain": 0.0,
+      "id": "21644214772",
+      "moving_time": 1136.0,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-01-24T05:08:36",
+      "type": "Run"
+    },
+    {
+      "date": "2026-01-19",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21594671212",
+      "moving_time": 720.4,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-01-19T15:59:37",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 529,
+      "date": "2026-01-18",
+      "distance": 5017.4,
+      "elevation_gain": 5.0,
+      "id": "21581000951",
+      "moving_time": 2655.0,
+      "name": "Trying Pace Pro",
+      "raw_type": "running",
+      "start_date_local": "2026-01-18T05:12:40",
+      "type": "Run"
+    },
+    {
+      "date": "2026-01-17",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21573017464",
+      "moving_time": 1134.3,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-01-17T15:39:10",
+      "type": "WeightTraining"
+    },
+    {
+      "date": "2026-01-16",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21561300322",
+      "moving_time": 467.6,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-01-16T08:48:52",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 521,
+      "date": "2026-01-16",
+      "distance": 4861.5,
+      "elevation_gain": 2.0,
+      "id": "21561179850",
+      "moving_time": 2534.8,
+      "name": "Sidoarjo - Sugar Kane Running",
+      "raw_type": "running",
+      "start_date_local": "2026-01-16T07:46:45",
+      "type": "Run"
+    },
+    {
+      "date": "2026-01-15",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21553317144",
+      "moving_time": 1170.3,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-01-15T16:52:03",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 550,
+      "date": "2026-01-14",
+      "distance": 4067.6,
+      "elevation_gain": 5.0,
+      "id": "21539614753",
+      "moving_time": 2238.0,
+      "name": "Sidoarjo - Restart Watch",
+      "raw_type": "running",
+      "start_date_local": "2026-01-14T07:13:23",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 568,
+      "date": "2026-01-13",
+      "distance": 3000.0,
+      "elevation_gain": 0.0,
+      "id": "21531103224",
+      "moving_time": 1704.0,
+      "name": "Treadmill Running",
+      "raw_type": "treadmill_running",
+      "start_date_local": "2026-01-13T16:32:55",
+      "type": "VirtualRun"
+    },
+    {
+      "avg_pace_secs_per_km": 518,
+      "date": "2026-01-12",
+      "distance": 4500.0,
+      "elevation_gain": 0.0,
+      "id": "21520303791",
+      "moving_time": 2328.8,
+      "name": "Treadmill Running",
+      "raw_type": "treadmill_running",
+      "start_date_local": "2026-01-12T16:14:55",
+      "type": "VirtualRun"
+    },
+    {
+      "date": "2026-01-11",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21509517130",
+      "moving_time": 307.4,
+      "name": "5-Minute Plank Challenge",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-01-11T16:49:56",
+      "type": "Workout"
+    },
+    {
+      "date": "2026-01-11",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21509448674",
+      "moving_time": 1692.9,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-01-11T15:57:41",
+      "type": "WeightTraining"
+    },
+    {
+      "date": "2026-01-11",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21508973641",
+      "moving_time": 934.7,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-01-11T15:41:40",
+      "type": "Workout"
+    },
+    {
+      "avg_pace_secs_per_km": 580,
+      "date": "2026-01-11",
+      "distance": 3236.4,
+      "elevation_gain": 1.0,
+      "id": "21506906286",
+      "moving_time": 1876.0,
+      "name": "Sidoarjo - Rewwin Easy Run",
+      "raw_type": "running",
+      "start_date_local": "2026-01-11T06:10:16",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 641,
+      "date": "2026-01-11",
+      "distance": 703.6,
+      "elevation_gain": 0.0,
+      "id": "21506712575",
+      "moving_time": 451.0,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "start_date_local": "2026-01-11T05:56:07",
+      "type": "Run"
+    },
+    {
+      "date": "2026-01-09",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21487417347",
+      "moving_time": 1986.7,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-01-09T06:28:29",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 524,
+      "date": "2026-01-09",
+      "distance": 4015.8,
+      "elevation_gain": 1.0,
+      "id": "21486981532",
+      "moving_time": 2103.4,
+      "name": "Sidoarjo - Newbie Piramid Interval",
+      "raw_type": "running",
+      "start_date_local": "2026-01-09T05:21:12",
+      "type": "Run"
+    },
+    {
+      "date": "2026-01-08",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21480090689",
+      "moving_time": 1204.8,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-01-08T16:43:22",
+      "type": "WeightTraining"
+    },
+    {
+      "date": "2026-01-07",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "21469459386",
+      "moving_time": 595.5,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-01-07T16:27:50",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 751,
+      "date": "2017-08-20",
+      "distance": 1016.8,
+      "elevation_gain": 0.0,
+      "id": "1927273995",
+      "moving_time": 764.0,
+      "name": "Running",
+      "raw_type": "running",
+      "start_date_local": "2017-08-20T16:33:23",
+      "type": "Run"
+    },
+    {
+      "date": "2017-08-13",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "1912918373",
+      "moving_time": 963.0,
+      "name": "Freeletics persephone",
+      "raw_type": "strength_training",
+      "start_date_local": "2017-08-13T16:59:20",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_pace_secs_per_km": 606,
+      "date": "2017-08-12",
+      "distance": 2700.0,
+      "elevation_gain": 0.0,
+      "id": "1910766663",
+      "moving_time": 1635.0,
+      "name": "Sabtu run",
+      "raw_type": "running",
+      "start_date_local": "2017-08-12T16:36:19",
+      "type": "Run"
+    },
+    {
+      "avg_pace_secs_per_km": 600,
+      "date": "2017-08-12",
+      "distance": 2700.0,
+      "elevation_gain": 0.0,
+      "id": "1910764916",
+      "moving_time": 1620.0,
+      "name": "Sabtu",
+      "raw_type": "running",
+      "start_date_local": "2017-08-12T16:34:42",
+      "type": "Run"
+    },
+    {
+      "date": "2017-08-09",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "id": "1905245180",
+      "moving_time": 0.0,
+      "name": "Strength Training",
+      "raw_type": "strength_training",
+      "start_date_local": "2017-08-09T17:34:18",
+      "type": "WeightTraining"
+    }
+  ],
+  "generated_at": "2026-03-13T06:14:56.606583+00:00",
+  "source": "garmin",
+  "units": {
+    "distance": "km",
+    "elevation": "m"
+  }
+}
