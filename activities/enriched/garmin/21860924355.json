@@ -1,0 +1,19 @@
+{
+  "id": "21860924355",
+  "splits": [
+    {
+      "avg_hr": 125,
+      "avg_speed_mps": 1.71,
+      "distance": 2309.7,
+      "duration": 1303.0,
+      "max_hr": 142
+    },
+    {
+      "avg_hr": 106,
+      "avg_speed_mps": 0.032,
+      "distance": 13.4,
+      "duration": 421.6,
+      "max_hr": 135
+    }
+  ]
+}

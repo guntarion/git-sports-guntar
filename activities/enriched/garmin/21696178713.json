@@ -1,0 +1,39 @@
+{
+  "hr_zones": [
+    {
+      "low_bpm": 88,
+      "seconds": 751,
+      "zone": 1
+    },
+    {
+      "low_bpm": 116,
+      "seconds": 0,
+      "zone": 2
+    },
+    {
+      "low_bpm": 144,
+      "seconds": 0,
+      "zone": 3
+    },
+    {
+      "low_bpm": 158,
+      "seconds": 0,
+      "zone": 4
+    },
+    {
+      "low_bpm": 170,
+      "seconds": 0,
+      "zone": 5
+    }
+  ],
+  "id": "21696178713",
+  "splits": [
+    {
+      "avg_hr": 96,
+      "avg_speed_mps": 0.462,
+      "distance": 416.0,
+      "duration": 384.0,
+      "max_hr": 112
+    }
+  ]
+}
