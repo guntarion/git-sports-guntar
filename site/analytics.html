@@ -323,7 +323,7 @@ function render() {
 
   var unit     = state.units.distance;
   var distLabel = unit==='km' ? 'km' : 'mi';
-  var runActs  = acts.filter(isRunning).filter(function(a){ return a.distance>200; });
+  var runActs  = acts.filter(isRunning).filter(function(a){ return a.distance>500; });
 
   /* ── Weekly running km ── */
   var runWkMap = {};
@@ -363,11 +363,11 @@ function render() {
   var totalElev = sum(acts.map(function(a){ return a.elevation_gain||0; }));
   var hrActs2   = acts.filter(function(a){ return a.avg_hr>0; });
   var avgHRAll  = hrActs2.length ? Math.round(avg(hrActs2.map(function(a){ return a.avg_hr; }))) : null;
-  var paceActs2 = acts.filter(function(a){ return a.avg_pace_secs_per_km>0&&a.avg_pace_secs_per_km<1800; });
+  var paceActs2 = acts.filter(function(a){ return a.avg_pace_secs_per_km>0&&a.avg_pace_secs_per_km<900; });
   var avgPaceAll= paceActs2.length ? Math.round(avg(paceActs2.map(function(a){ return a.avg_pace_secs_per_km; }))) : null;
 
   /* ── Pace trend (running, colored by distance band) ── */
-  var paceActs  = runActs.filter(function(a){ return a.avg_pace_secs_per_km>0&&a.avg_pace_secs_per_km<1800; });
+  var paceActs  = runActs.filter(function(a){ return a.avg_pace_secs_per_km>0&&a.avg_pace_secs_per_km<900; });
   var paceLabels= paceActs.map(function(a){ return a.date; });
   var paceData  = paceActs.map(function(a){ return +(a.avg_pace_secs_per_km/60).toFixed(2); });
   var pacePtClr = paceActs.map(function(a){ return distBand(a.distance||0).color; });
@@ -383,7 +383,7 @@ function render() {
   });
 
   /* ── Aerobic efficiency: speed/HR × 1000 (higher = better) ── */
-  var effActs  = runActs.filter(function(a){ return a.avg_pace_secs_per_km>0&&a.avg_pace_secs_per_km<1800&&a.avg_hr>50&&a.distance>1500; });
+  var effActs  = runActs.filter(function(a){ return a.avg_pace_secs_per_km>0&&a.avg_pace_secs_per_km<900&&a.avg_hr>50&&a.distance>1500; });
   var effLabels= effActs.map(function(a){ return a.date; });
   var effData  = effActs.map(function(a){ return +((1000/a.avg_pace_secs_per_km)/a.avg_hr*1000).toFixed(2); });
   var effExtras= effActs.map(function(a){ return fmtPace(a.avg_pace_secs_per_km)+' · '+a.avg_hr+'bpm · '+(a.distance/1000).toFixed(1)+'km'; });
@@ -421,7 +421,7 @@ function render() {
     if(!mMap[mk]) mMap[mk]={count:0,dist:0,time:0,hrs:[],paces:[],tes:[]};
     var m=mMap[mk]; m.count++; m.dist+=(a.distance||0); m.time+=(a.moving_time||0);
     if(a.avg_hr>0) m.hrs.push(a.avg_hr);
-    if(a.avg_pace_secs_per_km>0&&a.avg_pace_secs_per_km<1800) m.paces.push(a.avg_pace_secs_per_km);
+    if(a.avg_pace_secs_per_km>0&&a.avg_pace_secs_per_km<900) m.paces.push(a.avg_pace_secs_per_km);
     if(a.aerobic_te>0) m.tes.push(a.aerobic_te);
   });
   var monthsList=Object.keys(mMap).sort().reverse();
