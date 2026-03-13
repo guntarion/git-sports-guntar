@@ -18,6 +18,7 @@ from sync_garmin import sync_garmin
 from sync_strava import sync_strava
 from utils import ensure_dir, load_config, normalize_source, write_json
 from generate_heatmaps import generate as generate_heatmaps
+from generate_activities import generate_activities
 
 README_MD = "README.md"
 SOURCE_STATE_PATH = os.path.join("data", "source_state.json")
@@ -272,6 +273,14 @@ def run_pipeline(
     _write_aggregates(aggregates)
 
     generate_heatmaps(write_svgs=False)
+    if source == "garmin" and not skip_sync and not dry_run:
+        try:
+            from enrich_garmin import enrich_garmin
+            enrich_summary = enrich_garmin()
+            print(f"Enrichment ({source}): {enrich_summary}")
+        except Exception as exc:
+            print(f"Warning: enrichment step failed: {exc}")
+    generate_activities()
     if not dry_run:
         _persist_source(source)
     if update_readme_link:

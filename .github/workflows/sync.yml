@@ -200,6 +200,7 @@ jobs:
             rm -rf data site/data.json
             git restore --source "origin/${branch}" --worktree -- data || true
             git restore --source "origin/${branch}" --worktree -- site/data.json || true
+            git restore --source "origin/${branch}" --worktree -- activities/enriched || true
             echo "Restored persisted state from ${branch}."
           else
             echo "No ${branch} branch yet; starting with an empty state."
@@ -353,6 +354,13 @@ jobs:
           mkdir -p "${data_worktree}/site"
           cp -R data "${data_worktree}/data"
           cp site/data.json "${data_worktree}/site/data.json"
+          if [ -d activities/enriched ]; then
+            mkdir -p "${data_worktree}/activities/enriched"
+            cp -R activities/enriched/. "${data_worktree}/activities/enriched/"
+          fi
+          if [ -f site/activities.json ]; then
+            cp site/activities.json "${data_worktree}/site/activities.json"
+          fi
 
           pushd "${data_worktree}" >/dev/null
           git add -A

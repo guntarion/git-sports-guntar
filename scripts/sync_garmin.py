@@ -153,6 +153,93 @@ def _normalize_activity(activity: Dict[str, Any]) -> Dict[str, Any]:
     }
     if activity_name:
         normalized["name"] = activity_name
+    # Extended stats from get_activities() response (captured if present)
+    avg_hr = _safe_int(
+        _coalesce(activity.get("averageHR"), activity.get("avgHR"))
+    )
+    max_hr = _safe_int(
+        _coalesce(activity.get("maxHR"), activity.get("maxHeartRate"))
+    )
+    calories = _safe_int(activity.get("calories"))
+    avg_speed_mps = _safe_float(
+        _coalesce(activity.get("averageSpeed"), activity.get("avgSpeed")), 0.0
+    )
+    aerobic_te = _safe_float(
+        _coalesce(
+            activity.get("aerobicTrainingEffect"),
+            activity.get("aerobicTE"),
+        ),
+        0.0,
+    )
+    anaerobic_te = _safe_float(
+        _coalesce(
+            activity.get("anaerobicTrainingEffect"),
+            activity.get("anaerobicTE"),
+        ),
+        0.0,
+    )
+    avg_cadence = _safe_int(
+        _coalesce(
+            activity.get("averageCadence"),
+            activity.get("averageRunningCadenceInStepsPerMinute"),
+        )
+    )
+    tss = _safe_float(
+        _coalesce(activity.get("trainingStressScore"), activity.get("tss")), 0.0
+    )
+    vo2_max = _safe_float(
+        _coalesce(
+            activity.get("vO2MaxValue"),
+            activity.get("vo2MaxValue"),
+            activity.get("vO2Max"),
+        ),
+        0.0,
+    )
+    avg_vertical_osc = _safe_float(
+        _coalesce(
+            activity.get("avgVerticalOscillation"),
+            activity.get("averageVerticalOscillation"),
+        ),
+        0.0,
+    )
+    avg_ground_contact = _safe_float(
+        _coalesce(
+            activity.get("avgGroundContactTime"),
+            activity.get("averageGroundContactTime"),
+        ),
+        0.0,
+    )
+    avg_stride_len = _safe_float(
+        _coalesce(
+            activity.get("avgStrideLength"),
+            activity.get("averageStrideLength"),
+        ),
+        0.0,
+    )
+    if avg_hr and avg_hr > 0:
+        normalized["avg_hr"] = avg_hr
+    if max_hr and max_hr > 0:
+        normalized["max_hr"] = max_hr
+    if calories and calories > 0:
+        normalized["calories"] = calories
+    if avg_speed_mps > 0:
+        normalized["avg_speed_mps"] = round(avg_speed_mps, 4)
+    if aerobic_te > 0:
+        normalized["aerobic_te"] = round(aerobic_te, 1)
+    if anaerobic_te > 0:
+        normalized["anaerobic_te"] = round(anaerobic_te, 1)
+    if avg_cadence and avg_cadence > 0:
+        normalized["avg_cadence"] = avg_cadence
+    if tss > 0:
+        normalized["tss"] = round(tss, 1)
+    if vo2_max > 0:
+        normalized["vo2_max"] = round(vo2_max, 1)
+    if avg_vertical_osc > 0:
+        normalized["avg_vertical_osc"] = round(avg_vertical_osc, 1)
+    if avg_ground_contact > 0:
+        normalized["avg_ground_contact"] = int(avg_ground_contact)
+    if avg_stride_len > 0:
+        normalized["avg_stride_len"] = round(avg_stride_len, 2)
     return normalized
 
 
@@ -734,6 +821,11 @@ def sync_garmin(dry_run: bool, prune_deleted: bool) -> Dict[str, Any]:
     if rate_limited:
         summary["rate_limit_message"] = rate_limit_message
     return summary
+
+
+def load_garmin_client(config: Dict[str, Any]) -> Any:
+    """Public interface to load and authenticate the Garmin API client."""
+    return _load_garmin_client(config)
 
 
 def main() -> int:

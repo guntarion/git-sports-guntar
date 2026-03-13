@@ -98,6 +98,15 @@ def _normalize_activity(activity: Dict, type_aliases: Dict[str, str], source: st
     }
     if activity_name:
         normalized["name"] = activity_name
+    # Pass through extended stats captured during sync (if present)
+    for _field in (
+        "avg_hr", "max_hr", "calories", "avg_speed_mps",
+        "aerobic_te", "anaerobic_te", "avg_cadence", "tss", "vo2_max",
+        "avg_vertical_osc", "avg_ground_contact", "avg_stride_len",
+    ):
+        _val = activity.get(_field)
+        if _val is not None:
+            normalized[_field] = _val
     return normalized
 
 

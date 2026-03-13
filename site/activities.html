@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface2: #263248;
+      --border: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent: #38bdf8;
+
+      --z1: #64748b;
+      --z2: #22c55e;
+      --z3: #eab308;
+      --z4: #f97316;
+      --z5: #ef4444;
+
+      --run: #00bbf9;
+      --trail: #00f5d4;
+      --walk: #9b5de5;
+      --ride: #f97316;
+      --swim: #06b6d4;
+      --workout: #ff8a5b;
+      --other: #94a3b8;
+    }
+
+    html { font-size: 14px; }
+
+    body {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 1.5rem 1rem;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page-header {
+      max-width: 1100px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .page-header h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .nav-back {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .nav-back:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    .controls {
+      max-width: 1100px;
+      margin: 0 auto 1rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .filter-btn:hover { background: var(--surface2); color: var(--text); }
+    .filter-btn.active {
+      background: var(--surface2);
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .separator { width: 1px; height: 24px; background: var(--border); align-self: center; }
+
+    .results-info {
+      max-width: 1100px;
+      margin: 0 auto 0.75rem;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    .activities-list {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .activity-row {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+    .activity-row:hover { border-color: #475569; }
+    .activity-row.expanded { border-color: var(--accent); }
+
+    .row-main {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .row-left { display: flex; flex-direction: column; gap: 0.15rem; }
+
+    .activity-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .type-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .row-center {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      min-width: 0;
+    }
+
+    .activity-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .activity-stats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .stat-value {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .stat-label {
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .row-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .te-badge {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid;
+      white-space: nowrap;
+    }
+
+    .expand-icon {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      transition: transform 0.2s;
+      width: 14px;
+      text-align: center;
+    }
+    .activity-row.expanded .expand-icon { transform: rotate(90deg); }
+
+    .row-detail {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 1rem 0.9rem;
+      background: #111d30;
+    }
+    .activity-row.expanded .row-detail { display: block; }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .detail-grid { grid-template-columns: 1fr; }
+      .row-main { grid-template-columns: 90px 1fr auto; gap: 0.5rem; }
+    }
+
+    .detail-section-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* HR Zones */
+    .hr-zones { display: flex; flex-direction: column; gap: 0.3rem; }
+
+    .zone-row {
+      display: grid;
+      grid-template-columns: 55px 1fr 55px;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .zone-label {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .zone-bar-bg {
+      background: var(--surface);
+      border-radius: 2px;
+      height: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .zone-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .zone-time {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* Splits table */
+    .splits-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+    }
+
+    .splits-table th {
+      color: var(--text-dim);
+      font-weight: 500;
+      padding: 0.2rem 0.4rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .splits-table td {
+      color: var(--text);
+      padding: 0.25rem 0.4rem;
+      border-bottom: 1px solid #1e2d3d;
+    }
+
+    .splits-table tr:last-child td { border-bottom: none; }
+
+    .splits-table tr:hover td { background: var(--surface2); }
+
+    /* Extra stats row */
+    .extra-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .extra-stat { display: flex; flex-direction: column; gap: 0.1rem; }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    .loading-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="page-header">
+  <h1>Activities</h1>
+  <a href="./" class="nav-back">&#8592; Dashboard</a>
+</header>
+
+<div class="controls">
+  <div class="filter-group" id="type-filters">
+    <button class="filter-btn active" data-type="all">All</button>
+  </div>
+  <div class="separator"></div>
+  <div class="filter-group" id="year-filters">
+    <button class="filter-btn active" data-year="all">All years</button>
+  </div>
+</div>
+
+<div class="results-info" id="results-info"></div>
+
+<div class="activities-list" id="activities-list">
+  <div class="loading-state">Loading activities&hellip;</div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── helpers ──────────────────────────────────────────────────────────────
+
+  function fmtDuration(secs) {
+    if (!secs || secs <= 0) return '—';
+    const h = Math.floor(secs / 3600);
+    const m = Math.floor((secs % 3600) / 60);
+    const s = Math.floor(secs % 60);
+    if (h > 0) return h + 'h ' + String(m).padStart(2, '0') + 'm';
+    return m + ':' + String(s).padStart(2, '0');
+  }
+
+  function fmtPace(secsPerKm) {
+    if (!secsPerKm || secsPerKm <= 0) return '—';
+    const m = Math.floor(secsPerKm / 60);
+    const s = Math.floor(secsPerKm % 60);
+    return m + ':' + String(s).padStart(2, '0') + '/km';
+  }
+
+  function fmtPaceMi(secsPerKm) {
+    const secsPerMi = secsPerKm * 1.60934;
+    const m = Math.floor(secsPerMi / 60);
+    const s = Math.floor(secsPerMi % 60);
+    return m + ':' + String(s).padStart(2, '0') + '/mi';
+  }
+
+  function fmtDistance(meters, unit) {
+    if (!meters || meters <= 0) return '—';
+    if (unit === 'mi') return (meters / 1609.344).toFixed(2) + ' mi';
+    return (meters / 1000).toFixed(2) + ' km';
+  }
+
+  function fmtElevation(meters, unit) {
+    if (meters === undefined || meters === null) return '—';
+    if (unit === 'ft') return Math.round(meters * 3.28084) + ' ft';
+    return Math.round(meters) + ' m';
+  }
+
+  function fmtDate(dateStr) {
+    if (!dateStr) return '—';
+    const d = new Date(dateStr + (dateStr.length === 10 ? 'T00:00:00' : ''));
+    if (isNaN(d)) return dateStr;
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  function fmtZoneTime(secs) {
+    if (!secs || secs <= 0) return '0s';
+    const m = Math.floor(secs / 60);
+    const s = Math.floor(secs % 60);
+    if (m === 0) return s + 's';
+    return m + 'm ' + String(s).padStart(2, '0') + 's';
+  }
+
+  function teLabel(val) {
+    if (val === undefined || val === null) return '';
+    if (val >= 5) return 'Overreaching';
+    if (val >= 4) return 'Highly improving';
+    if (val >= 3) return 'Improving';
+    if (val >= 2) return 'Maintaining';
+    if (val >= 1) return 'Minor';
+    return 'No benefit';
+  }
+
+  function teColor(val) {
+    if (val === undefined || val === null) return '#64748b';
+    if (val >= 4.5) return '#ef4444';
+    if (val >= 3.5) return '#f97316';
+    if (val >= 2.5) return '#eab308';
+    if (val >= 1.5) return '#22c55e';
+    return '#64748b';
+  }
+
+  const TYPE_COLORS = {
+    Run: '#00bbf9',
+    TrailRun: '#00f5d4',
+    trail_running: '#00f5d4',
+    Walk: '#9b5de5',
+    Hike: '#9b5de5',
+    Ride: '#f97316',
+    GravelRide: '#f97316',
+    VirtualRide: '#f97316',
+    MountainBikeRide: '#f97316',
+    Swim: '#06b6d4',
+    open_water_swimming: '#06b6d4',
+    Workout: '#ff8a5b',
+    Strength: '#ff8a5b',
+    WeightTraining: '#ff8a5b',
+    yoga: '#ff8a5b',
+    Yoga: '#ff8a5b',
+  };
+
+  function typeColor(type) {
+    if (!type) return '#94a3b8';
+    return TYPE_COLORS[type] || '#94a3b8';
+  }
+
+  function typeName(type) {
+    if (!type) return 'Other';
+    const names = {
+      trail_running: 'Trail Run',
+      TrailRun: 'Trail Run',
+      open_water_swimming: 'Open Water Swim',
+      WeightTraining: 'Strength',
+      VirtualRide: 'Virtual Ride',
+      GravelRide: 'Gravel Ride',
+      MountainBikeRide: 'MTB',
+    };
+    return names[type] || type;
+  }
+
+  const ZONE_COLORS = ['#64748b', '#22c55e', '#eab308', '#f97316', '#ef4444'];
+  const ZONE_NAMES  = ['Recovery', 'Base', 'Aerobic', 'Threshold', 'VO2 Max'];
+
+  function zoneColor(zoneNum) {
+    return ZONE_COLORS[Math.min(Math.max(zoneNum - 1, 0), 4)];
+  }
+
+  function zoneName(zoneNum) {
+    return ZONE_NAMES[Math.min(Math.max(zoneNum - 1, 0), 4)] || ('Z' + zoneNum);
+  }
+
+  function escHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // ── render ────────────────────────────────────────────────────────────────
+
+  function renderHrZones(zones) {
+    if (!zones || zones.length === 0) return '<span style="color:var(--text-dim);font-size:0.72rem;">No HR zone data</span>';
+    const total = zones.reduce(function (s, z) { return s + (z.seconds || 0); }, 0);
+    if (total === 0) return '';
+    return zones.map(function (z) {
+      const pct = total > 0 ? Math.round((z.seconds / total) * 100) : 0;
+      const col = zoneColor(z.zone);
+      const label = 'Z' + z.zone + ' ' + zoneName(z.zone);
+      const bpmLabel = (z.low_bpm && z.high_bpm) ? ' (' + z.low_bpm + '–' + z.high_bpm + ')' : '';
+      return [
+        '<div class="zone-row">',
+        '  <div class="zone-label" title="' + escHtml(label + bpmLabel) + '">' + escHtml(label) + '</div>',
+        '  <div class="zone-bar-bg">',
+        '    <div class="zone-bar-fill" style="width:' + pct + '%;background:' + col + ';"></div>',
+        '  </div>',
+        '  <div class="zone-time">' + fmtZoneTime(z.seconds) + '</div>',
+        '</div>',
+      ].join('\n');
+    }).join('\n');
+  }
+
+  function renderSplits(splits, distUnit, elevUnit) {
+    if (!splits || splits.length === 0) return '<span style="color:var(--text-dim);font-size:0.72rem;">No split data</span>';
+    const rows = splits.map(function (sp, i) {
+      const pace = sp.pace_secs_per_km
+        ? (distUnit === 'mi' ? fmtPaceMi(sp.pace_secs_per_km) : fmtPace(sp.pace_secs_per_km))
+        : '—';
+      const dist = sp.distance ? fmtDistance(sp.distance, distUnit) : '—';
+      const hr   = sp.avg_hr ? sp.avg_hr + ' bpm' : '—';
+      const elev = sp.elevation_gain !== undefined && sp.elevation_gain !== null
+        ? fmtElevation(sp.elevation_gain, elevUnit)
+        : '—';
+      return '<tr><td>' + (i + 1) + '</td><td>' + escHtml(dist) + '</td><td>' + escHtml(pace) + '</td><td>' + escHtml(hr) + '</td><td>' + escHtml(elev) + '</td></tr>';
+    }).join('');
+    return [
+      '<table class="splits-table">',
+      '<thead><tr><th>#</th><th>Dist</th><th>Pace</th><th>Avg HR</th><th>Elev</th></tr></thead>',
+      '<tbody>' + rows + '</tbody>',
+      '</table>',
+    ].join('');
+  }
+
+  function renderActivityRow(act, distUnit, elevUnit) {
+    const col = typeColor(act.type || act.raw_type);
+    const tname = typeName(act.type || act.raw_type);
+
+    const distStr = fmtDistance(act.distance, distUnit);
+    const durStr  = fmtDuration(act.moving_time);
+    const paceStr = act.avg_pace_secs_per_km
+      ? (distUnit === 'mi' ? fmtPaceMi(act.avg_pace_secs_per_km) : fmtPace(act.avg_pace_secs_per_km))
+      : '—';
+    const hrStr   = act.avg_hr ? act.avg_hr + ' bpm' : '—';
+    const elevStr = act.elevation_gain ? fmtElevation(act.elevation_gain, elevUnit) : '—';
+    const teVal   = act.aerobic_te;
+    const teStr   = teVal !== undefined && teVal !== null && teVal > 0 ? teVal.toFixed(1) : null;
+
+    const hasHrZones = act.hr_zones && act.hr_zones.length > 0;
+    const hasSplits  = act.splits && act.splits.length > 0;
+    const hasDetail  = hasHrZones || hasSplits;
+
+    // Extra stats
+    const extras = [];
+    if (act.max_hr) extras.push({ v: act.max_hr + ' bpm', l: 'Max HR' });
+    if (act.calories) extras.push({ v: act.calories + ' kcal', l: 'Calories' });
+    if (act.avg_cadence) extras.push({ v: act.avg_cadence + ' spm', l: 'Cadence' });
+    if (act.tss) extras.push({ v: act.tss, l: 'TSS' });
+    if (act.vo2_max) extras.push({ v: act.vo2_max, l: 'VO2 Max' });
+    if (act.anaerobic_te) extras.push({ v: act.anaerobic_te.toFixed(1), l: 'Anaerobic TE' });
+    if (act.avg_stride_len) extras.push({ v: act.avg_stride_len + ' m', l: 'Stride' });
+    if (act.avg_vertical_osc) extras.push({ v: act.avg_vertical_osc + ' cm', l: 'Vert Osc' });
+    if (act.avg_ground_contact) extras.push({ v: act.avg_ground_contact + ' ms', l: 'GCT' });
+
+    const teHtml = teStr ? [
+      '<div class="te-badge" style="color:' + teColor(teVal) + ';border-color:' + teColor(teVal) + '22;">',
+      'ATE ' + teStr,
+      '</div>',
+    ].join('') : '';
+
+    const statsHtml = [
+      '<div class="stat"><span class="stat-value">' + escHtml(distStr) + '</span><span class="stat-label">distance</span></div>',
+      '<div class="stat"><span class="stat-value">' + escHtml(durStr) + '</span><span class="stat-label">time</span></div>',
+      '<div class="stat"><span class="stat-value">' + escHtml(paceStr) + '</span><span class="stat-label">avg pace</span></div>',
+      '<div class="stat"><span class="stat-value">' + escHtml(hrStr) + '</span><span class="stat-label">avg HR</span></div>',
+      '<div class="stat"><span class="stat-value">' + escHtml(elevStr) + '</span><span class="stat-label">elevation</span></div>',
+    ].join('');
+
+    const extraHtml = extras.length > 0 ? [
+      '<div class="extra-stats">',
+      extras.map(function (e) {
+        return '<div class="extra-stat"><span class="stat-value">' + escHtml(String(e.v)) + '</span><span class="stat-label">' + escHtml(e.l) + '</span></div>';
+      }).join(''),
+      '</div>',
+    ].join('') : '';
+
+    let detailHtml = '';
+    if (hasDetail || extras.length > 0) {
+      const cols = [];
+      if (hasHrZones) {
+        cols.push([
+          '<div>',
+          '<div class="detail-section-title">HR Zones</div>',
+          '<div class="hr-zones">' + renderHrZones(act.hr_zones) + '</div>',
+          '</div>',
+        ].join(''));
+      }
+      if (hasSplits) {
+        cols.push([
+          '<div>',
+          '<div class="detail-section-title">Splits</div>',
+          renderSplits(act.splits, distUnit, elevUnit),
+          '</div>',
+        ].join(''));
+      }
+      let gridHtml = '';
+      if (cols.length > 0) {
+        gridHtml = '<div class="detail-grid">' + cols.join('') + '</div>';
+      }
+      detailHtml = [
+        '<div class="row-detail">',
+        gridHtml,
+        extraHtml,
+        '</div>',
+      ].join('');
+    }
+
+    const expandIcon = hasDetail || extras.length > 0
+      ? '<span class="expand-icon">&#9654;</span>'
+      : '<span class="expand-icon" style="opacity:0.2">&#9654;</span>';
+
+    return [
+      '<div class="activity-row" data-type="' + escHtml(act.type || '') + '" data-year="' + escHtml(String((act.date || '').slice(0, 4))) + '">',
+      '  <div class="row-main">',
+      '    <div class="row-left">',
+      '      <span class="activity-date">' + escHtml(fmtDate(act.date)) + '</span>',
+      '      <span class="type-badge" style="background:' + col + '22;color:' + col + ';border:1px solid ' + col + '44;">' + escHtml(tname) + '</span>',
+      '    </div>',
+      '    <div class="row-center">',
+      '      <span class="activity-name">' + escHtml(act.name || tname) + '</span>',
+      '      <div class="activity-stats">' + statsHtml + '</div>',
+      '    </div>',
+      '    <div class="row-right">',
+      teHtml,
+      expandIcon,
+      '    </div>',
+      '  </div>',
+      detailHtml,
+      '</div>',
+    ].join('\n');
+  }
+
+  // ── state & filtering ─────────────────────────────────────────────────────
+
+  var allActivities = [];
+  var activeType = 'all';
+  var activeYear = 'all';
+  var distUnit = 'km';
+  var elevUnit = 'm';
+
+  function filteredActivities() {
+    return allActivities.filter(function (a) {
+      var typeMatch = activeType === 'all' || (a.type || '') === activeType;
+      var year = (a.date || '').slice(0, 4);
+      var yearMatch = activeYear === 'all' || year === activeYear;
+      return typeMatch && yearMatch;
+    });
+  }
+
+  function renderList() {
+    var list = document.getElementById('activities-list');
+    var info = document.getElementById('results-info');
+    var acts = filteredActivities();
+    info.textContent = acts.length + ' activities';
+    if (acts.length === 0) {
+      list.innerHTML = '<div class="empty-state">No activities match the selected filters.</div>';
+      return;
+    }
+    list.innerHTML = acts.map(function (a) {
+      return renderActivityRow(a, distUnit, elevUnit);
+    }).join('');
+
+    // Attach expand handlers
+    var rows = list.querySelectorAll('.activity-row');
+    rows.forEach(function (row) {
+      var main = row.querySelector('.row-main');
+      var detail = row.querySelector('.row-detail');
+      if (!detail) return;
+      main.addEventListener('click', function () {
+        row.classList.toggle('expanded');
+      });
+    });
+  }
+
+  function buildTypeFilters(activities) {
+    var seen = {};
+    var counts = {};
+    activities.forEach(function (a) {
+      var t = a.type || 'Other';
+      seen[t] = true;
+      counts[t] = (counts[t] || 0) + 1;
+    });
+    var types = Object.keys(seen).sort();
+    var container = document.getElementById('type-filters');
+    container.innerHTML = '<button class="filter-btn active" data-type="all">All (' + activities.length + ')</button>';
+    types.forEach(function (t) {
+      var col = typeColor(t);
+      var btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.type = t;
+      btn.style.borderColor = col + '55';
+      btn.textContent = typeName(t) + ' (' + counts[t] + ')';
+      container.appendChild(btn);
+    });
+    container.addEventListener('click', function (e) {
+      var btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      activeType = btn.dataset.type;
+      container.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      renderList();
+    });
+  }
+
+  function buildYearFilters(activities) {
+    var seen = {};
+    activities.forEach(function (a) {
+      var y = (a.date || '').slice(0, 4);
+      if (y) seen[y] = (seen[y] || 0) + 1;
+    });
+    var years = Object.keys(seen).sort().reverse();
+    var container = document.getElementById('year-filters');
+    container.innerHTML = '<button class="filter-btn active" data-year="all">All years</button>';
+    years.forEach(function (y) {
+      var btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.year = y;
+      btn.textContent = y + ' (' + seen[y] + ')';
+      container.appendChild(btn);
+    });
+    container.addEventListener('click', function (e) {
+      var btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      activeYear = btn.dataset.year;
+      container.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      renderList();
+    });
+  }
+
+  // ── boot ──────────────────────────────────────────────────────────────────
+
+  fetch('./activities.json')
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      allActivities = (data.activities || []);
+      var units = data.units || {};
+      distUnit = units.distance || 'km';
+      elevUnit = units.elevation || 'm';
+
+      buildTypeFilters(allActivities);
+      buildYearFilters(allActivities);
+      renderList();
+    })
+    .catch(function (err) {
+      var list = document.getElementById('activities-list');
+      list.innerHTML = '<div class="empty-state">Could not load activities.json<br><span style="font-size:0.75rem;color:var(--text-dim)">' + escHtml(String(err)) + '</span></div>';
+    });
+
+}());
+</script>
+</body>
+</html>
