@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytics | git-sweaty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card2: #243048;
+      --border: #334155;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #00bbf9;
+      --run: #00bbf9;
+      --trailrun: #00f5d4;
+      --virtualrun: #9b5de5;
+      --walk: #9b5de5;
+      --strength: #ff8a5b;
+      --green: #22c55e;
+      --yellow: #eab308;
+      --orange: #f97316;
+      --red: #ef4444;
+      --z1: #64748b;
+      --z2: #22c55e;
+      --z3: #eab308;
+      --z4: #f97316;
+      --z5: #ef4444;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 13px;
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .header-title { font-size: 18px; font-weight: 700; }
+
+    .header-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 6px;
+      margin-left: 8px;
+      transition: color .15s, border-color .15s;
+    }
+    .header-nav a:hover { color: var(--text); border-color: var(--muted); }
+
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 20px 16px; }
+
+    /* Filters */
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+    .filter-label { color: var(--muted); font-size: 11px; margin-right: 4px; }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 700; }
+    .filter-sep { width: 1px; height: 20px; background: var(--border); margin: 0 4px; }
+
+    /* Summary cards */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 14px 12px;
+    }
+    .stat-card .val { font-size: 20px; font-weight: 700; color: var(--text); }
+    .stat-card .lbl { font-size: 10px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: .04em; }
+
+    /* PRs */
+    .pr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .pr-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--accent);
+    }
+    .pr-card .pr-val { font-size: 16px; font-weight: 700; color: var(--accent); }
+    .pr-card .pr-lbl { font-size: 10px; color: var(--muted); margin-top: 4px; text-transform: uppercase; }
+    .pr-card .pr-date { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+    /* Sections */
+    .section { margin-bottom: 20px; }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    /* Charts */
+    .chart-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .chart-wrap { position: relative; height: 200px; }
+
+    .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    @media (max-width: 640px) { .chart-row { grid-template-columns: 1fr; } }
+
+    /* HR zones */
+    .zone-bars { display: flex; flex-direction: column; gap: 8px; padding: 4px 0; }
+    .zone-row { display: flex; align-items: center; gap: 10px; }
+    .zone-name { width: 90px; font-size: 11px; color: var(--muted); flex-shrink: 0; }
+    .zone-bar-bg { flex: 1; height: 14px; background: rgba(255,255,255,.05); border-radius: 7px; overflow: hidden; }
+    .zone-bar { height: 100%; border-radius: 7px; transition: width .4s; }
+    .zone-pct { width: 38px; font-size: 11px; color: var(--text); text-align: right; flex-shrink: 0; }
+    .zone-time { width: 52px; font-size: 10px; color: var(--muted); text-align: right; flex-shrink: 0; }
+
+    /* Monthly table */
+    .month-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .month-table th { color: var(--muted); font-weight: 500; text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--border); font-size: 10px; text-transform: uppercase; letter-spacing: .04em; }
+    .month-table td { padding: 8px 10px; border-bottom: 1px solid rgba(51,65,85,.5); }
+    .month-table tr:last-child td { border-bottom: none; }
+    .month-table tr:hover td { background: rgba(255,255,255,.02); }
+    .month-table .num { text-align: right; }
+    .month-table .good { color: var(--green); }
+    .month-table .badge {
+      display: inline-block; padding: 1px 7px; border-radius: 10px;
+      font-size: 10px; font-weight: 700; background: rgba(0,187,249,.15); color: var(--accent);
+    }
+
+    .error-msg { color: var(--muted); text-align: center; padding: 60px 20px; font-size: 13px; }
+
+    /* TE badge */
+    .te-badge {
+      font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px;
+      display: inline-block;
+    }
+    .te-0 { background: rgba(148,163,184,.1); color: var(--muted); }
+    .te-1 { background: rgba(34,197,94,.15); color: var(--green); }
+    .te-2 { background: rgba(234,179,8,.15); color: var(--yellow); }
+    .te-3 { background: rgba(249,115,22,.15); color: var(--orange); }
+    .te-4 { background: rgba(239,68,68,.15); color: var(--red); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-title">Analytics</div>
+  <nav class="header-nav">
+    <a href="activities.html">← Activities</a>
+    <a href="./">Dashboard</a>
+  </nav>
+</header>
+
+<div class="page-body">
+
+  <div class="filters" id="filters">
+    <span class="filter-label">Type</span>
+    <button class="filter-btn active" data-type="running">Running</button>
+    <button class="filter-btn" data-type="all">All</button>
+    <div class="filter-sep"></div>
+    <span class="filter-label">Year</span>
+    <div id="year-filters"></div>
+  </div>
+
+  <div id="content">
+    <div class="error-msg">Loading…</div>
+  </div>
+
+</div>
+
+<script>
+var RUNNING_TYPES = ['Run','TrailRun','VirtualRun','run','trail_run','virtual_run'];
+var ZONE_COLORS = ['','#64748b','#22c55e','#eab308','#f97316','#ef4444'];
+var ZONE_NAMES  = ['','Z1 Recovery','Z2 Base','Z3 Aerobic','Z4 Threshold','Z5 VO2 Max'];
+var CHART_BLUE  = '#00bbf9';
+var CHART_TEAL  = '#00f5d4';
+var CHART_GRID  = 'rgba(51,65,85,0.5)';
+
+var state = { type: 'running', year: 'all', raw: [], units: { distance: 'km', elevation: 'm' } };
+var charts = {};
+
+/* ── helpers ── */
+function fmtPace(secs) {
+  if (!secs || secs <= 0 || secs > 3600) return '—';
+  var m = Math.floor(secs / 60), s = Math.round(secs % 60);
+  return m + ':' + String(s).padStart(2,'0') + '/km';
+}
+function fmtDist(m, unit) {
+  if (!m || m <= 0) return '—';
+  if (unit === 'km') return (m / 1000).toFixed(1) + ' km';
+  return (m / 1609.344).toFixed(1) + ' mi';
+}
+function fmtDistShort(m, unit) {
+  if (!m || m <= 0) return '—';
+  if (unit === 'km') return (m / 1000).toFixed(1);
+  return (m / 1609.344).toFixed(1);
+}
+function fmtDur(s) {
+  if (!s || s <= 0) return '—';
+  var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60);
+  return h > 0 ? h + 'h ' + m + 'm' : m + 'm';
+}
+function fmtDate(d) {
+  if (!d) return '';
+  var p = d.split('-'); var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return months[parseInt(p[1])-1] + ' ' + parseInt(p[2]) + ', ' + p[0];
+}
+function isoWeek(dateStr) {
+  var d = new Date(dateStr);
+  d.setHours(0,0,0,0);
+  d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7);
+  var w = new Date(d.getFullYear(), 0, 4);
+  return d.getFullYear() + '-W' + String(1 + Math.round(((d.getTime() - w.getTime()) / 86400000 - 3 + (w.getDay() + 6) % 7) / 7)).padStart(2,'0');
+}
+function monthKey(dateStr) { return dateStr ? dateStr.substring(0, 7) : ''; }
+function avg(arr) { return arr.length ? arr.reduce((a,b) => a+b, 0) / arr.length : 0; }
+function min(arr) { return arr.length ? Math.min(...arr) : 0; }
+function sum(arr) { return arr.reduce((a,b) => a+b, 0); }
+
+function isRunning(a) {
+  return RUNNING_TYPES.some(t => (a.type||'').toLowerCase() === t.toLowerCase() ||
+                                  (a.raw_type||'').toLowerCase() === t.toLowerCase());
+}
+
+function filtered() {
+  return state.raw.filter(a => {
+    var typeOk = state.type === 'all' ? true : isRunning(a);
+    var yearOk = state.year === 'all' ? true : (a.date||'').startsWith(state.year);
+    return typeOk && yearOk;
+  });
+}
+
+/* ── destroy old charts ── */
+function destroyCharts() {
+  Object.values(charts).forEach(c => { if (c) c.destroy(); });
+  charts = {};
+}
+
+/* ── main render ── */
+function render() {
+  destroyCharts();
+  var acts = filtered();
+  var content = document.getElementById('content');
+
+  if (!acts.length) {
+    content.innerHTML = '<div class="error-msg">No activities match the filter.</div>';
+    return;
+  }
+
+  // Sort chronological
+  acts = acts.slice().sort((a,b) => a.date < b.date ? -1 : 1);
+
+  var unit = state.units.distance;
+  var distLabel = unit === 'km' ? 'km' : 'mi';
+
+  // Personal Records (running only)
+  var runActs = acts.filter(isRunning).filter(a => a.distance > 500);
+  var prHtml = '';
+  if (runActs.length) {
+    var bestPace  = runActs.filter(a => a.avg_pace_secs_per_km > 0).sort((a,b) => a.avg_pace_secs_per_km - b.avg_pace_secs_per_km)[0];
+    var longestRun = runActs.sort((a,b) => b.distance - a.distance)[0];
+    var lowestHR  = runActs.filter(a => a.avg_hr > 0).sort((a,b) => a.avg_hr - b.avg_hr)[0];
+    var bestTE    = runActs.filter(a => a.aerobic_te > 0).sort((a,b) => b.aerobic_te - a.aerobic_te)[0];
+
+    var prs = [];
+    if (bestPace)   prs.push({ val: fmtPace(bestPace.avg_pace_secs_per_km),   lbl: 'Best Avg Pace',    date: fmtDate(bestPace.date)   });
+    if (longestRun) prs.push({ val: fmtDist(longestRun.distance, unit),        lbl: 'Longest Run',      date: fmtDate(longestRun.date) });
+    if (lowestHR)   prs.push({ val: lowestHR.avg_hr + ' bpm',                  lbl: 'Lowest Avg HR',    date: fmtDate(lowestHR.date)   });
+    if (bestTE)     prs.push({ val: bestTE.aerobic_te.toFixed(1),              lbl: 'Best Aerobic TE',  date: fmtDate(bestTE.date)     });
+
+    prHtml = prs.map(p =>
+      '<div class="pr-card"><div class="pr-val">' + p.val + '</div>' +
+      '<div class="pr-lbl">' + p.lbl + '</div>' +
+      '<div class="pr-date">' + p.date + '</div></div>'
+    ).join('');
+  }
+
+  // Summary stats
+  var totalDist   = sum(acts.map(a => a.distance || 0));
+  var totalTime   = sum(acts.map(a => a.moving_time || 0));
+  var totalElev   = sum(acts.map(a => a.elevation_gain || 0));
+  var actsWithHR  = acts.filter(a => a.avg_hr > 0);
+  var avgHR       = actsWithHR.length ? Math.round(avg(actsWithHR.map(a => a.avg_hr))) : null;
+  var actsWithPace = acts.filter(a => a.avg_pace_secs_per_km > 0);
+  var avgPace     = actsWithPace.length ? Math.round(avg(actsWithPace.map(a => a.avg_pace_secs_per_km))) : null;
+
+  // Chart data — pace trend
+  var paceActs = acts.filter(a => a.avg_pace_secs_per_km > 0 && a.avg_pace_secs_per_km < 1800);
+  var paceLabels  = paceActs.map(a => a.date);
+  var paceData    = paceActs.map(a => +(a.avg_pace_secs_per_km / 60).toFixed(2));
+
+  // Chart data — HR trend
+  var hrActs = acts.filter(a => a.avg_hr > 50);
+  var hrLabels = hrActs.map(a => a.date);
+  var hrData   = hrActs.map(a => a.avg_hr);
+
+  // Weekly volume
+  var weekMap = {};
+  acts.forEach(a => {
+    var wk = isoWeek(a.date);
+    if (!weekMap[wk]) weekMap[wk] = 0;
+    weekMap[wk] += (a.distance || 0);
+  });
+  var weeks = Object.keys(weekMap).sort().slice(-16);
+  var weekLabels = weeks.map(w => w.replace(/^\d{4}-/, ''));
+  var weekData   = weeks.map(w => unit === 'km' ? +(weekMap[w]/1000).toFixed(1) : +(weekMap[w]/1609.344).toFixed(1));
+
+  // Aggregate HR zones
+  var zoneTotals = [0,0,0,0,0,0]; // index 0 unused
+  acts.forEach(a => {
+    (a.hr_zones || []).forEach(z => {
+      if (z.zone >= 1 && z.zone <= 5) zoneTotals[z.zone] += (z.seconds || 0);
+    });
+  });
+  var totalZoneSecs = sum(zoneTotals);
+
+  // Monthly table
+  var monthMap = {};
+  acts.forEach(a => {
+    var mk = monthKey(a.date);
+    if (!mk) return;
+    if (!monthMap[mk]) monthMap[mk] = { count:0, dist:0, time:0, hrs:[], paces:[], tes:[] };
+    var m = monthMap[mk];
+    m.count++;
+    m.dist += (a.distance || 0);
+    m.time += (a.moving_time || 0);
+    if (a.avg_hr > 0) m.hrs.push(a.avg_hr);
+    if (a.avg_pace_secs_per_km > 0 && a.avg_pace_secs_per_km < 1800) m.paces.push(a.avg_pace_secs_per_km);
+    if (a.aerobic_te > 0) m.tes.push(a.aerobic_te);
+  });
+  var months = Object.keys(monthMap).sort().reverse();
+
+  // Build HTML
+  content.innerHTML =
+    // Summary
+    '<div class="section">' +
+      '<div class="section-title">Summary — ' + acts.length + ' activities</div>' +
+      '<div class="stat-grid">' +
+        statCard(fmtDist(totalDist, unit), 'Total Distance') +
+        statCard(fmtDur(totalTime), 'Total Time') +
+        statCard(Math.round(totalElev) + ' m', 'Elevation Gain') +
+        (avgPace ? statCard(fmtPace(avgPace), 'Avg Pace') : '') +
+        (avgHR   ? statCard(avgHR + ' bpm', 'Avg HR') : '') +
+      '</div>' +
+    '</div>' +
+
+    // PRs
+    (prHtml ? '<div class="section"><div class="section-title">Personal Records</div><div class="pr-grid">' + prHtml + '</div></div>' : '') +
+
+    // Charts row 1
+    '<div class="chart-row">' +
+      '<div class="section"><div class="section-title">Pace Trend (min/km)</div><div class="chart-card"><div class="chart-wrap"><canvas id="chartPace"></canvas></div></div></div>' +
+      '<div class="section"><div class="section-title">Avg HR Trend (bpm)</div><div class="chart-card"><div class="chart-wrap"><canvas id="chartHR"></canvas></div></div></div>' +
+    '</div>' +
+
+    // Charts row 2
+    '<div class="chart-row">' +
+      '<div class="section"><div class="section-title">Weekly Volume (' + distLabel + ')</div><div class="chart-card"><div class="chart-wrap"><canvas id="chartWeekly"></canvas></div></div></div>' +
+      '<div class="section"><div class="section-title">HR Zone Distribution</div>' +
+        '<div class="chart-card">' +
+          (totalZoneSecs > 0 ? buildZoneBars(zoneTotals, totalZoneSecs) : '<div style="color:var(--muted);padding:20px;font-size:12px;">No HR zone data yet</div>') +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+
+    // Monthly table
+    '<div class="section"><div class="section-title">Monthly Summary</div>' +
+    '<div class="chart-card"><table class="month-table">' +
+      '<tr><th>Month</th><th class="num">Runs</th><th class="num">Dist</th><th class="num">Time</th><th class="num">Avg Pace</th><th class="num">Avg HR</th><th class="num">Aerobic TE</th></tr>' +
+      months.map(mk => buildMonthRow(mk, monthMap[mk], unit)).join('') +
+    '</table></div></div>';
+
+  // Draw charts
+  requestAnimationFrame(function() {
+    drawLineChart('chartPace', paceLabels, paceData, CHART_BLUE, 'min/km', true);
+    drawLineChart('chartHR',   hrLabels,   hrData,   CHART_TEAL, 'bpm',    false);
+    drawBarChart('chartWeekly', weekLabels, weekData, CHART_BLUE, distLabel);
+  });
+}
+
+function statCard(val, lbl) {
+  return '<div class="stat-card"><div class="val">' + val + '</div><div class="lbl">' + lbl + '</div></div>';
+}
+
+function buildZoneBars(zoneTotals, totalSecs) {
+  var html = '<div class="zone-bars">';
+  for (var z = 1; z <= 5; z++) {
+    var s = zoneTotals[z];
+    var pct = totalSecs > 0 ? Math.round(s / totalSecs * 100) : 0;
+    var h = Math.floor(s/3600), m = Math.floor((s%3600)/60);
+    var timeStr = h > 0 ? h + 'h ' + m + 'm' : m + 'm';
+    html += '<div class="zone-row">' +
+      '<div class="zone-name">' + ZONE_NAMES[z] + '</div>' +
+      '<div class="zone-bar-bg"><div class="zone-bar" style="width:' + pct + '%;background:' + ZONE_COLORS[z] + '"></div></div>' +
+      '<div class="zone-pct">' + pct + '%</div>' +
+      '<div class="zone-time">' + timeStr + '</div>' +
+    '</div>';
+  }
+  return html + '</div>';
+}
+
+function buildMonthRow(mk, m, unit) {
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var parts = mk.split('-');
+  var label = months[parseInt(parts[1])-1] + ' ' + parts[0];
+  var avgPaceStr = m.paces.length ? fmtPace(Math.round(avg(m.paces))) : '—';
+  var avgHRStr   = m.hrs.length   ? Math.round(avg(m.hrs)) + ' bpm' : '—';
+  var avgTE      = m.tes.length   ? (avg(m.tes)).toFixed(1) : null;
+  var teLvl = avgTE ? Math.min(4, Math.floor(parseFloat(avgTE))) : 0;
+
+  return '<tr>' +
+    '<td>' + label + '</td>' +
+    '<td class="num"><span class="badge">' + m.count + '</span></td>' +
+    '<td class="num">' + fmtDistShort(m.dist, unit) + '</td>' +
+    '<td class="num">' + fmtDur(m.time) + '</td>' +
+    '<td class="num">' + avgPaceStr + '</td>' +
+    '<td class="num">' + avgHRStr + '</td>' +
+    '<td class="num">' + (avgTE ? '<span class="te-badge te-' + teLvl + '">' + avgTE + '</span>' : '—') + '</td>' +
+    '</tr>';
+}
+
+/* ── Chart.js helpers ── */
+var CHART_DEFAULTS = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+  scales: {
+    x: { ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 }, maxRotation: 0, autoSkip: true, maxTicksLimit: 8 }, grid: { color: CHART_GRID } },
+    y: { ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } }, grid: { color: CHART_GRID } }
+  }
+};
+
+function drawLineChart(id, labels, data, color, unit, invertY) {
+  var el = document.getElementById(id);
+  if (!el || !data.length) return;
+  var cfg = JSON.parse(JSON.stringify(CHART_DEFAULTS));
+  if (invertY) { cfg.scales.y.reverse = true; }
+  cfg.plugins = {
+    legend: { display: false },
+    tooltip: {
+      callbacks: {
+        label: function(ctx) {
+          if (unit === 'min/km') {
+            var v = ctx.parsed.y, m = Math.floor(v), s = Math.round((v-m)*60);
+            return m + ':' + String(s).padStart(2,'0') + '/km';
+          }
+          return ctx.parsed.y + ' ' + unit;
+        }
+      }
+    }
+  };
+  charts[id] = new Chart(el, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: data,
+        borderColor: color,
+        backgroundColor: color + '18',
+        borderWidth: 2,
+        pointRadius: data.length > 30 ? 0 : 3,
+        pointHoverRadius: 5,
+        fill: true,
+        tension: 0.3,
+      }]
+    },
+    options: cfg
+  });
+}
+
+function drawBarChart(id, labels, data, color, unit) {
+  var el = document.getElementById(id);
+  if (!el || !data.length) return;
+  var cfg = JSON.parse(JSON.stringify(CHART_DEFAULTS));
+  cfg.plugins = {
+    legend: { display: false },
+    tooltip: { callbacks: { label: function(ctx) { return ctx.parsed.y + ' ' + unit; } } }
+  };
+  charts[id] = new Chart(el, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: data,
+        backgroundColor: color + '88',
+        borderColor: color,
+        borderWidth: 1,
+        borderRadius: 3,
+      }]
+    },
+    options: cfg
+  });
+}
+
+/* ── Filter buttons ── */
+document.querySelectorAll('[data-type]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.type = btn.dataset.type;
+    render();
+  });
+});
+
+/* ── Load data ── */
+fetch('activities.json').then(function(r) {
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
+}).then(function(data) {
+  state.raw = data.activities || [];
+  state.units = data.units || { distance: 'km', elevation: 'm' };
+
+  // Build year filters
+  var years = [...new Set(state.raw.map(a => (a.date||'').substring(0,4)).filter(Boolean))].sort().reverse();
+  var yf = document.getElementById('year-filters');
+  var allBtn = '<button class="filter-btn active" data-year="all">All years</button>';
+  var yearBtns = years.map(y => '<button class="filter-btn" data-year="' + y + '">' + y + '</button>').join('');
+  yf.innerHTML = allBtn + yearBtns;
+
+  yf.querySelectorAll('[data-year]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      yf.querySelectorAll('[data-year]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.year = btn.dataset.year;
+      render();
+    });
+  });
+
+  render();
+}).catch(function(err) {
+  document.getElementById('content').innerHTML =
+    '<div class="error-msg">Could not load activities.json<br>' + err.message + '</div>';
+});
+</script>
+</body>
+</html>

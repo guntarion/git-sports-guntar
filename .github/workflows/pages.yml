@@ -47,6 +47,7 @@ jobs:
             if git checkout "origin/${branch}" -- site/data.json; then
               echo "Using site/data.json from ${branch}."
               git checkout "origin/${branch}" -- site/activities.json 2>/dev/null && echo "Using site/activities.json from ${branch}." || true
+              git checkout "origin/${branch}" -- site/analytics.json 2>/dev/null || true
               exit 0
             fi
             echo "Branch ${branch} exists but site/data.json is missing; writing empty fallback."
