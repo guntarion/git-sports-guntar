@@ -282,6 +282,14 @@ def run_pipeline(
             print(f"Warning: enrichment step failed: {exc}")
     generate_activities()
     if not dry_run:
+        database_url = os.environ.get("DATABASE_URL", "").strip()
+        if database_url:
+            try:
+                from sync_db import sync_to_db
+                db_summary = sync_to_db(database_url)
+                print(f"DB sync: {db_summary}")
+            except Exception as exc:
+                print(f"Warning: DB sync failed (non-fatal): {exc}")
         _persist_source(source)
     if update_readme_link:
         _update_readme_live_site_link()

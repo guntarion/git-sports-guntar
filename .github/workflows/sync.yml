@@ -224,6 +224,7 @@ jobs:
           DASHBOARD_REPO: ${{ vars.DASHBOARD_REPO }}
           GITHUB_TOKEN: ${{ github.token }}
           UPDATE_README_LINK: ${{ github.event_name != 'workflow_dispatch' || inputs.update_readme_link }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
