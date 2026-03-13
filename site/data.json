@@ -783,7 +783,7 @@
             "21956779534"
           ],
           "count": 1,
-          "distance": 613.8900146484375,
+          "distance": 1610.0,
           "elevation_gain": 0.0,
           "moving_time": 629.0
         },
@@ -792,7 +792,7 @@
             "21978916996"
           ],
           "count": 1,
-          "distance": 1200.0,
+          "distance": 1500.0,
           "elevation_gain": 0.0,
           "moving_time": 922.0
         },
@@ -810,7 +810,7 @@
             "22000936598"
           ],
           "count": 1,
-          "distance": 3000.0,
+          "distance": 3600.0,
           "elevation_gain": 0.0,
           "moving_time": 1777.0
         },
@@ -819,7 +819,7 @@
             "22011655216"
           ],
           "count": 1,
-          "distance": 2000.0,
+          "distance": 3000.0,
           "elevation_gain": 0.0,
           "moving_time": 1734.0
         }
@@ -1097,7 +1097,7 @@
       }
     }
   },
-  "generated_at": "2026-03-13T06:32:36.539280+00:00",
+  "generated_at": "2026-03-13T08:55:19.391869+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
