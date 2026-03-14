@@ -6,19 +6,65 @@
   </sub>
 </p>
 
-# Workout --> Interactive Dashboard
+# Workout → Interactive Dashboard
 
-Turn your Strava and Garmin activities into GitHub-style contribution graphs. Automatically generate a free, interactive dashboard updated daily on GitHub Pages.  
+> **Fork of [aspain/git-sweaty](https://github.com/aspain/git-sweaty)**
+> All core infrastructure and pipeline credit goes to the original author.
+> This fork adds Garmin-focused analytics, running records, and AI coaching on top.
 
-**No coding required.**  
+Turn your **Garmin** activities into GitHub-style contribution graphs. Automatically generate a free, interactive dashboard updated daily on GitHub Pages.
 
-View the Interactive [Activity Dashboard](https://guntarion.github.io/git-sports-guntar/).  
-Once setup is complete, this dashboard link will automatically update to your own GitHub Pages URL.
+**No coding required.**
 
+View the Interactive [Activity Dashboard](https://guntarion.github.io/git-sports-guntar/).
 
 ![Dashboard Preview](site/readme-preview-20260222a.png)
 
-## Quick Start
+---
+
+## What's New in This Fork
+
+Built on top of [aspain/git-sweaty](https://github.com/aspain/git-sweaty), this fork adds:
+
+### 📊 Activities Page
+Per-activity detail view with expandable cards:
+- HR zone distribution (Z1–Z5 bars)
+- Per-km split table (pace, HR, elevation)
+- Running dynamics: cadence, stride length, ground contact, vertical oscillation, VO2 max
+
+### 📈 Analytics Page
+Comprehensive running analytics dashboard:
+- **Monthly progress tracker** — distance & sessions vs. last month with progress bars
+- **Weekly volume chart** — bars + 4-week rolling average line
+- **Pace trend** — distance-colored points by band (< 3 km / 3–6 km / 6–12 km / > 12 km)
+- **Aerobic efficiency trend** — `(speed / HR) × 1000` formula
+- **HR zone comparison** — this month vs. last month
+- **Running form trends** — ground contact time, stride length
+- **Monthly summary table** — with delta indicators vs. prior month
+
+### 🏆 Records Page
+Personal running records and leaderboards:
+- Leaderboards by distance band (< 3 km / 3–6 km / 6–12 km / > 12 km)
+- Best 1 km splits ranking (short partial-km splits filtered out)
+- Monthly champions and PR progression table
+- Running form records (best cadence, stride, VO2 max, etc.)
+- Split analysis: best negative splits & most consistent pacing
+
+### 🤖 AI Coach (Coach RunAnalytica)
+Powered by [Qwen](https://www.alibabacloud.com/en/product/modelstudio) (Alibaba DashScope — ACTOR prompt framework):
+- Monthly performance review with metric-by-metric comparison
+- Goal tracker: km remaining to match last month
+- Training insights by category (aerobic efficiency, HR zones, form, load, recovery)
+- 3 actionable recommendations per week
+- Weekly focus theme with suggested sessions
+- **Smart skip**: AI does not re-run if no new running data (saves API tokens)
+
+### 🗄️ PostgreSQL Sync (Optional)
+Sync all activities, splits, and HR zone data to a PostgreSQL database for external analytics queries.
+
+---
+
+## Quick Start (Garmin)
 
 ### macOS / Linux
 
@@ -28,170 +74,139 @@ bash <(curl -fsSL https://raw.githubusercontent.com/aspain/git-sweaty/main/scrip
 
 ### Windows (requires WSL)
 
-Run this in PowerShell.
-
 ```powershell
 wsl bash -lc "bash <(curl -fsSL https://raw.githubusercontent.com/aspain/git-sweaty/main/scripts/bootstrap.sh)"
 ```
 
-You will be prompted for:
-- Setup mode:
-  - Recommended (Online-only, no local clone): setup script will either:
-    - use an existing fork
-    - create a new fork
-    - configure an existing writable repo
-  - Advanced (Local clone + git remotes): setup script will prefer an existing compatible local clone when available, or guide fork-and-clone setup, then complete the rest of the setup.
-  - Manual (No setup scripts): follow [Manual Setup (No Scripts)](#manual-setup-no-scripts)
-- GitHub Pages custom domain (if you have one, for example `yoursite.example.com`)
-- Source (`strava` or `garmin`)
-- Unit preference (`US` or `Metric`)
-- Heatmap week start (`Sunday` or `Monday`)
-- Optional profile link in the dashboard header for the selected source (`Yes` or `No`)
-- Optional tooltip links to individual activities for the selected source (`Yes` or `No`)
-- Source auth credentials:
-  - Strava: prompt will provide a link to create a [Strava API application](https://www.strava.com/settings/api) first, set Authorization Callback Domain to `localhost`.
-    - Then paste the `client_id` + `client_secret` values in the prompt, then a browser tab will open for OAuth approval
-  - Garmin: account email + password
+When prompted, choose:
+- Source: **garmin**
+- Unit preference: `US` or `Metric`
+- Heatmap week start: `Sunday` or `Monday`
 
-The setup may take several minutes to complete when run for the first time. If any automation step fails, the script prints steps to remedy the failed step.  
-Once the script succeeds, it will provide the URL for your dashboard.
+### Garmin Auth Secrets
 
-### Updating Your Repository
+After initial setup, add these in your repo:
+`Settings → Secrets and variables → Actions → Secrets`
 
-- To pull in new updates and features from the original repo, use GitHub's **Sync fork** button on your fork's `main` branch.
-- Activity data is stored on a dedicated `dashboard-data` branch and deployed from there
-- `main` is intentionally kept free of generated `data/` and `site/data.json` artifacts so fork sync process stays cleaner.
-- After syncing, manually run [Sync Heatmaps](../../actions/workflows/sync.yml) if you want your dashboard refreshed immediately. Otherwise updates will deploy at the next scheduled run.
+| Secret | Required | Description |
+|--------|----------|-------------|
+| `GARMIN_EMAIL` | One of the two | Garmin Connect account email |
+| `GARMIN_PASSWORD` | One of the two | Garmin Connect account password |
+| `GARMIN_TOKENS_B64` | Alternative | Base64-encoded OAuth token store |
 
-### Switching Sources Later
+### Optional Secrets
 
-You can switch between `strava` and `garmin` at any time.
+| Secret / Variable | Purpose |
+|-------------------|---------|
+| `QWEN_API_KEY` (secret) | Enable AI Coach panel in Analytics |
+| `DATABASE_URL` (secret) | PostgreSQL sync for external queries |
+| `DASHBOARD_GARMIN_PROFILE_URL` (var) | Profile link in dashboard header |
+| `DASHBOARD_DISTANCE_UNIT` (var) | `km` or `mi` |
+| `DASHBOARD_ELEVATION_UNIT` (var) | `m` or `ft` |
+| `DASHBOARD_WEEK_START` (var) | `sunday` or `monday` |
 
-- Re-run `./scripts/bootstrap.sh` (or the quickstart curl command) and choose a different source.
-- If you re-run setup and choose the same source, setup asks whether to force a one-time full backfill. You can also update your response for unit preference, day of week start, placing strava/garmin profle link on your dashboard, and whether you'd like activity links in the tooltips.
+### Trigger Manual Sync
 
-## Other Features
+```bash
+# Incremental sync
+gh workflow run "Sync Heatmaps" --field source=garmin
 
-- The GitHub Pages site is optimized for responsive desktop/mobile viewing.
-- To click activity urls while viewing on desktop, click the graph dot to freeze the tooltip in place.
-- If a day contains multiple activity types, that day’s colored square is split into equal segments — one per unique activity type on that day.
-- Raw activities are stored locally for processing but are not committed (`activities/raw/` is ignored). This prevents publishing detailed per-activity payloads and GPS location traces.
-- If neither `sync.start_date` nor `sync.lookback_years` is set, the sync workflow backfills all available history from the selected source (i.e. Strava/Garmin).
-- Strava backfill state is stored in `data/backfill_state_strava.json`; Garmin backfill state is stored in `data/backfill_state_garmin.json`. If a backfill hits API limits (unlikely), this state allows the daily refresh automation to pick back up where it left off.
-- The Sync action workflow includes a toggle labeled `Reset backfill cursor and re-fetch full history for the selected source` which forces a one-time full backfill. This is useful if you add/delete/modify activities which have already been loaded.
+# Full backfill (re-fetch all history)
+gh workflow run "Sync Heatmaps" --field source=garmin --field full_backfill=true
+```
+
+Or via GitHub UI: **Actions → Sync Heatmaps → Run workflow**
+
+---
+
+## Dashboard Pages
+
+| Page | URL | Description |
+|------|-----|-------------|
+| Dashboard | `/` | GitHub-style heatmap, all activity types |
+| Activities | `/activities.html` | Per-activity detail with HR zones & splits |
+| Analytics | `/analytics.html` | Running charts, monthly progress, AI Coach |
+| Records | `/records.html` | Leaderboards, PRs, split analysis |
+
+---
+
+## Updating This Fork
+
+To pull upstream improvements from [aspain/git-sweaty](https://github.com/aspain/git-sweaty):
+
+1. Go to your fork on GitHub
+2. Click **Sync fork** on the `main` branch
+3. If there are conflicts in fork-specific files (`site/analytics.html`, `site/records.html`, `site/activities.html`, `scripts/generate_ai_insights.py`, `scripts/generate_activities.py`, `scripts/sync_db.py`), resolve them manually
+4. After syncing, run **Sync Heatmaps** workflow to refresh the dashboard
+
+Activity data lives on the `dashboard-data` branch — it is never affected by syncing `main`.
+
+---
+
+## Other Features (from upstream)
+
+- Responsive design for desktop and mobile
+- Click a heatmap cell to freeze the tooltip; click away to dismiss
+- Multi-type days show as proportional split squares (one color per activity type)
+- Raw activity files are not committed (`activities/raw/` is gitignored)
+- Backfill state is persisted — if a full backfill is interrupted, the next run resumes from where it left off
+- The **Sync Heatmaps** workflow has a `Reset backfill cursor` toggle for forced full re-fetch
+
+---
 
 ## Configuration (Optional)
 
-Everything in this section is optional. Defaults work without changes.
-Base settings live in `config.yaml`, and `config.local.yaml` overrides them when present.
+Base settings: `config.yaml` · Local overrides: `config.local.yaml` (gitignored)
 
-Auth + source settings:
-- `source` (`strava` or `garmin`)
-- `strava.client_id`, `strava.client_secret`, `strava.refresh_token`, `strava.profile_url`
-- `strava.include_activity_urls` (when `true`, yearly tooltip details include links to individual Strava activities)
-- `garmin.token_store_b64`, `garmin.email`, `garmin.password`, `garmin.profile_url`
-- `garmin.include_activity_urls` (when `true`, yearly tooltip details include links to individual Garmin activities)
-- `garmin.strict_token_only` (when `true`, Garmin sync requires `garmin.token_store_b64` and does not fall back to email/password auth)
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `source` | `garmin` | Data source |
+| `sync.start_date` | — | Lower bound for history (`YYYY-MM-DD`) |
+| `sync.lookback_years` | `5` | Rolling lower bound (if `start_date` unset) |
+| `sync.recent_days` | `7` | Always sync recent N days |
+| `activities.include_all_types` | `true` | Include all seen sport types |
+| `activities.exclude_types` | `[]` | Explicit type exclusions |
+| `units.distance` | `km` | `km` or `mi` |
+| `units.elevation` | `m` | `m` or `ft` |
+| `heatmaps.week_start` | `sunday` | `sunday` or `monday` |
 
-Sync scope + backfill behavior:
-- `sync.start_date` (optional `YYYY-MM-DD` lower bound for history)
-- `sync.lookback_years` (optional rolling lower bound; used only when `sync.start_date` is unset)
-- `sync.recent_days` (sync recent activities even while backfilling)
-- `sync.resume_backfill` (persist cursor so backfills continue across scheduled runs)
-- `sync.per_page` (page size used when fetching provider activities; default `200`)
-- `sync.prune_deleted` (remove local activities no longer returned by the provider; pruning only happens on runs that perform a full backfill scan)
+---
 
-Activity type behavior:
-- `activities.types` (featured order in UI, and acts as allowlist when `activities.include_all_types` is `false`)
-- `activities.include_all_types` (when `true`, include all seen sport types; when `false`, include only `activities.types`)
-- `activities.exclude_types` (explicit type exclusions, even when `include_all_types` is `true`)
-- `activities.type_aliases` (map raw provider type names to canonical type names before grouping/filtering)
-- `activities.group_aliases` (map canonical type names to explicit grouped labels)
-- `activities.group_other_types` (when `true`, non-featured types are grouped into broader buckets; repo default is `false`)
-- `activities.other_bucket` (fallback group name when grouped type matching has no hit)
+## Credits
 
-Display + rate-limit settings:
-- `units.distance` (`mi` or `km`)
-- `units.elevation` (`ft` or `m`)
-- `heatmaps.week_start` (`sunday` or `monday`)
-- `rate_limits.*` (Strava API pacing caps used by sync; ignored for Garmin)
+- **Original project**: [aspain/git-sweaty](https://github.com/aspain/git-sweaty) — all core pipeline, heatmap rendering, and GitHub Actions infrastructure
+- **Garmin API integration**: built on [python-garminconnect](https://github.com/cyberjunky/python-garminconnect)
+- **AI coaching**: [Qwen (DashScope)](https://www.alibabacloud.com/en/product/modelstudio) via OpenAI-compatible API
+- **Logo generator**: [aspain/heatmap-logo](https://github.com/aspain/heatmap-logo)
 
-## Manual Setup (No Scripts)
+---
 
-Use this if you do not want to run `bootstrap.sh` or `setup_auth.py`.
+<details>
+<summary>Manual Setup (No Scripts)</summary>
 
-### 1) Shared steps (Strava + Garmin)
+### 1) Shared steps
 
 1. Fork this repository on GitHub.
-2. In your fork, keep `main` current with upstream using **Sync fork**.
-3. In your fork, enable GitHub Actions workflows:
-   - `Settings` -> `Actions` -> `General`
-4. In your fork, set GitHub Pages to deploy from Actions:
-   - `Settings` -> `Pages` -> `Source` -> `GitHub Actions`
-5. In your fork, add these repository variables:
-   - `Settings` -> `Secrets and variables` -> `Actions` -> `Variables`
-   - `DASHBOARD_SOURCE`: `strava` or `garmin`
-   - `DASHBOARD_REPO`: your fork slug (example: `yourname/git-sweaty`)
-   - `DASHBOARD_DISTANCE_UNIT`: `mi` or `km`
-   - `DASHBOARD_ELEVATION_UNIT`: `ft` or `m`
+2. Enable GitHub Actions: `Settings → Actions → General`
+3. Set GitHub Pages to deploy from Actions: `Settings → Pages → Source → GitHub Actions`
+4. Add repository variables: `Settings → Secrets and variables → Actions → Variables`
+   - `DASHBOARD_SOURCE`: `garmin`
+   - `DASHBOARD_REPO`: your fork slug (e.g. `yourname/git-sports-guntar`)
+   - `DASHBOARD_DISTANCE_UNIT`: `km` or `mi`
+   - `DASHBOARD_ELEVATION_UNIT`: `m` or `ft`
    - `DASHBOARD_WEEK_START`: `sunday` or `monday`
-6. Optional variables for dashboard links:
-   - Strava: `DASHBOARD_STRAVA_PROFILE_URL`, `DASHBOARD_STRAVA_ACTIVITY_LINKS` (`true`/`false`)
-   - Garmin: `DASHBOARD_GARMIN_PROFILE_URL`, `DASHBOARD_GARMIN_ACTIVITY_LINKS` (`true`/`false`)
 
-### 2) Provider auth secrets
+### 2) Garmin auth secrets
 
-Set repository secrets here:
-- `Settings` -> `Secrets and variables` -> `Actions` -> `Secrets`
+`Settings → Secrets and variables → Actions → Secrets`
 
-#### Strava secrets
+Add `GARMIN_EMAIL` + `GARMIN_PASSWORD`, or alternatively `GARMIN_TOKENS_B64`.
 
-1. Create a Strava API app at [strava.com/settings/api](https://www.strava.com/settings/api).
-2. Set `Authorization Callback Domain` to `localhost`.
-3. Save your Strava `Client ID` and `Client Secret`.
-4. Open this URL in a browser (replace `YOUR_CLIENT_ID`):
+### 3) Run the first sync
 
-```text
-https://www.strava.com/oauth/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fexchange_token&approval_prompt=force&scope=read%2Cactivity%3Aread_all
-```
+1. `Actions → Sync Heatmaps → Run workflow`
+2. Set source to `garmin`
+3. Wait for sync to complete, then `Deploy Pages` runs automatically
+4. Open: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
 
-5. Approve access. You will be redirected to a localhost URL. Copy the `code` value from that URL.
-6. Exchange the code for tokens:
-
-```bash
-curl -sS -X POST https://www.strava.com/oauth/token \
-  -d client_id=YOUR_CLIENT_ID \
-  -d client_secret=YOUR_CLIENT_SECRET \
-  -d code=YOUR_CODE \
-  -d grant_type=authorization_code
-```
-
-7. From the response JSON, copy `refresh_token`.
-8. Add these secrets to your fork:
-   - `STRAVA_CLIENT_ID`
-   - `STRAVA_CLIENT_SECRET`
-   - `STRAVA_REFRESH_TOKEN`
-9. Optional but recommended for automatic token rotation:
-   - Add `STRAVA_SECRET_UPDATE_TOKEN` (a GitHub token with repo write access to this fork).
-
-#### Garmin secrets
-
-Choose one auth path:
-
-1. Easiest: add both
-   - `GARMIN_EMAIL`
-   - `GARMIN_PASSWORD`
-2. Token-only path: add
-   - `GARMIN_TOKENS_B64`
-
-`GARMIN_TOKENS_B64` is optional unless you explicitly run token-only config.
-
-### 3) Run the first sync and deploy
-
-1. Go to `Actions` -> `Sync Heatmaps`.
-2. Click `Run workflow` on the `main` branch.
-3. Optional: set `source` explicitly (`strava` or `garmin`) when running manually.
-4. Wait for `Sync Heatmaps` to complete successfully.
-5. Confirm `Deploy Pages` runs (automatically after a successful sync).
-6. Open your dashboard at:
-   - `https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/`
+</details>
