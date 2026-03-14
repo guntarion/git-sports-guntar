@@ -741,7 +741,7 @@
       "calories": 296,
       "date": "2026-02-28",
       "distance": 3000.0,
-      "elevation_gain": 0.0,
+      "elevation_gain": 125.0,
       "hr_zones": [
         {
           "low_bpm": 87,
@@ -4096,7 +4096,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-03-14T02:38:26.242791+00:00",
+  "generated_at": "2026-03-14T02:45:40.797487+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

@@ -834,7 +834,7 @@
           ],
           "count": 1,
           "distance": 3000.0,
-          "elevation_gain": 0.0,
+          "elevation_gain": 125.0,
           "moving_time": 1734.0
         }
       },
@@ -1129,7 +1129,7 @@
       }
     }
   },
-  "generated_at": "2026-03-14T02:38:22.981202+00:00",
+  "generated_at": "2026-03-14T02:45:40.780208+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
