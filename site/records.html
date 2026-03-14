@@ -214,12 +214,13 @@ function getLB(runs,bi){
 }
 
 /* ── Get all 1km splits ── */
+/* Filter: exclude splits < 500m (partial km at end of run) */
 function getAllSplits(runs){
   var out=[];
   runs.forEach(function(a){
     (a.splits||[]).forEach(function(s,i){
-      if(s.pace_secs_per_km>0&&s.pace_secs_per_km<900){
-        out.push({date:a.date,name:a.name,actDist:a.distance,actId:a.id,splitNum:s.split_num||(i+1),pace:s.pace_secs_per_km,hr:s.avg_hr||0,elev:s.elevation_gain_m||0});
+      if(s.pace_secs_per_km>0&&s.pace_secs_per_km<900&&(s.distance||0)>=500){
+        out.push({date:a.date,name:a.name,actDist:a.distance,actId:a.id,splitNum:s.split_num||(i+1),pace:s.pace_secs_per_km,hr:s.avg_hr||0,elev:s.elevation_gain_m||0,dist:s.distance||0});
       }
     });
   });
@@ -229,7 +230,7 @@ function getAllSplits(runs){
 /* ── Negative splits ── */
 function negSplits(runs){
   return runs.map(function(a){
-    var paces=(a.splits||[]).filter(function(s){return s.pace_secs_per_km>0&&s.pace_secs_per_km<900;}).map(function(s){return s.pace_secs_per_km;});
+    var paces=(a.splits||[]).filter(function(s){return s.pace_secs_per_km>0&&s.pace_secs_per_km<900&&(s.distance||0)>=500;}).map(function(s){return s.pace_secs_per_km;});
     if(paces.length<3)return null;
     var half=Math.floor(paces.length/2);
     var first=avg(paces.slice(0,half)),second=avg(paces.slice(-half));
@@ -240,7 +241,7 @@ function negSplits(runs){
 /* ── Split consistency ── */
 function consistent(runs){
   return runs.map(function(a){
-    var paces=(a.splits||[]).filter(function(s){return s.pace_secs_per_km>0&&s.pace_secs_per_km<900;}).map(function(s){return s.pace_secs_per_km;});
+    var paces=(a.splits||[]).filter(function(s){return s.pace_secs_per_km>0&&s.pace_secs_per_km<900&&(s.distance||0)>=500;}).map(function(s){return s.pace_secs_per_km;});
     if(paces.length<3)return null;
     var m=avg(paces),v=avg(paces.map(function(p){return(p-m)*(p-m);}));
     return{a:a,sd:Math.sqrt(v),mean:m};
@@ -373,7 +374,7 @@ function buildSplitsTable(splits,latest){
       '<td class="pace-cell">'+fP(s.pace)+'</td>'+
       '<td class="r">'+(s.hr>0?s.hr:'—')+'</td>'+
       '<td class="r hide-mobile">'+(s.elev?s.elev.toFixed(0)+'m':'—')+'</td>'+
-      '<td style="font-size:11px;color:var(--muted)">'+(s.actDist/1000).toFixed(1)+'km run</td>'+
+      '<td style="font-size:11px;color:var(--muted)">'+(s.dist/1000).toFixed(2)+'km · '+(s.actDist/1000).toFixed(1)+'km run</td>'+
     '</tr>';
   });
   html+='</table></div>';
