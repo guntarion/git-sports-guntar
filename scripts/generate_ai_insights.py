@@ -241,6 +241,41 @@ def _call_qwen(prompt: str, api_key: str) -> Optional[Dict]:
         return None
 
 
+def _running_fingerprint(activities: List[Dict]) -> str:
+    """Build a fingerprint from running activities to detect changes."""
+    runs = [a for a in activities if _is_running(a) and (a.get("distance") or 0) > 500]
+    runs.sort(key=lambda a: a.get("date", ""))
+    count = len(runs)
+    latest_date = runs[-1].get("date", "") if runs else ""
+    total_dist = round(sum(a.get("distance", 0) for a in runs))
+    return f"{count}:{latest_date}:{total_dist}"
+
+
+def _should_regenerate(activities: List[Dict]) -> bool:
+    """Check if running data has changed since last AI insights generation."""
+    if not os.path.exists(OUTPUT_PATH):
+        return True
+    try:
+        with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
+            existing = json.load(f)
+    except Exception:
+        return True
+
+    old_summary = existing.get("data_summary") or {}
+    old_fp = existing.get("running_fingerprint", "")
+
+    # If no fingerprint stored (old format), regenerate
+    if not old_fp:
+        return True
+
+    new_fp = _running_fingerprint(activities)
+    if new_fp != old_fp:
+        return True
+
+    print(f"Running data unchanged (fingerprint: {new_fp}); keeping existing AI insights.")
+    return False
+
+
 def generate_ai_insights() -> bool:
     """Main entry point. Returns True on success."""
     api_key = os.environ.get("QWEN_API_KEY", "").strip()
@@ -260,6 +295,9 @@ def generate_ai_insights() -> bool:
         print("No activities in data; skipping AI insights.", file=sys.stderr)
         return False
 
+    if not _should_regenerate(activities):
+        return True
+
     print("Building AI data summary...")
     summary = _build_data_summary(activities)
 
@@ -278,6 +316,7 @@ def generate_ai_insights() -> bool:
     output = {
         "generated_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
         "model": QWEN_MODEL,
+        "running_fingerprint": _running_fingerprint(activities),
         "data_summary": summary,
         "insights": insights,
     }
