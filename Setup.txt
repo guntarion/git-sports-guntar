@@ -1,0 +1,243 @@
+Project: git-sweaty — mengubah data aktivitas Strava/Garmin menjadi dashboard heatmap seperti GitHub contribution graph, di-host di GitHub
+Pages.
+
+Status saat ini:
+- ✅ Local clone: guntarion/git-sports-guntar
+- ✅ Python 3.14.3
+- ✅ GitHub CLI terautentikasi sebagai guntarion
+- ✅ GitHub Actions aktif
+- ❌ GitHub Pages belum dikonfigurasi
+- ❌ Secrets/Variables belum diset
+- ❌ Credentials Strava/Garmin belum diset
+
+---
+Panduan Setup Lengkap
+
+Langkah 1: Enable GitHub Pages
+
+gh api --method POST repos/guntarion/git-sports-guntar/pages \
+ -f build_type=workflow
+
+Atau lewat web: Settings → Pages → Source → GitHub Actions
+
+---
+Langkah 2: Pilih Source (Strava atau Garmin)
+
+Kamu perlu memilih salah satu. Panduan credentials masing-masing:
+
+---
+PATH A: Setup Strava
+
+A1. Buat Strava API App
+
+1. Buka https://www.strava.com/settings/api
+2. Buat aplikasi baru, isi:
+ - Application Name: bebas (misal git-sweaty)
+ - Category: Other
+ - Authorization Callback Domain: localhost
+3. Catat Client ID dan Client Secret
+
+A2. Dapatkan Refresh Token
+
+Buka URL ini di browser (ganti YOUR_CLIENT_ID):
+https://www.strava.com/oauth/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fexchange_token&ap
+proval_prompt=force&scope=read%2Cactivity%3Aread_all
+- Klik Authorize
+- Kamu akan redirect ke localhost yang error (normal) — salin nilai code dari URL
+
+A3. Tukar Code → Refresh Token
+
+curl -sS -X POST https://www.strava.com/oauth/token \
+ -d client_id=YOUR_CLIENT_ID \
+ -d client_secret=YOUR_CLIENT_SECRET \
+ -d code=YOUR_CODE \
+ -d grant_type=authorization_code
+Dari response JSON, salin nilai refresh_token.
+
+A4. Set GitHub Secrets
+
+gh secret set STRAVA_CLIENT_ID --body "YOUR_CLIENT_ID" --repo guntarion/git-sports-guntar
+gh secret set STRAVA_CLIENT_SECRET --body "YOUR_CLIENT_SECRET" --repo guntarion/git-sports-guntar
+gh secret set STRAVA_REFRESH_TOKEN --body "YOUR_REFRESH_TOKEN" --repo guntarion/git-sports-guntar
+
+---
+PATH B: Setup Garmin (lebih mudah)
+
+B1. Set GitHub Secrets
+
+gh secret set GARMIN_EMAIL --body "email_garmin_kamu@example.com" --repo guntarion/git-sports-guntar
+gh secret set GARMIN_PASSWORD --body "password_garmin_kamu" --repo guntarion/git-sports-guntar
+
+---
+Langkah 3: Set GitHub Variables
+
+Setelah pilih source, set variables ini:
+
+# Ganti "strava" dengan "garmin" jika pakai Garmin
+gh variable set DASHBOARD_SOURCE --body "strava" --repo guntarion/git-sports-guntar
+gh variable set DASHBOARD_REPO --body "guntarion/git-sports-guntar" --repo guntarion/git-sports-guntar
+gh variable set DASHBOARD_DISTANCE_UNIT --body "km" --repo guntarion/git-sports-guntar
+gh variable set DASHBOARD_ELEVATION_UNIT --body "m" --repo guntarion/git-sports-guntar
+gh variable set DASHBOARD_WEEK_START --body "monday" --repo guntarion/git-sports-guntar
+
+---
+Langkah 4: Jalankan Sync Pertama
+
+gh workflow run sync.yml --repo guntarion/git-sports-guntar
+
+Pantau progress:
+gh run watch --repo guntarion/git-sports-guntar
+
+---
+Langkah 5: Dashboard URL
+
+Setelah sync selesai, dashboard kamu akan tersedia di:
+https://guntarion.github.io/git-sports-guntar/
+
+
+Pipeline (Backend)
+
+- sync_garmin.py — sekarang menangkap: avg HR, max HR, kalori, pace, training effect aerobik/anaerobik, kadence, TSS, VO2max, vertical
+oscillation
+- normalize.py — meneruskan field-field baru ke activities_normalized.json
+- enrich_garmin.py (baru) — memanggil Garmin API per-aktivitas untuk HR zones + split data, dengan state tracking
+- generate_activities.py (baru) — menghasilkan site/activities.json dari data normalized + enriched
+- run_pipeline.py — menjalankan enrichment → generate activities setiap sync
+
+Frontend
+
+- site/activities.html (baru) — halaman per-sesi aktivitas
+
+Hasil dari run pertama:
+
+- 6 aktivitas terbaru berhasil di-enrich
+- HR zones: ✅ semua 6 aktivitas
+- Splits: ✅ 4 dari 6 aktivitas
+- 70 aktivitas total di activities.json
+
+Dashboard baru tersedia di:
+
+https://guntarion.github.io/git-sports-guntar/activities.html
+
+---
+Catatan untuk Opsi B penuh: Saat ini hanya 6 aktivitas terbaru (7 hari terakhir) yang di-enrich karena sync hanya fetch recent + backfill.
+Untuk enrich semua 46 aktivitas historis, kita perlu trigger sync dengan full_backfill=true agar semua raw activities tersedia, kemudian
+enrichment akan berjalan pada semuanya secara otomatis. Mau langsung kita lakukan?
+
+Cara simpan GitHub Secret (untuk referensi ke depan):
+  # Via CLI (cara yang kita pakai):
+  echo "nilai_secret_mu" | gh secret set NAMA_SECRET --repo owner/repo
+
+  # Via web browser:
+  # Settings → Secrets and variables → Actions → New repository secret
+
+  Secret aman karena:
+  - Nilai ter-enkripsi di GitHub, tidak pernah tampil di log
+  - Hanya bisa diakses oleh GitHub Actions workflow
+  - Di log workflow hanya muncul sebagai ***
+
+    2. Analytics queries — buat query SQL untuk trend pace, HR progression, dll
+  3. API endpoint — kalau mau dashboard analytics terpisah
+
+
+  Bug fixes:
+  - Tooltip hover pace & HR chart: ditambahkan mode:'index', intersect:false — sekarang hover di mana saja pada chart akan memunculkan nilai
+
+  Weekly Volume:
+  - Label x-axis sekarang menampilkan nama bulan saat ganti bulan: Jan·W01, W02, W03, Feb·W05, dst.
+  - Tooltip menampilkan rentang tanggal lengkap: Jan 5 – Jan 11
+  - Line kuning = 4-week rolling average ditambahkan sebagai overlay
+
+  Summary cards baru:
+  - This Week km, 4-Wk Avg, Best Week
+
+  Personal Records (lebih kaya):
+  - Best 1km Split (dari splits data per-km)
+  - Best 5K Pace (runs 4–6.5km)
+  - Best 10K Pace (runs 8–12.5km)
+  - Longest Run, Best Aerobic TE, Lowest HR
+
+  Best Runs Leaderboard:
+  - 4 kolom: < 3km / 3–6km / 6–12km / > 12km
+  - Top 5 tercepat per kategori dengan pace, distance, tanggal, HR
+
+  Pace Trend:
+  - Titik-titik berwarna berdasarkan distance band (ungu/biru/teal/orange)
+  - Tooltip menampilkan: pace + (3.2km · 142bpm)
+  - Legend warna distance band di atas chart
+
+  Aerobic Efficiency chart baru:
+  - Formula: speed ÷ HR × 1000 — semakin tinggi = semakin fit
+  - Menunjukkan tren peningkatan kebugaran dari waktu ke waktu
+
+
+┌───────────────────────────────────────────────────────────┬────────┐
+  │                           Fitur                           │ Status │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Navigation links (4 halaman)                              │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Analytics — tooltips fixed                                │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Analytics — weekly volume + month markers + 4-wk avg      │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Analytics — pace trend (distance-colored)                 │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Analytics — HR, efficiency, cadence, training load charts │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Analytics — HR zone comparison                            │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Analytics — running form (ground contact, stride)         │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Analytics — monthly progress dashboard                    │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Analytics — monthly summary table + deltas                │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ AI Coach panel (Coach RunAnalytica)                       │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Filter: pace > 15:00/km excluded                          │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Filter: runs < 500m excluded                              │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Records page (best times by distance)                     │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Activities detail page                                    │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Pipeline integration (AI insights)                        │ ✓      │
+  ├───────────────────────────────────────────────────────────┼────────┤
+  │ Workflow (QWEN_API_KEY, ai_insights.json)                 │ ✓      │
+  └───────────────────────────────────────────────────────────┴────────┘
+
+
+
+   Kenapa AI Coach belum muncul?
+
+  Log workflow menunjukkan: Qwen API error 401: invalid_api_key
+
+  Kemungkinan penyebab:
+  - Endpoint China (dashscope.aliyuncs.com) dipakai tapi key-mu dari Alibaba Cloud International (dashscope-intl). Sudah saya revert ke
+  -intl.
+  - Atau key-nya sendiri salah. Cek kembali QWEN_API_KEY di Settings → Secrets → Actions.
+
+  Untuk mendapatkan API key yang valid:
+  1. Buka https://dashscope.console.aliyun.com/ (atau -intl untuk international)
+  2. Buka API Keys → Create/copy key
+  3. Set di repo: Settings → Secrets → Actions → QWEN_API_KEY
+
+  Cara trigger manual Sync
+
+  Via GitHub UI:
+  1. Buka repo → tab Actions
+  2. Klik workflow "Sync Heatmaps" di sidebar kiri
+  3. Klik "Run workflow" → pilih source (garmin), full_backfill (true/false) → Run
+
+  Via CLI (dari terminal ini):
+  # Sync biasa
+  gh workflow run "Sync Heatmaps" --field source=garmin
+
+  # Full backfill (re-fetch semua data)
+  gh workflow run "Sync Heatmaps" --field source=garmin --field full_backfill=true
+
+  Cara trigger manual AI saja?
+
+  Saat ini AI insights terintegrasi di pipeline sync — jadi setiap sync jalan, AI juga jalan (jika key valid). Kalau kamu mau menjalankannya
+   terpisah, kita bisa buat workflow khusus. Mau saya buatkan?

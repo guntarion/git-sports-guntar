@@ -262,9 +262,10 @@ def run_pipeline(
         if should_reset:
             _reset_for_source_switch()
 
+    sync_summary = None
     if not skip_sync:
-        summary = _sync_for_source(source, dry_run=dry_run, prune_deleted=prune_deleted)
-        print(f"Synced ({source}): {summary}")
+        sync_summary = _sync_for_source(source, dry_run=dry_run, prune_deleted=prune_deleted)
+        print(f"Synced ({source}): {sync_summary}")
 
     items = normalize_func()
     _write_normalized(items)
@@ -290,14 +291,20 @@ def run_pipeline(
                 print(f"DB sync: {db_summary}")
             except Exception as exc:
                 print(f"Warning: DB sync failed (non-fatal): {exc}")
-        # AI insights (non-fatal)
+        # AI insights (non-fatal) — skip if no new activities
         qwen_key = os.environ.get("QWEN_API_KEY", "").strip()
         if qwen_key:
-            try:
-                from generate_ai_insights import generate_ai_insights
-                generate_ai_insights()
-            except Exception as exc:
-                print(f"Warning: AI insights generation failed (non-fatal): {exc}")
+            has_new_data = sync_summary is None or int(
+                sync_summary.get("new_or_updated", 0) if isinstance(sync_summary, dict) else 0
+            ) > 0
+            if has_new_data:
+                try:
+                    from generate_ai_insights import generate_ai_insights
+                    generate_ai_insights()
+                except Exception as exc:
+                    print(f"Warning: AI insights generation failed (non-fatal): {exc}")
+            else:
+                print("No new activities; skipping AI insights regeneration.")
         _persist_source(source)
     if update_readme_link:
         _update_readme_live_site_link()
