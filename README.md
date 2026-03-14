@@ -32,6 +32,8 @@ Per-activity detail view with expandable cards:
 - Per-km split table (pace, HR, elevation)
 - Running dynamics: cadence, stride length, ground contact, vertical oscillation, VO2 max
 
+![Activities Page](docs/screenshot-activities.png)
+
 ### 📈 Analytics Page
 Comprehensive running analytics dashboard:
 - **Monthly progress tracker** — distance & sessions vs. last month with progress bars
@@ -42,6 +44,8 @@ Comprehensive running analytics dashboard:
 - **Running form trends** — ground contact time, stride length
 - **Monthly summary table** — with delta indicators vs. prior month
 
+![Analytics Page](docs/screenshot-analytics.png)
+
 ### 🏆 Records Page
 Personal running records and leaderboards:
 - Leaderboards by distance band (< 3 km / 3–6 km / 6–12 km / > 12 km)
@@ -49,6 +53,8 @@ Personal running records and leaderboards:
 - Monthly champions and PR progression table
 - Running form records (best cadence, stride, VO2 max, etc.)
 - Split analysis: best negative splits & most consistent pacing
+
+![Records Page](docs/screenshot-records.png)
 
 ### 🤖 AI Coach (Coach RunAnalytica)
 Powered by [Qwen](https://www.alibabacloud.com/en/product/modelstudio) (Alibaba DashScope — ACTOR prompt framework):
