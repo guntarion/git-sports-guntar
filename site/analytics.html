@@ -101,6 +101,16 @@
     .ai-focus-sessions{display:flex;gap:6px;flex-wrap:wrap}
     .ai-focus-tag{background:rgba(167,139,250,.12);color:var(--purple);padding:3px 10px;border-radius:12px;font-size:11px}
     .ai-loading{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+    /* AI History Browser */
+    .ai-hist-toggle{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:11px;padding:6px 14px;border-radius:8px;cursor:pointer;margin-top:12px;transition:all .15s}
+    .ai-hist-toggle:hover{border-color:var(--accent);color:var(--text)}
+    .ai-hist-toggle.open{border-color:var(--purple);color:var(--purple)}
+    .ai-hist-nav{display:flex;gap:6px;align-items:center;margin:12px 0 8px;flex-wrap:wrap}
+    .ai-hist-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:10px;padding:4px 10px;border-radius:6px;cursor:pointer;transition:all .15s}
+    .ai-hist-btn:hover{border-color:var(--accent);color:var(--text)}
+    .ai-hist-btn.active{background:var(--purple);border-color:var(--purple);color:#fff;font-weight:700}
+    .ai-hist-btn:disabled{opacity:.3;cursor:default}
+    .ai-hist-date{font-size:11px;color:var(--muted)}
     .progress-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:14px}
     .progress-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
     .progress-card .pc-current{font-size:20px;font-weight:700}
@@ -146,7 +156,7 @@ var BANDS=[
   {key:'ultra',label:'> 12 km',min:12000,max:1e9,color:'#f97316'},
 ];
 var CHART_GRID='rgba(51,65,85,0.5)';
-var S={type:'running',year:'all',raw:[],units:{distance:'km'},ai:null};
+var S={type:'running',year:'all',raw:[],units:{distance:'km'},ai:null,aiHistory:[],aiHistIdx:-1,aiHistOpen:false};
 var charts={};
 
 function fP(s){if(!s||s<=0||s>3600)return'—';var m=Math.floor(s/60),sec=Math.round(s%60);return m+':'+String(sec).padStart(2,'0')+'/km';}
@@ -221,18 +231,15 @@ function buildZoneBars(zt,total,prevZt,prevTotal){
 }
 
 /* ── AI Panel ── */
-function renderAI(){
-  var panel=document.getElementById('aiPanel');
-  if(!S.ai){panel.innerHTML='';return;}
-  var d=S.ai.insights;if(!d){panel.innerHTML='';return;}
-  var ts=S.ai.generated_at?'Updated '+S.ai.generated_at.replace('T',' ').replace('Z',' UTC'):'';
-  var html='<div class="ai-panel">';
+function renderAIEntry(entry){
+  if(!entry)return'';
+  var d=entry.insights;if(!d)return'';
+  var ts=entry.generated_at?'Updated '+entry.generated_at.replace('T',' ').replace('Z',' UTC'):'';
+  var html='';
   html+='<div class="ai-header"><div class="ai-avatar">🏃</div><div><div class="ai-name">Coach RunAnalytica</div><div class="ai-updated">'+ts+'</div></div></div>';
-  // Summary
   if(d.monthly_review){
     html+='<div class="ai-summary">'+d.monthly_review.summary+'</div>';
     if(d.monthly_review.highlight)html+='<div class="ai-highlight">'+d.monthly_review.highlight+'</div>';
-    // Metrics
     if(d.monthly_review.metrics&&d.monthly_review.metrics.length){
       html+='<div class="ai-section-title">Monthly Comparison</div><div class="ai-metrics">';
       d.monthly_review.metrics.forEach(function(m){
@@ -241,7 +248,6 @@ function renderAI(){
       html+='</div>';
     }
   }
-  // Goal tracker
   if(d.goal_tracker){
     var g=d.goal_tracker;
     var pct=g.km_last_month>0?Math.min(100,Math.round(g.km_this_month/g.km_last_month*100)):0;
@@ -251,7 +257,6 @@ function renderAI(){
     html+='<div class="ai-goal-bar-bg"><div class="ai-goal-bar" style="width:'+pct+'%;background:'+barColor+'"></div></div>';
     html+='<div class="ai-goal-sub">'+g.message+'</div></div>';
   }
-  // Insights
   if(d.insights&&d.insights.length){
     html+='<div class="ai-section-title">Training Insights</div><div class="ai-insights">';
     d.insights.forEach(function(i){
@@ -259,7 +264,6 @@ function renderAI(){
     });
     html+='</div>';
   }
-  // Recommendations
   if(d.recommendations&&d.recommendations.length){
     html+='<div class="ai-section-title">Recommendations</div><div class="ai-recs">';
     d.recommendations.forEach(function(r,i){
@@ -267,7 +271,6 @@ function renderAI(){
     });
     html+='</div>';
   }
-  // Weekly focus
   if(d.weekly_focus){
     var wf=d.weekly_focus;
     html+='<div class="ai-section-title">This Week\'s Focus</div><div class="ai-focus">';
@@ -280,8 +283,46 @@ function renderAI(){
     }
     html+='</div>';
   }
+  return html;
+}
+
+function renderAI(){
+  var panel=document.getElementById('aiPanel');
+  var entry=S.aiHistIdx>=0&&S.aiHistory[S.aiHistIdx]?S.aiHistory[S.aiHistIdx]:S.ai;
+  if(!entry||!entry.insights){panel.innerHTML='';return;}
+
+  var html='<div class="ai-panel">';
+  // History indicator
+  if(S.aiHistIdx>=0){
+    html+='<div style="font-size:10px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px"><span style="background:var(--purple);color:#fff;padding:1px 8px;border-radius:10px;font-weight:700">PAST</span> Viewing archived insight</div>';
+  }
+  html+=renderAIEntry(entry);
+
+  // History browser
+  if(S.aiHistory.length>0){
+    html+='<div style="border-top:1px solid var(--border);margin-top:14px;padding-top:10px">';
+    html+='<button class="ai-hist-toggle'+(S.aiHistOpen?' open':'')+'" id="aiHistToggle">Past Insights <span class="badge-count">'+S.aiHistory.length+'</span></button>';
+    if(S.aiHistOpen){
+      html+='<div class="ai-hist-nav">';
+      html+='<button class="ai-hist-btn'+(S.aiHistIdx<0?' active':'')+'" data-hidx="-1">Latest</button>';
+      S.aiHistory.forEach(function(h,i){
+        var dt=h.generated_at?(h.generated_at.substring(0,10)):'#'+(i+1);
+        html+='<button class="ai-hist-btn'+(S.aiHistIdx===i?' active':'')+'" data-hidx="'+i+'">'+dt+'</button>';
+      });
+      html+='</div>';
+    }
+    html+='</div>';
+  }
   html+='</div>';
   panel.innerHTML=html;
+
+  // Wire up toggle
+  var tog=document.getElementById('aiHistToggle');
+  if(tog)tog.addEventListener('click',function(){S.aiHistOpen=!S.aiHistOpen;renderAI();});
+  // Wire up history buttons
+  panel.querySelectorAll('[data-hidx]').forEach(function(btn){
+    btn.addEventListener('click',function(){S.aiHistIdx=+btn.dataset.hidx;renderAI();});
+  });
 }
 
 /* ── Main render ── */
@@ -460,9 +501,10 @@ document.querySelectorAll('[data-type]').forEach(function(b){b.addEventListener(
 /* ── Load ── */
 Promise.all([
   fetch('activities.json').then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}),
-  fetch('ai_insights.json').then(function(r){return r.ok?r.json():null;}).catch(function(){return null;})
+  fetch('ai_insights.json').then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}),
+  fetch('ai_insights_history.json').then(function(r){return r.ok?r.json():null;}).catch(function(){return null;})
 ]).then(function(results){
-  var data=results[0];S.ai=results[1];
+  var data=results[0];S.ai=results[1];S.aiHistory=results[2]||[];
   S.raw=data.activities||[];S.units=data.units||{distance:'km'};
   var years=[...new Set(S.raw.map(function(a){return(a.date||'').substring(0,4);}).filter(Boolean))].sort().reverse();
   var yf=document.getElementById('yearFilters');

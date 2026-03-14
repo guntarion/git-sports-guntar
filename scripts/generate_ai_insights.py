@@ -15,6 +15,8 @@ from typing import Any, Dict, List, Optional
 
 ACTIVITIES_PATH = os.path.join("site", "activities.json")
 OUTPUT_PATH = os.path.join("site", "ai_insights.json")
+HISTORY_PATH = os.path.join("site", "ai_insights_history.json")
+MAX_HISTORY = 52  # ~1 year of weekly entries
 QWEN_ENDPOINT = os.environ.get(
     "QWEN_ENDPOINT",
     "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions",
@@ -276,6 +278,29 @@ def _should_regenerate(activities: List[Dict]) -> bool:
     return False
 
 
+def _append_to_history(entry: Dict[str, Any]) -> None:
+    """Append a new AI insights entry to the history file (newest first)."""
+    history: List[Dict] = []
+    if os.path.exists(HISTORY_PATH):
+        try:
+            with open(HISTORY_PATH, "r", encoding="utf-8") as f:
+                history = json.load(f)
+            if not isinstance(history, list):
+                history = []
+        except Exception:
+            history = []
+
+    # Strip data_summary from history entries to save space
+    hist_entry = {k: v for k, v in entry.items() if k != "data_summary"}
+    history.insert(0, hist_entry)
+    history = history[:MAX_HISTORY]
+
+    with open(HISTORY_PATH, "w", encoding="utf-8") as f:
+        json.dump(history, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"AI insights history updated ({len(history)} entries in {HISTORY_PATH})")
+
+
 def generate_ai_insights() -> bool:
     """Main entry point. Returns True on success."""
     api_key = os.environ.get("QWEN_API_KEY", "").strip()
@@ -325,6 +350,9 @@ def generate_ai_insights() -> bool:
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
         f.write("\n")
+
+    # Append to history (newest first, capped at MAX_HISTORY)
+    _append_to_history(output)
 
     print(f"AI insights written to {OUTPUT_PATH}")
     return True

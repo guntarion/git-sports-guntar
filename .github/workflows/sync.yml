@@ -201,6 +201,7 @@ jobs:
             git restore --source "origin/${branch}" --worktree -- data || true
             git restore --source "origin/${branch}" --worktree -- site/data.json || true
             git restore --source "origin/${branch}" --worktree -- activities/enriched || true
+            git restore --source "origin/${branch}" --worktree -- site/ai_insights_history.json || true
             echo "Restored persisted state from ${branch}."
           else
             echo "No ${branch} branch yet; starting with an empty state."
@@ -365,6 +366,9 @@ jobs:
           fi
           if [ -f site/ai_insights.json ]; then
             cp site/ai_insights.json "${data_worktree}/site/ai_insights.json"
+          fi
+          if [ -f site/ai_insights_history.json ]; then
+            cp site/ai_insights_history.json "${data_worktree}/site/ai_insights_history.json"
           fi
 
           pushd "${data_worktree}" >/dev/null
