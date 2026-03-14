@@ -1,6 +1,162 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.8,
+      "avg_cadence": 104,
+      "avg_hr": 132,
+      "avg_pace_secs_per_km": 749,
+      "avg_stride_len": 76.76,
+      "calories": 63,
+      "date": "2026-03-14",
+      "distance": 803.3,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 0,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 591,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 10,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22167867687",
+      "max_hr": 147,
+      "moving_time": 601.0,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 132,
+          "avg_speed_mps": 1.336,
+          "distance": 803.3,
+          "duration": 601.0,
+          "max_hr": 147,
+          "pace_secs_per_km": 749
+        }
+      ],
+      "start_date_local": "2026-03-14T16:50:12",
+      "type": "Walk",
+      "vo2_max": 33.0
+    },
+    {
+      "aerobic_te": 3.4,
+      "anaerobic_te": 2.6,
+      "avg_cadence": 152,
+      "avg_ground_contact": 315,
+      "avg_hr": 141,
+      "avg_pace_secs_per_km": 532,
+      "avg_stride_len": 73.68,
+      "avg_vertical_osc": 7.9,
+      "calories": 350,
+      "date": "2026-03-14",
+      "distance": 5107.3,
+      "elevation_gain": 2.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 34,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 1658,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 603,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 397,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 24,
+          "zone": 5
+        }
+      ],
+      "id": "22167748668",
+      "max_hr": 175,
+      "moving_time": 2715.4,
+      "name": "Ramadhan 5K with yet fastest last 1km",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 126,
+          "avg_speed_mps": 1.742,
+          "distance": 1000.0,
+          "duration": 574.0,
+          "elevation_gain": 2.0,
+          "max_hr": 133,
+          "pace_secs_per_km": 574
+        },
+        {
+          "avg_hr": 133,
+          "avg_speed_mps": 1.722,
+          "distance": 1000.0,
+          "duration": 580.7,
+          "max_hr": 139,
+          "pace_secs_per_km": 581
+        },
+        {
+          "avg_hr": 138,
+          "avg_speed_mps": 1.746,
+          "distance": 1000.0,
+          "duration": 572.8,
+          "max_hr": 147,
+          "pace_secs_per_km": 573
+        },
+        {
+          "avg_hr": 147,
+          "avg_speed_mps": 1.849,
+          "distance": 1000.0,
+          "duration": 540.9,
+          "max_hr": 156,
+          "pace_secs_per_km": 541
+        },
+        {
+          "avg_hr": 167,
+          "avg_speed_mps": 2.458,
+          "distance": 1000.0,
+          "duration": 406.0,
+          "max_hr": 171,
+          "pace_secs_per_km": 407
+        },
+        {
+          "avg_hr": 173,
+          "avg_speed_mps": 2.581,
+          "distance": 107.3,
+          "duration": 41.0,
+          "max_hr": 175,
+          "pace_secs_per_km": 387
+        }
+      ],
+      "start_date_local": "2026-03-14T16:03:44",
+      "type": "Run",
+      "vo2_max": 33.0
+    },
+    {
       "aerobic_te": 1.7,
       "anaerobic_te": 2.0,
       "avg_hr": 110,
@@ -4006,7 +4162,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-03-14T06:02:11.810862+00:00",
+  "generated_at": "2026-03-14T15:11:42.259363+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
