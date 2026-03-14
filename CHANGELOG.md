@@ -1,3 +1,14 @@
+## 2026-03-15 02:45:57
+
+docs: add GitHub guide series for solo developers
+
+- 13 numbered markdown files in docs/on-github/
+- Covers Actions, Pages, Secrets, Branches, multi-machine workflow,
+  Issues & Projects, Pull Requests, Security, Claude Code integration,
+  GitHub Pages limitations, useful Actions from marketplace, and tips
+
+---
+
 ## 2026-03-14 21:12:18
 
 docs: add Journal & Todos documentation and screenshots
