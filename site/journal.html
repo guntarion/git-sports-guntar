@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Journal | git-sweaty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0f172a;--card:#1e293b;--card2:#243048;--border:#334155;
+      --text:#f1f5f9;--muted:#94a3b8;
+      --accent:#00bbf9;--teal:#00f5d4;--purple:#a78bfa;--gold:#f59e0b;
+      --green:#22c55e;--orange:#f97316;--red:#ef4444;
+    }
+    body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;min-height:100vh;padding:0 0 60px}
+    a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+    header{background:var(--card);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10}
+    .header-title{font-size:18px;font-weight:700}
+    .header-nav a{color:var(--muted);font-size:12px;border:1px solid var(--border);padding:5px 12px;border-radius:6px;margin-left:8px;transition:color .15s,border-color .15s}
+    .header-nav a:hover{color:var(--text);border-color:var(--muted);text-decoration:none}
+    .page-body{max-width:900px;margin:0 auto;padding:20px 16px}
+
+    /* Toolbar */
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+    .toolbar input[type=text]{flex:1;min-width:160px;background:var(--card);border:1px solid var(--border);color:var(--text);font-family:inherit;font-size:12px;padding:8px 12px;border-radius:8px;outline:none;transition:border-color .15s}
+    .toolbar input:focus{border-color:var(--accent)}
+    .toolbar-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:11px;padding:6px 14px;border-radius:6px;cursor:pointer;transition:all .15s;white-space:nowrap}
+    .toolbar-btn:hover{border-color:var(--accent);color:var(--text)}
+    .toolbar-btn.primary{background:var(--accent);border-color:var(--accent);color:#000;font-weight:700}
+    .toolbar-btn.primary:hover{background:var(--teal)}
+
+    /* Tag pills */
+    .tag-filters{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px}
+    .tag-pill{background:var(--card);border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:10px;padding:3px 10px;border-radius:12px;cursor:pointer;transition:all .15s}
+    .tag-pill:hover{border-color:var(--accent);color:var(--text)}
+    .tag-pill.active{background:var(--purple);border-color:var(--purple);color:#fff;font-weight:700}
+
+    /* Entry list */
+    .entry-list{display:flex;flex-direction:column;gap:8px}
+    .entry-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:border-color .15s}
+    .entry-card:hover{border-color:#475569}
+    .entry-card.active{border-color:var(--accent)}
+    .entry-header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
+    .entry-title{font-size:13px;font-weight:700;color:var(--text)}
+    .entry-date{font-size:10px;color:var(--muted);white-space:nowrap;flex-shrink:0}
+    .entry-preview{font-size:11px;color:var(--muted);line-height:1.4;max-height:2.8em;overflow:hidden;text-overflow:ellipsis}
+    .entry-footer{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}
+    .entry-tag{background:rgba(167,139,250,.12);color:var(--purple);padding:1px 8px;border-radius:10px;font-size:9px}
+    .entry-source{font-size:9px;color:var(--muted);background:var(--card2);padding:1px 6px;border-radius:10px}
+    .entry-activity{font-size:10px;color:var(--teal)}
+
+    /* Editor panel */
+    .editor-panel{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:16px;display:none}
+    .editor-panel.open{display:block}
+    .editor-panel label{display:block;font-size:10px;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}
+    .editor-panel input,.editor-panel textarea{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:inherit;font-size:12px;padding:8px 10px;border-radius:6px;margin-bottom:10px;resize:vertical;outline:none}
+    .editor-panel input:focus,.editor-panel textarea:focus{border-color:var(--accent)}
+    .editor-panel textarea{min-height:150px}
+    .editor-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .editor-actions .toolbar-btn{margin:0}
+    .preview-toggle{font-size:11px;color:var(--muted);cursor:pointer;margin-left:auto;user-select:none}
+    .preview-toggle:hover{color:var(--accent)}
+
+    /* Preview */
+    .md-preview{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px 14px;margin-bottom:10px;font-size:12px;line-height:1.6;color:var(--text);display:none;min-height:100px}
+    .md-preview.open{display:block}
+    .md-preview h1,.md-preview h2,.md-preview h3{color:var(--accent);margin:8px 0 4px;font-size:14px}
+    .md-preview h2{font-size:13px}.md-preview h3{font-size:12px}
+    .md-preview p{margin:4px 0}
+    .md-preview ul,.md-preview ol{margin:4px 0 4px 20px}
+    .md-preview code{background:var(--card2);padding:1px 4px;border-radius:3px;font-size:11px}
+    .md-preview blockquote{border-left:3px solid var(--purple);padding-left:10px;color:var(--muted);margin:4px 0}
+
+    .activity-info{font-size:11px;color:var(--muted);background:var(--bg);padding:8px 10px;border-radius:6px;margin-bottom:10px}
+
+    /* Data actions */
+    .data-actions{margin-top:24px;padding-top:16px;border-top:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap}
+
+    .badge-count{background:rgba(0,187,249,.15);color:var(--accent);border-radius:10px;padding:1px 7px;font-size:10px}
+    .empty-state{text-align:center;padding:40px 20px;color:var(--muted);font-size:12px}
+
+    /* Toast */
+    .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--green);color:#000;font-size:12px;font-weight:700;padding:8px 20px;border-radius:8px;z-index:1001;opacity:0;transition:opacity .3s}
+    .toast.show{opacity:1}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-title">Journal</div>
+  <nav class="header-nav">
+    <a href="todos.html">Todos</a>
+    <a href="analytics.html">Analytics</a>
+    <a href="records.html">Records</a>
+    <a href="activities.html">Activities</a>
+    <a href="./">Dashboard</a>
+  </nav>
+</header>
+
+<div class="page-body">
+  <div class="toolbar">
+    <input type="text" id="searchInput" placeholder="Search entries..." />
+    <button class="toolbar-btn primary" id="newBtn">+ New Entry</button>
+    <button class="toolbar-btn" id="exportBtn">Export</button>
+    <button class="toolbar-btn" id="importBtn">Import</button>
+    <input type="file" id="importFile" accept=".json" style="display:none" />
+  </div>
+
+  <div class="tag-filters" id="tagFilters"></div>
+
+  <!-- Editor -->
+  <div class="editor-panel" id="editor">
+    <label>Title</label>
+    <input type="text" id="edTitle" placeholder="Entry title..." />
+    <div class="activity-info" id="edActivity" style="display:none"></div>
+    <label>Body (markdown)</label>
+    <textarea id="edBody" placeholder="Write your reflection..."></textarea>
+    <div class="md-preview" id="edPreview"></div>
+    <label>Tags (comma-separated)</label>
+    <input type="text" id="edTags" placeholder="recovery, pacing, interval" />
+    <div class="editor-actions">
+      <button class="toolbar-btn primary" id="edSave">Save</button>
+      <button class="toolbar-btn" id="edCancel">Cancel</button>
+      <button class="toolbar-btn" id="edDelete" style="display:none;color:var(--red);border-color:var(--red)">Delete</button>
+      <span class="preview-toggle" id="edPreviewToggle">Preview</span>
+    </div>
+  </div>
+
+  <div class="entry-list" id="entryList"></div>
+
+  <div class="data-actions">
+    <button class="toolbar-btn" id="exportBtn2">Export Data</button>
+    <button class="toolbar-btn" id="importBtn2">Import Data</button>
+    <input type="file" id="importFile2" accept=".json" style="display:none" />
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="storage.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var editingId = null;
+  var searchQuery = '';
+  var activeTag = null;
+  var previewOn = false;
+
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); }, 2000);
+  }
+
+  function fDate(iso) {
+    if (!iso) return '';
+    var d = new Date(iso);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  function escH(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function stripMd(s) {
+    return (s || '').replace(/[#*_`~>\[\]()]/g, '').replace(/\n/g, ' ').substring(0, 150);
+  }
+
+  function renderMarkdown(text) {
+    try {
+      var raw = marked.parse(text || '');
+      return DOMPurify.sanitize(raw);
+    } catch (e) {
+      return escH(text || '');
+    }
+  }
+
+  function getFilteredEntries() {
+    var all = GS.Journal.getAll();
+    if (searchQuery) {
+      var q = searchQuery.toLowerCase();
+      all = all.filter(function (j) {
+        return (j.title || '').toLowerCase().indexOf(q) >= 0 ||
+               (j.body || '').toLowerCase().indexOf(q) >= 0 ||
+               (j.activity_name || '').toLowerCase().indexOf(q) >= 0;
+      });
+    }
+    if (activeTag) {
+      all = all.filter(function (j) {
+        return (j.tags || []).indexOf(activeTag) >= 0;
+      });
+    }
+    return all;
+  }
+
+  function getAllTags() {
+    var tags = {};
+    GS.Journal.getAll().forEach(function (j) {
+      (j.tags || []).forEach(function (t) { tags[t] = (tags[t] || 0) + 1; });
+    });
+    return Object.keys(tags).sort().map(function (t) { return { name: t, count: tags[t] }; });
+  }
+
+  function renderTags() {
+    var tags = getAllTags();
+    var html = '<button class="tag-pill' + (!activeTag ? ' active' : '') + '" data-tag="">All</button>';
+    tags.forEach(function (t) {
+      html += '<button class="tag-pill' + (activeTag === t.name ? ' active' : '') + '" data-tag="' + escH(t.name) + '">' + escH(t.name) + ' (' + t.count + ')</button>';
+    });
+    var el = document.getElementById('tagFilters');
+    el.innerHTML = html;
+    el.querySelectorAll('.tag-pill').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        activeTag = btn.dataset.tag || null;
+        renderTags();
+        renderList();
+      });
+    });
+  }
+
+  function renderList() {
+    var entries = getFilteredEntries();
+    var list = document.getElementById('entryList');
+    if (!entries.length) {
+      list.innerHTML = '<div class="empty-state">' + (searchQuery || activeTag ? 'No matching entries.' : 'No journal entries yet. Create one!') + '</div>';
+      return;
+    }
+    list.innerHTML = entries.map(function (j) {
+      var tagsHtml = (j.tags || []).map(function (t) { return '<span class="entry-tag">' + escH(t) + '</span>'; }).join('');
+      var sourceHtml = j.source === 'ai_rec' ? '<span class="entry-source">AI Coach</span>' : '';
+      var actHtml = j.activity_name ? '<span class="entry-activity">' + escH(j.activity_name) + '</span>' : '';
+      return '<div class="entry-card' + (editingId === j.id ? ' active' : '') + '" data-id="' + j.id + '">' +
+        '<div class="entry-header">' +
+          '<span class="entry-title">' + escH(j.title || 'Untitled') + '</span>' +
+          '<span class="entry-date">' + fDate(j.created_at) + '</span>' +
+        '</div>' +
+        '<div class="entry-preview">' + escH(stripMd(j.body)) + '</div>' +
+        '<div class="entry-footer">' + tagsHtml + sourceHtml + actHtml + '</div>' +
+      '</div>';
+    }).join('');
+
+    list.querySelectorAll('.entry-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        openEditor(card.dataset.id);
+      });
+    });
+  }
+
+  function openEditor(id) {
+    var editor = document.getElementById('editor');
+    var deleteBtn = document.getElementById('edDelete');
+    if (id) {
+      var entry = GS.Journal.getById(id);
+      if (!entry) return;
+      editingId = id;
+      document.getElementById('edTitle').value = entry.title || '';
+      document.getElementById('edBody').value = entry.body || '';
+      document.getElementById('edTags').value = (entry.tags || []).join(', ');
+      var actEl = document.getElementById('edActivity');
+      if (entry.activity_name || entry.activity_date) {
+        actEl.textContent = 'Linked: ' + (entry.activity_name || '') + (entry.activity_date ? ' (' + entry.activity_date + ')' : '');
+        actEl.style.display = 'block';
+      } else {
+        actEl.style.display = 'none';
+      }
+      deleteBtn.style.display = 'inline-block';
+    } else {
+      editingId = null;
+      document.getElementById('edTitle').value = '';
+      document.getElementById('edBody').value = '';
+      document.getElementById('edTags').value = '';
+      document.getElementById('edActivity').style.display = 'none';
+      deleteBtn.style.display = 'none';
+    }
+    previewOn = false;
+    document.getElementById('edPreview').classList.remove('open');
+    editor.classList.add('open');
+    document.getElementById('edTitle').focus();
+    renderList();
+  }
+
+  function closeEditor() {
+    editingId = null;
+    document.getElementById('editor').classList.remove('open');
+    renderList();
+  }
+
+  // New entry
+  document.getElementById('newBtn').addEventListener('click', function () { openEditor(null); });
+
+  // Save
+  document.getElementById('edSave').addEventListener('click', function () {
+    var title = document.getElementById('edTitle').value.trim();
+    var body = document.getElementById('edBody').value.trim();
+    var tagsRaw = document.getElementById('edTags').value;
+    var tags = tagsRaw ? tagsRaw.split(',').map(function (t) { return t.trim(); }).filter(Boolean) : [];
+    if (!title && !body) return;
+    if (editingId) {
+      GS.Journal.update(editingId, { title: title || 'Untitled', body: body, tags: tags });
+      showToast('Entry updated');
+    } else {
+      GS.Journal.create({ title: title || 'Untitled', body: body, tags: tags });
+      showToast('Entry created');
+    }
+    closeEditor();
+    renderTags();
+    renderList();
+  });
+
+  // Cancel
+  document.getElementById('edCancel').addEventListener('click', function () { closeEditor(); });
+
+  // Delete
+  document.getElementById('edDelete').addEventListener('click', function () {
+    if (!editingId) return;
+    GS.Journal.remove(editingId);
+    showToast('Entry deleted');
+    closeEditor();
+    renderTags();
+    renderList();
+  });
+
+  // Preview toggle
+  document.getElementById('edPreviewToggle').addEventListener('click', function () {
+    previewOn = !previewOn;
+    var prev = document.getElementById('edPreview');
+    if (previewOn) {
+      prev.innerHTML = renderMarkdown(document.getElementById('edBody').value);
+      prev.classList.add('open');
+      this.textContent = 'Edit';
+    } else {
+      prev.classList.remove('open');
+      this.textContent = 'Preview';
+    }
+  });
+
+  // Search
+  var searchTimer = null;
+  document.getElementById('searchInput').addEventListener('input', function () {
+    var self = this;
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function () {
+      searchQuery = self.value.trim();
+      renderList();
+    }, 200);
+  });
+
+  // Export/Import (both toolbar and bottom)
+  function doExport() { GS.exportData(); }
+  function doImport(fileInput) {
+    fileInput.click();
+  }
+  function handleImport(e) {
+    if (!e.target.files[0]) return;
+    GS.importData(e.target.files[0], function (err, counts) {
+      if (err) { showToast('Import failed'); return; }
+      showToast('Imported ' + counts.journal + ' journal + ' + counts.todos + ' todos');
+      renderTags();
+      renderList();
+    });
+    e.target.value = '';
+  }
+
+  document.getElementById('exportBtn').addEventListener('click', doExport);
+  document.getElementById('exportBtn2').addEventListener('click', doExport);
+  document.getElementById('importBtn').addEventListener('click', function () { doImport(document.getElementById('importFile')); });
+  document.getElementById('importBtn2').addEventListener('click', function () { doImport(document.getElementById('importFile2')); });
+  document.getElementById('importFile').addEventListener('change', handleImport);
+  document.getElementById('importFile2').addEventListener('change', handleImport);
+
+  // Check URL params for pre-fill
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('new') === '1') {
+    setTimeout(function () {
+      openEditor(null);
+      if (params.get('title')) document.getElementById('edTitle').value = params.get('title');
+      if (params.get('body')) document.getElementById('edBody').value = params.get('body');
+    }, 100);
+  }
+
+  renderTags();
+  renderList();
+}());
+</script>
+</body>
+</html>

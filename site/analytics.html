@@ -6,6 +6,7 @@
   <title>Analytics | git-sweaty</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <script src="storage.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -101,6 +102,14 @@
     .ai-focus-sessions{display:flex;gap:6px;flex-wrap:wrap}
     .ai-focus-tag{background:rgba(167,139,250,.12);color:var(--purple);padding:3px 10px;border-radius:12px;font-size:11px}
     .ai-loading{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+    .ai-rec-actions{display:flex;gap:4px;margin-left:auto;flex-shrink:0}
+    .ai-act-btn{background:var(--card2);border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:11px;padding:3px 8px;border-radius:5px;cursor:pointer;transition:all .15s;line-height:1}
+    .ai-act-btn:hover{border-color:var(--accent);color:var(--text)}
+    .ai-act-btn.done{border-color:var(--green);color:var(--green)}
+    .ai-insight-row{display:flex;align-items:flex-start;gap:8px}
+    .ai-insight-row .ai-insight{flex:1}
+    .ai-rec-row{display:flex;align-items:flex-start;gap:0}
+    .ai-rec-row .ai-rec{flex:1}
     /* AI History Browser */
     .ai-hist-toggle{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:11px;padding:6px 14px;border-radius:8px;cursor:pointer;margin-top:12px;transition:all .15s}
     .ai-hist-toggle:hover{border-color:var(--accent);color:var(--text)}
@@ -127,6 +136,8 @@
   <nav class="header-nav">
     <a href="records.html">Records</a>
     <a href="activities.html">Activities</a>
+    <a href="journal.html">Journal</a>
+    <a href="todos.html">Todos</a>
     <a href="./">Dashboard</a>
   </nav>
 </header>
@@ -145,6 +156,7 @@
 </div>
 
 <script>
+function escH(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 var RUNNING=['Run','TrailRun','VirtualRun','run','trail_run','virtual_run'];
 var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 var ZONE_COLORS=['','#64748b','#22c55e','#eab308','#f97316','#ef4444'];
@@ -259,15 +271,15 @@ function renderAIEntry(entry){
   }
   if(d.insights&&d.insights.length){
     html+='<div class="ai-section-title">Training Insights</div><div class="ai-insights">';
-    d.insights.forEach(function(i){
-      html+='<div class="ai-insight '+i.severity+'"><div class="ai-insight-title">'+i.title+'</div><div class="ai-insight-body">'+i.body+'</div></div>';
+    d.insights.forEach(function(i,idx){
+      html+='<div class="ai-insight-row"><div class="ai-insight '+i.severity+'"><div class="ai-insight-title">'+i.title+'</div><div class="ai-insight-body">'+i.body+'</div></div><div class="ai-rec-actions"><button class="ai-act-btn" data-act="journal-insight" data-idx="'+idx+'" title="Save to Journal">📓</button></div></div>';
     });
     html+='</div>';
   }
   if(d.recommendations&&d.recommendations.length){
     html+='<div class="ai-section-title">Recommendations</div><div class="ai-recs">';
     d.recommendations.forEach(function(r,i){
-      html+='<div class="ai-rec"><div class="ai-rec-icon '+r.priority+'">'+(i+1)+'</div><div><div class="ai-rec-action">'+r.action+'</div><div class="ai-rec-reason">'+r.reason+'</div></div></div>';
+      html+='<div class="ai-rec-row"><div class="ai-rec"><div class="ai-rec-icon '+r.priority+'">'+(i+1)+'</div><div><div class="ai-rec-action">'+r.action+'</div><div class="ai-rec-reason">'+r.reason+'</div></div></div><div class="ai-rec-actions"><button class="ai-act-btn" data-act="journal-rec" data-idx="'+i+'" title="Save to Journal">📓</button><button class="ai-act-btn" data-act="todo-rec" data-idx="'+i+'" title="Add as Todo">☐</button></div></div>';
     });
     html+='</div>';
   }
@@ -323,6 +335,32 @@ function renderAI(){
   panel.querySelectorAll('[data-hidx]').forEach(function(btn){
     btn.addEventListener('click',function(){S.aiHistIdx=+btn.dataset.hidx;renderAI();});
   });
+
+  // Wire up AI action buttons (journal/todo from insights & recs)
+  if(typeof GS!=='undefined'){
+    var aiEntry=S.aiHistIdx>=0&&S.aiHistory[S.aiHistIdx]?S.aiHistory[S.aiHistIdx]:S.ai;
+    var aiD=aiEntry?aiEntry.insights:null;
+    var aiDate=aiEntry&&aiEntry.generated_at?aiEntry.generated_at.substring(0,10):'';
+    panel.querySelectorAll('[data-act]').forEach(function(btn){
+      btn.addEventListener('click',function(e){
+        e.stopPropagation();
+        var act=btn.dataset.act,idx=+btn.dataset.idx;
+        if(act==='journal-insight'&&aiD&&aiD.insights&&aiD.insights[idx]){
+          var ins=aiD.insights[idx];
+          GS.openJournalModal({title:ins.title,body:ins.body,source:'ai_rec',tags:['ai-insight']});
+          btn.classList.add('done');btn.textContent='✓';
+        }else if(act==='journal-rec'&&aiD&&aiD.recommendations&&aiD.recommendations[idx]){
+          var rec=aiD.recommendations[idx];
+          GS.openJournalModal({title:rec.action,body:rec.reason,source:'ai_rec',tags:['ai-recommendation']});
+          btn.classList.add('done');btn.textContent='✓';
+        }else if(act==='todo-rec'&&aiD&&aiD.recommendations&&aiD.recommendations[idx]){
+          var rec2=aiD.recommendations[idx];
+          GS.Todo.create({text:rec2.action,priority:rec2.priority||'medium',source:'ai_rec',source_detail:'Coach recommendation from '+aiDate});
+          btn.classList.add('done');btn.textContent='✓';
+        }
+      });
+    });
+  }
 }
 
 /* ── Main render ── */

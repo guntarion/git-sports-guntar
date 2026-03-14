@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todos | git-sweaty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0f172a;--card:#1e293b;--card2:#243048;--border:#334155;
+      --text:#f1f5f9;--muted:#94a3b8;
+      --accent:#00bbf9;--teal:#00f5d4;--purple:#a78bfa;--gold:#f59e0b;
+      --green:#22c55e;--orange:#f97316;--red:#ef4444;
+    }
+    body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;min-height:100vh;padding:0 0 60px}
+    a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+    header{background:var(--card);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10}
+    .header-title{font-size:18px;font-weight:700}
+    .header-nav a{color:var(--muted);font-size:12px;border:1px solid var(--border);padding:5px 12px;border-radius:6px;margin-left:8px;transition:color .15s,border-color .15s}
+    .header-nav a:hover{color:var(--text);border-color:var(--muted);text-decoration:none}
+    .page-body{max-width:800px;margin:0 auto;padding:20px 16px}
+
+    /* Quick add */
+    .quick-add{display:flex;gap:8px;margin-bottom:20px;align-items:stretch}
+    .quick-add input{flex:1;background:var(--card);border:1px solid var(--border);color:var(--text);font-family:inherit;font-size:12px;padding:10px 14px;border-radius:8px;outline:none;transition:border-color .15s}
+    .quick-add input:focus{border-color:var(--accent)}
+    .quick-add select{background:var(--card);border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:11px;padding:8px 10px;border-radius:8px;cursor:pointer}
+    .quick-add button{background:var(--accent);border:none;color:#000;font-family:inherit;font-size:12px;font-weight:700;padding:10px 18px;border-radius:8px;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .quick-add button:hover{background:var(--teal)}
+
+    /* Filters */
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+    .fbtn{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:11px;padding:4px 12px;border-radius:20px;cursor:pointer;transition:all .15s}
+    .fbtn:hover{border-color:var(--accent);color:var(--text)}
+    .fbtn.active{background:var(--accent);border-color:var(--accent);color:#000;font-weight:700}
+    .bulk-actions{margin-left:auto;display:flex;gap:8px}
+    .bulk-btn{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:11px;padding:4px 12px;border-radius:6px;cursor:pointer;transition:all .15s}
+    .bulk-btn:hover{border-color:var(--red);color:var(--red)}
+
+    /* Todo list */
+    .todo-list{display:flex;flex-direction:column;gap:4px}
+    .todo-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;display:flex;align-items:flex-start;gap:10px;transition:border-color .15s}
+    .todo-item:hover{border-color:#475569}
+    .todo-item.done{opacity:.5}
+    .todo-item.done .todo-text{text-decoration:line-through}
+
+    .todo-check{width:18px;height:18px;border:2px solid var(--border);border-radius:4px;cursor:pointer;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s;background:transparent}
+    .todo-check:hover{border-color:var(--accent)}
+    .todo-item.done .todo-check{background:var(--green);border-color:var(--green)}
+    .todo-item.done .todo-check::after{content:'✓';font-size:11px;color:#000;font-weight:700}
+
+    .todo-content{flex:1;min-width:0}
+    .todo-text{font-size:12px;line-height:1.4;word-break:break-word}
+    .todo-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;align-items:center}
+    .todo-meta span{font-size:10px;color:var(--muted)}
+    .prio-badge{display:inline-block;padding:1px 6px;border-radius:10px;font-size:9px;font-weight:700;text-transform:uppercase}
+    .prio-high{background:rgba(239,68,68,.15);color:var(--red)}
+    .prio-medium{background:rgba(0,187,249,.15);color:var(--accent)}
+    .prio-low{background:rgba(148,163,184,.15);color:var(--muted)}
+
+    .todo-actions{display:flex;gap:4px;flex-shrink:0}
+    .todo-actions button{background:transparent;border:1px solid transparent;color:var(--muted);font-size:12px;cursor:pointer;padding:2px 6px;border-radius:4px;transition:all .15s}
+    .todo-actions button:hover{color:var(--red);border-color:var(--red)}
+
+    /* Data actions */
+    .data-actions{margin-top:24px;padding-top:16px;border-top:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap}
+    .data-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:11px;padding:6px 14px;border-radius:6px;cursor:pointer;transition:all .15s}
+    .data-btn:hover{border-color:var(--accent);color:var(--text)}
+
+    /* Count badge */
+    .badge-count{background:rgba(0,187,249,.15);color:var(--accent);border-radius:10px;padding:1px 7px;font-size:10px;margin-left:4px}
+
+    /* Empty */
+    .empty-state{text-align:center;padding:40px 20px;color:var(--muted);font-size:12px}
+
+    /* Toast */
+    .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--green);color:#000;font-size:12px;font-weight:700;padding:8px 20px;border-radius:8px;z-index:1001;opacity:0;transition:opacity .3s}
+    .toast.show{opacity:1}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-title">Todos</div>
+  <nav class="header-nav">
+    <a href="journal.html">Journal</a>
+    <a href="analytics.html">Analytics</a>
+    <a href="records.html">Records</a>
+    <a href="activities.html">Activities</a>
+    <a href="./">Dashboard</a>
+  </nav>
+</header>
+
+<div class="page-body">
+  <div class="quick-add">
+    <input type="text" id="quickInput" placeholder="Add a new todo..." />
+    <select id="quickPrio">
+      <option value="high">High</option>
+      <option value="medium" selected>Medium</option>
+      <option value="low">Low</option>
+    </select>
+    <button id="quickAdd">Add</button>
+  </div>
+
+  <div class="filters">
+    <button class="fbtn active" data-filter="all">All</button>
+    <button class="fbtn" data-filter="active">Active</button>
+    <button class="fbtn" data-filter="done">Completed</button>
+    <div class="bulk-actions">
+      <button class="bulk-btn" id="clearDone">Clear completed</button>
+    </div>
+  </div>
+
+  <div class="todo-list" id="todoList"></div>
+
+  <div class="data-actions">
+    <button class="data-btn" id="exportBtn">Export Data</button>
+    <button class="data-btn" id="importBtn">Import Data</button>
+    <input type="file" id="importFile" accept=".json" style="display:none" />
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="storage.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var filter = 'all';
+
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); }, 2000);
+  }
+
+  function fDate(iso) {
+    if (!iso) return '';
+    var d = new Date(iso);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[d.getMonth()] + ' ' + d.getDate();
+  }
+
+  function escH(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function render() {
+    var all = GS.Todo.getAll();
+    var items = all;
+    if (filter === 'active') items = all.filter(function (t) { return !t.done; });
+    else if (filter === 'done') items = all.filter(function (t) { return t.done; });
+
+    var list = document.getElementById('todoList');
+    if (!items.length) {
+      var msg = filter === 'all' ? 'No todos yet. Add one above!' : 'No ' + filter + ' todos.';
+      list.innerHTML = '<div class="empty-state">' + msg + '</div>';
+      return;
+    }
+
+    list.innerHTML = items.map(function (t) {
+      var prioCls = 'prio-' + (t.priority || 'medium');
+      var sourceInfo = t.source === 'ai_rec' ? '<span>from AI Coach</span>' : '';
+      return '<div class="todo-item' + (t.done ? ' done' : '') + '" data-id="' + t.id + '">' +
+        '<div class="todo-check" data-action="toggle"></div>' +
+        '<div class="todo-content">' +
+          '<div class="todo-text">' + escH(t.text) + '</div>' +
+          '<div class="todo-meta">' +
+            '<span class="prio-badge ' + prioCls + '">' + (t.priority || 'medium') + '</span>' +
+            '<span>' + fDate(t.created_at) + '</span>' +
+            sourceInfo +
+          '</div>' +
+        '</div>' +
+        '<div class="todo-actions">' +
+          '<button data-action="delete" title="Delete">✕</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    // Wire up actions
+    list.querySelectorAll('[data-action="toggle"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var id = el.closest('.todo-item').dataset.id;
+        GS.Todo.toggle(id);
+        render();
+      });
+    });
+    list.querySelectorAll('[data-action="delete"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var id = el.closest('.todo-item').dataset.id;
+        GS.Todo.remove(id);
+        render();
+      });
+    });
+
+    // Update filter counts
+    var active = all.filter(function (t) { return !t.done; }).length;
+    var done = all.filter(function (t) { return t.done; }).length;
+    document.querySelectorAll('[data-filter]').forEach(function (btn) {
+      var f = btn.dataset.filter;
+      var count = f === 'all' ? all.length : f === 'active' ? active : done;
+      var label = f === 'all' ? 'All' : f === 'active' ? 'Active' : 'Completed';
+      btn.innerHTML = label + ' <span class="badge-count">' + count + '</span>';
+    });
+  }
+
+  // Quick add
+  document.getElementById('quickAdd').addEventListener('click', function () {
+    var input = document.getElementById('quickInput');
+    var text = input.value.trim();
+    if (!text) return;
+    GS.Todo.create({ text: text, priority: document.getElementById('quickPrio').value });
+    input.value = '';
+    render();
+    showToast('Todo added');
+  });
+  document.getElementById('quickInput').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') document.getElementById('quickAdd').click();
+  });
+
+  // Filters
+  document.querySelectorAll('[data-filter]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('[data-filter]').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      filter = btn.dataset.filter;
+      render();
+    });
+  });
+
+  // Clear completed
+  document.getElementById('clearDone').addEventListener('click', function () {
+    var done = GS.Todo.getAll().filter(function (t) { return t.done; }).length;
+    if (!done) return;
+    GS.Todo.clearCompleted();
+    render();
+    showToast(done + ' completed todo(s) cleared');
+  });
+
+  // Export/Import
+  document.getElementById('exportBtn').addEventListener('click', function () { GS.exportData(); });
+  document.getElementById('importBtn').addEventListener('click', function () { document.getElementById('importFile').click(); });
+  document.getElementById('importFile').addEventListener('change', function (e) {
+    if (!e.target.files[0]) return;
+    GS.importData(e.target.files[0], function (err, counts) {
+      if (err) { showToast('Import failed'); return; }
+      showToast('Imported ' + counts.journal + ' journal + ' + counts.todos + ' todos');
+      render();
+    });
+    e.target.value = '';
+  });
+
+  render();
+}());
+</script>
+</body>
+</html>
