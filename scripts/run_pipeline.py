@@ -290,6 +290,14 @@ def run_pipeline(
                 print(f"DB sync: {db_summary}")
             except Exception as exc:
                 print(f"Warning: DB sync failed (non-fatal): {exc}")
+        # AI insights (non-fatal)
+        qwen_key = os.environ.get("QWEN_API_KEY", "").strip()
+        if qwen_key:
+            try:
+                from generate_ai_insights import generate_ai_insights
+                generate_ai_insights()
+            except Exception as exc:
+                print(f"Warning: AI insights generation failed (non-fatal): {exc}")
         _persist_source(source)
     if update_readme_link:
         _update_readme_live_site_link()

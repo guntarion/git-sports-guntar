@@ -225,6 +225,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           UPDATE_README_LINK: ${{ github.event_name != 'workflow_dispatch' || inputs.update_readme_link }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -361,6 +362,9 @@ jobs:
           fi
           if [ -f site/activities.json ]; then
             cp site/activities.json "${data_worktree}/site/activities.json"
+          fi
+          if [ -f site/ai_insights.json ]; then
+            cp site/ai_insights.json "${data_worktree}/site/ai_insights.json"
           fi
 
           pushd "${data_worktree}" >/dev/null
