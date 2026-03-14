@@ -65,6 +65,8 @@ Powered by [Qwen](https://www.alibabacloud.com/en/product/modelstudio) (Alibaba 
 - Weekly focus theme with suggested sessions
 - **Smart skip**: AI does not re-run if no new running data (saves API tokens)
 
+![AI Coach Panel](docs/screenshot-ai.png)
+
 ### 🗄️ PostgreSQL Sync (Optional)
 Sync all activities, splits, and HR zone data to a PostgreSQL database for external analytics queries.
 
