@@ -15,7 +15,7 @@ from typing import Any, Dict, List, Optional
 
 ACTIVITIES_PATH = os.path.join("site", "activities.json")
 OUTPUT_PATH = os.path.join("site", "ai_insights.json")
-QWEN_ENDPOINT = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions"
+QWEN_ENDPOINT = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
 QWEN_MODEL = "qwen-plus"
 
 RUNNING_TYPES = {"run", "trailrun", "virtualrun", "trail_run", "virtual_run"}
