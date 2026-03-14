@@ -1,3 +1,14 @@
+## 2026-03-14 21:12:18
+
+docs: add Journal & Todos documentation and screenshots
+
+- Create docs/journal-todos.md with architecture, data schema, and API reference
+- Add Journal and Todos screenshots to docs/
+- Update README.md with Journal & Todos feature section and screenshots
+- Update Dashboard Pages table with Journal and Todos entries
+
+---
+
 ## 2026-03-14 20:02:01
 
 feat: add Journal & Todo List with localStorage persistence

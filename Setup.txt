@@ -241,3 +241,107 @@ Cara simpan GitHub Secret (untuk referensi ke depan):
 
   Saat ini AI insights terintegrasi di pipeline sync — jadi setiap sync jalan, AI juga jalan (jika key valid). Kalau kamu mau menjalankannya
    terpisah, kita bisa buat workflow khusus. Mau saya buatkan?
+
+
+    localStorage vs PostgreSQL
+
+  localStorage adalah storage bawaan browser. Data disimpan di device/browser pengguna, bukan di server. File storage.js menyediakan operasi
+   CRUD (Create/Read/Update/Delete) yang membaca dan menulis ke localStorage — jadi Journal dan Todo kamu hidup hanya di browser kamu.
+
+  Tidak ada hubungan dengan PostgreSQL yang sudah ada di pipeline. PostgreSQL (via sync_db.py) menyimpan data aktivitas dari Garmin — itu
+  backend pipeline. Tapi Journal/Todo tidak pernah menyentuh database itu.
+
+  Kenapa localStorage, bukan database?
+
+  GitHub Pages = static site. Artinya:
+  - Hanya bisa serve file HTML/CSS/JS — tidak ada server-side code
+  - Tidak bisa menjalankan Python, Node.js, PHP, atau API endpoint
+  - Tidak bisa menerima POST request atau menyimpan data dari user
+
+  Jadi satu-satunya tempat menyimpan data dari interaksi user di browser adalah localStorage.
+
+  Keterbatasan localStorage (in the long run)
+
+  ┌─────────────────┬────────────────────────────────────────────────────┐
+  │  Keterbatasan   │                       Dampak                       │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Device-bound    │ Journal di Chrome laptop tidak muncul di Safari HP │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Browser-bound   │ Pindah browser = data tidak ikut                   │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ ~5-10MB limit   │ Cukup untuk ratusan entry, tapi ada batasnya       │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Bisa terhapus   │ Clear browser data = hilang semua                  │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Tidak bisa sync │ Tidak ada cloud backup otomatis                    │
+  └─────────────────┴────────────────────────────────────────────────────┘
+
+  Mitigasi yang sudah dibuat
+
+  Fitur Export/Import JSON di halaman Journal dan Todos — backup manual ke file JSON, lalu restore di device/browser lain.
+
+  Kalau mau lebih robust di masa depan
+
+  Opsi upgrade kalau suatu saat dibutuhkan:
+
+  1. Firebase/Supabase — free tier database + auth, bisa dipanggil langsung dari JS (tanpa backend). Data sync across devices.
+  2. GitHub Issues sebagai storage — pakai GitHub API untuk simpan journal sebagai issue (hacky tapi gratis)
+  3. Migrate ke Next.js/Vercel — keluar dari GitHub Pages, punya API routes, bisa konek ke PostgreSQL yang sudah ada
+
+  Untuk saat ini, localStorage cukup memadai selama kamu satu device dan rajin export backup. Ini trade-off yang wajar untuk static site.
+
+
+Bukankah project ini berbasis python? Apa python hanya berfungsi untuk generate/build .html per jadwal waktu tertentu?
+artinya python berfungsi sebagai generator yang hanya jalan di awal (meskipun berulang setiap hari) dan tidak bisa dieksekusi ketika .html
+sudah online. Artinya, yg betul2 online, hanya html-nya saja. Kode python hanya berfungsi di belakang layar, di repo/komputer saya.
+
+⏺ Tepat sekali. Pemahaman kamu sudah benar. Saya konfirmasi:
+
+  Arsitektur Project Ini
+
+  ┌─────────────────────────────────────────────────┐
+  │  GITHUB ACTIONS (server GitHub, terjadwal)      │
+  │                                                 │
+  │  Python scripts jalan di sini:                  │
+  │  Garmin API → sync → enrich → normalize →       │
+  │  aggregate → generate JSON & HTML               │
+  │                                                 │
+  │  Output: site/data.json, site/activities.json,  │
+  │          site/ai_insights.json                  │
+  └────────────────────┬────────────────────────────┘
+                       │ push ke branch
+                       ▼
+  ┌─────────────────────────────────────────────────┐
+  │  GITHUB PAGES (static hosting)                  │
+  │                                                 │
+  │  Hanya serve file apa adanya:                   │
+  │  index.html, analytics.html, app.js, data.json  │
+  │                                                 │
+  │  ❌ Tidak bisa jalankan Python                   │
+  │  ❌ Tidak bisa terima form / POST request        │
+  │  ❌ Tidak bisa akses database                    │
+  │  ✅ Hanya kirim file ke browser pengunjung       │
+  └────────────────────┬────────────────────────────┘
+                       │ browser download file
+                       ▼
+  ┌─────────────────────────────────────────────────┐
+  │  BROWSER USER                                   │
+  │                                                 │
+  │  JavaScript berjalan di sini (di device user)   │
+  │  - Render heatmap, chart, tabel                 │
+  │  - Journal & Todo → localStorage (di browser)   │
+  │                                                 │
+  │  Tidak ada koneksi balik ke server              │
+  └─────────────────────────────────────────────────┘
+
+  Analoginya
+
+  Python di project ini seperti percetakan koran. Setiap hari jam 15:00 UTC, "mesin cetak" (GitHub Actions) jalan:
+  1. Ambil data terbaru dari Garmin
+  2. Proses dan generate file-file JSON
+  3. "Cetak" hasilnya dan taruh di rak (GitHub Pages)
+
+  Pengunjung datang ke rak, ambil koran yang sudah dicetak. Mereka tidak bisa masuk ke percetakannya.
+
+  Journal & Todo itu seperti catatan tempel yang pengunjung tulis sendiri di korannya — tersimpan di tangan mereka (browser), bukan di
+  percetakan.

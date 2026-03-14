@@ -67,6 +67,17 @@ Powered by [Qwen](https://www.alibabacloud.com/en/product/modelstudio) (Alibaba 
 
 ![AI Coach Panel](docs/screenshot-ai.png)
 
+### 📓 Journal & Todo List
+Capture AI Coach recommendations and personal reflections, stored in browser localStorage:
+- **Journal** — Markdown editor with search, tag filter, and preview toggle
+- **Todo list** — Quick add with priority, filters (All/Active/Completed), bulk clear
+- **Cross-page capture** — 📓 and ☐ buttons on AI recommendations in Analytics; 📓 Add Note on Records hero card
+- **Data portability** — Export/Import JSON backup to move data across devices
+
+![Journal Page](docs/screenshot-journal.png)
+
+![Todos Page](docs/screenshot-todos.png)
+
 ### 🗄️ PostgreSQL Sync (Optional)
 Sync all activities, splits, and HR zone data to a PostgreSQL database for external analytics queries.
 
@@ -135,6 +146,8 @@ Or via GitHub UI: **Actions → Sync Heatmaps → Run workflow**
 | Activities | `/activities.html` | Per-activity detail with HR zones & splits |
 | Analytics | `/analytics.html` | Running charts, monthly progress, AI Coach |
 | Records | `/records.html` | Leaderboards, PRs, split analysis |
+| Journal | `/journal.html` | Training reflections, markdown notes |
+| Todos | `/todos.html` | Action items from AI Coach & manual |
 
 ---
 
