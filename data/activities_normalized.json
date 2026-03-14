@@ -1416,5 +1416,41 @@
     "start_date_local": "2026-03-11T16:01:07",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "aerobic_te": 2.1,
+    "anaerobic_te": 0.1,
+    "avg_hr": 120,
+    "calories": 100,
+    "date": "2026-03-13",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "22164537697",
+    "max_hr": 148,
+    "moving_time": 842.8889770507812,
+    "name": "Cardio",
+    "raw_activity_type": "indoor_cardio",
+    "raw_type": "indoor_cardio",
+    "start_date_local": "2026-03-13T16:41:11",
+    "type": "Workout",
+    "year": 2026
+  },
+  {
+    "aerobic_te": 1.7,
+    "anaerobic_te": 2.0,
+    "avg_hr": 110,
+    "calories": 168,
+    "date": "2026-03-13",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "22164538088",
+    "max_hr": 162,
+    "moving_time": 1473.803955078125,
+    "name": "Strength",
+    "raw_activity_type": "strength_training",
+    "raw_type": "strength_training",
+    "start_date_local": "2026-03-13T16:58:43",
+    "type": "WeightTraining",
+    "year": 2026
   }
 ]

@@ -1,0 +1,30 @@
+{
+  "hr_zones": [
+    {
+      "low_bpm": 87,
+      "seconds": 267,
+      "zone": 1
+    },
+    {
+      "low_bpm": 116,
+      "seconds": 531,
+      "zone": 2
+    },
+    {
+      "low_bpm": 144,
+      "seconds": 9,
+      "zone": 3
+    },
+    {
+      "low_bpm": 158,
+      "seconds": 0,
+      "zone": 4
+    },
+    {
+      "low_bpm": 173,
+      "seconds": 0,
+      "zone": 5
+    }
+  ],
+  "id": "22164537697"
+}
