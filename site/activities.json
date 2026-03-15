@@ -1,6 +1,49 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.6,
+      "anaerobic_te": 0.3,
+      "avg_hr": 96,
+      "calories": 124,
+      "date": "2026-03-15",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 1335,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 137,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22181009390",
+      "max_hr": 130,
+      "moving_time": 1822.0,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-03-15T18:57:42",
+      "type": "Workout"
+    },
+    {
       "aerobic_te": 0.8,
       "avg_cadence": 104,
       "avg_hr": 132,
@@ -4162,7 +4205,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-03-14T15:11:42.259363+00:00",
+  "generated_at": "2026-03-15T15:12:31.512228+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

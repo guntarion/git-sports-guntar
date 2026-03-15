@@ -1423,5 +1423,23 @@
     "type": "Walk",
     "vo2_max": 33.0,
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.6,
+    "anaerobic_te": 0.3,
+    "avg_hr": 96,
+    "calories": 124,
+    "date": "2026-03-15",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "22181009390",
+    "max_hr": 130,
+    "moving_time": 1821.9940185546875,
+    "name": "Cardio",
+    "raw_activity_type": "indoor_cardio",
+    "raw_type": "indoor_cardio",
+    "start_date_local": "2026-03-15T18:57:42",
+    "type": "Workout",
+    "year": 2026
   }
 ]
