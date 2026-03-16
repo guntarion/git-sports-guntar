@@ -341,6 +341,52 @@
       color: var(--text-dim);
       font-size: 0.85rem;
     }
+
+    /* Export controls */
+    .export-bar {
+      max-width: 1100px;
+      margin: 0 auto 1rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0.6rem 0.8rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .export-bar .export-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-right: 0.25rem;
+    }
+    .export-bar select {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.72rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .export-bar .export-btn {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.72rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .export-bar .export-btn:hover { border-color: var(--accent); color: var(--text); }
+    .export-bar .export-note {
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      margin-left: auto;
+    }
   </style>
 </head>
 <body>
@@ -365,6 +411,19 @@
 </div>
 
 <div class="results-info" id="results-info"></div>
+
+<div class="export-bar" id="export-bar" style="display:none">
+  <span class="export-label">Export Running:</span>
+  <select id="exportCount">
+    <option value="1">1 activity</option>
+    <option value="5" selected>5 activities</option>
+    <option value="10">10 activities</option>
+    <option value="20">20 activities</option>
+  </select>
+  <button class="export-btn" id="exportJson">Download JSON</button>
+  <button class="export-btn" id="exportCsv">Download CSV</button>
+  <span class="export-note">newest first, AI-friendly format</span>
+</div>
 
 <div class="activities-list" id="activities-list">
   <div class="loading-state">Loading activities&hellip;</div>
@@ -753,6 +812,155 @@
     });
   }
 
+  // ── export helpers ──────────────────────────────────────────────────────
+
+  var RUNNING_TYPES = ['Run', 'TrailRun', 'VirtualRun', 'run', 'trail_run', 'virtual_run'];
+
+  function isRunning(a) {
+    var t = (a.type || a.raw_type || '').toLowerCase();
+    return RUNNING_TYPES.some(function (r) { return r.toLowerCase() === t; });
+  }
+
+  function getRunningActivities() {
+    return allActivities.filter(function (a) {
+      return isRunning(a) && a.distance > 0;
+    });
+  }
+
+  function fmtPaceRaw(secsPerKm) {
+    if (!secsPerKm || secsPerKm <= 0) return null;
+    var m = Math.floor(secsPerKm / 60);
+    var s = Math.floor(secsPerKm % 60);
+    return m + ':' + String(s).padStart(2, '0');
+  }
+
+  function buildExportRecord(act) {
+    var rec = {
+      date: act.date || null,
+      name: act.name || null,
+      type: act.type || act.raw_type || null,
+      distance_km: act.distance ? +(act.distance / 1000).toFixed(3) : null,
+      distance_m: act.distance || null,
+      moving_time_seconds: act.moving_time || null,
+      moving_time_formatted: fmtDuration(act.moving_time),
+      avg_pace_secs_per_km: act.avg_pace_secs_per_km || null,
+      avg_pace_formatted: fmtPaceRaw(act.avg_pace_secs_per_km) ? fmtPaceRaw(act.avg_pace_secs_per_km) + '/km' : null,
+      avg_hr_bpm: act.avg_hr || null,
+      max_hr_bpm: act.max_hr || null,
+      elevation_gain_m: act.elevation_gain || null,
+      calories: act.calories || null,
+      avg_cadence_spm: act.avg_cadence || null,
+      aerobic_te: act.aerobic_te || null,
+      anaerobic_te: act.anaerobic_te || null,
+      vo2_max: act.vo2_max || null,
+      avg_stride_length_m: act.avg_stride_len || null,
+      avg_vertical_oscillation_cm: act.avg_vertical_osc || null,
+      avg_ground_contact_ms: act.avg_ground_contact || null,
+      tss: act.tss || null,
+      hr_zones: (act.hr_zones && act.hr_zones.length > 0) ? act.hr_zones.map(function (z) {
+        return {
+          zone: z.zone,
+          name: zoneName(z.zone),
+          seconds: z.seconds || 0,
+          low_bpm: z.low_bpm || null,
+          high_bpm: z.high_bpm || null
+        };
+      }) : [],
+      splits: (act.splits && act.splits.length > 0) ? act.splits.map(function (s, i) {
+        return {
+          split_num: s.split_num || (i + 1),
+          distance_m: s.distance || null,
+          pace_secs_per_km: s.pace_secs_per_km || null,
+          pace_formatted: fmtPaceRaw(s.pace_secs_per_km) ? fmtPaceRaw(s.pace_secs_per_km) + '/km' : null,
+          avg_hr_bpm: s.avg_hr || null,
+          elevation_gain_m: s.elevation_gain || s.elevation_gain_m || null
+        };
+      }) : []
+    };
+    return rec;
+  }
+
+  function exportJSON(count) {
+    var runs = getRunningActivities().slice(0, count);
+    var payload = {
+      _metadata: {
+        description: 'Running activities exported from git-sweaty dashboard for AI analysis',
+        exported_at: new Date().toISOString(),
+        activity_count: runs.length,
+        total_running_available: getRunningActivities().length,
+        units: { distance: 'km/meters', pace: 'seconds per km', heart_rate: 'bpm', elevation: 'meters', cadence: 'steps per minute', stride: 'meters', vertical_oscillation: 'cm', ground_contact: 'ms' },
+        notes: 'Activities sorted newest first. Each activity includes per-km splits and HR zone distribution when available.'
+      },
+      activities: runs.map(buildExportRecord)
+    };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'running_activities_' + count + '_' + new Date().toISOString().slice(0, 10) + '.json';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  function exportCSV(count) {
+    var runs = getRunningActivities().slice(0, count);
+    var headers = [
+      'date', 'name', 'type', 'distance_km', 'moving_time_seconds', 'moving_time_formatted',
+      'avg_pace_secs_per_km', 'avg_pace_formatted', 'avg_hr_bpm', 'max_hr_bpm',
+      'elevation_gain_m', 'calories', 'avg_cadence_spm',
+      'aerobic_te', 'anaerobic_te', 'vo2_max',
+      'avg_stride_length_m', 'avg_vertical_oscillation_cm', 'avg_ground_contact_ms', 'tss',
+      'hr_z1_seconds', 'hr_z2_seconds', 'hr_z3_seconds', 'hr_z4_seconds', 'hr_z5_seconds',
+      'splits_count', 'fastest_split_pace_secs', 'slowest_split_pace_secs'
+    ];
+    var rows = [headers.join(',')];
+    runs.forEach(function (act) {
+      var r = buildExportRecord(act);
+      var zSecs = [0, 0, 0, 0, 0];
+      r.hr_zones.forEach(function (z) { if (z.zone >= 1 && z.zone <= 5) zSecs[z.zone - 1] = z.seconds; });
+      var splitPaces = r.splits.filter(function (s) { return s.pace_secs_per_km > 0; }).map(function (s) { return s.pace_secs_per_km; });
+      var fastest = splitPaces.length ? Math.min.apply(null, splitPaces) : '';
+      var slowest = splitPaces.length ? Math.max.apply(null, splitPaces) : '';
+      var vals = [
+        r.date || '', csvQ(r.name), r.type || '', r.distance_km || '', r.moving_time_seconds || '', csvQ(r.moving_time_formatted),
+        r.avg_pace_secs_per_km || '', csvQ(r.avg_pace_formatted), r.avg_hr_bpm || '', r.max_hr_bpm || '',
+        r.elevation_gain_m || '', r.calories || '', r.avg_cadence_spm || '',
+        r.aerobic_te || '', r.anaerobic_te || '', r.vo2_max || '',
+        r.avg_stride_length_m || '', r.avg_vertical_oscillation_cm || '', r.avg_ground_contact_ms || '', r.tss || '',
+        zSecs[0], zSecs[1], zSecs[2], zSecs[3], zSecs[4],
+        r.splits.length, fastest, slowest
+      ];
+      rows.push(vals.join(','));
+    });
+    // Add splits sheet as second section
+    rows.push('');
+    rows.push('# Per-km splits detail (one row per split)');
+    rows.push('activity_date,activity_name,split_num,distance_m,pace_secs_per_km,pace_formatted,avg_hr_bpm,elevation_gain_m');
+    runs.forEach(function (act) {
+      var r = buildExportRecord(act);
+      r.splits.forEach(function (s) {
+        rows.push([
+          r.date || '', csvQ(r.name), s.split_num, s.distance_m || '', s.pace_secs_per_km || '',
+          csvQ(s.pace_formatted), s.avg_hr_bpm || '', s.elevation_gain_m || ''
+        ].join(','));
+      });
+    });
+    var blob = new Blob([rows.join('\n')], { type: 'text/csv' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'running_activities_' + count + '_' + new Date().toISOString().slice(0, 10) + '.csv';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  function csvQ(val) {
+    if (val === null || val === undefined) return '';
+    var s = String(val);
+    if (s.indexOf(',') >= 0 || s.indexOf('"') >= 0 || s.indexOf('\n') >= 0) {
+      return '"' + s.replace(/"/g, '""') + '"';
+    }
+    return s;
+  }
+
   // ── boot ──────────────────────────────────────────────────────────────────
 
   fetch('./activities.json')
@@ -769,6 +977,18 @@
       buildTypeFilters(allActivities);
       buildYearFilters(allActivities);
       renderList();
+
+      // Show export bar if there are running activities
+      var runCount = getRunningActivities().length;
+      if (runCount > 0) {
+        document.getElementById('export-bar').style.display = 'flex';
+        document.getElementById('exportJson').addEventListener('click', function () {
+          exportJSON(+document.getElementById('exportCount').value);
+        });
+        document.getElementById('exportCsv').addEventListener('click', function () {
+          exportCSV(+document.getElementById('exportCount').value);
+        });
+      }
     })
     .catch(function (err) {
       var list = document.getElementById('activities-list');
