@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-03-16T15:35:16Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "32:2026-03-14:112746",
+    "insights": {
+      "monthly_review": {
+        "summary": "You've significantly increased intensity this month, trading volume for quality — pace improved sharply while total distance dropped, and HR zone distribution shifted toward higher intensities.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "19.8 km",
+            "previous": "51.8 km",
+            "change": "-32.0 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Number of Runs",
+            "current": "4",
+            "previous": "16",
+            "change": "-12",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": "538",
+            "previous": "612",
+            "change": "-74",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": "144",
+            "previous": "135",
+            "change": "+9",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": "3.0",
+            "previous": "2.7",
+            "change": "+0.3",
+            "verdict": "improved"
+          },
+          {
+            "name": "Aerobic Efficiency (m/sec per bpm)",
+            "current": "13.0",
+            "previous": "12.54",
+            "change": "+0.46",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": "151",
+            "previous": "128",
+            "change": "+23",
+            "verdict": "improved"
+          }
+        ],
+        "highlight": "Cadence increased by 23 spm month-over-month — the largest absolute improvement across all metrics, reflecting a meaningful shift toward more economical turnover."
+      },
+      "goal_tracker": {
+        "km_this_month": 19.8,
+        "km_last_month": 51.8,
+        "km_remaining": 32.0,
+        "sessions_this_month": 4,
+        "sessions_last_month": 16,
+        "sessions_remaining": 12,
+        "projection": "Behind",
+        "message": "You need 32.0 more km across 12 remaining sessions to match last month’s volume — averaging 2.7 km per session over the next 16 days."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Efficiency improved despite higher intensity",
+          "body": "Aerobic efficiency rose from 12.54 to 13.0 m/sec per bpm even as average HR increased +9 bpm and avg pace improved — indicating better cardiovascular economy at faster efforts.",
+          "severity": "positive"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Zone 3 dominance with underutilized Zone 1",
+          "body": "This month, only 1% of time was spent in Zone 1 (recovery), down from 8% last month, while Zone 3 rose to 33% (vs 36% last month) and Zone 4 jumped to 14% (vs 11%). This suggests reduced recovery stimulus and potential fatigue accumulation.",
+          "severity": "warning"
+        },
+        {
+          "category": "running_form",
+          "title": "Cadence surge aligns with shorter, quicker strides",
+          "body": "Cadence increased from 128 to 151 spm, while stride length averaged 73–74 cm in recent runs — down from 79.8 cm on 2026-03-04 — confirming a deliberate shift toward higher turnover and reduced overstriding.",
+          "severity": "positive"
+        },
+        {
+          "category": "training_load",
+          "title": "Aerobic TE remains moderate despite pace gains",
+          "body": "Despite faster paces and elevated HR, average aerobic TE is only 3.0 (this month) vs 2.7 (last month) — suggesting your current load is still sustainable, but the jump in Zone 4 time (14%) signals emerging threshold work that needs careful recovery pairing.",
+          "severity": "neutral"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Do one 45-min Zone 2 run (HR ≤135 bpm) at 9:00–9:45 min/km pace within the next 3 days",
+          "reason": "To restore Zone 1/2 volume — currently only 1% Z1 and 50% Z2 this month — and counterbalance recent high-intensity time (47% in Z3+Z4).",
+          "priority": "high"
+        },
+        {
+          "action": "Perform a 3-km progression run: 1 km @ 8:45 min/km (Z3), 1 km @ 8:15 min/km (upper Z3/lower Z4), 1 km @ 7:50 min/km (Z4), with full recovery between segments",
+          "reason": "Your best recent pace is 7:55 min/km (475 sec/km on 2026-02-28), and Z4 time increased to 14% — this session safely targets VO₂ max stimulus without exceeding current capacity.",
+          "priority": "high"
+        },
+        {
+          "action": "Add 2 × 30-sec barefoot strides on grass post-run (after any easy run this week), focusing on light footstrike and 160+ spm cadence",
+          "reason": "Recent ground contact time (314–325 ms) and vertical oscillation (7.7–8.3 cm) are stable but could improve — strides reinforce neuromuscular efficiency gains seen in cadence (+23 spm).",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Rhythm & Recovery Integration",
+        "description": "Balance newly developed speed and turnover with intentional low-HR volume to solidify aerobic gains and prevent residual fatigue from increased Z3/Z4 exposure.",
+        "suggested_sessions": [
+          "45-min Zone 2 steady run (HR ≤135 bpm)",
+          "3-km progression run (Z3→Z4)",
+          "Easy 5-km run + 2×30-sec barefoot strides"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-03-15T15:15:27Z",
     "model": "qwen-plus",
     "running_fingerprint": "32:2026-03-14:112746",
