@@ -1,3 +1,13 @@
+## 2026-03-23 12:19:24
+
+feat: add Garmin token refresh command and update sync schedule
+
+- Add scripts/refresh_garmin_tokens.py to automate OAuth token renewal
+- Add /refresh-garmin-tokens slash command for quick token refresh
+- Change sync schedule from 15:00 UTC (10 PM GMT+7) to 02:00 UTC (9 AM GMT+7)
+
+---
+
 ## 2026-03-16 08:27:41
 
 feat: add running data export (JSON/CSV) for AI analysis
