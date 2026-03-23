@@ -1,6 +1,693 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.9,
+      "avg_cadence": 87,
+      "avg_hr": 84,
+      "avg_pace_secs_per_km": 864,
+      "avg_stride_len": 79.55,
+      "calories": 327,
+      "date": "2026-03-23",
+      "distance": 5165.8,
+      "elevation_gain": 3.0,
+      "hr_zones": [
+        {
+          "low_bpm": 88,
+          "seconds": 1319,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 145,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 159,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 174,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22266747237",
+      "max_hr": 98,
+      "moving_time": 3948.4,
+      "name": "Surakarta Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 87,
+          "avg_speed_mps": 1.363,
+          "distance": 1000.0,
+          "duration": 733.4,
+          "elevation_gain": 2.0,
+          "max_hr": 97,
+          "pace_secs_per_km": 734
+        },
+        {
+          "avg_hr": 83,
+          "avg_speed_mps": 1.09,
+          "distance": 1000.0,
+          "duration": 828.0,
+          "max_hr": 94,
+          "pace_secs_per_km": 917
+        },
+        {
+          "avg_hr": 81,
+          "avg_speed_mps": 1.047,
+          "distance": 1000.0,
+          "duration": 765.0,
+          "elevation_gain": 1.0,
+          "max_hr": 95,
+          "pace_secs_per_km": 955
+        },
+        {
+          "avg_hr": 87,
+          "avg_speed_mps": 1.276,
+          "distance": 1000.0,
+          "duration": 770.0,
+          "max_hr": 95,
+          "pace_secs_per_km": 784
+        },
+        {
+          "avg_hr": 82,
+          "avg_speed_mps": 1.045,
+          "distance": 1000.0,
+          "duration": 737.0,
+          "max_hr": 94,
+          "pace_secs_per_km": 957
+        },
+        {
+          "avg_hr": 92,
+          "avg_speed_mps": 1.431,
+          "distance": 165.8,
+          "duration": 115.0,
+          "max_hr": 98,
+          "pace_secs_per_km": 699
+        }
+      ],
+      "start_date_local": "2026-03-23T06:48:47",
+      "type": "Walk",
+      "vo2_max": 35.0
+    },
+    {
+      "aerobic_te": 0.5,
+      "anaerobic_te": 0.1,
+      "avg_hr": 99,
+      "calories": 80,
+      "date": "2026-03-22",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 88,
+          "seconds": 853,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 73,
+          "zone": 2
+        },
+        {
+          "low_bpm": 145,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 159,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 174,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22254678756",
+      "max_hr": 136,
+      "moving_time": 1090.4,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-03-22T07:34:39",
+      "type": "Workout"
+    },
+    {
+      "aerobic_te": 2.3,
+      "avg_cadence": 113,
+      "avg_hr": 108,
+      "avg_pace_secs_per_km": 694,
+      "avg_stride_len": 76.45,
+      "calories": 268,
+      "date": "2026-03-22",
+      "distance": 3887.3,
+      "elevation_gain": 107.0,
+      "hr_zones": [
+        {
+          "low_bpm": 88,
+          "seconds": 1498,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 993,
+          "zone": 2
+        },
+        {
+          "low_bpm": 145,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 159,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 174,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22254574760",
+      "max_hr": 137,
+      "moving_time": 2588.0,
+      "name": "Wonogiri Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 110,
+          "avg_speed_mps": 1.628,
+          "distance": 1000.0,
+          "duration": 597.0,
+          "elevation_gain": 48.0,
+          "max_hr": 130,
+          "pace_secs_per_km": 614
+        },
+        {
+          "avg_hr": 110,
+          "avg_speed_mps": 1.286,
+          "distance": 1000.0,
+          "duration": 717.0,
+          "elevation_gain": 45.0,
+          "max_hr": 135,
+          "pace_secs_per_km": 778
+        },
+        {
+          "avg_hr": 106,
+          "avg_speed_mps": 1.414,
+          "distance": 1000.0,
+          "duration": 695.0,
+          "elevation_gain": 12.0,
+          "max_hr": 137,
+          "pace_secs_per_km": 707
+        },
+        {
+          "avg_hr": 104,
+          "avg_speed_mps": 1.48,
+          "distance": 887.3,
+          "duration": 579.0,
+          "elevation_gain": 3.0,
+          "max_hr": 124,
+          "pace_secs_per_km": 676
+        }
+      ],
+      "start_date_local": "2026-03-22T06:44:23",
+      "type": "Walk",
+      "vo2_max": 33.0
+    },
+    {
+      "aerobic_te": 3.7,
+      "anaerobic_te": 2.1,
+      "avg_cadence": 145,
+      "avg_ground_contact": 319,
+      "avg_hr": 151,
+      "avg_pace_secs_per_km": 525,
+      "avg_stride_len": 77.25,
+      "avg_vertical_osc": 7.8,
+      "calories": 456,
+      "date": "2026-03-21",
+      "distance": 6007.5,
+      "elevation_gain": 106.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 23,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 379,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 2213,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 496,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 46,
+          "zone": 5
+        }
+      ],
+      "id": "22246382422",
+      "max_hr": 176,
+      "moving_time": 3149.6,
+      "name": "Wonogiri Running",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 143,
+          "avg_speed_mps": 2.027,
+          "distance": 1000.0,
+          "duration": 493.0,
+          "elevation_gain": 21.0,
+          "max_hr": 154,
+          "pace_secs_per_km": 493
+        },
+        {
+          "avg_hr": 153,
+          "avg_speed_mps": 1.632,
+          "distance": 1000.0,
+          "duration": 612.6,
+          "elevation_gain": 47.0,
+          "max_hr": 164,
+          "pace_secs_per_km": 613
+        },
+        {
+          "avg_hr": 151,
+          "avg_speed_mps": 1.945,
+          "distance": 1000.0,
+          "duration": 512.0,
+          "elevation_gain": 14.0,
+          "max_hr": 160,
+          "pace_secs_per_km": 514
+        },
+        {
+          "avg_hr": 154,
+          "avg_speed_mps": 1.971,
+          "distance": 1000.0,
+          "duration": 507.0,
+          "elevation_gain": 4.0,
+          "max_hr": 159,
+          "pace_secs_per_km": 507
+        },
+        {
+          "avg_hr": 156,
+          "avg_speed_mps": 2.201,
+          "distance": 1000.0,
+          "duration": 453.0,
+          "elevation_gain": 6.0,
+          "max_hr": 176,
+          "pace_secs_per_km": 454
+        },
+        {
+          "avg_hr": 150,
+          "avg_speed_mps": 1.75,
+          "distance": 1000.0,
+          "duration": 570.0,
+          "elevation_gain": 15.0,
+          "max_hr": 168,
+          "pace_secs_per_km": 571
+        },
+        {
+          "avg_hr": 163,
+          "avg_speed_mps": 2.164,
+          "distance": 7.5,
+          "duration": 2.0,
+          "max_hr": 163,
+          "pace_secs_per_km": 462
+        }
+      ],
+      "start_date_local": "2026-03-21T16:22:33",
+      "type": "Run",
+      "vo2_max": 33.0
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_cadence": 92,
+      "avg_hr": 91,
+      "avg_pace_secs_per_km": 869,
+      "avg_stride_len": 74.74,
+      "calories": 24,
+      "date": "2026-03-21",
+      "distance": 370.9,
+      "elevation_gain": 8.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 262,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22244215972",
+      "max_hr": 114,
+      "moving_time": 299.0,
+      "name": "Wonogiri Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 91,
+          "avg_speed_mps": 1.151,
+          "distance": 370.9,
+          "duration": 299.0,
+          "elevation_gain": 8.0,
+          "max_hr": 114,
+          "pace_secs_per_km": 869
+        }
+      ],
+      "start_date_local": "2026-03-21T11:53:21",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 2.0,
+      "avg_cadence": 107,
+      "avg_hr": 110,
+      "avg_pace_secs_per_km": 722,
+      "avg_stride_len": 77.47,
+      "calories": 166,
+      "date": "2026-03-20",
+      "distance": 2350.8,
+      "elevation_gain": 42.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 853,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 706,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22235778459",
+      "max_hr": 141,
+      "moving_time": 1625.0,
+      "name": "Wonogiri Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 96,
+          "avg_speed_mps": 1.284,
+          "distance": 1000.0,
+          "duration": 758.0,
+          "elevation_gain": 8.0,
+          "max_hr": 127,
+          "pace_secs_per_km": 779
+        },
+        {
+          "avg_hr": 125,
+          "avg_speed_mps": 1.546,
+          "distance": 1000.0,
+          "duration": 635.0,
+          "elevation_gain": 30.0,
+          "max_hr": 141,
+          "pace_secs_per_km": 647
+        },
+        {
+          "avg_hr": 113,
+          "avg_speed_mps": 1.3,
+          "distance": 350.8,
+          "duration": 232.0,
+          "elevation_gain": 5.0,
+          "max_hr": 124,
+          "pace_secs_per_km": 769
+        }
+      ],
+      "start_date_local": "2026-03-20T17:01:36",
+      "type": "Walk",
+      "vo2_max": 33.0
+    },
+    {
+      "aerobic_te": 2.3,
+      "avg_cadence": 145,
+      "avg_ground_contact": 342,
+      "avg_hr": 123,
+      "avg_pace_secs_per_km": 608,
+      "avg_stride_len": 67.51,
+      "avg_vertical_osc": 7.3,
+      "calories": 293,
+      "date": "2026-03-19",
+      "distance": 4356.2,
+      "elevation_gain": 15.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 412,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 2237,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22226482701",
+      "max_hr": 137,
+      "moving_time": 2648.5,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 118,
+          "avg_speed_mps": 1.7,
+          "distance": 1000.0,
+          "duration": 588.4,
+          "elevation_gain": 5.0,
+          "max_hr": 128,
+          "pace_secs_per_km": 588
+        },
+        {
+          "avg_hr": 124,
+          "avg_speed_mps": 1.675,
+          "distance": 1000.0,
+          "duration": 597.1,
+          "elevation_gain": 2.0,
+          "max_hr": 131,
+          "pace_secs_per_km": 597
+        },
+        {
+          "avg_hr": 124,
+          "avg_speed_mps": 1.64,
+          "distance": 1000.0,
+          "duration": 609.0,
+          "elevation_gain": 3.0,
+          "max_hr": 137,
+          "pace_secs_per_km": 610
+        },
+        {
+          "avg_hr": 125,
+          "avg_speed_mps": 1.587,
+          "distance": 1000.0,
+          "duration": 630.0,
+          "elevation_gain": 3.0,
+          "max_hr": 131,
+          "pace_secs_per_km": 630
+        },
+        {
+          "avg_hr": 124,
+          "avg_speed_mps": 1.586,
+          "distance": 356.2,
+          "duration": 224.0,
+          "elevation_gain": 1.0,
+          "max_hr": 131,
+          "pace_secs_per_km": 631
+        }
+      ],
+      "start_date_local": "2026-03-19T16:06:02",
+      "type": "Run",
+      "vo2_max": 33.0
+    },
+    {
+      "aerobic_te": 0.7,
+      "anaerobic_te": 1.3,
+      "avg_hr": 92,
+      "calories": 130,
+      "date": "2026-03-18",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 1180,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 130,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 17,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22212203662",
+      "max_hr": 155,
+      "moving_time": 1489.9,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-03-18T15:44:53",
+      "type": "WeightTraining"
+    },
+    {
+      "avg_hr": 71,
+      "date": "2026-03-18",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 0,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22207757789",
+      "max_hr": 84,
+      "moving_time": 1741.1,
+      "name": "Meditation",
+      "raw_type": "meditation",
+      "start_date_local": "2026-03-18T02:43:24",
+      "type": "meditation"
+    },
+    {
+      "avg_hr": 65,
+      "date": "2026-03-18",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 87,
+          "seconds": 0,
+          "zone": 1
+        },
+        {
+          "low_bpm": 116,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 158,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 173,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22207185543",
+      "max_hr": 78,
+      "moving_time": 1201.2,
+      "name": "Meditation",
+      "raw_type": "meditation",
+      "start_date_local": "2026-03-18T02:00:55",
+      "type": "meditation"
+    },
+    {
       "aerobic_te": 0.1,
       "avg_hr": 77,
       "calories": 40,
@@ -4247,7 +4934,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-03-17T15:30:56.150350+00:00",
+  "generated_at": "2026-03-23T03:58:09.021828+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-17T15:30:53.135455+00:00",
+  "generated_at": "2026-03-23T03:58:01.254161+00:00",
   "years": {
     "2026": {
       "Hike": {
@@ -223,6 +223,24 @@
           "distance": 5107.27001953125,
           "elevation_gain": 2.0,
           "moving_time": 2715.35400390625
+        },
+        "2026-03-19": {
+          "activity_ids": [
+            "22226482701"
+          ],
+          "count": 1,
+          "distance": 4356.2099609375,
+          "elevation_gain": 15.0,
+          "moving_time": 2648.509033203125
+        },
+        "2026-03-21": {
+          "activity_ids": [
+            "22246382422"
+          ],
+          "count": 1,
+          "distance": 6007.4501953125,
+          "elevation_gain": 106.0,
+          "moving_time": 3149.614990234375
         }
       },
       "VirtualRun": {
@@ -363,6 +381,42 @@
           "distance": 803.27001953125,
           "elevation_gain": 0.0,
           "moving_time": 601.0
+        },
+        "2026-03-20": {
+          "activity_ids": [
+            "22235778459"
+          ],
+          "count": 1,
+          "distance": 2350.820068359375,
+          "elevation_gain": 42.0,
+          "moving_time": 1625.0
+        },
+        "2026-03-21": {
+          "activity_ids": [
+            "22244215972"
+          ],
+          "count": 1,
+          "distance": 370.8900146484375,
+          "elevation_gain": 8.0,
+          "moving_time": 299.0
+        },
+        "2026-03-22": {
+          "activity_ids": [
+            "22254574760"
+          ],
+          "count": 1,
+          "distance": 3887.2900390625,
+          "elevation_gain": 107.0,
+          "moving_time": 2588.0
+        },
+        "2026-03-23": {
+          "activity_ids": [
+            "22266747237"
+          ],
+          "count": 1,
+          "distance": 5165.759765625,
+          "elevation_gain": 3.0,
+          "moving_time": 3948.4140014648438
         }
       },
       "WeightTraining": {
@@ -554,6 +608,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 967.864013671875
+        },
+        "2026-03-18": {
+          "activity_ids": [
+            "22212203662"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 1489.8780517578125
         }
       },
       "Workout": {
@@ -593,6 +656,27 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 1821.9940185546875
+        },
+        "2026-03-22": {
+          "activity_ids": [
+            "22254678756"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 1090.4110107421875
+        }
+      },
+      "meditation": {
+        "2026-03-18": {
+          "activity_ids": [
+            "22207185543",
+            "22207757789"
+          ],
+          "count": 2,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 2942.3409423828125
         }
       },
       "multi_sport": {
