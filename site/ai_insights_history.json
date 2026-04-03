@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-04-03T03:07:56Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "37:2026-04-03:137070",
+    "insights": {
+      "monthly_review": {
+        "summary": "You've significantly increased intensity this month despite fewer runs, shifting toward more Zone 3–4 work and faster paces — a clear sign of targeted aerobic development. However, total volume has dropped sharply.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "11.2 km",
+            "previous": "32.9 km",
+            "change": "-21.7 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Number of Runs",
+            "current": "2",
+            "previous": "7",
+            "change": "-5",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": "512 sec/km",
+            "previous": "534 sec/km",
+            "change": "-22 sec/km",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": "146 bpm",
+            "previous": "142 bpm",
+            "change": "+4 bpm",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": "3.2",
+            "previous": "3.0",
+            "change": "+0.2",
+            "verdict": "improved"
+          },
+          {
+            "name": "Aerobic Efficiency (m/sec per bpm)",
+            "current": "13.45",
+            "previous": "13.28",
+            "change": "+0.17",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": "154 spm",
+            "previous": "150 spm",
+            "change": "+4 spm",
+            "verdict": "improved"
+          }
+        ],
+        "highlight": "Your aerobic efficiency improved (+0.17 m/sec per bpm) while average pace accelerated by 22 sec/km — indicating better physiological return on effort despite reduced volume."
+      },
+      "goal_tracker": {
+        "km_this_month": 11.2,
+        "km_last_month": 32.9,
+        "km_remaining": 21.7,
+        "sessions_this_month": 2,
+        "sessions_last_month": 7,
+        "sessions_remaining": 5,
+        "projection": "Behind",
+        "message": "You need 21.7 more km across 5 additional sessions (avg 4.3 km/session) to match last month’s volume — achievable with 1–2 runs/week over the remaining 28 days."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Efficiency gain reflects improved neuromuscular coordination",
+          "body": "Aerobic efficiency rose from 13.28 to 13.45 m/sec per bpm, supported by cadence increasing from 150 to 154 spm and ground contact time dropping from ~315 ms (last month avg) to 307–309 ms in your two most recent runs — suggesting tighter stride mechanics.",
+          "severity": "positive"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Zone 3 dominance signals aerobic threshold focus",
+          "body": "This month, 33% of time was spent in Zone 3 (vs 36% last month), but Zone 4 rose to 18% (vs 12%) — and Zone 1 collapsed to 16% (vs 4%). This sharp drop in easy-effort running risks under-recovery and limits mitochondrial biogenesis stimulus.",
+          "severity": "warning"
+        },
+        {
+          "category": "running_form",
+          "title": "Stride length variability correlates with pace changes",
+          "body": "Stride length ranged from 67.5 cm (4.4 km @ 10:08/km, HR 123) to 84.4 cm (2.8 km @ 7:36/km, HR 146), showing strong pace–length coupling — but vertical oscillation also rose (7.3 → 8.5 cm) at faster efforts, suggesting inefficiency at higher intensities.",
+          "severity": "warning"
+        },
+        {
+          "category": "training_load",
+          "title": "Low session frequency limits cumulative adaptation",
+          "body": "Only 2 runs in April so far (vs 7 in March) means weekly load is unsustainable for aerobic base maintenance — especially given VO2 max remains stable at 34.0 (up from 33.0), implying current intensity compensates only partially for volume loss.",
+          "severity": "warning"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Do a 5 km Zone 2 run tomorrow at HR ≤135 bpm (use your March 19 HR of 123 bpm as anchor), focusing on cadence ≥152 spm and vertical oscillation <7.5 cm",
+          "reason": "Your Zone 1/2 time dropped to 45% this month (from 51% last month); rebuilding low-HR volume is critical to support recovery and capillary density.",
+          "priority": "high"
+        },
+        {
+          "action": "Add one 3 km 'form drill' session this week: 6 × 1-min strides at 4:48/km pace (456 sec/km — your March best) with full walk-back recovery, monitoring vertical oscillation and ground contact time",
+          "reason": "Your fastest recent run (Mar 29) had 8.5 cm vertical oscillation — lowering this improves efficiency at goal pace without raising HR.",
+          "priority": "high"
+        },
+        {
+          "action": "Perform a 45-min easy run on Day 3 of this week at avg HR 130–134 bpm, keeping cadence ≥153 spm and stride length between 75–78 cm (observed in your 6.0 km runs)",
+          "reason": "Your recent long runs show optimal stride metrics (77.25 cm, 319 ms GCT) — reinforcing these parameters at low intensity builds durable form habits.",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Consistency + Form Integration",
+        "description": "Re-establish weekly rhythm with 3–4 runs, prioritizing low-HR aerobic foundation and embedding efficient stride metrics (cadence ≥153 spm, GCT <315 ms, vertical osc <7.8 cm) across all efforts.",
+        "suggested_sessions": [
+          "Zone 2 endurance run (5 km, HR ≤135 bpm)",
+          "Strides + form focus (3 km w/ 6×1-min fast intervals)",
+          "Easy aerobic run (45 min, HR 130–134 bpm, cadence ≥153 spm)"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-03-24T03:03:01Z",
     "model": "qwen-plus",
     "running_fingerprint": "34:2026-03-21:123109",

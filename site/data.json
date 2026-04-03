@@ -580,6 +580,76 @@
       "subtype": "walking",
       "type": "Walk",
       "year": 2026
+    },
+    {
+      "date": "2026-03-27",
+      "hour": 17,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
+    },
+    {
+      "date": "2026-03-28",
+      "hour": 8,
+      "subtype": "indoor_cardio",
+      "type": "Workout",
+      "year": 2026
+    },
+    {
+      "date": "2026-03-28",
+      "hour": 8,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
+    },
+    {
+      "date": "2026-03-29",
+      "hour": 7,
+      "subtype": "running",
+      "type": "Run",
+      "year": 2026
+    },
+    {
+      "date": "2026-03-31",
+      "hour": 16,
+      "subtype": "indoor_cycling",
+      "type": "VirtualRide",
+      "year": 2026
+    },
+    {
+      "date": "2026-03-31",
+      "hour": 16,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
+    },
+    {
+      "date": "2026-04-01",
+      "hour": 16,
+      "subtype": "running",
+      "type": "Run",
+      "year": 2026
+    },
+    {
+      "date": "2026-04-02",
+      "hour": 16,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
+    },
+    {
+      "date": "2026-04-03",
+      "hour": 6,
+      "subtype": "running",
+      "type": "Run",
+      "year": 2026
+    },
+    {
+      "date": "2026-04-03",
+      "hour": 7,
+      "subtype": "walking",
+      "type": "Walk",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -823,6 +893,44 @@
           "distance": 6007.4501953125,
           "elevation_gain": 106.0,
           "moving_time": 3149.614990234375
+        },
+        "2026-03-29": {
+          "activity_ids": [
+            "22332557233"
+          ],
+          "count": 1,
+          "distance": 2756.1201171875,
+          "elevation_gain": 1.0,
+          "moving_time": 1255.8290100097656
+        },
+        "2026-04-01": {
+          "activity_ids": [
+            "22369723651"
+          ],
+          "count": 1,
+          "distance": 6162.6201171875,
+          "elevation_gain": 5.0,
+          "moving_time": 3328.2320556640625
+        },
+        "2026-04-03": {
+          "activity_ids": [
+            "22388245747"
+          ],
+          "count": 1,
+          "distance": 5041.490234375,
+          "elevation_gain": 3.0,
+          "moving_time": 2439.4970092773438
+        }
+      },
+      "VirtualRide": {
+        "2026-03-31": {
+          "activity_ids": [
+            "22357667794"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 480.5350036621094
         }
       },
       "VirtualRun": {
@@ -1009,6 +1117,15 @@
           "distance": 528.4400024414062,
           "elevation_gain": 14.0,
           "moving_time": 446.0
+        },
+        "2026-04-03": {
+          "activity_ids": [
+            "22388369163"
+          ],
+          "count": 1,
+          "distance": 1002.8699951171875,
+          "elevation_gain": 0.0,
+          "moving_time": 732.0
         }
       },
       "WeightTraining": {
@@ -1209,6 +1326,42 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 1489.8780517578125
+        },
+        "2026-03-27": {
+          "activity_ids": [
+            "22314474584"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 562.5430297851562
+        },
+        "2026-03-28": {
+          "activity_ids": [
+            "22321792047"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 1478.0699462890625
+        },
+        "2026-03-31": {
+          "activity_ids": [
+            "22357835168"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 921.8049926757812
+        },
+        "2026-04-02": {
+          "activity_ids": [
+            "22380665114"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 851.2630004882812
         }
       },
       "Workout": {
@@ -1257,6 +1410,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 1090.4110107421875
+        },
+        "2026-03-28": {
+          "activity_ids": [
+            "22321632850"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 305.5840148925781
         }
       },
       "meditation": {
@@ -1293,7 +1455,7 @@
       }
     }
   },
-  "generated_at": "2026-03-24T02:59:19.211758+00:00",
+  "generated_at": "2026-04-03T03:02:58.161261+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
@@ -1305,6 +1467,10 @@
     "Run": {
       "accent": "#01cdfe",
       "label": "Run"
+    },
+    "VirtualRide": {
+      "accent": "#fee440",
+      "label": "Virtual Ride"
     },
     "VirtualRun": {
       "accent": "#00bbf9",
@@ -1334,6 +1500,7 @@
   "types": [
     "Hike",
     "Run",
+    "VirtualRide",
     "VirtualRun",
     "Walk",
     "WeightTraining",
