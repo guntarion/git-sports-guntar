@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-04-14T03:09:23Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "39:2026-04-12:146133",
+    "insights": {
+      "monthly_review": {
+        "summary": "You've significantly increased training intensity this month while maintaining volume consistency, evidenced by faster pace, higher HR, elevated aerobic TE, and a marked shift toward higher HR zones — especially Zones 3–4.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "20.3 km",
+            "previous": "32.9 km",
+            "change": "-12.6 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Number of Runs",
+            "current": "4",
+            "previous": "7",
+            "change": "-3",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": "496",
+            "previous": "534",
+            "change": "-38",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": "149",
+            "previous": "142",
+            "change": "+7",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": "3.5",
+            "previous": "3.0",
+            "change": "+0.5",
+            "verdict": "improved"
+          },
+          {
+            "name": "Aerobic Efficiency (km/hr per bpm)",
+            "current": "13.62",
+            "previous": "13.28",
+            "change": "+0.34",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": "150",
+            "previous": "150",
+            "change": "0",
+            "verdict": "stable"
+          }
+        ],
+        "highlight": "Your Zone 3–4 HR time increased from 48% last month to 50% this month, while Zone 2 dropped from 47% to 30% — indicating a clear strategic shift toward threshold and moderate-intensity work, likely driving the pace and TE improvements."
+      },
+      "goal_tracker": {
+        "km_this_month": 20.3,
+        "km_last_month": 32.9,
+        "km_remaining": 12.6,
+        "sessions_this_month": 4,
+        "sessions_last_month": 7,
+        "sessions_remaining": 3,
+        "projection": "Behind",
+        "message": "You need 12.6 more km across 3 additional sessions in the remaining 17 days to match last month’s volume — averaging ~4.2 km per session."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Efficiency gain despite higher intensity",
+          "body": "Aerobic efficiency improved from 13.28 to 13.62 km/hr per bpm even as average HR rose +7 bpm and pace quickened — suggesting better cardiovascular economy at higher workloads, supported by stable cadence and improved stride length on your fastest run (90.77 cm at 7:25/km on 2026-04-12).",
+          "severity": "positive"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Zone 2 underutilized; risk of aerobic base erosion",
+          "body": "Zone 2 time dropped sharply from 47% (last month) to 30% (this month), while Zone 3–4 rose to 50% — meaning only 11% of this month’s time was spent in true recovery/easy aerobic zone (Z1+Z2), below the ideal 70–80% for sustainable endurance development in recreational runners.",
+          "severity": "warning"
+        },
+        {
+          "category": "running_form",
+          "title": "Cadence stability masks stride variability",
+          "body": "Avg cadence held steady at 150 spm, but stride length varied widely — from 70.96 cm (slowest run, 9:00/km) to 90.77 cm (fastest run, 7:25/km) — indicating appropriate neuromuscular adaptation to pace, though ground contact time remained stable (~307 ms), suggesting no fatigue-induced form breakdown.",
+          "severity": "neutral"
+        },
+        {
+          "category": "training_load",
+          "title": "High-intensity density without volume buffer",
+          "body": "You achieved a 4.6 Aerobic TE (near-maximal for your profile) on 2026-04-12 — your highest single-run TE — yet followed it with only one 4.0 km run at low HR (141 bpm) before today; no dedicated recovery or Z1 session occurred in the past 5 runs, increasing cumulative strain risk.",
+          "severity": "warning"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Do a 45-minute Zone 1–2 run (HR ≤135 bpm) within next 48 hours, aiming for avg HR 132 bpm and pace ~9:30–10:00/km.",
+          "reason": "To restore Z1+Z2 time to ≥40% of monthly volume and offset the current 11% — critical for autonomic recovery and aerobic base resilience, especially after a 4.6 TE session.",
+          "priority": "high"
+        },
+        {
+          "action": "Perform a 3 × 8-minute Zone 3 tempo at 152–158 bpm (avg pace ~7:50–8:10/km) with 90 sec walk/jog recovery, keeping cadence ≥152 spm.",
+          "reason": "Your Zone 3 % rose to 26% and recent runs show strong efficiency at sub-threshold paces (e.g., 8:07/km @ 149 bpm on 2026-04-03); this session targets lactate clearance without overreaching.",
+          "priority": "high"
+        },
+        {
+          "action": "Add 2 × 30-sec strides off a 5km easy run (HR <130 bpm), focusing on lifting knees and landing midfoot — monitor vertical oscillation target ≤7.5 cm.",
+          "reason": "Your vertical oscillation averaged 8.2 cm across recent runs, and lowest value was 7.8 cm (on two slower runs); reducing it further improves efficiency — strides are low-risk neuromuscular primers.",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Aerobic Resilience & Neuromuscular Precision",
+        "description": "Rebuild Z1/Z2 volume to support high-intensity gains, while refining form economy through targeted drills and controlled tempos.",
+        "suggested_sessions": [
+          "45-min Zone 1–2 recovery run",
+          "3 × 8-min Zone 3 tempo",
+          "5km easy + 2 × 30-sec strides"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-04-13T03:10:01Z",
     "model": "qwen-plus",
     "running_fingerprint": "39:2026-04-12:146133",
