@@ -2106,5 +2106,42 @@
     "start_date_local": "2026-04-13T14:56:03",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.3,
+    "avg_hr": 104,
+    "calories": 27,
+    "date": "2026-04-14",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "22518026025",
+    "max_hr": 120,
+    "moving_time": 302.3009948730469,
+    "name": "Strength",
+    "raw_activity_type": "strength_training",
+    "raw_type": "strength_training",
+    "start_date_local": "2026-04-14T11:00:27",
+    "type": "WeightTraining",
+    "year": 2026
+  },
+  {
+    "aerobic_te": 0.2,
+    "avg_cadence": 91,
+    "avg_hr": 87,
+    "avg_speed_mps": 1.222,
+    "avg_stride_len": 79.77,
+    "calories": 34,
+    "date": "2026-04-15",
+    "distance": 506.0899963378906,
+    "elevation_gain": 5.0,
+    "id": "22528401353",
+    "max_hr": 105,
+    "moving_time": 388.0,
+    "name": "Malang Walking",
+    "raw_activity_type": "walking",
+    "raw_type": "walking",
+    "start_date_local": "2026-04-15T04:08:27",
+    "type": "Walk",
+    "year": 2026
   }
 ]
