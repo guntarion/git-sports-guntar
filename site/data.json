@@ -741,6 +741,13 @@
       "subtype": "walking",
       "type": "Walk",
       "year": 2026
+    },
+    {
+      "date": "2026-04-15",
+      "hour": 10,
+      "subtype": "breathwork",
+      "type": "breathwork",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -1631,6 +1638,17 @@
           "moving_time": 2903.7548828125
         }
       },
+      "breathwork": {
+        "2026-04-15": {
+          "activity_ids": [
+            "22530333798"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 678.2940063476562
+        }
+      },
       "meditation": {
         "2026-03-18": {
           "activity_ids": [
@@ -1665,7 +1683,7 @@
       }
     }
   },
-  "generated_at": "2026-04-15T03:03:44.942106+00:00",
+  "generated_at": "2026-04-16T03:04:12.962447+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
@@ -1702,6 +1720,10 @@
       "accent": "#ff8a5b",
       "label": "Other Workout"
     },
+    "breathwork": {
+      "accent": "#ffbe0b",
+      "label": "Breathwork"
+    },
     "meditation": {
       "accent": "#f15bb5",
       "label": "Meditation"
@@ -1721,7 +1743,8 @@
     "WeightTraining",
     "Workout",
     "meditation",
-    "multi_sport"
+    "multi_sport",
+    "breathwork"
   ],
   "units": {
     "distance": "km",

@@ -2143,5 +2143,21 @@
     "start_date_local": "2026-04-15T04:08:27",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.1,
+    "avg_hr": 85,
+    "date": "2026-04-15",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "22530333798",
+    "max_hr": 97,
+    "moving_time": 678.2940063476562,
+    "name": "Breathwork",
+    "raw_activity_type": "breathwork",
+    "raw_type": "breathwork",
+    "start_date_local": "2026-04-15T10:26:46",
+    "type": "breathwork",
+    "year": 2026
   }
 ]
