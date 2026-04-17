@@ -1,6 +1,102 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.4,
+      "avg_hr": 96,
+      "calories": 82,
+      "date": "2026-04-16",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1194,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22544934247",
+      "max_hr": 115,
+      "moving_time": 1193.6,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-04-16T16:51:17",
+      "type": "WeightTraining"
+    },
+    {
+      "aerobic_te": 1.1,
+      "avg_hr": 117,
+      "avg_pace_secs_per_km": 228,
+      "calories": 67,
+      "date": "2026-04-16",
+      "distance": 2559.8,
+      "elevation_gain": 4.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 583,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22544542241",
+      "max_hr": 128,
+      "moving_time": 582.9,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 117,
+          "avg_speed_mps": 4.391,
+          "distance": 2559.8,
+          "duration": 582.9,
+          "elevation_gain": 4.0,
+          "max_hr": 128,
+          "pace_secs_per_km": 228
+        }
+      ],
+      "start_date_local": "2026-04-16T16:16:53",
+      "type": "Ride"
+    },
+    {
       "aerobic_te": 0.1,
       "avg_hr": 85,
       "date": "2026-04-15",
@@ -6441,7 +6537,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-04-16T03:04:22.975173+00:00",
+  "generated_at": "2026-04-17T03:04:04.143350+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
