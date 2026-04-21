@@ -2294,5 +2294,23 @@
     "type": "Walk",
     "vo2_max": 35.0,
     "year": 2026
+  },
+  {
+    "aerobic_te": 1.6,
+    "avg_hr": 122,
+    "avg_speed_mps": 4.412,
+    "calories": 106,
+    "date": "2026-04-20",
+    "distance": 3808.39990234375,
+    "elevation_gain": 1.0,
+    "id": "22594966034",
+    "max_hr": 134,
+    "moving_time": 855.0,
+    "name": "Sidoarjo Cycling",
+    "raw_activity_type": "cycling",
+    "raw_type": "cycling",
+    "start_date_local": "2026-04-20T19:34:42",
+    "type": "Ride",
+    "year": 2026
   }
 ]
