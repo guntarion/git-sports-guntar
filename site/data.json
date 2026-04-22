@@ -804,6 +804,27 @@
       "subtype": "cycling",
       "type": "Ride",
       "year": 2026
+    },
+    {
+      "date": "2026-04-21",
+      "hour": 19,
+      "subtype": "indoor_cycling",
+      "type": "VirtualRide",
+      "year": 2026
+    },
+    {
+      "date": "2026-04-21",
+      "hour": 20,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
+    },
+    {
+      "date": "2026-04-22",
+      "hour": 6,
+      "subtype": "running",
+      "type": "Run",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -1175,6 +1196,15 @@
           "distance": 5034.22021484375,
           "elevation_gain": 31.0,
           "moving_time": 2235.772003173828
+        },
+        "2026-04-22": {
+          "activity_ids": [
+            "22612543164"
+          ],
+          "count": 1,
+          "distance": 3056.52001953125,
+          "elevation_gain": 2.0,
+          "moving_time": 1301.2890014648438
         }
       },
       "TrailRun": {
@@ -1197,6 +1227,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 480.5350036621094
+        },
+        "2026-04-21": {
+          "activity_ids": [
+            "22605322935"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 600.531982421875
         }
       },
       "VirtualRun": {
@@ -1700,6 +1739,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 1759.8089599609375
+        },
+        "2026-04-21": {
+          "activity_ids": [
+            "22605626434"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 961.4110107421875
         }
       },
       "Workout": {
@@ -1813,7 +1861,7 @@
       }
     }
   },
-  "generated_at": "2026-04-21T03:03:54.168729+00:00",
+  "generated_at": "2026-04-22T03:04:03.490513+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-21T03:03:54.161494+00:00",
+  "generated_at": "2026-04-22T03:04:03.482531+00:00",
   "years": {
     "2026": {
       "Hike": {
@@ -369,6 +369,15 @@
           "distance": 5034.22021484375,
           "elevation_gain": 31.0,
           "moving_time": 2235.772003173828
+        },
+        "2026-04-22": {
+          "activity_ids": [
+            "22612543164"
+          ],
+          "count": 1,
+          "distance": 3056.52001953125,
+          "elevation_gain": 2.0,
+          "moving_time": 1301.2890014648438
         }
       },
       "TrailRun": {
@@ -391,6 +400,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 480.5350036621094
+        },
+        "2026-04-21": {
+          "activity_ids": [
+            "22605322935"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 600.531982421875
         }
       },
       "VirtualRun": {
@@ -894,6 +912,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 1759.8089599609375
+        },
+        "2026-04-21": {
+          "activity_ids": [
+            "22605626434"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 961.4110107421875
         }
       },
       "Workout": {
