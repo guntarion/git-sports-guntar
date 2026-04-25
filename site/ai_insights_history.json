@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-04-25T03:08:38Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "41:2026-04-22:154203",
+    "insights": {
+      "monthly_review": {
+        "summary": "You've increased training intensity and efficiency this month, with faster paces, higher HR, and improved aerobic TE — but at the cost of reduced volume compared to last month.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "28.3 km",
+            "previous": "32.9 km",
+            "change": "-4.6 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Number of Runs",
+            "current": "6",
+            "previous": "7",
+            "change": "-1",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": "493",
+            "previous": "534",
+            "change": "-41",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": "147",
+            "previous": "142",
+            "change": "+5",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": "3.4",
+            "previous": "3.0",
+            "change": "+0.4",
+            "verdict": "improved"
+          },
+          {
+            "name": "Aerobic Efficiency (m/sec per bpm)",
+            "current": "13.92",
+            "previous": "13.28",
+            "change": "+0.64",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": "150",
+            "previous": "150",
+            "change": "0",
+            "verdict": "stable"
+          }
+        ],
+        "highlight": "Your aerobic efficiency improved by +0.64 m/sec per bpm — the largest positive shift across all metrics — indicating better cardiovascular economy at similar cadence."
+      },
+      "goal_tracker": {
+        "km_this_month": 28.3,
+        "km_last_month": 32.9,
+        "km_remaining": 4.6,
+        "sessions_this_month": 6,
+        "sessions_last_month": 7,
+        "sessions_remaining": 1,
+        "projection": "Behind",
+        "message": "You need 4.6 more km across 1 remaining session to match last month’s distance — e.g., a single 5.0 km run at your April average pace (493 sec/km ≈ 8:13 min/km) would exceed the target."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Efficiency gains outpacing pace gains",
+          "body": "Aerobic efficiency rose from 13.28 to 13.92 m/sec per bpm (+4.8%) while avg pace improved only 7.7% (534 → 493 sec/km), suggesting improved cardiac output utilization — especially notable given stable cadence.",
+          "severity": "positive"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Shift toward higher-intensity work",
+          "body": "Zone 4 time increased from 12% to 21%, and Zone 5 from 1% to 6%, while Zone 2 dropped from 47% to 31% — indicating a clear strategic intensification, but potentially at the expense of foundational aerobic development.",
+          "severity": "warning"
+        },
+        {
+          "category": "running_form",
+          "title": "Stride length variability reflects pacing strategy",
+          "body": "Stride length ranged from 72.88 cm (slowest run, 9:08 min/km) to 91.78 cm (fastest run, 7:13 min/km) — a 26% increase — aligning with pace changes and showing healthy neuromuscular responsiveness; however, vertical oscillation remained consistently high (7.8–8.8 cm), suggesting opportunity for form refinement at faster efforts.",
+          "severity": "neutral"
+        },
+        {
+          "category": "training_load",
+          "title": "Aerobic TE confirms effective stimulus",
+          "body": "Four of five recent runs had aerobic TE ≥ 3.0 (max 4.6), and April’s average (3.4) exceeds March’s (3.0) — confirming that even with fewer runs, each session delivered meaningful aerobic adaptation.",
+          "severity": "positive"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Do one 5.0 km Zone 2 run (HR ≤135 bpm) before month-end, maintaining cadence ≥148 spm and vertical oscillation <8.0 cm (use real-time VO2 max/oscillation feedback on Garmin).",
+          "reason": "To restore Zone 2 volume lost this month (down 16% vs March) and support aerobic base without adding fatigue — critical given rising Z4/Z5 contribution and declining run count.",
+          "priority": "high"
+        },
+        {
+          "action": "Perform a 3 × 800 m cruise interval at 428–440 sec/km (7:08–7:20 min/km), with 90 sec walk/jog recovery, focusing on stride length ≥88 cm and ground contact <305 ms.",
+          "reason": "Leverages your best recent pace (428 sec/km on 4/22) and strongest stride length (91.78 cm) to reinforce neuromuscular efficiency at threshold effort — supported by your elevated April aerobic TE (avg 3.4).",
+          "priority": "high"
+        },
+        {
+          "action": "Add 2 minutes of post-run dynamic mobility targeting hip flexors and calves, immediately after your next two runs — especially following any run with vertical oscillation >8.2 cm.",
+          "reason": "Vertical oscillation increased on your fastest (8.8 cm) and longest (8.4 cm) April runs, suggesting emerging fatigue or stiffness; targeted mobility can reduce oscillation drift and protect ground contact time (<310 ms).",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Aerobic Resilience & Form Consistency",
+        "description": "Balance intensity with recovery-focused volume to consolidate efficiency gains while stabilizing running economy across paces.",
+        "suggested_sessions": [
+          "Zone 2 endurance run (5 km, HR ≤135 bpm)",
+          "Cruise intervals (3 × 800 m @ threshold pace)",
+          "Recovery-pace easy run (4 km, HR 125–132 bpm) with form cues"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-04-24T03:10:40Z",
     "model": "qwen-plus",
     "running_fingerprint": "41:2026-04-22:154203",

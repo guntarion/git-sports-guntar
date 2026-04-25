@@ -2405,5 +2405,26 @@
     "start_date_local": "2026-04-24T07:07:27",
     "type": "WeightTraining",
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.7,
+    "avg_cadence": 96,
+    "avg_hr": 97,
+    "avg_speed_mps": 1.155,
+    "avg_stride_len": 71.75,
+    "calories": 158,
+    "date": "2026-04-24",
+    "distance": 2275.0400390625,
+    "elevation_gain": 50.0,
+    "id": "22639824886",
+    "max_hr": 130,
+    "moving_time": 1922.0,
+    "name": "Lumajang Walking",
+    "raw_activity_type": "walking",
+    "raw_type": "walking",
+    "start_date_local": "2026-04-24T15:42:47",
+    "type": "Walk",
+    "vo2_max": 35.0,
+    "year": 2026
   }
 ]
