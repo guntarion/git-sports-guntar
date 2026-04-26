@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-25T03:02:46.632441+00:00",
+  "generated_at": "2026-04-26T03:04:14.537769+00:00",
   "years": {
     "2026": {
       "Hike": {
@@ -20,6 +20,15 @@
           "distance": 1010.0,
           "elevation_gain": 116.0,
           "moving_time": 620.0
+        },
+        "2026-04-25": {
+          "activity_ids": [
+            "22648662193"
+          ],
+          "count": 1,
+          "distance": 2761.2099609375,
+          "elevation_gain": 187.0,
+          "moving_time": 1627.0
         }
       },
       "Ride": {
@@ -387,6 +396,15 @@
           "distance": 3056.52001953125,
           "elevation_gain": 2.0,
           "moving_time": 1301.2890014648438
+        },
+        "2026-04-25": {
+          "activity_ids": [
+            "22651397172"
+          ],
+          "count": 1,
+          "distance": 426.0,
+          "elevation_gain": 0.0,
+          "moving_time": 164.0
         }
       },
       "TrailRun": {
@@ -398,6 +416,15 @@
           "distance": 5014.18994140625,
           "elevation_gain": 4.0,
           "moving_time": 2721.2490234375
+        },
+        "2026-04-26": {
+          "activity_ids": [
+            "22659815406"
+          ],
+          "count": 1,
+          "distance": 4053.909912109375,
+          "elevation_gain": 119.0,
+          "moving_time": 2715.0
         }
       },
       "VirtualRide": {
@@ -649,6 +676,15 @@
           "distance": 2275.0400390625,
           "elevation_gain": 50.0,
           "moving_time": 1922.0
+        },
+        "2026-04-25": {
+          "activity_ids": [
+            "22651333947"
+          ],
+          "count": 1,
+          "distance": 3263.10009765625,
+          "elevation_gain": 63.0,
+          "moving_time": 3050.0
         }
       },
       "WeightTraining": {
