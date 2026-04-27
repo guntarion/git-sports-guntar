@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-04-27T03:10:26Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "42:2026-04-26:158257",
+    "insights": {
+      "monthly_review": {
+        "summary": "This month shows increased aerobic stimulus and improved pacing consistency, but with a notable drop in cadence and efficiency compared to last month. The shift toward higher-intensity zone distribution reflects intentional training progression.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "32.4 km",
+            "previous": "32.9 km",
+            "change": "-0.5 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Number of Runs",
+            "current": "7",
+            "previous": "7",
+            "change": "+0",
+            "verdict": "stable"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": "542",
+            "previous": "534",
+            "change": "+8",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": "143",
+            "previous": "142",
+            "change": "+1",
+            "verdict": "stable"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": "3.2",
+            "previous": "3.0",
+            "change": "+0.2",
+            "verdict": "improved"
+          },
+          {
+            "name": "Aerobic Efficiency (km/hr per bpm)",
+            "current": "13.35",
+            "previous": "13.28",
+            "change": "+0.07",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": "141",
+            "previous": "150",
+            "change": "-9",
+            "verdict": "declined"
+          }
+        ],
+        "highlight": "Cadence dropped sharply from 150 spm last month to 141 spm this month — the largest absolute change across all metrics and a likely contributor to reduced stride length and increased ground contact time."
+      },
+      "goal_tracker": {
+        "km_this_month": 32.4,
+        "km_last_month": 32.9,
+        "km_remaining": 0.5,
+        "sessions_this_month": 7,
+        "sessions_last_month": 7,
+        "sessions_remaining": 4,
+        "projection": "Behind",
+        "message": "You need 0.5 more km across up to 4 remaining sessions — achievable with one short 0.6 km recovery jog or integrated into a warm-up/cool-down."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Efficiency improved despite slower average pace",
+          "body": "Aerobic efficiency rose from 13.28 to 13.35 km/hr per bpm, indicating better cardiovascular economy — especially notable given the 8 sec/km slowdown in average pace, suggesting improved HR management at sub-threshold efforts.",
+          "severity": "positive"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Significant shift toward higher-intensity zones",
+          "body": "Zone 3+ time increased from 49% (z3+z4+z5 = 36+12+1) last month to 53% (26+17+5) this month, while Zone 1 dropped from 4% to 23% — reflecting intentional inclusion of easy runs but also a 20-percentage-point jump in Zone 3 specifically, which may signal early fatigue accumulation.",
+          "severity": "warning"
+        },
+        {
+          "category": "running_form",
+          "title": "Cadence-stride tradeoff emerging",
+          "body": "Cadence fell 9 spm (150 → 141) while stride length in faster runs (e.g., 91.78 cm on 2026-04-22) remained high — but ground contact time increased from avg 298 ms (Apr 22) to 314 ms (Apr 17) and 327 ms (Apr 26), suggesting compromised neuromuscular coordination during fatigue or low-effort runs.",
+          "severity": "warning"
+        },
+        {
+          "category": "recovery",
+          "title": "Lowest-effort run shows form breakdown",
+          "body": "The 14:00 min/km run on 2026-04-26 had cadence of only 87 spm, HR of 120 bpm (well below Z1), and ground contact of 327 ms — indicating passive shuffling rather than active recovery, likely impairing tissue resilience and gait patterning.",
+          "severity": "warning"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Replace your next scheduled easy run with a 4 km Zone 1–2 run at HR ≤135 bpm and cadence ≥145 spm, using metronome or audio cue if needed.",
+          "reason": "Cadence dropped 9 spm this month and the slowest run showed severe form degradation (87 spm); rebuilding neuromuscular rhythm at low intensity will reinforce efficient turnover without fatigue.",
+          "priority": "high"
+        },
+        {
+          "action": "Perform 3 × 1-min strides at 4:28 min/km (best pace) after an easy 3 km warm-up, focusing on landing under center of mass and maintaining 148–152 spm.",
+          "reason": "Your best pace (428 sec/km) occurred during a 5 km run with 146 spm and 306 ms ground contact — replicating that turnover under controlled conditions will reinforce race-relevant mechanics.",
+          "priority": "high"
+        },
+        {
+          "action": "Skip any planned run on one of the remaining 4 days and instead complete 10 min of dynamic mobility + 5 min barefoot calf/foot drills on grass.",
+          "reason": "Ground contact time increased across recent runs (311 → 314 → 327 ms), and vertical oscillation spiked to 8.8 cm on 2026-04-22 — signaling reduced stiffness and potential fatigue; non-running stimulus will support tendon resilience.",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Neuromuscular Reconnection",
+        "description": "Re-establish efficient cadence and ground contact patterns through targeted low-fatigue stimuli — prioritizing rhythm, posture, and spring-like recoil over volume or intensity.",
+        "suggested_sessions": [
+          "4 km Zone 1–2 rhythm run (HR ≤135, cadence ≥145 spm)",
+          "3 km easy + 3 × 1-min race-pace strides",
+          "Mobility + barefoot foot-strike drill session"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-04-26T03:10:10Z",
     "model": "qwen-plus",
     "running_fingerprint": "42:2026-04-26:158257",
