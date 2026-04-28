@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-04-28T03:11:47Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "42:2026-04-26:158257",
+    "insights": {
+      "monthly_review": {
+        "summary": "This month shows a slight pacing slowdown and increased HR zone intensity compared to last month, with notable gains in aerobic efficiency and cadence consistency — reflecting improved neuromuscular coordination despite reduced volume at higher intensities.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "32.4 km",
+            "previous": "32.9 km",
+            "change": "-0.5 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Number of Runs",
+            "current": "7",
+            "previous": "7",
+            "change": "+0",
+            "verdict": "stable"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": "542",
+            "previous": "534",
+            "change": "+8",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": "143",
+            "previous": "142",
+            "change": "+1",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": "3.2",
+            "previous": "3.0",
+            "change": "+0.2",
+            "verdict": "improved"
+          },
+          {
+            "name": "Aerobic Efficiency (km/h per bpm)",
+            "current": "13.35",
+            "previous": "13.28",
+            "change": "+0.07",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": "141",
+            "previous": "150",
+            "change": "-9",
+            "verdict": "declined"
+          }
+        ],
+        "highlight": "Despite a slower average pace (+8 sec/km), aerobic training effect increased by +0.2 and aerobic efficiency improved (+0.07 km/h per bpm), indicating more effective physiological adaptation per unit of effort."
+      },
+      "goal_tracker": {
+        "km_this_month": 32.4,
+        "km_last_month": 32.9,
+        "km_remaining": 0.5,
+        "sessions_this_month": 7,
+        "sessions_last_month": 7,
+        "sessions_remaining": 3,
+        "projection": "Behind",
+        "message": "You need 0.5 more km across up to 3 remaining sessions to match last month’s distance — e.g., add 0.2 km to one run and 0.3 km to another, or complete a single 0.5 km easy jog before month-end."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Improved efficiency despite slower pace",
+          "body": "Aerobic efficiency rose from 13.28 to 13.35 km/h per bpm — meaning you’re moving farther per heartbeat, even as avg pace slowed from 534 to 542 sec/km. This signals better cardiovascular economy, likely supported by the 23% Z1 time this month (vs 4% last month).",
+          "severity": "positive"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Strategic shift toward lower- and higher-intensity work",
+          "body": "Z1 time jumped from 4% to 23%, while Z3 dropped from 36% to 26% and Z4 rose from 12% to 17%. This reflects intentional recovery and threshold work — but Z5 remains low (5%), suggesting untapped VO2 max stimulus potential.",
+          "severity": "neutral"
+        },
+        {
+          "category": "running_form",
+          "title": "Cadence variability linked to fatigue and pace",
+          "body": "Cadence ranged from 87 spm (April 26, 14:00 min/km, HR 120) to 150 spm (April 22, 7:13 min/km, HR 143), with recent runs showing tighter clustering (146–150 spm) at sub-9 min/km paces — indicating form stability improves with consistent effort below fatigue threshold.",
+          "severity": "positive"
+        },
+        {
+          "category": "training_load",
+          "title": "Reduced high-intensity load but elevated aerobic TE",
+          "body": "Although Z4 time increased (+5 pts), total high-intensity (Z4+Z5) time is only 22% this month vs 13% last month — yet aerobic TE rose +0.2. This suggests your Z4 efforts (e.g., April 12: 5.0 km @ 7:42 min/km, HR 163) are exceptionally productive for aerobic development.",
+          "severity": "positive"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Do a 4.5 km Zone 2 run (HR 125–135 bpm) on one of the remaining 3 days, maintaining cadence ≥145 spm and stride length ≥85 cm (based on your efficient 7:13–7:42 runs)",
+          "reason": "Your Z1/Z2 foundation strengthened (23% Z1), but sustained Zone 2 volume remains moderate — this session will reinforce aerobic efficiency gains without adding fatigue.",
+          "priority": "high"
+        },
+        {
+          "action": "Insert a 6-min progressive surge within your next easy run: start at 9:00 min/km (HR ~125), build every 2 min to 7:30 min/km (HR ~155), holding cadence ≥146 spm throughout",
+          "reason": "Your April 12 and April 22 runs show strong efficiency at 7:13–7:42 min/km with cadence 146–150; this drill bridges easy and threshold efforts while preserving form.",
+          "priority": "high"
+        },
+        {
+          "action": "After your next run >4 km, perform 3 × 1-min strides at 6:00–6:15 min/km (HR ~165–170), focusing on ground contact time ≤300 ms (you hit 298 ms on April 22)",
+          "reason": "Your best ground contact time (298 ms) occurred during a fast 3.1 km run — short strides will reinforce neuromuscular efficiency without overstressing recovery.",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Efficiency Anchoring",
+        "description": "Strengthen the connection between heart rate control, cadence consistency, and ground contact time to lock in aerobic gains — using pace as a secondary cue, not the primary driver.",
+        "suggested_sessions": [
+          "4.5 km Zone 2 tempo (HR 125–135, cadence ≥145 spm)",
+          "5 km mixed-effort run with 6-min progressive surge",
+          "3.5 km easy + 3 × 1-min strides"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-04-27T03:10:26Z",
     "model": "qwen-plus",
     "running_fingerprint": "42:2026-04-26:158257",
