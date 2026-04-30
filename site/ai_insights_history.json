@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-04-30T03:11:27Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "44:2026-04-29:163828",
+    "insights": {
+      "monthly_review": {
+        "summary": "You increased volume and shifted toward more balanced intensity distribution this month, with notable gains in aerobic efficiency and cadence consistency — a sign of improved neuromuscular coordination and fatigue resilience.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "38.0 km",
+            "previous": "32.9 km",
+            "change": "+5.1 km",
+            "verdict": "improved"
+          },
+          {
+            "name": "Number of Runs",
+            "current": "9",
+            "previous": "7",
+            "change": "+2",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": "532",
+            "previous": "534",
+            "change": "-2",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": "142",
+            "previous": "142",
+            "change": "0",
+            "verdict": "stable"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": "3.1",
+            "previous": "3.0",
+            "change": "+0.1",
+            "verdict": "improved"
+          },
+          {
+            "name": "Aerobic Efficiency (m/sec per bpm)",
+            "current": "13.66",
+            "previous": "13.28",
+            "change": "+0.38",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": "142",
+            "previous": "150",
+            "change": "-8",
+            "verdict": "declined"
+          }
+        ],
+        "highlight": "Your aerobic efficiency improved by +0.38 m/sec per bpm — the largest positive shift across all metrics — indicating better oxygen utilization at given heart rates."
+      },
+      "goal_tracker": {
+        "km_this_month": 38.0,
+        "km_last_month": 32.9,
+        "km_remaining": -5.1,
+        "sessions_this_month": 9,
+        "sessions_last_month": 7,
+        "sessions_remaining": -2,
+        "projection": "Ahead",
+        "message": "You’ve already exceeded last month’s total distance by 5.1 km and completed 2 more runs — no additional running is needed to match or exceed March’s totals."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Efficiency gain despite lower cadence",
+          "body": "Aerobic efficiency rose from 13.28 to 13.66 m/sec per bpm even as average cadence dropped from 150 to 142 spm — suggesting improved stride economy, likely due to longer stride length (avg 77–92 cm in recent runs) and reduced vertical oscillation variability.",
+          "severity": "positive"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Z1 volume nearly 6× higher than last month",
+          "body": "Zone 1 effort increased from 4% to 23% of total time — a meaningful recovery and base-building shift, especially visible in the 14:00/km recovery run on 2026-04-26 (HR 120 bpm, cadence 87 spm).",
+          "severity": "positive"
+        },
+        {
+          "category": "running_form",
+          "title": "Cadence inconsistency under fatigue",
+          "body": "Cadence ranged from 87 spm (2026-04-26, HR 120) to 150 spm (2026-04-22, HR 143), with lowest values occurring during slowest paces — suggesting form breakdown or intentional walk-run strategy rather than fatigue-driven inefficiency.",
+          "severity": "neutral"
+        },
+        {
+          "category": "training_load",
+          "title": "Z4 time up 25% but Z5 remains minimal",
+          "body": "Zone 4 effort rose from 12% to 15% of total time, while Zone 5 stayed flat at 4% this month vs 1% last — indicating purposeful introduction of threshold work without overreaching into VO2 max territory.",
+          "severity": "positive"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Do your next run as a 5 km Zone 2 steady-state effort targeting HR 130–138 bpm and cadence ≥145 spm to reinforce aerobic efficiency gains observed this month.",
+          "reason": "Your April avg HR was 142 bpm with declining cadence (142 spm vs March’s 150); locking in Zone 2 at lower HR with higher cadence will strengthen neuromuscular patterning and efficiency.",
+          "priority": "high"
+        },
+        {
+          "action": "Repeat the 3.1 km session from 2026-04-22 (7:08/km, HR 143, cadence 150, ground contact 298 ms) as a benchmark interval — aim to hold same pace with HR ≤141 bpm and ground contact ≤295 ms.",
+          "reason": "This session showed optimal balance of speed, efficiency (stride 91.8 cm), and low impact (298 ms GCT); replicating it will test aerobic power consolidation.",
+          "priority": "high"
+        },
+        {
+          "action": "Add 2 × 30-sec strides at 4:28/km (best pace from data) post-warmup on one easy run this week, focusing on vertical oscillation ≤8.0 cm and cadence ≥152 spm.",
+          "reason": "Your best pace (428 sec/km) occurred with VO2 max 36.0 and vertical oscillation 8.2 cm — reducing bounce slightly while increasing turnover will sharpen race-specific neuromuscular recruitment.",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Efficiency Anchoring",
+        "description": "Consolidate recent aerobic efficiency gains by reinforcing optimal cadence-stride-GCT relationships across intensities — using HR as anchor, not pace.",
+        "suggested_sessions": [
+          "5 km Zone 2 steady-state (HR 130–138, cadence ≥145)",
+          "3.1 km tempo repeat (match 2026-04-22 metrics)",
+          "3 km easy + 2 × 30-sec strides (4:28/km, VO2 max pacing)"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-04-29T03:11:43Z",
     "model": "qwen-plus",
     "running_fingerprint": "43:2026-04-28:161504",

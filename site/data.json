@@ -902,6 +902,27 @@
       "subtype": "running",
       "type": "Run",
       "year": 2026
+    },
+    {
+      "date": "2026-04-29",
+      "hour": 16,
+      "subtype": "running",
+      "type": "Run",
+      "year": 2026
+    },
+    {
+      "date": "2026-04-29",
+      "hour": 16,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
+    },
+    {
+      "date": "2026-04-29",
+      "hour": 18,
+      "subtype": "cycling",
+      "type": "Ride",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -1035,6 +1056,15 @@
           "distance": 2937.9000244140625,
           "elevation_gain": 4.0,
           "moving_time": 916.0
+        },
+        "2026-04-29": {
+          "activity_ids": [
+            "22702355525"
+          ],
+          "count": 1,
+          "distance": 2572.610107421875,
+          "elevation_gain": 1.0,
+          "moving_time": 700.0
         }
       },
       "Run": {
@@ -1328,6 +1358,15 @@
           "distance": 3246.260009765625,
           "elevation_gain": 2.0,
           "moving_time": 1694.7009963989258
+        },
+        "2026-04-29": {
+          "activity_ids": [
+            "22699572112"
+          ],
+          "count": 1,
+          "distance": 2323.8701171875,
+          "elevation_gain": 0.0,
+          "moving_time": 1080.8259887695312
         }
       },
       "TrailRun": {
@@ -1916,6 +1955,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 1365.9129638671875
+        },
+        "2026-04-29": {
+          "activity_ids": [
+            "22699751705"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 882.9349975585938
         }
       },
       "Workout": {
@@ -2029,7 +2077,7 @@
       }
     }
   },
-  "generated_at": "2026-04-29T03:04:34.549596+00:00",
+  "generated_at": "2026-04-30T03:05:14.139080+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
