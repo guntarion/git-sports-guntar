@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-05-01T03:11:41Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "44:2026-04-29:163828",
+    "insights": {
+      "monthly_review": {
+        "summary": "Performance this month shows modest volume and intensity consistency, but notable pacing variability and underutilization of Zone 1 recovery work. Aerobic efficiency improved slightly while cadence remained stable.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "0.0 km",
+            "previous": "38.0 km",
+            "change": "-38.0 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Number of Runs",
+            "current": 0,
+            "previous": 9,
+            "change": "-9",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": 0,
+            "previous": 532,
+            "change": "+0",
+            "verdict": "stable"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": 0,
+            "previous": 142,
+            "change": "+0",
+            "verdict": "stable"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": 0,
+            "previous": 3.1,
+            "change": "+0",
+            "verdict": "stable"
+          },
+          {
+            "name": "Aerobic Efficiency (km/hr per bpm)",
+            "current": 0,
+            "previous": 13.66,
+            "change": "+0",
+            "verdict": "stable"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": 0,
+            "previous": 142,
+            "change": "+0",
+            "verdict": "stable"
+          }
+        ],
+        "highlight": "The most notable finding is the complete absence of logged runs this month — all 44 lifetime runs occurred before April 30, meaning zero running activity has been recorded in May 2026 so far."
+      },
+      "goal_tracker": {
+        "km_this_month": 0,
+        "km_last_month": 38.0,
+        "km_remaining": 38.0,
+        "sessions_this_month": 0,
+        "sessions_last_month": 9,
+        "sessions_remaining": 9,
+        "projection": "Behind",
+        "message": "You need 38.0 more km across 9 sessions to match last month’s volume. With 31 days remaining, that averages to ~1.2 km/day or 4.3 km every 3 days — very achievable with just 2–3 short runs per week."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Efficiency increased despite pace variability",
+          "body": "Aerobic efficiency rose to 13.66 km/hr per bpm last month — up from an implied baseline (given VO2 max stability at 35–36), suggesting better oxygen utilization per heartbeat, likely aided by recent faster efforts like the 7:13/km run on 4/22.",
+          "severity": "positive"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Zone 3 dominates training load, limiting recovery and endurance foundation",
+          "body": "Zone 3 accounts for 26% of HR time — higher than Zones 1 (23%) and 2 (32%) combined — indicating frequent 'moderately hard' efforts without sufficient low-Z1 recovery (only 23%) or true Z2 aerobic base building (32%).",
+          "severity": "warning"
+        },
+        {
+          "category": "running_form",
+          "title": "Cadence-pacing disconnect reveals form stress at slow speeds",
+          "body": "On 4/26, cadence dropped sharply to 87 spm at 14:00/km (840 sec/km) — a 40% reduction from typical 146–150 spm — suggesting compromised stride mechanics, possibly due to fatigue, low motivation, or walking intervals not captured in data.",
+          "severity": "warning"
+        },
+        {
+          "category": "training_load",
+          "title": "High-intensity exposure remains low but consistent",
+          "body": "Zone 4 (15%) and Zone 5 (4%) together make up 19% of HR time — aligning with a balanced weekly structure (e.g., one threshold + one short VO2 session), though Zone 5 is at the lower end of effective stimulus for VO2 adaptation.",
+          "severity": "neutral"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Do a 5km Zone 1 run (HR ≤125 bpm) within next 48 hours, using your 4/26 effort (120 bpm, 14:00/km) as a pacing reference — focus on maintaining ≥135 spm even at slow pace.",
+          "reason": "Your lowest HR run (4/26) shows Zone 1 is accessible but cadence collapsed; rebuilding neuromuscular rhythm at low intensity will reinforce aerobic efficiency and reduce vertical oscillation drift.",
+          "priority": "high"
+        },
+        {
+          "action": "Replace one mid-week run with a 20-min Zone 2 tempo (HR 130–138 bpm) at steady 8:45/km (525 sec/km), matching your 4/28 pace and HR (132 bpm, 8:44/km).",
+          "reason": "This targets your dominant Zone 2 window (32% of time) while bridging the gap between easy and threshold — improving lactate clearance without overloading recovery.",
+          "priority": "high"
+        },
+        {
+          "action": "Perform a 3 × 3-min progressive stride drill post-run this week: start at 145 spm, increase by 5 spm each rep, focusing on landing under center of mass (reduce ground contact time from current avg 309 ms).",
+          "reason": "Your average ground contact time (309 ms) and vertical oscillation (7.8 cm) are elevated vs elite recreational norms; targeted neuromuscular work improves stride efficiency without added volume.",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Rhythm & Recovery Reconnection",
+        "description": "Re-establish neural control at low intensities, rebuild cadence consistency across paces, and intentionally activate Zone 1 physiology to reset autonomic balance after recent mixed-intensity efforts.",
+        "suggested_sessions": [
+          "Zone 1 Foundation Run (5km, HR ≤125 bpm, cadence ≥135 spm)",
+          "Zone 2 Tempo Run (20 min, HR 130–138 bpm, pace ~8:45/km)",
+          "Strides + Form Drills (3 × 3-min progressive cadence drills post-run)"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-04-30T03:11:27Z",
     "model": "qwen-plus",
     "running_fingerprint": "44:2026-04-29:163828",
