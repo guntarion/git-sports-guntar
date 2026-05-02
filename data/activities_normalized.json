@@ -2672,5 +2672,22 @@
     "start_date_local": "2026-04-30T17:32:06",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.5,
+    "avg_hr": 93,
+    "calories": 160,
+    "date": "2026-05-01",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "22723139279",
+    "max_hr": 123,
+    "moving_time": 1775.7569580078125,
+    "name": "Strength",
+    "raw_activity_type": "strength_training",
+    "raw_type": "strength_training",
+    "start_date_local": "2026-05-01T16:12:12",
+    "type": "WeightTraining",
+    "year": 2026
   }
 ]
