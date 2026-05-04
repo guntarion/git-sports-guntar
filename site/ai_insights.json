@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-03T03:11:21Z",
+  "generated_at": "2026-05-04T03:11:01Z",
   "model": "qwen-plus",
   "running_fingerprint": "45:2026-05-02:168454",
   "data_summary": {
@@ -44,7 +44,7 @@
       "longest_km": 6.2,
       "best_pace_secs": 428
     },
-    "days_left_this_month": 29,
+    "days_left_this_month": 28,
     "recent_runs": [
       {
         "date": "2026-04-22",
@@ -110,7 +110,7 @@
   },
   "insights": {
     "monthly_review": {
-      "summary": "This month shows a sharp drop in volume and intensity compared to last month, with only one run completed so far — significantly below the previous month’s activity level. While aerobic efficiency and cadence remain stable, the near-absence of higher-intensity work (Z4/Z5) and reduced run frequency signal an early-month stall.",
+      "summary": "This month shows a sharp drop in volume and intensity compared to last month, with only one run completed so far — likely reflecting reduced training load or recovery focus. Aerobic efficiency remains stable, but cadence and zone distribution suggest less dynamic effort.",
       "metrics": [
         {
           "name": "Total Distance",
@@ -128,16 +128,16 @@
         },
         {
           "name": "Avg Pace (sec/km)",
-          "current": "530 sec/km",
-          "previous": "532 sec/km",
-          "change": "+2 sec/km",
+          "current": "530",
+          "previous": "532",
+          "change": "+2",
           "verdict": "improved"
         },
         {
           "name": "Avg HR (bpm)",
-          "current": "139 bpm",
-          "previous": "142 bpm",
-          "change": "-3 bpm",
+          "current": "139",
+          "previous": "142",
+          "change": "-3",
           "verdict": "improved"
         },
         {
@@ -156,13 +156,13 @@
         },
         {
           "name": "Avg Cadence (spm)",
-          "current": "133 spm",
-          "previous": "142 spm",
-          "change": "-9 spm",
+          "current": "133",
+          "previous": "142",
+          "change": "-9",
           "verdict": "declined"
         }
       ],
-      "highlight": "The runner has completed only 1 run in May (4.6 km), representing just 12% of last month’s volume — the most notable finding is the abrupt drop in training consistency entering this month."
+      "highlight": "The runner’s Zone 4 and Zone 5 time dropped from 19% last month to just 2% this month — indicating a near-complete absence of threshold or high-intensity work so far."
     },
     "goal_tracker": {
       "km_this_month": 4.6,
@@ -172,58 +172,58 @@
       "sessions_last_month": 9,
       "sessions_remaining": 8,
       "projection": "Behind",
-      "message": "You need 33.4 more km across 8 additional sessions in the remaining 29 days — averaging ~4.2 km per session — to match last month’s total distance and run count."
+      "message": "You need 33.4 more km across 8 additional sessions in the remaining 28 days to match last month’s volume — averaging ~4.2 km per session."
     },
     "insights": [
       {
         "category": "aerobic_efficiency",
-        "title": "Slight decline in efficiency despite stable VO2 max",
-        "body": "Aerobic efficiency dropped from 13.66 to 13.57 m/sec per bpm, while VO2 max increased from 35.0 to 36.0 — suggesting improved cardiovascular capacity but less effective translation into movement economy, possibly due to reduced stride length (85.17 cm vs prior 88.65–91.78 cm) and higher ground contact time (301 ms vs recent 298–327 ms range).",
-        "severity": "warning"
+        "title": "Stable but not improving efficiency",
+        "body": "Aerobic efficiency declined slightly from 13.66 to 13.57 m/sec per bpm, and VO2 max remained flat at 35–36 mL/kg/min across all recent runs — suggesting no recent aerobic stimulus strong enough to drive adaptation.",
+        "severity": "neutral"
       },
       {
         "category": "hr_zones",
-        "title": "Near-total absence of Zone 4–5 work this month",
-        "body": "This month’s HR zone distribution shows 0% in Z5 and only 2% in Z4 — down sharply from last month’s 4% Z5 and 15% Z4 — indicating loss of high-intensity stimulus critical for maintaining pace resilience and lactate tolerance.",
+        "title": "Loss of higher-intensity stimulus",
+        "body": "Zone 4+ time fell from 19% (15% Z4 + 4% Z5) in April to just 2% Z4 and 0% Z5 in May — meaning no threshold or VO2 max efforts yet this month, which risks detraining at faster paces.",
         "severity": "warning"
       },
       {
         "category": "running_form",
-        "title": "Cadence and stride length divergence",
-        "body": "Cadence dropped from 142 spm (Apr) to 133 spm (May), while stride length fell to 85.17 cm — yet vertical oscillation decreased (7.4 cm vs Apr avg ~7.7 cm) and ground contact time remained low (301 ms). This suggests a more cautious, shorter-stride pattern possibly linked to fatigue or reduced neuromuscular readiness.",
-        "severity": "neutral"
+        "title": "Cadence and stride length variability signals fatigue or pacing inconsistency",
+        "body": "Cadence dropped to 87 spm on 2026-04-26 (a very slow 14:00 min/km effort), while peaking at 150 spm on 2026-04-22 (7:08 min/km) — a 63 spm swing across recent runs, and stride length varied from 75.3 cm to 91.8 cm, indicating inconsistent neuromuscular coordination.",
+        "severity": "warning"
       },
       {
         "category": "recovery",
-        "title": "Low HR and long-slow run on 2026-04-26 signals active recovery use",
-        "body": "The 4.1 km run on 2026-04-26 had avg HR of 120 bpm, cadence of 87 spm, and pace of 14:00 min/km — well below typical Z1 effort and consistent with true recovery; however, no similar session appears scheduled this month, risking accumulation of residual fatigue.",
+        "title": "Low ground contact time and vertical oscillation suggest efficient recovery runs",
+        "body": "Ground contact time averaged 301–327 ms and vertical oscillation stayed between 6.4–8.8 cm across recent runs — well within healthy recreational ranges, confirming easy runs are genuinely easy and physiologically restorative.",
         "severity": "positive"
       }
     ],
     "recommendations": [
       {
-        "action": "Do a 5 km Zone 2 run at avg HR ≤140 bpm tomorrow (2026-05-03), using cadence ≥140 spm as a real-time form cue",
-        "reason": "Your May avg cadence (133 spm) is 9 spm below April’s (142 spm), and Zone 2 HR is well-supported by your current avg HR of 139 bpm — this rebuilds rhythm without overstressing recovery.",
+        "action": "Do a 5km Zone 2 run (HR 125–135 bpm) on your next run, focusing on holding cadence ≥140 spm throughout.",
+        "reason": "Your April Zone 2 time was only 32%, and current cadence is down to 133 spm — this rebuilds aerobic base consistency while reinforcing neuromuscular rhythm.",
         "priority": "high"
       },
       {
-        "action": "Insert one 6-minute Zone 3 interval session before May 15: 3 × 2-min @ avg HR 150–158 bpm with 90-sec walk recovery",
-        "reason": "Last month included 26% Z3 work and 4% Z5 — reintroducing short, controlled Z3 bouts will re-establish lactate buffering without requiring full hard efforts.",
+        "action": "Add one 12-minute Zone 3 interval session this week: 3 × 4 minutes @ 145–152 bpm with 90 sec easy jog recovery.",
+        "reason": "Your Zone 3 contribution dropped from 26% in April to 27% this month — but with zero Z4/Z5, adding structured Zone 3 will safely raise lactate threshold without overstressing recovery.",
         "priority": "high"
       },
       {
-        "action": "After your next run, perform 3 × 60-sec single-leg balance holds (eyes open) + 2 × 10 slow calf raises per leg",
-        "reason": "Ground contact time has ranged 298–327 ms recently, and stride length declined — targeted neuromuscular activation supports elastic return and stride stability.",
+        "action": "Perform a 3km 'efficiency check' run at 7:30–7:45 min/km (510–525 sec/km) with real-time cadence target of 145 spm and stride length >85 cm.",
+        "reason": "Your best recent pace was 428 sec/km (7:08 min/km) on 2026-04-22, but stride length has since dipped below 85 cm — this session reconnects speed, form, and efficiency.",
         "priority": "medium"
       }
     ],
     "weekly_focus": {
-      "theme": "Rhythm Reconnection",
-      "description": "Reestablish consistent cadence, controlled HR engagement, and neuromuscular coordination to reverse the early-month dip in volume and form metrics.",
+      "theme": "Aerobic Consistency & Form Reconnection",
+      "description": "Re-establish rhythm and responsiveness in Zone 2–3 while retraining neuromuscular coordination for efficient turnover and stride length — prioritizing quality over quantity after a low-volume start to May.",
       "suggested_sessions": [
-        "5 km Zone 2 tempo (HR ≤140 bpm, cadence ≥140 spm)",
-        "3 × 2-min Zone 3 intervals (HR 150–158 bpm) with walk recovery",
-        "30-min easy run + mobility drill set (balance + calf focus)"
+        "Zone 2 endurance run (5km, HR 125–135 bpm, cadence ≥140 spm)",
+        "Zone 3 intervals (3 × 4 min @ 145–152 bpm)",
+        "Efficiency-focused tempo run (3km @ 510–525 sec/km, cadence 145 spm, stride >85 cm)"
       ]
     }
   }

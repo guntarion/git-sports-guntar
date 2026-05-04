@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-05-04T03:11:01Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "45:2026-05-02:168454",
+    "insights": {
+      "monthly_review": {
+        "summary": "This month shows a sharp drop in volume and intensity compared to last month, with only one run completed so far — likely reflecting reduced training load or recovery focus. Aerobic efficiency remains stable, but cadence and zone distribution suggest less dynamic effort.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "4.6 km",
+            "previous": "38.0 km",
+            "change": "-33.4 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Number of Runs",
+            "current": "1",
+            "previous": "9",
+            "change": "-8",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": "530",
+            "previous": "532",
+            "change": "+2",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": "139",
+            "previous": "142",
+            "change": "-3",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": "3.0",
+            "previous": "3.1",
+            "change": "-0.1",
+            "verdict": "declined"
+          },
+          {
+            "name": "Aerobic Efficiency (m/sec per bpm)",
+            "current": "13.57",
+            "previous": "13.66",
+            "change": "-0.09",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": "133",
+            "previous": "142",
+            "change": "-9",
+            "verdict": "declined"
+          }
+        ],
+        "highlight": "The runner’s Zone 4 and Zone 5 time dropped from 19% last month to just 2% this month — indicating a near-complete absence of threshold or high-intensity work so far."
+      },
+      "goal_tracker": {
+        "km_this_month": 4.6,
+        "km_last_month": 38.0,
+        "km_remaining": 33.4,
+        "sessions_this_month": 1,
+        "sessions_last_month": 9,
+        "sessions_remaining": 8,
+        "projection": "Behind",
+        "message": "You need 33.4 more km across 8 additional sessions in the remaining 28 days to match last month’s volume — averaging ~4.2 km per session."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Stable but not improving efficiency",
+          "body": "Aerobic efficiency declined slightly from 13.66 to 13.57 m/sec per bpm, and VO2 max remained flat at 35–36 mL/kg/min across all recent runs — suggesting no recent aerobic stimulus strong enough to drive adaptation.",
+          "severity": "neutral"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Loss of higher-intensity stimulus",
+          "body": "Zone 4+ time fell from 19% (15% Z4 + 4% Z5) in April to just 2% Z4 and 0% Z5 in May — meaning no threshold or VO2 max efforts yet this month, which risks detraining at faster paces.",
+          "severity": "warning"
+        },
+        {
+          "category": "running_form",
+          "title": "Cadence and stride length variability signals fatigue or pacing inconsistency",
+          "body": "Cadence dropped to 87 spm on 2026-04-26 (a very slow 14:00 min/km effort), while peaking at 150 spm on 2026-04-22 (7:08 min/km) — a 63 spm swing across recent runs, and stride length varied from 75.3 cm to 91.8 cm, indicating inconsistent neuromuscular coordination.",
+          "severity": "warning"
+        },
+        {
+          "category": "recovery",
+          "title": "Low ground contact time and vertical oscillation suggest efficient recovery runs",
+          "body": "Ground contact time averaged 301–327 ms and vertical oscillation stayed between 6.4–8.8 cm across recent runs — well within healthy recreational ranges, confirming easy runs are genuinely easy and physiologically restorative.",
+          "severity": "positive"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Do a 5km Zone 2 run (HR 125–135 bpm) on your next run, focusing on holding cadence ≥140 spm throughout.",
+          "reason": "Your April Zone 2 time was only 32%, and current cadence is down to 133 spm — this rebuilds aerobic base consistency while reinforcing neuromuscular rhythm.",
+          "priority": "high"
+        },
+        {
+          "action": "Add one 12-minute Zone 3 interval session this week: 3 × 4 minutes @ 145–152 bpm with 90 sec easy jog recovery.",
+          "reason": "Your Zone 3 contribution dropped from 26% in April to 27% this month — but with zero Z4/Z5, adding structured Zone 3 will safely raise lactate threshold without overstressing recovery.",
+          "priority": "high"
+        },
+        {
+          "action": "Perform a 3km 'efficiency check' run at 7:30–7:45 min/km (510–525 sec/km) with real-time cadence target of 145 spm and stride length >85 cm.",
+          "reason": "Your best recent pace was 428 sec/km (7:08 min/km) on 2026-04-22, but stride length has since dipped below 85 cm — this session reconnects speed, form, and efficiency.",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Aerobic Consistency & Form Reconnection",
+        "description": "Re-establish rhythm and responsiveness in Zone 2–3 while retraining neuromuscular coordination for efficient turnover and stride length — prioritizing quality over quantity after a low-volume start to May.",
+        "suggested_sessions": [
+          "Zone 2 endurance run (5km, HR 125–135 bpm, cadence ≥140 spm)",
+          "Zone 3 intervals (3 × 4 min @ 145–152 bpm)",
+          "Efficiency-focused tempo run (3km @ 510–525 sec/km, cadence 145 spm, stride >85 cm)"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-05-03T03:11:21Z",
     "model": "qwen-plus",
     "running_fingerprint": "45:2026-05-02:168454",
