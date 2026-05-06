@@ -1,0 +1,48 @@
+{
+  "hr_zones": [
+    {
+      "low_bpm": 57,
+      "seconds": 1054,
+      "zone": 1
+    },
+    {
+      "low_bpm": 131,
+      "seconds": 0,
+      "zone": 2
+    },
+    {
+      "low_bpm": 144,
+      "seconds": 0,
+      "zone": 3
+    },
+    {
+      "low_bpm": 156,
+      "seconds": 0,
+      "zone": 4
+    },
+    {
+      "low_bpm": 169,
+      "seconds": 0,
+      "zone": 5
+    }
+  ],
+  "id": "22778576926",
+  "splits": [
+    {
+      "avg_hr": 95,
+      "avg_speed_mps": 1.38,
+      "distance": 1000.0,
+      "duration": 710.0,
+      "elevation_gain": 15.0,
+      "max_hr": 113
+    },
+    {
+      "avg_hr": 85,
+      "avg_speed_mps": 1.219,
+      "distance": 401.0,
+      "duration": 327.0,
+      "elevation_gain": 8.0,
+      "max_hr": 91
+    }
+  ]
+}

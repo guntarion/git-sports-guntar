@@ -1,6 +1,203 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.5,
+      "avg_cadence": 97,
+      "avg_hr": 102,
+      "avg_pace_secs_per_km": 781,
+      "avg_stride_len": 78.92,
+      "calories": 70,
+      "date": "2026-05-06",
+      "distance": 1003.9,
+      "elevation_gain": 14.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 784,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22779958943",
+      "max_hr": 118,
+      "moving_time": 769.0,
+      "name": "Bogor Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 102,
+          "avg_speed_mps": 1.28,
+          "distance": 1000.0,
+          "duration": 768.0,
+          "elevation_gain": 14.0,
+          "max_hr": 118,
+          "pace_secs_per_km": 781
+        },
+        {
+          "avg_hr": 108,
+          "avg_speed_mps": 1.501,
+          "distance": 3.9,
+          "duration": 1.0,
+          "max_hr": 108,
+          "pace_secs_per_km": 666
+        }
+      ],
+      "start_date_local": "2026-05-06T08:23:59",
+      "type": "Walk",
+      "vo2_max": 36.0
+    },
+    {
+      "aerobic_te": 0.4,
+      "avg_cadence": 104,
+      "avg_hr": 92,
+      "avg_pace_secs_per_km": 752,
+      "avg_stride_len": 76.42,
+      "calories": 90,
+      "date": "2026-05-06",
+      "distance": 1401.0,
+      "elevation_gain": 23.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1054,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22778576926",
+      "max_hr": 113,
+      "moving_time": 1037.0,
+      "name": "Bogor Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 95,
+          "avg_speed_mps": 1.38,
+          "distance": 1000.0,
+          "duration": 710.0,
+          "elevation_gain": 15.0,
+          "max_hr": 113,
+          "pace_secs_per_km": 725
+        },
+        {
+          "avg_hr": 85,
+          "avg_speed_mps": 1.219,
+          "distance": 401.0,
+          "duration": 327.0,
+          "elevation_gain": 8.0,
+          "max_hr": 91,
+          "pace_secs_per_km": 820
+        }
+      ],
+      "start_date_local": "2026-05-06T04:31:57",
+      "type": "Walk",
+      "vo2_max": 37.0
+    },
+    {
+      "aerobic_te": 0.8,
+      "avg_cadence": 106,
+      "avg_hr": 106,
+      "avg_pace_secs_per_km": 718,
+      "avg_stride_len": 78.46,
+      "calories": 89,
+      "date": "2026-05-05",
+      "distance": 1273.6,
+      "elevation_gain": 20.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 869,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 45,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22771540641",
+      "max_hr": 136,
+      "moving_time": 897.0,
+      "name": "Bogor Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 106,
+          "avg_speed_mps": 1.4,
+          "distance": 1000.0,
+          "duration": 698.0,
+          "elevation_gain": 17.0,
+          "max_hr": 136,
+          "pace_secs_per_km": 714
+        },
+        {
+          "avg_hr": 106,
+          "avg_speed_mps": 1.369,
+          "distance": 273.6,
+          "duration": 199.0,
+          "elevation_gain": 3.0,
+          "max_hr": 111,
+          "pace_secs_per_km": 730
+        }
+      ],
+      "start_date_local": "2026-05-05T17:19:09",
+      "type": "Walk",
+      "vo2_max": 36.0
+    },
+    {
       "aerobic_te": 2.0,
       "avg_cadence": 144,
       "avg_ground_contact": 316,
@@ -8593,7 +8790,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-05-05T03:04:25.961409+00:00",
+  "generated_at": "2026-05-06T03:05:02.024948+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
