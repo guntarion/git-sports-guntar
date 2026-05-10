@@ -2922,5 +2922,22 @@
     "start_date_local": "2026-05-08T16:27:13",
     "type": "WeightTraining",
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.3,
+    "avg_hr": 89,
+    "calories": 92,
+    "date": "2026-05-09",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "22817676290",
+    "max_hr": 117,
+    "moving_time": 1622.0789794921875,
+    "name": "Strength",
+    "raw_activity_type": "strength_training",
+    "raw_type": "strength_training",
+    "start_date_local": "2026-05-09T16:10:21",
+    "type": "WeightTraining",
+    "year": 2026
   }
 ]
