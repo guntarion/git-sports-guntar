@@ -1,0 +1,115 @@
+{
+  "hr_zones": [
+    {
+      "low_bpm": 57,
+      "seconds": 332,
+      "zone": 1
+    },
+    {
+      "low_bpm": 132,
+      "seconds": 2305,
+      "zone": 2
+    },
+    {
+      "low_bpm": 144,
+      "seconds": 513,
+      "zone": 3
+    },
+    {
+      "low_bpm": 156,
+      "seconds": 0,
+      "zone": 4
+    },
+    {
+      "low_bpm": 169,
+      "seconds": 0,
+      "zone": 5
+    }
+  ],
+  "id": "22848699014",
+  "splits": [
+    {
+      "avg_hr": 134,
+      "avg_speed_mps": 1.904,
+      "distance": 1023.1,
+      "duration": 536.0,
+      "elevation_gain": 7.0,
+      "max_hr": 144
+    },
+    {
+      "avg_hr": 135,
+      "avg_speed_mps": 1.786,
+      "distance": 231.7,
+      "duration": 129.0,
+      "max_hr": 139
+    },
+    {
+      "avg_hr": 139,
+      "avg_speed_mps": 0.331,
+      "distance": 3.7,
+      "duration": 10.0,
+      "max_hr": 140
+    },
+    {
+      "avg_hr": 125,
+      "avg_speed_mps": 1.441,
+      "distance": 56.8,
+      "duration": 39.0,
+      "max_hr": 127
+    },
+    {
+      "avg_hr": 134,
+      "avg_speed_mps": 1.884,
+      "distance": 692.4,
+      "duration": 367.0,
+      "max_hr": 143
+    },
+    {
+      "avg_hr": 139,
+      "avg_speed_mps": 1.746,
+      "distance": 618.7,
+      "duration": 354.3,
+      "elevation_gain": 2.0,
+      "max_hr": 146
+    },
+    {
+      "avg_hr": 139,
+      "avg_speed_mps": 1.476,
+      "distance": 78.6,
+      "duration": 53.0,
+      "elevation_gain": 5.0,
+      "max_hr": 144
+    },
+    {
+      "avg_hr": 137,
+      "avg_speed_mps": 1.683,
+      "distance": 300.4,
+      "duration": 178.0,
+      "elevation_gain": 1.0,
+      "max_hr": 142
+    },
+    {
+      "avg_hr": 144,
+      "avg_speed_mps": 1.631,
+      "distance": 245.1,
+      "duration": 150.3,
+      "elevation_gain": 9.0,
+      "max_hr": 149
+    },
+    {
+      "avg_hr": 141,
+      "avg_speed_mps": 1.429,
+      "distance": 45.8,
+      "duration": 32.0,
+      "max_hr": 147
+    },
+    {
+      "avg_hr": 140,
+      "avg_speed_mps": 1.723,
+      "distance": 2241.2,
+      "duration": 1300.0,
+      "elevation_gain": 11.0,
+      "max_hr": 152
+    }
+  ]
+}
