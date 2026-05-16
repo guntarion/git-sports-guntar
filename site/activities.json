@@ -1,6 +1,326 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.4,
+      "avg_cadence": 96,
+      "avg_hr": 117,
+      "avg_pace_secs_per_km": 803,
+      "avg_stride_len": 77.09,
+      "calories": 31,
+      "date": "2026-05-16",
+      "distance": 451.2,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 362,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22894978541",
+      "max_hr": 130,
+      "moving_time": 352.0,
+      "name": "Surabaya Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 117,
+          "avg_speed_mps": 1.245,
+          "distance": 451.2,
+          "duration": 352.0,
+          "max_hr": 130,
+          "pace_secs_per_km": 803
+        }
+      ],
+      "start_date_local": "2026-05-16T06:40:57",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 3.2,
+      "anaerobic_te": 2.0,
+      "avg_cadence": 145,
+      "avg_ground_contact": 286,
+      "avg_hr": 148,
+      "avg_pace_secs_per_km": 447,
+      "avg_stride_len": 94.35,
+      "avg_vertical_osc": 8.1,
+      "calories": 189,
+      "date": "2026-05-16",
+      "distance": 2506.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 70,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 219,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 622,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 198,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22894926350",
+      "max_hr": 167,
+      "moving_time": 1115.9,
+      "name": "Surabaya Running",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 137,
+          "avg_speed_mps": 2.603,
+          "distance": 307.7,
+          "duration": 118.0,
+          "max_hr": 150,
+          "pace_secs_per_km": 384
+        },
+        {
+          "avg_hr": 144,
+          "avg_speed_mps": 2.027,
+          "distance": 122.9,
+          "duration": 60.6,
+          "max_hr": 149,
+          "pace_secs_per_km": 493
+        },
+        {
+          "avg_hr": 151,
+          "avg_speed_mps": 2.546,
+          "distance": 196.8,
+          "duration": 77.0,
+          "max_hr": 156,
+          "pace_secs_per_km": 393
+        },
+        {
+          "avg_hr": 154,
+          "avg_speed_mps": 1.497,
+          "distance": 49.3,
+          "duration": 32.9,
+          "max_hr": 157,
+          "pace_secs_per_km": 668
+        },
+        {
+          "avg_hr": 151,
+          "avg_speed_mps": 2.83,
+          "distance": 187.9,
+          "duration": 66.0,
+          "max_hr": 159,
+          "pace_secs_per_km": 353
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 1.546,
+          "distance": 76.7,
+          "duration": 49.6,
+          "max_hr": 163,
+          "pace_secs_per_km": 647
+        },
+        {
+          "avg_hr": 150,
+          "avg_speed_mps": 3.069,
+          "distance": 143.9,
+          "duration": 46.9,
+          "max_hr": 160,
+          "pace_secs_per_km": 326
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 1.493,
+          "distance": 63.7,
+          "duration": 42.7,
+          "max_hr": 163,
+          "pace_secs_per_km": 670
+        },
+        {
+          "avg_hr": 141,
+          "avg_speed_mps": 2.622,
+          "distance": 305.9,
+          "duration": 116.0,
+          "max_hr": 152,
+          "pace_secs_per_km": 381
+        },
+        {
+          "avg_hr": 145,
+          "avg_speed_mps": 1.409,
+          "distance": 68.7,
+          "duration": 48.7,
+          "max_hr": 152,
+          "pace_secs_per_km": 710
+        },
+        {
+          "avg_hr": 140,
+          "avg_speed_mps": 2.314,
+          "distance": 151.8,
+          "duration": 65.0,
+          "max_hr": 148,
+          "pace_secs_per_km": 432
+        },
+        {
+          "avg_hr": 148,
+          "avg_speed_mps": 1.767,
+          "distance": 83.3,
+          "duration": 47.0,
+          "max_hr": 153,
+          "pace_secs_per_km": 566
+        },
+        {
+          "avg_hr": 145,
+          "avg_speed_mps": 1.404,
+          "distance": 67.7,
+          "duration": 47.0,
+          "max_hr": 152,
+          "pace_secs_per_km": 712
+        },
+        {
+          "avg_hr": 142,
+          "avg_speed_mps": 2.713,
+          "distance": 177.9,
+          "duration": 65.6,
+          "max_hr": 157,
+          "pace_secs_per_km": 369
+        },
+        {
+          "avg_hr": 161,
+          "avg_speed_mps": 1.47,
+          "distance": 33.4,
+          "duration": 22.7,
+          "max_hr": 162,
+          "pace_secs_per_km": 680
+        },
+        {
+          "avg_hr": 153,
+          "avg_speed_mps": 2.122,
+          "distance": 153.7,
+          "duration": 72.0,
+          "max_hr": 157,
+          "pace_secs_per_km": 471
+        },
+        {
+          "avg_hr": 152,
+          "avg_speed_mps": 1.337,
+          "distance": 49.6,
+          "duration": 37.0,
+          "max_hr": 158,
+          "pace_secs_per_km": 748
+        },
+        {
+          "avg_hr": 150,
+          "avg_speed_mps": 2.689,
+          "distance": 142.8,
+          "duration": 53.0,
+          "max_hr": 160,
+          "pace_secs_per_km": 372
+        },
+        {
+          "avg_hr": 162,
+          "avg_speed_mps": 1.457,
+          "distance": 20.8,
+          "duration": 14.3,
+          "max_hr": 164,
+          "pace_secs_per_km": 686
+        },
+        {
+          "avg_hr": 163,
+          "avg_speed_mps": 2.961,
+          "distance": 101.7,
+          "duration": 34.0,
+          "max_hr": 167,
+          "pace_secs_per_km": 338
+        }
+      ],
+      "start_date_local": "2026-05-16T06:18:46",
+      "type": "Run",
+      "vo2_max": 37.0
+    },
+    {
+      "aerobic_te": 0.6,
+      "avg_hr": 107,
+      "avg_pace_secs_per_km": 254,
+      "calories": 52,
+      "date": "2026-05-15",
+      "distance": 2205.6,
+      "elevation_gain": 16.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 543,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22886930468",
+      "max_hr": 122,
+      "moving_time": 542.0,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 107,
+          "avg_speed_mps": 3.938,
+          "distance": 2205.6,
+          "duration": 542.0,
+          "elevation_gain": 16.0,
+          "max_hr": 122,
+          "pace_secs_per_km": 254
+        }
+      ],
+      "start_date_local": "2026-05-15T14:55:12",
+      "type": "Ride"
+    },
+    {
       "aerobic_te": 0.3,
       "avg_hr": 88,
       "calories": 69,
@@ -9575,7 +9895,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-05-15T03:05:52.627293+00:00",
+  "generated_at": "2026-05-16T03:04:38.599747+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
