@@ -1,6 +1,146 @@
 {
   "activities": [
     {
+      "aerobic_te": 1.0,
+      "avg_cadence": 109,
+      "avg_hr": 95,
+      "avg_pace_secs_per_km": 701,
+      "avg_stride_len": 78.24,
+      "calories": 156,
+      "date": "2026-05-19",
+      "distance": 2447.5,
+      "elevation_gain": 6.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1715,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22929739742",
+      "max_hr": 113,
+      "moving_time": 1688.0,
+      "name": "Bandung Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 92,
+          "avg_speed_mps": 1.384,
+          "distance": 1000.0,
+          "duration": 701.0,
+          "elevation_gain": 2.0,
+          "max_hr": 105,
+          "pace_secs_per_km": 723
+        },
+        {
+          "avg_hr": 101,
+          "avg_speed_mps": 1.461,
+          "distance": 1000.0,
+          "duration": 684.0,
+          "elevation_gain": 3.0,
+          "max_hr": 113,
+          "pace_secs_per_km": 684
+        },
+        {
+          "avg_hr": 89,
+          "avg_speed_mps": 1.452,
+          "distance": 447.5,
+          "duration": 303.0,
+          "elevation_gain": 1.0,
+          "max_hr": 105,
+          "pace_secs_per_km": 689
+        }
+      ],
+      "start_date_local": "2026-05-19T06:13:15",
+      "type": "Walk",
+      "vo2_max": 38.0
+    },
+    {
+      "aerobic_te": 0.6,
+      "avg_cadence": 91,
+      "avg_hr": 84,
+      "avg_pace_secs_per_km": 835,
+      "avg_stride_len": 78.29,
+      "calories": 79,
+      "date": "2026-05-18",
+      "distance": 1164.3,
+      "elevation_gain": 4.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 769,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "22923248142",
+      "max_hr": 106,
+      "moving_time": 930.0,
+      "name": "Bandung Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 89,
+          "avg_speed_mps": 1.182,
+          "distance": 1000.0,
+          "duration": 804.0,
+          "elevation_gain": 4.0,
+          "max_hr": 106,
+          "pace_secs_per_km": 846
+        },
+        {
+          "avg_hr": 52,
+          "avg_speed_mps": 1.296,
+          "distance": 164.3,
+          "duration": 126.0,
+          "max_hr": 58,
+          "pace_secs_per_km": 772
+        }
+      ],
+      "start_date_local": "2026-05-18T19:30:46",
+      "type": "Walk",
+      "vo2_max": 37.0
+    },
+    {
       "aerobic_te": 0.8,
       "avg_hr": 100,
       "calories": 139,
@@ -9937,7 +10077,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-05-18T03:06:56.236079+00:00",
+  "generated_at": "2026-05-19T03:06:07.081414+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
