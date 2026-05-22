@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-05-22T03:13:05Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "51:2026-05-20:198128",
+    "insights": {
+      "monthly_review": {
+        "summary": "This month shows a deliberate shift toward lower-intensity, higher-volume aerobic development — evidenced by increased Z1/Z2 time and reduced HR and pace intensity — though total volume and session count declined versus last month.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "34.3 km",
+            "previous": "38.0 km",
+            "change": "-3.7 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Number of Runs",
+            "current": "7",
+            "previous": "9",
+            "change": "-2",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": "560",
+            "previous": "532",
+            "change": "+28",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": "135",
+            "previous": "142",
+            "change": "-7",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": "2.7",
+            "previous": "3.1",
+            "change": "-0.4",
+            "verdict": "declined"
+          },
+          {
+            "name": "Aerobic Efficiency (km/hr per bpm)",
+            "current": "13.37",
+            "previous": "13.66",
+            "change": "-0.29",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": "145",
+            "previous": "142",
+            "change": "+3",
+            "verdict": "improved"
+          }
+        ],
+        "highlight": "Zone distribution shifted dramatically: Z1+Z2 increased from 55% to 83% this month, while Z4 dropped from 15% to 1% and Z5 disappeared entirely — signaling a strong, intentional aerobic base-building phase."
+      },
+      "goal_tracker": {
+        "km_this_month": 34.3,
+        "km_last_month": 38.0,
+        "km_remaining": 3.7,
+        "sessions_this_month": 7,
+        "sessions_last_month": 9,
+        "sessions_remaining": 2,
+        "projection": "Behind",
+        "message": "You need 3.7 more km across 2 remaining sessions to match last month’s 38.0 km — e.g., a 2.0 km easy run and a 1.7 km progressive run at 550–540 sec/km."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Slight efficiency dip despite lower HR",
+          "body": "Aerobic efficiency fell from 13.66 to 13.37 km/hr per bpm — meaning each heartbeat delivered slightly less forward speed this month, likely due to the recent emphasis on very low-intensity runs (e.g., May 6: 131 bpm, 633 sec/km) without sufficient complementary stimulus to reinforce neuromuscular coordination.",
+          "severity": "warning"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Near-complete absence of threshold and VO2 max work",
+          "body": "Z4 dropped from 15% to 1% and Z5 vanished (0% this month), indicating no meaningful time above 158 bpm — a notable departure from last month’s 19% combined Z4+Z5 time, which supported pace resilience and VO2 max maintenance.",
+          "severity": "warning"
+        },
+        {
+          "category": "running_form",
+          "title": "Cadence-stride trade-off emerging",
+          "body": "Cadence rose +3 spm (142 → 145) while stride length dropped in most runs (e.g., May 12: 69.7 cm; May 16: 94.4 cm was an outlier sprint effort); ground contact time improved from 330 ms avg last month to 311 ms this month, suggesting better leg turnover efficiency — but only when cadence is prioritized over reach.",
+          "severity": "positive"
+        },
+        {
+          "category": "recovery",
+          "title": "Consistent low-stress aerobic load supports recovery readiness",
+          "body": "All five recent runs had aerobic TE ≤ 3.2 and avg HR ≤ 148 bpm — with four under 138 bpm — and zero sessions exceeded 60 min, indicating well-managed fatigue and strong recovery capacity heading into June.",
+          "severity": "positive"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Do one 4.5 km Zone 2 run (133–139 bpm) at 540–550 sec/km with cadence ≥ 146 spm, focusing on light footstrike and consistent rhythm.",
+          "reason": "This bridges the aerobic efficiency gap while reinforcing cadence-driven form — matching your current avg HR (135) and cadence (145) but adding purposeful stimulus to maintain pace economy.",
+          "priority": "high"
+        },
+        {
+          "action": "Insert one 6-minute progressive segment (520 → 490 sec/km) within your next 5 km run, keeping HR ≤ 150 bpm and cadence ≥ 148 spm.",
+          "reason": "Reintroduces Z3 stimulus (missing this month) without triggering Z4 — aligning with your best recent pace (447 sec/km on May 20) and VO2 max stability (37.0).",
+          "priority": "high"
+        },
+        {
+          "action": "After your next run, perform 3 × 1-min barefoot strides on grass (focus: quick turnover, quiet landing, knee lift), immediately followed by 2-min walk — no HR or pace tracking required.",
+          "reason": "Targets vertical oscillation (currently 7.1–8.1 cm) and ground contact time (309–351 ms) using neuromuscular feedback, building on your improved cadence and reduced contact time trend.",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Aerobic Resilience & Neuromuscular Coordination",
+        "description": "Strengthen the link between efficient heart rate control and precise running mechanics — preserving your new cadence gains while re-establishing pace responsiveness at moderate intensities.",
+        "suggested_sessions": [
+          "4.5 km Zone 2 tempo (133–139 bpm, ≥146 spm)",
+          "5 km with 6-min progressive segment (520→490 sec/km)",
+          "3 km easy + 3 × 1-min barefoot strides"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-05-21T03:13:55Z",
     "model": "qwen-plus",
     "running_fingerprint": "51:2026-05-20:198128",
