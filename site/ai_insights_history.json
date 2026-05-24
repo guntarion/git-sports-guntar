@@ -1,5 +1,129 @@
 [
   {
+    "generated_at": "2026-05-24T03:13:20Z",
+    "model": "qwen-plus",
+    "running_fingerprint": "52:2026-05-22:201633",
+    "insights": {
+      "monthly_review": {
+        "summary": "This month shows a deliberate shift toward lower-intensity, higher-volume aerobic base building — evidenced by increased Z1 time, reduced average HR, and slightly slower pace — while maintaining VO2 max and efficiency.",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "37.8 km",
+            "previous": "38.0 km",
+            "change": "-0.2 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Number of Runs",
+            "current": "8",
+            "previous": "9",
+            "change": "-1",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Pace (sec/km)",
+            "current": "558",
+            "previous": "532",
+            "change": "+26",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg HR (bpm)",
+            "current": "135",
+            "previous": "142",
+            "change": "-7",
+            "verdict": "improved"
+          },
+          {
+            "name": "Avg Aerobic TE",
+            "current": "2.7",
+            "previous": "3.1",
+            "change": "-0.4",
+            "verdict": "declined"
+          },
+          {
+            "name": "Aerobic Efficiency (m/beat)",
+            "current": "13.39",
+            "previous": "13.66",
+            "change": "-0.27",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Cadence (spm)",
+            "current": "145",
+            "previous": "142",
+            "change": "+3",
+            "verdict": "improved"
+          }
+        ],
+        "highlight": "Zone 1 time jumped from 23% to 39% while Zone 4+ dropped from 19% to 1%, signaling a strategic aerobic rebuild — the most notable shift in training intent."
+      },
+      "goal_tracker": {
+        "km_this_month": 37.8,
+        "km_last_month": 38.0,
+        "km_remaining": 0.2,
+        "sessions_this_month": 8,
+        "sessions_last_month": 9,
+        "sessions_remaining": 1,
+        "projection": "Behind",
+        "message": "You need 0.2 more km across 1 session to match last month’s distance — e.g., extend your next easy run by 200m at ~9:00–9:40 min/km pace."
+      },
+      "insights": [
+        {
+          "category": "aerobic_efficiency",
+          "title": "Slight efficiency dip despite stable VO2 max",
+          "body": "Aerobic efficiency declined from 13.66 to 13.39 m/beat this month, even though VO2 max remains steady at 37.0 — suggesting reduced cardiac output per stride or subtle form inefficiency under lower-HR conditions.",
+          "severity": "warning"
+        },
+        {
+          "category": "hr_zones",
+          "title": "Strong Z1/Z2 dominance with near-elimination of threshold work",
+          "body": "Z1+Z2 now comprise 83% of effort (vs 55% last month), while Z4+Z5 dropped from 19% to 1% — a purposeful reduction in high-intensity stress, but may delay lactate threshold adaptation if sustained >3 weeks.",
+          "severity": "neutral"
+        },
+        {
+          "category": "running_form",
+          "title": "Cadence improved (+3 spm) but vertical oscillation rose slightly",
+          "body": "Avg cadence increased from 142 to 145 spm, yet vertical oscillation trended up (7.5–8.1 cm across recent runs vs prior month’s implied ~7.3 cm), indicating possible overstriding compensation during faster efforts like the 7:45/km run on 5/16.",
+          "severity": "warning"
+        },
+        {
+          "category": "training_load",
+          "title": "Aerobic TE dropped despite higher volume consistency",
+          "body": "Avg aerobic TE fell from 3.1 to 2.7 — likely due to lower average HR (135 vs 142 bpm) and slower pace — confirming this month prioritized recovery and endurance over stimulus intensity.",
+          "severity": "positive"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Do a 5km Zone 2 run tomorrow (HR 130–138 bpm) with cadence consciously held at 148–150 spm and vertical oscillation target ≤7.6 cm (use real-time Garmin metrics)",
+          "reason": "Reinforces aerobic efficiency gains while stabilizing form — recent runs show cadence improves at lower HR, but vertical oscillation spikes above 7.8 cm when pace drops below 8:00/km or HR rises above 145 bpm.",
+          "priority": "high"
+        },
+        {
+          "action": "Insert one 8-minute Zone 3 interval (HR 148–155 bpm, pace ~7:30–7:50/km) in your next midweek run, preceded by 15 min Z2 warm-up and followed by 10 min Z1 cooldown",
+          "reason": "Last month included 26% Z3 time and 4% Z5 — reintroducing modest threshold stimulus prevents detraining while staying within safe weekly load (current avg TE is 2.7 vs last month’s 3.1).",
+          "priority": "high"
+        },
+        {
+          "action": "After your longest run this month (9.5 km), perform 4 × 1-min strides at 5:00/km pace with full Z1 recovery — focus on minimizing ground contact time (<305 ms) and landing under center of mass",
+          "reason": "Your fastest recent run (7:45/km on 5/16) showed elevated vertical oscillation (8.1 cm) and longer ground contact (286 ms); strides reinforce neuromuscular efficiency without adding fatigue.",
+          "priority": "medium"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Aerobic Integrity & Form Refinement",
+        "description": "Balance foundational aerobic development with targeted neuromuscular cues to protect efficiency gains while preventing compensatory form drift during low-HR running.",
+        "suggested_sessions": [
+          "5km Zone 2 tempo with cadence focus",
+          "6km mixed-effort run (4km Z2 + 1x8min Z3 + 1km Z1)",
+          "4km easy + 4x1min strides"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-05-23T03:11:00Z",
     "model": "qwen-plus",
     "running_fingerprint": "52:2026-05-22:201633",
