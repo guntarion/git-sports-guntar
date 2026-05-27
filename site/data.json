@@ -1154,6 +1154,13 @@
       "subtype": "cycling",
       "type": "Ride",
       "year": 2026
+    },
+    {
+      "date": "2026-05-26",
+      "hour": 23,
+      "subtype": "indoor_cardio",
+      "type": "Workout",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -2526,6 +2533,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 389.3009948730469
+        },
+        "2026-05-26": {
+          "activity_ids": [
+            "23026116363"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 120.66500091552734
         }
       },
       "breathwork": {
@@ -2573,7 +2589,7 @@
       }
     }
   },
-  "generated_at": "2026-05-26T03:05:48.591735+00:00",
+  "generated_at": "2026-05-27T03:07:02.325350+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
