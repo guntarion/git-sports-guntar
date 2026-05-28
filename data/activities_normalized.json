@@ -3338,5 +3338,40 @@
     "start_date_local": "2026-05-26T23:17:22",
     "type": "Workout",
     "year": 2026
+  },
+  {
+    "aerobic_te": 2.7,
+    "anaerobic_te": 0.3,
+    "avg_hr": 134,
+    "calories": 137,
+    "date": "2026-05-27",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "23026782220",
+    "max_hr": 156,
+    "moving_time": 917.8679809570312,
+    "name": "Cardio",
+    "raw_activity_type": "indoor_cardio",
+    "raw_type": "indoor_cardio",
+    "start_date_local": "2026-05-27T11:04:30",
+    "type": "Workout",
+    "year": 2026
+  },
+  {
+    "aerobic_te": 2.7,
+    "avg_hr": 127,
+    "calories": 202,
+    "date": "2026-05-27",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "23027197215",
+    "max_hr": 147,
+    "moving_time": 1493.8590087890625,
+    "name": "Cardio",
+    "raw_activity_type": "indoor_cardio",
+    "raw_type": "indoor_cardio",
+    "start_date_local": "2026-05-27T12:02:22",
+    "type": "Workout",
+    "year": 2026
   }
 ]
