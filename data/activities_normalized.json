@@ -3373,5 +3373,28 @@
     "start_date_local": "2026-05-27T12:02:22",
     "type": "Workout",
     "year": 2026
+  },
+  {
+    "aerobic_te": 3.0,
+    "avg_cadence": 154,
+    "avg_ground_contact": 312,
+    "avg_hr": 141,
+    "avg_speed_mps": 1.837,
+    "avg_stride_len": 71.15,
+    "avg_vertical_osc": 7.8,
+    "calories": 419,
+    "date": "2026-05-28",
+    "distance": 6008.240234375,
+    "elevation_gain": 2.0,
+    "id": "23041800577",
+    "max_hr": 160,
+    "moving_time": 3270.0,
+    "name": "Sidoarjo Running",
+    "raw_activity_type": "running",
+    "raw_type": "running",
+    "start_date_local": "2026-05-28T16:02:01",
+    "type": "Run",
+    "vo2_max": 37.0,
+    "year": 2026
   }
 ]

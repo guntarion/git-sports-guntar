@@ -1175,6 +1175,13 @@
       "subtype": "indoor_cardio",
       "type": "Workout",
       "year": 2026
+    },
+    {
+      "date": "2026-05-28",
+      "hour": 16,
+      "subtype": "running",
+      "type": "Run",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -1718,6 +1725,15 @@
           "distance": 3504.320068359375,
           "elevation_gain": 35.0,
           "moving_time": 1900.0
+        },
+        "2026-05-28": {
+          "activity_ids": [
+            "23041800577"
+          ],
+          "count": 1,
+          "distance": 6008.240234375,
+          "elevation_gain": 2.0,
+          "moving_time": 3270.0
         }
       },
       "TrailRun": {
@@ -2613,7 +2629,7 @@
       }
     }
   },
-  "generated_at": "2026-05-28T03:07:16.140036+00:00",
+  "generated_at": "2026-05-29T03:06:17.238243+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
