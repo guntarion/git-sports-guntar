@@ -1182,6 +1182,13 @@
       "subtype": "running",
       "type": "Run",
       "year": 2026
+    },
+    {
+      "date": "2026-05-29",
+      "hour": 16,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -2479,6 +2486,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 936.9010009765625
+        },
+        "2026-05-29": {
+          "activity_ids": [
+            "23053761744"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 1103.904052734375
         }
       },
       "Workout": {
@@ -2629,7 +2645,7 @@
       }
     }
   },
-  "generated_at": "2026-05-29T03:06:17.238243+00:00",
+  "generated_at": "2026-05-30T03:05:06.584299+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
