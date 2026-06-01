@@ -1,6 +1,171 @@
 {
   "activities": [
     {
+      "aerobic_te": 2.0,
+      "avg_cadence": 106,
+      "avg_hr": 134,
+      "avg_pace_secs_per_km": 753,
+      "avg_stride_len": 74.53,
+      "calories": 141,
+      "date": "2026-06-01",
+      "distance": 1766.8,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 470,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 697,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 164,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23085682892",
+      "max_hr": 149,
+      "moving_time": 1314.0,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 139,
+          "avg_speed_mps": 1.436,
+          "distance": 1000.0,
+          "duration": 696.0,
+          "max_hr": 149,
+          "pace_secs_per_km": 696
+        },
+        {
+          "avg_hr": 128,
+          "avg_speed_mps": 1.209,
+          "distance": 766.8,
+          "duration": 618.0,
+          "max_hr": 137,
+          "pace_secs_per_km": 827
+        }
+      ],
+      "start_date_local": "2026-06-01T06:57:48",
+      "type": "Walk",
+      "vo2_max": 37.0
+    },
+    {
+      "aerobic_te": 3.5,
+      "avg_cadence": 154,
+      "avg_ground_contact": 310,
+      "avg_hr": 147,
+      "avg_pace_secs_per_km": 531,
+      "avg_stride_len": 72.48,
+      "avg_vertical_osc": 7.9,
+      "calories": 700,
+      "date": "2026-06-01",
+      "distance": 10033.5,
+      "elevation_gain": 23.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 734,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 1695,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1360,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 1184,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 359,
+          "zone": 5
+        }
+      ],
+      "id": "23085546862",
+      "max_hr": 173,
+      "moving_time": 5330.0,
+      "name": "My Very First 10k Running",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 147,
+          "avg_speed_mps": 1.882,
+          "distance": 10033.5,
+          "duration": 5330.0,
+          "elevation_gain": 23.0,
+          "max_hr": 173,
+          "pace_secs_per_km": 531
+        }
+      ],
+      "start_date_local": "2026-06-01T05:23:25",
+      "type": "Run",
+      "vo2_max": 37.0
+    },
+    {
+      "aerobic_te": 0.5,
+      "avg_hr": 103,
+      "calories": 53,
+      "date": "2026-05-31",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 623,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23077123370",
+      "max_hr": 125,
+      "moving_time": 622.6,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-05-31T16:42:58",
+      "type": "WeightTraining"
+    },
+    {
       "aerobic_te": 0.8,
       "avg_cadence": 96,
       "avg_hr": 115,
@@ -10779,7 +10944,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-05-31T03:07:11.943560+00:00",
+  "generated_at": "2026-06-01T03:08:07.367033+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
