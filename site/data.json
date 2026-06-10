@@ -1315,6 +1315,20 @@
       "subtype": "cycling",
       "type": "Ride",
       "year": 2026
+    },
+    {
+      "date": "2026-06-09",
+      "hour": 15,
+      "subtype": "jump_rope",
+      "type": "jump_rope",
+      "year": 2026
+    },
+    {
+      "date": "2026-06-09",
+      "hour": 16,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -2751,6 +2765,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 728.2969970703125
+        },
+        "2026-06-09": {
+          "activity_ids": [
+            "23185835122"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 943.14599609375
         }
       },
       "Workout": {
@@ -2867,6 +2890,17 @@
           "moving_time": 678.2940063476562
         }
       },
+      "jump_rope": {
+        "2026-06-09": {
+          "activity_ids": [
+            "23185834371"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 188.0399932861328
+        }
+      },
       "meditation": {
         "2026-03-18": {
           "activity_ids": [
@@ -2901,7 +2935,7 @@
       }
     }
   },
-  "generated_at": "2026-06-09T03:05:55.523170+00:00",
+  "generated_at": "2026-06-10T03:06:37.198926+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
@@ -2946,6 +2980,10 @@
       "accent": "#ffbe0b",
       "label": "Breathwork"
     },
+    "jump_rope": {
+      "accent": "#f15bb5",
+      "label": "Jump rope"
+    },
     "meditation": {
       "accent": "#f15bb5",
       "label": "Meditation"
@@ -2967,7 +3005,8 @@
     "Workout",
     "meditation",
     "multi_sport",
-    "breathwork"
+    "breathwork",
+    "jump_rope"
   ],
   "units": {
     "distance": "km",

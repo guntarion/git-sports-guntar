@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T03:05:55.515372+00:00",
+  "generated_at": "2026-06-10T03:06:37.191115+00:00",
   "years": {
     "2026": {
       "Hike": {
@@ -1434,6 +1434,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 728.2969970703125
+        },
+        "2026-06-09": {
+          "activity_ids": [
+            "23185835122"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 943.14599609375
         }
       },
       "Workout": {
@@ -1548,6 +1557,17 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 678.2940063476562
+        }
+      },
+      "jump_rope": {
+        "2026-06-09": {
+          "activity_ids": [
+            "23185834371"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 188.0399932861328
         }
       },
       "meditation": {
