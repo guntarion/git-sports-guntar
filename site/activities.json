@@ -1,6 +1,92 @@
 {
   "activities": [
     {
+      "aerobic_te": 3.4,
+      "anaerobic_te": 1.9,
+      "avg_cadence": 162,
+      "avg_ground_contact": 274,
+      "avg_hr": 144,
+      "avg_pace_secs_per_km": 392,
+      "avg_stride_len": 91.13,
+      "avg_vertical_osc": 8.4,
+      "calories": 201,
+      "date": "2026-06-11",
+      "distance": 3022.3,
+      "elevation_gain": 119.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 213,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 312,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 254,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 386,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 21,
+          "zone": 5
+        }
+      ],
+      "id": "23209474532",
+      "max_hr": 170,
+      "moving_time": 1175.0,
+      "name": "Sidoarjo Running and Break",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 135,
+          "avg_speed_mps": 2.352,
+          "distance": 1000.0,
+          "duration": 423.0,
+          "elevation_gain": 70.0,
+          "max_hr": 163,
+          "pace_secs_per_km": 425
+        },
+        {
+          "avg_hr": 144,
+          "avg_speed_mps": 2.631,
+          "distance": 1000.0,
+          "duration": 375.0,
+          "elevation_gain": 18.0,
+          "max_hr": 165,
+          "pace_secs_per_km": 380
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 2.685,
+          "distance": 1000.0,
+          "duration": 370.0,
+          "elevation_gain": 30.0,
+          "max_hr": 170,
+          "pace_secs_per_km": 372
+        },
+        {
+          "avg_hr": 170,
+          "avg_speed_mps": 2.699,
+          "distance": 22.3,
+          "duration": 7.0,
+          "max_hr": 170,
+          "pace_secs_per_km": 371
+        }
+      ],
+      "start_date_local": "2026-06-11T16:20:32",
+      "type": "Run",
+      "vo2_max": 37.0
+    },
+    {
       "aerobic_te": 1.6,
       "anaerobic_te": 0.2,
       "avg_hr": 120,
@@ -11923,7 +12009,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-06-11T03:06:37.523217+00:00",
+  "generated_at": "2026-06-12T03:07:19.430317+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

@@ -3854,5 +3854,29 @@
     "start_date_local": "2026-06-10T16:54:30",
     "type": "WeightTraining",
     "year": 2026
+  },
+  {
+    "aerobic_te": 3.4,
+    "anaerobic_te": 1.9,
+    "avg_cadence": 162,
+    "avg_ground_contact": 274,
+    "avg_hr": 144,
+    "avg_speed_mps": 2.549,
+    "avg_stride_len": 91.13,
+    "avg_vertical_osc": 8.4,
+    "calories": 201,
+    "date": "2026-06-11",
+    "distance": 3022.280029296875,
+    "elevation_gain": 119.0,
+    "id": "23209474532",
+    "max_hr": 170,
+    "moving_time": 1175.0,
+    "name": "Sidoarjo Running and Break",
+    "raw_activity_type": "running",
+    "raw_type": "running",
+    "start_date_local": "2026-06-11T16:20:32",
+    "type": "Run",
+    "vo2_max": 37.0,
+    "year": 2026
   }
 ]
