@@ -1,6 +1,134 @@
 {
   "activities": [
     {
+      "aerobic_te": 1.2,
+      "anaerobic_te": 1.1,
+      "avg_hr": 110,
+      "calories": 128,
+      "date": "2026-06-14",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1285,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 54,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 2,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 6,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23243595690",
+      "max_hr": 164,
+      "moving_time": 1347.7,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-06-14T16:15:47",
+      "type": "WeightTraining"
+    },
+    {
+      "aerobic_te": 1.0,
+      "avg_hr": 120,
+      "calories": 49,
+      "date": "2026-06-14",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 336,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 49,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23243249120",
+      "max_hr": 139,
+      "moving_time": 188.8,
+      "name": "Jump Rope",
+      "raw_type": "jump_rope",
+      "start_date_local": "2026-06-14T16:07:45",
+      "type": "jump_rope"
+    },
+    {
+      "aerobic_te": 0.6,
+      "anaerobic_te": 0.6,
+      "avg_hr": 105,
+      "calories": 60,
+      "date": "2026-06-14",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 668,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 5,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 2,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 2,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 3,
+          "zone": 5
+        }
+      ],
+      "id": "23241090408",
+      "max_hr": 171,
+      "moving_time": 679.6,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-06-14T11:05:23",
+      "type": "Workout"
+    },
+    {
       "aerobic_te": 0.2,
       "avg_hr": 90,
       "calories": 37,
@@ -12159,7 +12287,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-06-14T03:08:00.227571+00:00",
+  "generated_at": "2026-06-15T03:08:37.184048+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
