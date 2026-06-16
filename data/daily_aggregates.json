@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T03:08:26.255637+00:00",
+  "generated_at": "2026-06-16T03:08:16.287879+00:00",
   "years": {
     "2026": {
       "Hike": {
@@ -203,6 +203,15 @@
           "distance": 2736.02001953125,
           "elevation_gain": 28.0,
           "moving_time": 739.0
+        },
+        "2026-06-15": {
+          "activity_ids": [
+            "23255494253"
+          ],
+          "count": 1,
+          "distance": 3127.5400390625,
+          "elevation_gain": 27.0,
+          "moving_time": 693.864013671875
         }
       },
       "Run": {
@@ -633,6 +642,15 @@
           "distance": 3022.280029296875,
           "elevation_gain": 119.0,
           "moving_time": 1175.0
+        },
+        "2026-06-16": {
+          "activity_ids": [
+            "23263520857"
+          ],
+          "count": 1,
+          "distance": 11026.1298828125,
+          "elevation_gain": 822.0,
+          "moving_time": 6102.996032714844
         }
       },
       "TrailRun": {
