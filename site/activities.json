@@ -42,7 +42,7 @@
       "id": "23322647181",
       "max_hr": 164,
       "moving_time": 5943.4,
-      "name": "Sidoarjo Running",
+      "name": "Sidoarjo Pocan Long Run",
       "raw_type": "running",
       "splits": [
         {
@@ -13109,7 +13109,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-06-21T03:08:05.082261+00:00",
+  "generated_at": "2026-06-22T03:08:22.637600+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
