@@ -4210,5 +4210,23 @@
     "type": "Run",
     "vo2_max": 38.0,
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.4,
+    "anaerobic_te": 0.2,
+    "avg_hr": 105,
+    "calories": 30,
+    "date": "2026-06-22",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "23340006713",
+    "max_hr": 140,
+    "moving_time": 323.3940124511719,
+    "name": "Strength",
+    "raw_activity_type": "strength_training",
+    "raw_type": "strength_training",
+    "start_date_local": "2026-06-22T21:14:09",
+    "type": "WeightTraining",
+    "year": 2026
   }
 ]
