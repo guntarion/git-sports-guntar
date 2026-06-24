@@ -1476,6 +1476,34 @@
       "subtype": "strength_training",
       "type": "WeightTraining",
       "year": 2026
+    },
+    {
+      "date": "2026-06-23",
+      "hour": 15,
+      "subtype": "jump_rope",
+      "type": "jump_rope",
+      "year": 2026
+    },
+    {
+      "date": "2026-06-23",
+      "hour": 15,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
+    },
+    {
+      "date": "2026-06-24",
+      "hour": 6,
+      "subtype": "walking",
+      "type": "Walk",
+      "year": 2026
+    },
+    {
+      "date": "2026-06-24",
+      "hour": 7,
+      "subtype": "hiking",
+      "type": "Hike",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -1507,6 +1535,15 @@
           "distance": 2761.2099609375,
           "elevation_gain": 187.0,
           "moving_time": 1627.0
+        },
+        "2026-06-24": {
+          "activity_ids": [
+            "23358157798"
+          ],
+          "count": 1,
+          "distance": 135.38999938964844,
+          "elevation_gain": 8.0,
+          "moving_time": 45.0
         }
       },
       "Ride": {
@@ -2589,6 +2626,15 @@
           "distance": 2906.3800048828125,
           "elevation_gain": 19.0,
           "moving_time": 2530.0
+        },
+        "2026-06-24": {
+          "activity_ids": [
+            "23357834836"
+          ],
+          "count": 1,
+          "distance": 509.17999267578125,
+          "elevation_gain": 0.0,
+          "moving_time": 464.0
         }
       },
       "WeightTraining": {
@@ -3050,6 +3096,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 323.3940124511719
+        },
+        "2026-06-23": {
+          "activity_ids": [
+            "23349079583"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 900.6840209960938
         }
       },
       "Workout": {
@@ -3211,6 +3266,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 197.67999267578125
+        },
+        "2026-06-23": {
+          "activity_ids": [
+            "23348950011"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 189.47999572753906
         }
       },
       "meditation": {
@@ -3247,7 +3311,7 @@
       }
     }
   },
-  "generated_at": "2026-06-23T03:05:37.993369+00:00",
+  "generated_at": "2026-06-24T03:05:50.386451+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
