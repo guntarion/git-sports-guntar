@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T03:16:31Z",
+  "generated_at": "2026-06-25T03:14:12Z",
   "model": "qwen-plus",
   "running_fingerprint": "63:2026-06-21:261253",
   "data_summary": {
@@ -44,7 +44,7 @@
       "longest_km": 9.5,
       "best_pace_secs": 447
     },
-    "days_left_this_month": 7,
+    "days_left_this_month": 6,
     "recent_runs": [
       {
         "date": "2026-06-07",
@@ -110,7 +110,7 @@
   },
   "insights": {
     "monthly_review": {
-      "summary": "You've increased volume and intensity this month, with faster paces and higher HR across more demanding sessions — but at the cost of reduced time in foundational aerobic zones (Z1/Z2) and slightly elevated ground contact time.",
+      "summary": "You've increased volume and intensity this month, with faster average pace and higher HR — indicating a meaningful shift toward more demanding aerobic work, though efficiency gains remain modest.",
       "metrics": [
         {
           "name": "Total Distance",
@@ -134,14 +134,14 @@
           "verdict": "improved"
         },
         {
-          "name": "Avg Heart Rate (bpm)",
+          "name": "Avg HR (bpm)",
           "current": "140",
           "previous": "136",
           "change": "+4",
           "verdict": "declined"
         },
         {
-          "name": "Avg Aerobic Training Effect",
+          "name": "Avg Aerobic TE",
           "current": "2.6",
           "previous": "2.7",
           "change": "-0.1",
@@ -162,68 +162,68 @@
           "verdict": "improved"
         }
       ],
-      "highlight": "Your Zone 3 time jumped from 19% to 29% while Zone 1+2 dropped from 79% to 54% — indicating a meaningful shift toward threshold work, but potentially at the expense of aerobic base resilience."
+      "highlight": "Your aerobic efficiency improved (+0.20 m/sec per bpm) despite a 4 bpm rise in average HR — signaling better cardiovascular economy at similar or slightly higher intensities."
     },
     "goal_tracker": {
       "km_this_month": 51.5,
       "km_last_month": 46.0,
-      "km_remaining": -5.5,
+      "km_remaining": 0,
       "sessions_this_month": 9,
       "sessions_last_month": 10,
       "sessions_remaining": 1,
       "projection": "Ahead",
-      "message": "You’ve already exceeded last month’s total distance by 5.5 km and need only one more run to match last month’s session count. No catch-up required — focus on quality over quantity for the remaining 7 days."
+      "message": "You’ve already exceeded last month’s total distance (51.5 vs 46.0 km) and need only 1 more run to match last month’s session count — aim for a 5–6 km Zone 2 run before month-end to maintain consistency without overloading."
     },
     "insights": [
       {
         "category": "aerobic_efficiency",
-        "title": "Improved efficiency despite higher HR",
-        "body": "Aerobic efficiency rose from 13.42 to 13.62 m/sec per bpm, even as average HR increased +4 bpm — suggesting better cardiac output utilization or improved neuromuscular coordination at sub-threshold efforts.",
+        "title": "Efficiency gain despite higher HR",
+        "body": "Aerobic efficiency rose from 13.42 to 13.62 m/sec per bpm while average HR increased 4 bpm — suggesting improved stroke volume or oxygen extraction, especially given stable VO2 max (37→38) and consistent vertical oscillation (~7.7 cm).",
         "severity": "positive"
       },
       {
         "category": "hr_zones",
-        "title": "Sharp reduction in Z1/Z2 time",
-        "body": "Time in recovery (Z1) and easy aerobic (Z2) zones fell from 79% (36%+43%) last month to 54% (25%+29%) this month — a 25-point drop that risks under-recovery and limits mitochondrial adaptation.",
-        "severity": "warning"
+        "title": "Shift toward threshold and tempo work",
+        "body": "Zone 3 time jumped from 19% to 29%, and Zone 4 increased from 3% to 15% — a +12 percentage point rise in high-aerobic/low-anaerobic effort, aligning with faster average pace (536 → 551 sec/km) and elevated avg HR.",
+        "severity": "positive"
       },
       {
         "category": "running_form",
-        "title": "Cadence and stride length divergence",
-        "body": "Cadence increased +5 spm (146→151), yet stride length remained stable (~69 cm in long runs) and ground contact time rose slightly (314→317 ms in 11 km runs), suggesting compensatory tension rather than efficient power transfer.",
+        "title": "Cadence-stride tradeoff under fatigue",
+        "body": "Cadence increased +5 spm (146→151), yet stride length dropped slightly (e.g., 69.73→68.77 in recent long runs) and ground contact time remained high (~314–317 ms), suggesting form tightness or neuromuscular fatigue during sustained efforts >10 km.",
         "severity": "warning"
       },
       {
-        "category": "training_load",
-        "title": "High-intensity exposure without Z5 progression",
-        "body": "Z4 time increased from 3% to 15%, yet Z5 remains minimal (2% this month, 0% last month) — indicating focused threshold work but no true VO2 max stimulus, which may limit ceiling development.",
-        "severity": "neutral"
+        "category": "recovery",
+        "title": "Low-Z1 volume may limit recovery capacity",
+        "body": "Zone 1 dropped from 36% to 25% of total HR time — the lowest Z1 share in two months — and your easiest recent run (Jun 19) was only 3.2 km at 112 bpm (likely Z1), with no dedicated recovery sessions visible in the last 5 runs.",
+        "severity": "warning"
       }
     ],
     "recommendations": [
       {
-        "action": "Do one 45-minute Zone 2 run (HR ≤135 bpm) before June 28, keeping cadence ≥148 spm and ground contact <320 ms (per Garmin feedback).",
-        "reason": "To restore Z1/Z2 volume lost this month (down 25% vs last month) and support aerobic base resilience — especially given your recent avg HR increase and stable VO2 max (37–38).",
+        "action": "Do one 5 km run at Zone 1 HR (≤125 bpm) before June 30, keeping cadence ≥145 spm and vertical oscillation ≤7.5 cm",
+        "reason": "Z1 volume is down 11% MoM and recent easy runs show elevated ground contact time (344 ms on Jun 19) — a true Z1 session will reinforce neuromuscular relaxation and improve recovery signaling.",
         "priority": "high"
       },
       {
-        "action": "Perform one 6 km tempo run at Zone 3 HR (146–154 bpm), with first/last km at Zone 2 to buffer transition stress.",
-        "reason": "You spent 29% of time in Z3 this month (up from 19%), but your best pace (392 sec/km ≈ 6:32/km) suggests untapped threshold efficiency — this session targets sustainable Z3 neuromuscular patterning.",
+        "action": "Add 10 seconds of walk break every 2 km during your next 10+ km run to reduce ground contact time by ≥10 ms",
+        "reason": "Ground contact averages 314–317 ms in all recent long runs (>10 km), above your personal baseline (274 ms on fast 3 km effort), indicating cumulative fatigue impact on form.",
         "priority": "high"
       },
       {
-        "action": "Add two 3-minute barefoot strides post-run (on grass or track) focusing on light ground contact (<280 ms) and vertical oscillation <7.0 cm.",
-        "reason": "Your recent 3.0 km run showed optimal metrics (ground contact 274 ms, VO2 max 37.0, vertical osc 8.4 cm), but longer runs trended toward higher contact time (314–317 ms) — strides reinforce elastic recoil mechanics.",
+        "action": "Perform 3 sets of 60-second single-leg glute bridges (each leg) post-run on your next two moderate-effort days",
+        "reason": "Vertical oscillation is stable (7.7 cm) but ground contact time remains elevated — targeted glute activation improves pelvic stability and push-off efficiency, directly supporting stride length maintenance at fatigue.",
         "priority": "medium"
       }
     ],
     "weekly_focus": {
-      "theme": "Aerobic Resilience & Threshold Integration",
-      "description": "Rebalance Z1/Z2 volume while sharpening Z3 execution — prioritize physiological recovery and neuromuscular precision over raw volume or speed.",
+      "theme": "Recovery-Integrated Aerobic Development",
+      "description": "Balance continued aerobic stimulus with intentional recovery tactics to protect form, enhance efficiency gains, and avoid HR creep — especially critical as Zone 3/4 volume rises.",
       "suggested_sessions": [
-        "45-min Zone 2 run (HR ≤135 bpm)",
-        "6 km tempo (Z3, 146–154 bpm)",
-        "3 km easy + 3x3 min strides"
+        "5 km Zone 1 run (HR ≤125 bpm)",
+        "6 km progressive run: first 3 km Z2, last 3 km Z3 (HR 145–155)",
+        "4 km technique-focused Z2 run with 10-sec walk breaks every 2 km"
       ]
     }
   }
