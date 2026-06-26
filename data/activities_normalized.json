@@ -4304,5 +4304,28 @@
     "start_date_local": "2026-06-24T07:37:04",
     "type": "Hike",
     "year": 2026
+  },
+  {
+    "aerobic_te": 2.4,
+    "avg_cadence": 146,
+    "avg_ground_contact": 322,
+    "avg_hr": 135,
+    "avg_speed_mps": 1.741,
+    "avg_stride_len": 72.16,
+    "avg_vertical_osc": 7.5,
+    "calories": 227,
+    "date": "2026-06-25",
+    "distance": 3040.340087890625,
+    "elevation_gain": 69.0,
+    "id": "23372331035",
+    "max_hr": 156,
+    "moving_time": 1744.5969848632812,
+    "name": "Bandung Trail Running",
+    "raw_activity_type": "trail_running",
+    "raw_type": "trail_running",
+    "start_date_local": "2026-06-25T05:36:27",
+    "type": "TrailRun",
+    "vo2_max": 39.0,
+    "year": 2026
   }
 ]
