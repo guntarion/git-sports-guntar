@@ -4367,5 +4367,41 @@
     "start_date_local": "2026-06-26T17:41:29",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.6,
+    "anaerobic_te": 1.5,
+    "avg_hr": 121,
+    "calories": 30,
+    "date": "2026-06-27",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "23394229759",
+    "max_hr": 162,
+    "moving_time": 117.23999786376953,
+    "name": "Jump Rope",
+    "raw_activity_type": "jump_rope",
+    "raw_type": "jump_rope",
+    "start_date_local": "2026-06-27T16:24:42",
+    "type": "jump_rope",
+    "year": 2026
+  },
+  {
+    "aerobic_te": 0.8,
+    "anaerobic_te": 0.1,
+    "avg_hr": 109,
+    "calories": 88,
+    "date": "2026-06-27",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "23394414017",
+    "max_hr": 134,
+    "moving_time": 900.6240234375,
+    "name": "Strength",
+    "raw_activity_type": "strength_training",
+    "raw_type": "strength_training",
+    "start_date_local": "2026-06-27T16:30:43",
+    "type": "WeightTraining",
+    "year": 2026
   }
 ]
