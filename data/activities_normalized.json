@@ -4462,5 +4462,41 @@
     "start_date_local": "2026-06-29T18:11:49",
     "type": "WeightTraining",
     "year": 2026
+  },
+  {
+    "aerobic_te": 2.0,
+    "anaerobic_te": 0.6,
+    "avg_hr": 133,
+    "calories": 81,
+    "date": "2026-06-30",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "23426606047",
+    "max_hr": 160,
+    "moving_time": 539.125,
+    "name": "Cardio",
+    "raw_activity_type": "indoor_cardio",
+    "raw_type": "indoor_cardio",
+    "start_date_local": "2026-06-30T14:30:38",
+    "type": "Workout",
+    "year": 2026
+  },
+  {
+    "aerobic_te": 1.8,
+    "avg_hr": 120,
+    "avg_speed_mps": 4.255,
+    "calories": 144,
+    "date": "2026-06-30",
+    "distance": 5147.419921875,
+    "elevation_gain": 50.0,
+    "id": "23429106269",
+    "max_hr": 148,
+    "moving_time": 1198.0,
+    "name": "Sidoarjo Cycling",
+    "raw_activity_type": "cycling",
+    "raw_type": "cycling",
+    "start_date_local": "2026-06-30T17:33:43",
+    "type": "Ride",
+    "year": 2026
   }
 ]
