@@ -42,7 +42,7 @@
       "id": "23482012750",
       "max_hr": 179,
       "moving_time": 5077.7,
-      "name": "Surabaya Running",
+      "name": "ComMed UWKS Run 10k",
       "raw_type": "running",
       "splits": [
         {
@@ -14450,7 +14450,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-07-05T05:58:43.039856+00:00",
+  "generated_at": "2026-07-06T06:22:01.027621+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
