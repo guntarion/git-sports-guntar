@@ -1,6 +1,168 @@
 {
   "activities": [
     {
+      "aerobic_te": 2.7,
+      "anaerobic_te": 1.7,
+      "avg_cadence": 136,
+      "avg_ground_contact": 300,
+      "avg_hr": 129,
+      "avg_pace_secs_per_km": 512,
+      "avg_stride_len": 85.27,
+      "avg_vertical_osc": 7.6,
+      "calories": 291,
+      "date": "2026-07-08",
+      "distance": 4019.0,
+      "elevation_gain": 95.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1125,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 761,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 157,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 13,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23516606494",
+      "max_hr": 157,
+      "moving_time": 2054.9,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 124,
+          "avg_speed_mps": 1.888,
+          "distance": 2526.0,
+          "duration": 1338.0,
+          "elevation_gain": 55.0,
+          "max_hr": 144,
+          "pace_secs_per_km": 530
+        },
+        {
+          "avg_hr": 135,
+          "avg_speed_mps": 1.946,
+          "distance": 603.1,
+          "duration": 309.9,
+          "elevation_gain": 20.0,
+          "max_hr": 148,
+          "pace_secs_per_km": 514
+        },
+        {
+          "avg_hr": 140,
+          "avg_speed_mps": 2.182,
+          "distance": 889.9,
+          "duration": 407.0,
+          "elevation_gain": 20.0,
+          "max_hr": 157,
+          "pace_secs_per_km": 458
+        }
+      ],
+      "start_date_local": "2026-07-08T05:14:41",
+      "type": "Run",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 0.4,
+      "avg_hr": 95,
+      "calories": 83,
+      "date": "2026-07-07",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1227,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23508031914",
+      "max_hr": 125,
+      "moving_time": 1227.0,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-07-07T16:03:23",
+      "type": "WeightTraining"
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_hr": 108,
+      "calories": 32,
+      "date": "2026-07-07",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 323,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23507857880",
+      "max_hr": 129,
+      "moving_time": 193.1,
+      "name": "Jump Rope",
+      "raw_type": "jump_rope",
+      "start_date_local": "2026-07-07T15:57:19",
+      "type": "jump_rope"
+    },
+    {
       "aerobic_te": 2.0,
       "anaerobic_te": 0.3,
       "avg_cadence": 149,
@@ -14564,7 +14726,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-07-07T06:01:58.958029+00:00",
+  "generated_at": "2026-07-08T05:15:54.755799+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
