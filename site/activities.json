@@ -1,6 +1,120 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.2,
+      "avg_cadence": 100,
+      "avg_hr": 92,
+      "avg_pace_secs_per_km": 830,
+      "avg_stride_len": 71.98,
+      "calories": 42,
+      "date": "2026-07-09",
+      "distance": 669.0,
+      "elevation_gain": 5.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 555,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23529428522",
+      "max_hr": 108,
+      "moving_time": 555.0,
+      "name": "Jakarta Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 92,
+          "avg_speed_mps": 1.205,
+          "distance": 669.0,
+          "duration": 555.0,
+          "elevation_gain": 5.0,
+          "max_hr": 108,
+          "pace_secs_per_km": 830
+        }
+      ],
+      "start_date_local": "2026-07-09T06:19:14",
+      "type": "Walk",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 0.4,
+      "avg_cadence": 90,
+      "avg_hr": 91,
+      "avg_pace_secs_per_km": 868,
+      "avg_stride_len": 76.39,
+      "calories": 54,
+      "date": "2026-07-09",
+      "distance": 774.2,
+      "elevation_gain": 10.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 672,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23528485875",
+      "max_hr": 110,
+      "moving_time": 646.0,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 91,
+          "avg_speed_mps": 1.152,
+          "distance": 774.2,
+          "duration": 646.0,
+          "elevation_gain": 10.0,
+          "max_hr": 110,
+          "pace_secs_per_km": 868
+        }
+      ],
+      "start_date_local": "2026-07-09T03:48:56",
+      "type": "Walk",
+      "vo2_max": 39.0
+    },
+    {
       "aerobic_te": 2.7,
       "anaerobic_te": 1.7,
       "avg_cadence": 136,
@@ -14726,7 +14840,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-07-08T05:15:54.755799+00:00",
+  "generated_at": "2026-07-09T05:58:48.315230+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
