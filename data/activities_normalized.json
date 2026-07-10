@@ -4792,5 +4792,25 @@
     "type": "Walk",
     "vo2_max": 39.0,
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.2,
+    "avg_cadence": 94,
+    "avg_hr": 89,
+    "avg_speed_mps": 1.159,
+    "avg_stride_len": 73.2,
+    "calories": 26,
+    "date": "2026-07-09",
+    "distance": 433.1400146484375,
+    "elevation_gain": 1.0,
+    "id": "23536625571",
+    "max_hr": 111,
+    "moving_time": 341.0,
+    "name": "Sidoarjo Walking",
+    "raw_activity_type": "walking",
+    "raw_type": "walking",
+    "start_date_local": "2026-07-09T21:50:33",
+    "type": "Walk",
+    "year": 2026
   }
 ]
