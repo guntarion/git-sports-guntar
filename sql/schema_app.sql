@@ -95,6 +95,32 @@ CREATE TABLE IF NOT EXISTS activity_derived (
     computed_at     TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+-- Session locations and routes. PRIVATE: served only to an authenticated
+-- caller, because start coordinates of a run effectively disclose a home
+-- address. `route` holds [[lat,lon], ...] rounded to 5 decimals (~1 m).
+CREATE TABLE IF NOT EXISTS activity_locations (
+    activity_id     TEXT PRIMARY KEY,
+    date            DATE NOT NULL,
+    type            TEXT,
+    name            TEXT,
+    location_name   TEXT,
+    start_lat       DOUBLE PRECISION,
+    start_lon       DOUBLE PRECISION,
+    end_lat         DOUBLE PRECISION,
+    end_lon         DOUBLE PRECISION,
+    min_lat         DOUBLE PRECISION,
+    max_lat         DOUBLE PRECISION,
+    min_lon         DOUBLE PRECISION,
+    max_lon         DOUBLE PRECISION,
+    distance_m      DOUBLE PRECISION,
+    route           JSONB,
+    route_points    INTEGER,
+    synced_at       TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_loc_date ON activity_locations(date DESC);
+CREATE INDEX IF NOT EXISTS idx_loc_type ON activity_locations(type);
+CREATE INDEX IF NOT EXISTS idx_loc_name ON activity_locations(location_name);
 CREATE INDEX IF NOT EXISTS idx_derived_date ON activity_derived(date DESC);
 CREATE INDEX IF NOT EXISTS idx_re_date ON running_economy(date DESC);
 CREATE INDEX IF NOT EXISTS idx_perf_metric_date ON performance_metrics(metric, date DESC);
