@@ -1,233 +1,305 @@
 <p align="center">
   <img src="./site/git-sweaty-logo.svg" alt="git-sweaty-logo" /><br>
   <sub>
-    (create your own README logo like this
+    (create your own README banner like this
     <a href="https://github.com/aspain/heatmap-logo">here</a>)
   </sub>
 </p>
 
-# Workout → Interactive Dashboard
+# Garmin → Interactive Training Dashboard
 
-> **Fork of [aspain/git-sweaty](https://github.com/aspain/git-sweaty)**
-> All core infrastructure and pipeline credit goes to the original author.
-> This fork adds Garmin-focused analytics, running records, and AI coaching on top.
+> **Fork of [aspain/git-sweaty](https://github.com/aspain/git-sweaty).**
+> All core pipeline, heatmap rendering, and GitHub Actions infrastructure credit goes to the
+> original author. This fork adds Garmin-focused analytics, AI coaching, sports-science metrics,
+> and a PostgreSQL-backed app layer.
 
-Turn your **Garmin** activities into GitHub-style contribution graphs. Automatically generate a free, interactive dashboard updated daily on GitHub Pages.
+Turn your **Garmin Connect** activities into GitHub-style contribution graphs, running analytics,
+and performance-science metrics — updated automatically every day.
 
-**No coding required.**
-
-View the Interactive [Activity Dashboard](https://guntarion.github.io/git-sports-guntar/).
+**Live dashboard → [git-sports-guntar.vercel.app](https://git-sports-guntar.vercel.app)**
 
 ![Dashboard Preview](site/readme-preview-20260222a.png)
 
 ---
 
-## What's New in This Fork
+## Architecture at a glance
 
-Built on top of [aspain/git-sweaty](https://github.com/aspain/git-sweaty), this fork adds:
+```
+Garmin Connect
+      │  daily, via GitHub Actions
+      ▼
+Python ETL  ──► dashboard-data branch (JSON)  ──► Vercel static site
+      │
+      └──────► PostgreSQL ──► Vercel serverless API ──► Journal · Todos · Performance
+```
 
-### 📊 Activities Page
-Per-activity detail view with expandable cards:
-- HR zone distribution (Z1–Z5 bars)
-- Per-km split table (pace, HR, elevation)
-- Running dynamics: cadence, stride length, ground contact, vertical oscillation, VO2 max
+| Layer | Technology |
+|---|---|
+| ETL | Python 3.11+, no framework (`requests`, `garminconnect`, `psycopg2`) |
+| Frontend | Vanilla JS + inline CSS, **no build step** |
+| API | Node ESM serverless functions on Vercel |
+| Storage | PostgreSQL (app data + metrics) · JSON on `dashboard-data` (heatmap data) |
+| Automation | GitHub Actions (daily ETL) → Vercel (deploy) |
+
+> **Note on hosting.** This fork moved off GitHub Pages. Static hosting has no server, so a page
+> cannot safely reach a database — which the journal, todos, and performance features require.
+> Vercel serves the same static site *plus* the API that talks to PostgreSQL.
+
+---
+
+## Features
+
+### 📊 Dashboard, Activities, Analytics, Records
+
+- **Dashboard** — GitHub-style heatmap across all activity types, with year/type filters
+- **Activities** — per-activity detail: HR zone distribution, per-km split table, running dynamics
+- **Analytics** — weekly volume, pace trends, aerobic efficiency, HR zone comparison, AI Coach
+- **Records** — leaderboards by distance band, best 1 km splits, PR progression, form records
 
 ![Activities Page](docs/screenshot-activities.png)
-
-### 📈 Analytics Page
-Comprehensive running analytics dashboard:
-- **Monthly progress tracker** — distance & sessions vs. last month with progress bars
-- **Weekly volume chart** — bars + 4-week rolling average line
-- **Pace trend** — distance-colored points by band (< 3 km / 3–6 km / 6–12 km / > 12 km)
-- **Aerobic efficiency trend** — `(speed / HR) × 1000` formula
-- **HR zone comparison** — this month vs. last month
-- **Running form trends** — ground contact time, stride length
-- **Monthly summary table** — with delta indicators vs. prior month
-
 ![Analytics Page](docs/screenshot-analytics.png)
-
-### 🏆 Records Page
-Personal running records and leaderboards:
-- Leaderboards by distance band (< 3 km / 3–6 km / 6–12 km / > 12 km)
-- Best 1 km splits ranking (short partial-km splits filtered out)
-- Monthly champions and PR progression table
-- Running form records (best cadence, stride, VO2 max, etc.)
-- Split analysis: best negative splits & most consistent pacing
-
 ![Records Page](docs/screenshot-records.png)
 
+### 📈 Performance — raw + derived metrics over time
+
+A dedicated page separating **what Garmin measured** from **what is computed here**, with a
+month-over-month verdict on every headline number.
+
+![Performance Page](docs/screenshot-performance.png)
+
+**Garmin measurements shown on the page:** VO₂max · Endurance Score · HRV · Hill Score · Pulse Ox ·
+Recovery Time · Training Readiness · Acute & Chronic Load · ACWR · Training Status ·
+Race Predictions
+
+**Also collected into PostgreSQL** (stored and queryable via `/api/performance`, not yet charted):
+Lactate Threshold HR · Resting HR · Sleep duration, score & stages · Body Battery · Weekly Stress ·
+Daily Steps · Intensity Minutes · Personal Records · Body weight
+
+**Derived metrics** (see [`docs/performance-metrics.md`](docs/performance-metrics.md) for every
+formula):
+
+| Metric | Unit | Meaning |
+|---|---|---|
+| **Running Economy** | ml O₂/kg/km ↓ | Oxygen cost per km, on Garmin's own scale |
+| **Efficiency Index** | m/beat ↑ | Distance per heartbeat (assumption-free) |
+| **Cardiac Cost** | beats/km ↓ | Heartbeats to cover a kilometre |
+| **Vertical Ratio** | % ↓ | Bounce as a proportion of stride |
+| **Aerobic Decoupling** | % ↓ | Efficiency drift first half → second half |
+| **Training Load** | TRIMP | Zone-weighted training minutes |
+| **Recovery Balance** | index | HRV vs load — overreaching indicator |
+| **Endurance : VO₂max** | ratio ↑ | Durability per unit of aerobic capacity |
+| **Efficiency by HR zone** | m/beat ↑ | Efficiency within each intensity band |
+
+Every card carries a **“How it's computed”** toggle with its definition and formula, so no number
+is a black box.
+
+#### Two design decisions worth knowing
+
+**Running Economy is measured over a fixed km 2–4 window, not the whole run.** Measured
+end-to-end, the number tracks how *far* you ran rather than how efficiently — longer runs
+accumulate cardiac drift. On the reference dataset, `corr(distance, RE)` was **+0.53** whole-run
+versus **+0.04** windowed, and runs ≥ 6 km scored 16.7 ml/kg/km worse than runs < 6 km, a bigger
+gap than the entire baseline spread.
+
+**Month-over-month comparisons use the same elapsed window.** On the 18th, "this month so far"
+is compared against **day 1–18 of last month**, never against the full previous month. Equal-length
+windows are fair for both averages and sums, so the comparison is valid from day 1 of a month.
+Tiles with fewer than 3 readings say so instead of implying confidence they do not have.
+
 ### 🤖 AI Coach (Coach RunAnalytica)
-Powered by [Qwen](https://www.alibabacloud.com/en/product/modelstudio) (Alibaba DashScope — ACTOR prompt framework):
-- Monthly performance review with metric-by-metric comparison
-- Goal tracker: km remaining to match last month
-- Training insights by category (aerobic efficiency, HR zones, form, load, recovery)
-- 3 actionable recommendations per week
-- Weekly focus theme with suggested sessions
-- **Smart skip**: AI does not re-run if no new running data (saves API tokens)
+
+Powered by [Qwen](https://www.alibabacloud.com/en/product/modelstudio) (Alibaba DashScope, ACTOR
+prompt framework): monthly performance review, goal tracker, categorised training insights,
+3 actionable weekly recommendations, and a weekly focus theme. Reports are persisted to
+PostgreSQL, and generation is skipped when no new running data has arrived.
 
 ![AI Coach Panel](docs/screenshot-ai.png)
 
-### 📓 Journal & Todo List
-Capture AI Coach recommendations and personal reflections, stored in browser localStorage:
-- **Journal** — Markdown editor with search, tag filter, and preview toggle
-- **Todo list** — Quick add with priority, filters (All/Active/Completed), bulk clear
-- **Cross-page capture** — 📓 and ☐ buttons on AI recommendations in Analytics; 📓 Add Note on Records hero card
-- **Data portability** — Export/Import JSON backup to move data across devices
+### 📓 Journal & Todos — database-backed
+
+Markdown journal and todo list, stored in **PostgreSQL** rather than browser localStorage, so they
+persist across devices and browsers. Protected by an access token; the rest of the dashboard stays
+publicly readable. Existing localStorage entries are migrated automatically on first unlock.
 
 ![Journal Page](docs/screenshot-journal.png)
-
 ![Todos Page](docs/screenshot-todos.png)
 
-### 🗄️ PostgreSQL Sync (Optional)
-Sync all activities, splits, and HR zone data to a PostgreSQL database for external analytics queries.
-
 ---
 
-## Quick Start (Garmin)
+## Setup
 
-### macOS / Linux
+### 1) Fork and configure the ETL
 
-```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/aspain/git-sweaty/main/scripts/bootstrap.sh)
-```
+Fork this repository, then add repository **secrets**
+(`Settings → Secrets and variables → Actions`):
 
-### Windows (requires WSL)
+| Secret | Required | Purpose |
+|---|---|---|
+| `GARMIN_TOKENS_B64` | one of these | Base64 OAuth token store (preferred) |
+| `GARMIN_EMAIL` + `GARMIN_PASSWORD` | one of these | Fallback credentials |
+| `DATABASE_URL` | for app features | PostgreSQL connection string |
+| `VERCEL_TOKEN` | for auto-deploy | Create at <https://vercel.com/account/tokens> |
+| `QWEN_API_KEY` | optional | Enables the AI Coach |
 
-```powershell
-wsl bash -lc "bash <(curl -fsSL https://raw.githubusercontent.com/aspain/git-sweaty/main/scripts/bootstrap.sh)"
-```
+Repository **variables**: `DASHBOARD_SOURCE=garmin`, `DASHBOARD_REPO=<you>/<repo>`,
+`DASHBOARD_DISTANCE_UNIT`, `DASHBOARD_ELEVATION_UNIT`, `DASHBOARD_WEEK_START`.
 
-When prompted, choose:
-- Source: **garmin**
-- Unit preference: `US` or `Metric`
-- Heatmap week start: `Sunday` or `Monday`
-
-### Garmin Auth Secrets
-
-After initial setup, add these in your repo:
-`Settings → Secrets and variables → Actions → Secrets`
-
-| Secret | Required | Description |
-|--------|----------|-------------|
-| `GARMIN_EMAIL` | One of the two | Garmin Connect account email |
-| `GARMIN_PASSWORD` | One of the two | Garmin Connect account password |
-| `GARMIN_TOKENS_B64` | Alternative | Base64-encoded OAuth token store |
-
-### Optional Secrets
-
-| Secret / Variable | Purpose |
-|-------------------|---------|
-| `QWEN_API_KEY` (secret) | Enable AI Coach panel in Analytics |
-| `DATABASE_URL` (secret) | PostgreSQL sync for external queries |
-| `DASHBOARD_GARMIN_PROFILE_URL` (var) | Profile link in dashboard header |
-| `DASHBOARD_DISTANCE_UNIT` (var) | `km` or `mi` |
-| `DASHBOARD_ELEVATION_UNIT` (var) | `m` or `ft` |
-| `DASHBOARD_WEEK_START` (var) | `sunday` or `monday` |
-
-### Trigger Manual Sync
+### 2) Local development
 
 ```bash
-# Incremental sync
+git clone https://github.com/<you>/<repo>.git && cd <repo>
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+
+# Interactive Garmin login — handles MFA, writes .garmin_token_store + config.local.yaml
+.venv/bin/python scripts/garmin_login_local.py
+
+# Verify auth without writing anything
+.venv/bin/python scripts/sync_garmin.py --dry-run
+
+# Serve locally (auto-uses .venv; pulls data from the dashboard-data branch)
+bash scripts/dev_dashboard.sh --port 4180
+```
+
+Create a `.env` in the **repository root** (never inside `site/`, which is web-served):
+
+```
+DATABASE_URL=postgresql://user:pass@host:5432/dbname
+```
+
+> Run Python scripts from the repository root — paths such as `site/activities.json` are relative.
+
+### 3) Database
+
+Tables are created automatically on first use. To apply the schema manually:
+
+```bash
+psql "$DATABASE_URL" -f sql/schema_app.sql
+```
+
+Optionally import existing AI history:
+
+```bash
+PYTHONPATH=scripts .venv/bin/python scripts/ai_insights_db.py --backfill
+```
+
+### 4) Deploy to Vercel
+
+```bash
+npm i -g vercel && vercel login
+vercel link --yes
+
+printf 'require'             | vercel env add PGSSL production          # if your PG supports TLS
+printf '<your-db-url>'       | vercel env add DATABASE_URL production
+printf '<choose-a-password>' | vercel env add APP_AUTH_TOKEN production # unlocks Journal/Todos
+
+vercel deploy --prod --yes
+```
+
+Then **disable Deployment Protection** (`Project → Settings → Deployment Protection →
+Vercel Authentication → Disabled`). New projects enable it by default, which 302-redirects every
+request — including the API — behind a Vercel SSO login.
+
+### 5) Trigger a sync
+
+```bash
 gh workflow run "Sync Heatmaps" --field source=garmin
-
-# Full backfill (re-fetch all history)
-gh workflow run "Sync Heatmaps" --field source=garmin --field full_backfill=true
 ```
 
-Or via GitHub UI: **Actions → Sync Heatmaps → Run workflow**
+---
+
+## Setup notes & troubleshooting
+
+**Garmin token refresh.** OAuth tokens expire. To refresh:
+
+```bash
+.venv/bin/python scripts/garmin_login_local.py
+.venv/bin/python -c "import sys;sys.path.insert(0,'scripts');\
+from garmin_token_store import encode_token_store_dir_as_zip_b64 as e;\
+sys.stdout.write(e('.garmin_token_store'))" | gh secret set GARMIN_TOKENS_B64 -R <you>/<repo>
+```
+
+⚠️ Pipe to **stdin without `--body -`**. `gh secret set --body -` does *not* read stdin; it stores
+the literal string `"-"`, which fails later with `binascii.Error: Only base64 data is allowed`.
+
+**Vercel misdetects the project as Python.** The root `requirements.txt` triggers Vercel's Python
+builder (`No python entrypoint found`). `vercel.json` pins `framework: null` and `.vercelignore`
+excludes the Python files — keep both.
+
+**Garmin rate limits.** Per-day endpoints (HRV, Pulse Ox, training readiness, resting HR, sleep)
+cost one request per day of history. Backfills are resumable: they skip dates already stored and
+back off on repeated failure. Control depth with `HRV_BACKFILL_DAYS` (workflow default: 7).
+Some endpoints also reject long ranges — `get_body_battery` is chunked to 28 days.
+
+**Garmin unit traps.** `recoveryTime` is reported in **minutes**, not hours (a 12 km run returned
+1614 = 26.9 h). `get_max_metrics` returns empty on some accounts, so VO₂max history is
+reconstructed from per-activity values instead.
+
+**PostgreSQL over the internet.** Enabling `ssl = on` in `postgresql.conf` is *additive* and does
+not break existing clients — most default to `sslmode=prefer` and silently upgrade. Only forcing
+TLS via `hostssl` in `pg_hba.conf` breaks non-TLS clients. Set `PGSSL=require` on Vercel to
+encrypt this app's connection.
+
+**Personal constants.** `config.yaml → running_economy` holds `hr_max`, `hr_rest`, `vo2max_ref`
+and `sex`. These shift every heart-rate-derived number. Set `hr_max` from your highest *recorded*
+HR rather than a `220 − age` estimate. Keep `vo2max_ref` **frozen** — see the warning in
+[`docs/performance-metrics.md`](docs/performance-metrics.md).
+
+**Test baseline.** `cd scripts && ../.venv/bin/python -m pytest ../tests/ -v` reports
+**9 failed, 254 passed**. All 9 are pre-existing and unrelated to these features: 4 source-switch
+tests that failed before this work, 3 upstream fresh-machine bootstrap simulations, and 2 that
+assert upstream README wording this fork deliberately replaced.
 
 ---
 
-## Dashboard Pages
+## Pages
 
-| Page | URL | Description |
-|------|-----|-------------|
-| Dashboard | `/` | GitHub-style heatmap, all activity types |
-| Activities | `/activities.html` | Per-activity detail with HR zones & splits |
-| Analytics | `/analytics.html` | Running charts, monthly progress, AI Coach |
-| Records | `/records.html` | Leaderboards, PRs, split analysis |
-| Journal | `/journal.html` | Training reflections, markdown notes |
-| Todos | `/todos.html` | Action items from AI Coach & manual |
+| Page | URL | Auth |
+|---|---|---|
+| Dashboard | `/` | public |
+| Activities | `/activities.html` | public |
+| Analytics | `/analytics.html` | public |
+| Records | `/records.html` | public |
+| Performance | `/performance.html` | public (body weight requires token) |
+| Journal | `/journal.html` | **token** |
+| Todos | `/todos.html` | **token** |
 
----
+## Configuration
 
-## Updating This Fork
-
-To pull upstream improvements from [aspain/git-sweaty](https://github.com/aspain/git-sweaty):
-
-1. Go to your fork on GitHub
-2. Click **Sync fork** on the `main` branch
-3. If there are conflicts in fork-specific files (`site/analytics.html`, `site/records.html`, `site/activities.html`, `scripts/generate_ai_insights.py`, `scripts/generate_activities.py`, `scripts/sync_db.py`), resolve them manually
-4. After syncing, run **Sync Heatmaps** workflow to refresh the dashboard
-
-Activity data lives on the `dashboard-data` branch — it is never affected by syncing `main`.
-
----
-
-## Other Features (from upstream)
-
-- Responsive design for desktop and mobile
-- Click a heatmap cell to freeze the tooltip; click away to dismiss
-- Multi-type days show as proportional split squares (one color per activity type)
-- Raw activity files are not committed (`activities/raw/` is gitignored)
-- Backfill state is persisted — if a full backfill is interrupted, the next run resumes from where it left off
-- The **Sync Heatmaps** workflow has a `Reset backfill cursor` toggle for forced full re-fetch
-
----
-
-## Configuration (Optional)
-
-Base settings: `config.yaml` · Local overrides: `config.local.yaml` (gitignored)
+Base settings: `config.yaml` · local overrides: `config.local.yaml` (gitignored)
 
 | Setting | Default | Description |
-|---------|---------|-------------|
+|---|---|---|
 | `source` | `garmin` | Data source |
 | `sync.start_date` | — | Lower bound for history (`YYYY-MM-DD`) |
-| `sync.lookback_years` | `5` | Rolling lower bound (if `start_date` unset) |
-| `sync.recent_days` | `7` | Always sync recent N days |
-| `activities.include_all_types` | `true` | Include all seen sport types |
-| `activities.exclude_types` | `[]` | Explicit type exclusions |
+| `sync.recent_days` | `7` | Always re-sync the recent N days |
 | `units.distance` | `km` | `km` or `mi` |
 | `units.elevation` | `m` | `m` or `ft` |
 | `heatmaps.week_start` | `sunday` | `sunday` or `monday` |
+| `running_economy.hr_max` | — | Highest recorded HR (bpm) |
+| `running_economy.hr_rest` | — | Resting HR (bpm) |
+| `running_economy.vo2max_ref` | — | Frozen VO₂max reference |
 
----
+## Documentation
+
+- [`docs/performance-metrics.md`](docs/performance-metrics.md) — definitions and formulas for
+  every metric on the Performance page, with filters and caveats
+- [`CLAUDE.md`](CLAUDE.md) — architecture, commands, and gotchas for contributors
+
+## Updating from upstream
+
+```bash
+git remote add upstream https://github.com/aspain/git-sweaty.git
+git fetch upstream && git merge upstream/main
+```
+
+Expect conflicts in fork-specific files (`README.md`, `requirements.txt`, `site/*.html`,
+`scripts/sync_garmin.py`). Activity data lives on `dashboard-data` and is never touched by
+merging `main`.
 
 ## Credits
 
-- **Original project**: [aspain/git-sweaty](https://github.com/aspain/git-sweaty) — all core pipeline, heatmap rendering, and GitHub Actions infrastructure
-- **Garmin API integration**: built on [python-garminconnect](https://github.com/cyberjunky/python-garminconnect)
-- **AI coaching**: [Qwen (DashScope)](https://www.alibabacloud.com/en/product/modelstudio) via OpenAI-compatible API
+- **Original project**: [aspain/git-sweaty](https://github.com/aspain/git-sweaty)
+- **Garmin API**: [python-garminconnect](https://github.com/cyberjunky/python-garminconnect)
+- **AI coaching**: [Qwen (DashScope)](https://www.alibabacloud.com/en/product/modelstudio)
 - **Logo generator**: [aspain/heatmap-logo](https://github.com/aspain/heatmap-logo)
-
----
-
-<details>
-<summary>Manual Setup (No Scripts)</summary>
-
-### 1) Shared steps
-
-1. Fork this repository on GitHub.
-2. Enable GitHub Actions: `Settings → Actions → General`
-3. Set GitHub Pages to deploy from Actions: `Settings → Pages → Source → GitHub Actions`
-4. Add repository variables: `Settings → Secrets and variables → Actions → Variables`
-   - `DASHBOARD_SOURCE`: `garmin`
-   - `DASHBOARD_REPO`: your fork slug (e.g. `yourname/git-sports-guntar`)
-   - `DASHBOARD_DISTANCE_UNIT`: `km` or `mi`
-   - `DASHBOARD_ELEVATION_UNIT`: `m` or `ft`
-   - `DASHBOARD_WEEK_START`: `sunday` or `monday`
-
-### 2) Garmin auth secrets
-
-`Settings → Secrets and variables → Actions → Secrets`
-
-Add `GARMIN_EMAIL` + `GARMIN_PASSWORD`, or alternatively `GARMIN_TOKENS_B64`.
-
-### 3) Run the first sync
-
-1. `Actions → Sync Heatmaps → Run workflow`
-2. Set source to `garmin`
-3. Wait for sync to complete, then `Deploy Pages` runs automatically
-4. Open: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
-
-</details>

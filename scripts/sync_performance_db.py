@@ -305,6 +305,101 @@ def sync_garmin_metrics(conn, client, hrv_days: int = 0) -> Dict[str, int]:
     except Exception as exc:
         print(f"  acute/chronic load failed: {exc}", file=sys.stderr)
 
+    # ── Range-based endpoints: one request covers a long span, so these are
+    # cheap and always fetched in full. ──
+    def _range_metric(label, fn):
+        try:
+            n = fn()
+            if n:
+                bump(label, n)
+            time.sleep(1)
+        except Exception as exc:
+            print(f"  {label} failed: {exc}", file=sys.stderr)
+
+    def _lactate():
+        lt = client.get_lactate_threshold(latest=True) or {}
+        shr = lt.get("speed_and_heart_rate") or {}
+        hr = shr.get("heartRate")
+        if not hr:
+            return 0
+        day = str(shr.get("calendarDate") or d_today)[:10]
+        # Store HR (unambiguous). The companion `speed` field is kept raw in
+        # extra: its unit could not be verified against this athlete's paces,
+        # so it is deliberately not surfaced as a number.
+        _put(conn, "lactate_threshold_hr", day, hr, {"raw": shr})
+        return 1
+
+    def _body_battery():
+        # Garmin rejects a long span here ("requested date range is too big"),
+        # so walk back in 28-day chunks instead of asking for a year at once.
+        n = 0
+        chunk = 28
+        end = today
+        earliest = today - timedelta(days=365)
+        while end > earliest:
+            start = max(end - timedelta(days=chunk - 1), earliest)
+            try:
+                rows = client.get_body_battery(start.isoformat(), end.isoformat()) or []
+            except Exception as exc:
+                print(f"  body_battery {start}..{end} failed: {exc}", file=sys.stderr)
+                break
+            for r in rows:
+                day = r.get("date")
+                if day and r.get("charged") is not None:
+                    _put(conn, "body_battery_charged", day, r.get("charged"),
+                         {"drained": r.get("drained")})
+                    n += 1
+            end = start - timedelta(days=1)
+            time.sleep(1.0)
+        return n
+
+    def _weekly_stress():
+        rows = client.get_weekly_stress(d_today, 52) or []
+        n = 0
+        for r in rows:
+            if r.get("calendarDate") and r.get("value") is not None:
+                _put(conn, "stress_weekly", r["calendarDate"], r["value"])
+                n += 1
+        return n
+
+    def _daily_steps():
+        rows = client.get_daily_steps(d_year, d_today) or []
+        n = 0
+        for r in rows:
+            if r.get("calendarDate") and r.get("totalSteps") is not None:
+                _put(conn, "steps", r["calendarDate"], r["totalSteps"],
+                     {"distance_m": r.get("totalDistance"), "goal": r.get("stepGoal")})
+                n += 1
+        return n
+
+    def _intensity_minutes():
+        rows = client.get_weekly_intensity_minutes(d_year, d_today) or []
+        n = 0
+        for r in rows:
+            if not r.get("calendarDate"):
+                continue
+            mod = r.get("moderateValue") or 0
+            vig = r.get("vigorousValue") or 0
+            # WHO counts vigorous minutes double.
+            _put(conn, "intensity_minutes", r["calendarDate"], mod + 2 * vig,
+                 {"moderate": mod, "vigorous": vig, "goal": r.get("weeklyGoal")})
+            n += 1
+        return n
+
+    def _personal_records():
+        rows = client.get_personal_record() or []
+        if not rows:
+            return 0
+        _put(conn, "personal_records", d_today, len(rows), {"records": rows[:20]})
+        return len(rows)
+
+    _range_metric("lactate_threshold_hr", _lactate)
+    _range_metric("body_battery_charged", _body_battery)
+    _range_metric("stress_weekly", _weekly_stress)
+    _range_metric("steps", _daily_steps)
+    _range_metric("intensity_minutes", _intensity_minutes)
+    _range_metric("personal_records", _personal_records)
+
     # Per-day series: Pulse Ox, recovery time, training readiness. Each needs
     # one request per day, so they share the HRV backfill depth and the same
     # resumable skip-what-we-have approach.
@@ -364,8 +459,35 @@ def sync_garmin_metrics(conn, client, hrv_days: int = 0) -> Dict[str, int]:
             _put(conn, "acute_load", cal, t.get("acuteLoad"))
             bump("acute_load")
 
+    def _fetch_rhr(day: str) -> None:
+        r = client.get_rhr_day(day) or {}
+        mm = ((r.get("allMetrics") or {}).get("metricsMap") or {})
+        vals = mm.get("WELLNESS_RESTING_HEART_RATE") or []
+        if vals and vals[0].get("value"):
+            _put(conn, "resting_hr", vals[0].get("calendarDate") or day, vals[0]["value"])
+            bump("resting_hr")
+
+    def _fetch_sleep(day: str) -> None:
+        s = client.get_sleep_data(day) or {}
+        dto = s.get("dailySleepDTO") or {}
+        secs = dto.get("sleepTimeSeconds")
+        if not secs:
+            return
+        scores = dto.get("sleepScores") or {}
+        overall = (scores.get("overall") or {}).get("value")
+        _put(conn, "sleep_hours", dto.get("calendarDate") or day, round(secs / 3600.0, 2), {
+            "score": overall,
+            "deep_s": dto.get("deepSleepSeconds"),
+            "light_s": dto.get("lightSleepSeconds"),
+            "rem_s": dto.get("remSleepSeconds"),
+            "awake_s": dto.get("awakeSleepSeconds"),
+        })
+        bump("sleep_hours")
+
     _daily_backfill("spo2_avg", hrv_days, _fetch_spo2)
     _daily_backfill("training_readiness", hrv_days, _fetch_readiness)
+    _daily_backfill("resting_hr", hrv_days, _fetch_rhr)
+    _daily_backfill("sleep_hours", hrv_days, _fetch_sleep)
 
     # HRV — one Garmin request per day. Resumable: days already stored are
     # skipped, so a long backfill can be re-run to fill whatever it missed.
