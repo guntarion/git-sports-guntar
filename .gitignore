@@ -19,6 +19,10 @@ activities/raw/
 data/
 heatmaps/
 site/data.json
+site/activities.json
+site/ai_insights.json
+site/ai_insights_history.json
+activities/enriched/
 
 # OS
 .DS_Store
@@ -29,3 +33,4 @@ Setup.txt
 
 # Node
 node_modules/
+.vercel
