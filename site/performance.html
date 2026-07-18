@@ -77,6 +77,15 @@
     .bar-val{text-align:right;font-weight:700;font-size:11px}
     .bar-n{color:var(--muted);text-align:right}
     .zero-line{stroke:var(--muted);stroke-width:1;opacity:.45}
+    .helpwrap{margin-top:8px}
+    .help-body{font-size:10px;color:var(--muted);line-height:1.6;margin-top:6px;border-left:2px solid var(--border);padding-left:10px}
+    .help-body p{margin:0 0 6px}
+    .help-body b{color:var(--text)}
+    .help-formula{background:#0b1220;border:1px solid var(--border);border-radius:5px;padding:7px 9px;font-size:10px;color:var(--text);white-space:pre-wrap;overflow-x:auto;margin:0 0 6px}
+    .help-note{color:var(--muted);font-style:italic}
+    .doclink{font-size:10px;color:var(--muted);margin-left:auto;text-transform:none;letter-spacing:0}
+    .doclink a{color:var(--accent);text-decoration:none}
+    .doclink a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
@@ -129,6 +138,11 @@
     <br><br>
     The <b>score</b> is relative to <i>your own</i> baseline (50 = your median), because the absolute
     value carries an unknown offset. Trust the <b>rolling median</b> line over any single run.
+    <br><br>
+    Every card has a <b>“How it’s computed”</b> toggle with its definition and formula. Full
+    reference, including all filters and caveats:
+    <a href="https://github.com/guntarion/git-sports-guntar/blob/main/docs/performance-metrics.md"
+       target="_blank" rel="noopener" style="color:var(--accent)">docs/performance-metrics.md</a>.
   </div>
 </div>
 
@@ -268,8 +282,21 @@
       + (o.note ? '<div class="chart-note">' + esc(o.note) + '</div>' : '')
       + lineChart(o)
       + (o.legend || '')
+      + helpBlock(o.help)
       + (o.table || '')
       + '</div>';
+  }
+
+  /* Per-card definition + formula, so the number is never a black box.
+     Full reference: docs/performance-metrics.md */
+  function helpBlock(h) {
+    if (!h) return '';
+    return '<details class="tblwrap helpwrap"><summary>How it\'s computed</summary>'
+      + '<div class="help-body">'
+      + '<p>' + h.what + '</p>'
+      + (h.formula ? '<pre class="help-formula">' + esc(h.formula) + '</pre>' : '')
+      + (h.note ? '<p class="help-note">' + h.note + '</p>' : '')
+      + '</div></details>';
   }
 
   function tableFor(points, unit) {
@@ -279,6 +306,68 @@
     }).join('');
     return '<details class="tblwrap"><summary>Show data</summary><table class="tbl"><thead><tr><th>Date</th><th>' + esc(unit) + '</th></tr></thead><tbody>' + rows + '</tbody></table></details>';
   }
+
+  /* Definitions + formulas surfaced per card. Mirrors docs/performance-metrics.md. */
+  var HELP = {
+    vo2max: {
+      what: 'Maximum rate of oxygen your body can use — aerobic <b>capacity</b>, the size of the engine. Reported by Garmin, not recomputed here.',
+      note: 'Capacity is not efficiency: VO₂max can rise while running economy stays flat. They are different qualities.'
+    },
+    endurance: {
+      what: 'Garmin\'s composite of your ability to sustain prolonged effort, built from training history and VO₂max. Weekly values.'
+    },
+    hrv: {
+      what: 'Overnight heart-rate variability — average beat-to-beat variation during sleep, a proxy for autonomic recovery.',
+      note: 'Read against your own baseline, never against other people. One Garmin request per day, so history is backfilled gradually.'
+    },
+    hill: {
+      what: 'Garmin\'s rating of hill-running ability, combining a strength and an endurance component. Daily values.'
+    },
+    re: {
+      what: 'Oxygen cost of covering one kilometre — how much fuel your engine burns per km. Garmin\'s own version needs an HRM 600 strap, so this reproduces the same scale by <b>estimating</b> oxygen uptake from heart rate.',
+      formula: 'hrr = (HR − 54) / (181 − 54)\nVO2 = 3.5 + hrr × (39 − 3.5)      [ml/kg/min]\nRE  = VO2 × 1000 / speed_m_per_min [ml/kg/km]',
+      note: 'Measured over a fixed km 2–4 window, not the whole run: end-to-end it tracks how FAR you ran (corr +0.53) rather than how efficiently. Excludes treadmill, trail, intervals and efforts outside 65–85% HRmax. Score 50 = your own median.'
+    },
+    ei: {
+      what: 'How far you travel per heartbeat. Assumption-free — no HRmax, HRrest or VO₂max estimate involved, so a wrong constant cannot distort it.',
+      formula: 'EI = speed (m/min) / average HR (bpm)',
+      note: 'EI rises with speed, so only compare within a similar pace range — the easy/steady HR filter enforces that.'
+    },
+    cc: {
+      what: 'How many heartbeats it costs to cover a kilometre — the inverse view of Efficiency Index, in units that are easier to feel.',
+      formula: 'cardiac_cost = HR × pace_secs_per_km / 60\n             = 1000 / EI',
+      note: 'Also assumption-free.'
+    },
+    vr: {
+      what: 'How much of your motion goes <b>up</b> instead of forward — bounce as a proportion of stride. Garmin\'s best single running-form indicator.',
+      formula: 'vertical_ratio = vertical oscillation (cm) / stride length (m)',
+      note: 'Form metrics correlate with economy only weakly in the literature, so this is reported separately and never folded into Running Economy.'
+    },
+    decoupling: {
+      what: 'How much efficiency drifts from the first half of a run to the second — the classic durability test. Rising HR (or falling pace) means the aerobic system is not comfortably supporting the effort.',
+      formula: 'EF₁ = speed_first_half  / HR_first_half\nEF₂ = speed_second_half / HR_second_half\ndecoupling = (EF₁ − EF₂) / EF₁ × 100',
+      note: 'Measured over the WHOLE run — deliberately the opposite of Running Economy. There, cardiac drift is a confound to remove; here the drift IS the signal. Negative means you got more efficient in the second half.'
+    },
+    load: {
+      what: 'Zone-weighted training minutes, so hard minutes cost more than easy ones. Includes all activities, not only runs — total stress governs recovery.',
+      formula: 'TRIMP = Σ ( minutes_in_zone × weight )\nweight: Z1=1 Z2=2 Z3=3 Z4=4 Z5=5',
+      note: 'Neither high nor low is "better" on its own — it is the input to Recovery Balance.'
+    },
+    recovery: {
+      what: 'Whether recovery is keeping up with the load you are carrying — an overreaching indicator.',
+      formula: 'per week:\n  recovery_balance = z(mean HRV) − z(total TRIMP)',
+      note: 'Shown as ONE series rather than two lines because HRV (~50–70 ms) and load (~300–650 TRIMP) need different scales, and a dual-axis chart makes crossings that are pure scaling artefacts. Raw HRV and load are in the tooltip and table.'
+    },
+    ratio: {
+      what: 'Endurance score per unit of aerobic capacity. Two runners with the same VO₂max can differ a lot here — it isolates durability from raw engine size.',
+      formula: 'ratio = endurance_score / vo2max',
+      note: 'Rising = endurance improving faster than capacity, typical of a base-building block.'
+    },
+    zone: {
+      what: 'Metres per heartbeat <b>within each HR zone</b>, so gains at easy intensity are not hidden by how hard your runs happened to be in a given period.',
+      note: 'Splits are bucketed using each activity\'s own Garmin zone boundaries. EI normally falls as intensity rises — what matters is the trend within a zone over time. Zones with few splits are statistically weak.'
+    }
+  };
 
   function series(metricRows) {
     return (metricRows || []).map(function (r) { return { d: r.date, v: r.value }; });
@@ -321,10 +410,10 @@
     // ── Raw Garmin ──
     var vo2 = series(m.vo2max), end = series(m.endurance_score), hill = series(m.hill_score), hrv = series(m.hrv);
     document.getElementById('rawCharts').innerHTML = [
-      card({ title: 'VO₂ Max', color: 'var(--s-vo2)', points: vo2, unit: 'ml/kg/min', unitShort: '', note: trend(vo2) ? 'higher is better · ' + trend(vo2) : 'higher is better', table: tableFor(vo2, 'ml/kg/min') }),
-      card({ title: 'Endurance Score', color: 'var(--s-end)', points: end, unit: '', note: 'higher is better · weekly', table: tableFor(end, 'score') }),
-      card({ title: 'HRV (last night avg)', color: 'var(--s-hrv)', points: hrv, unit: 'ms', note: 'overnight heart-rate variability', table: tableFor(hrv, 'ms') }),
-      card({ title: 'Hill Score', color: 'var(--s-hill)', points: hill, unit: '', note: 'higher is better · daily', table: tableFor(hill, 'score') })
+      card({ title: 'VO₂ Max', help: HELP.vo2max, color: 'var(--s-vo2)', points: vo2, unit: 'ml/kg/min', unitShort: '', note: trend(vo2) ? 'higher is better · ' + trend(vo2) : 'higher is better', table: tableFor(vo2, 'ml/kg/min') }),
+      card({ title: 'Endurance Score', help: HELP.endurance, color: 'var(--s-end)', points: end, unit: '', note: 'higher is better · weekly', table: tableFor(end, 'score') }),
+      card({ title: 'HRV (last night avg)', help: HELP.hrv, color: 'var(--s-hrv)', points: hrv, unit: 'ms', note: 'overnight heart-rate variability', table: tableFor(hrv, 'ms') }),
+      card({ title: 'Hill Score', help: HELP.hill, color: 'var(--s-hill)', points: hill, unit: '', note: 'higher is better · daily', table: tableFor(hill, 'score') })
     ].join('');
 
     // ── Derived ──
@@ -338,12 +427,12 @@
       + '<span><span class="t-dot" style="background:var(--muted)"></span>rolling median (5)</span></div>';
 
     document.getElementById('derivedCharts').innerHTML = [
-      card({ title: 'Running Economy', color: 'var(--s-re)', points: rePts, series2: reRollPts, color2: 'var(--muted)',
+      card({ title: 'Running Economy', help: HELP.re, color: 'var(--s-re)', points: rePts, series2: reRollPts, color2: 'var(--muted)',
              unit: 'ml/kg/km', note: 'LOWER is better · fixed km 2–4 window', legend: reLegend,
              table: tableFor(rePts, 'ml/kg/km') }),
-      card({ title: 'Efficiency Index', color: 'var(--s-ei)', points: eiPts, unit: 'm/beat', note: 'higher is better · metres per heartbeat', table: tableFor(eiPts, 'm/beat') }),
-      card({ title: 'Cardiac Cost', color: 'var(--s-hill)', points: ccPts, unit: 'beats/km', note: 'lower is better · assumption-free', table: tableFor(ccPts, 'beats/km') }),
-      card({ title: 'Vertical Ratio', color: 'var(--s-vo2)', points: vrPts, unit: '%', note: 'lower is better · running form', table: tableFor(vrPts, '%') })
+      card({ title: 'Efficiency Index', help: HELP.ei, color: 'var(--s-ei)', points: eiPts, unit: 'm/beat', note: 'higher is better · metres per heartbeat', table: tableFor(eiPts, 'm/beat') }),
+      card({ title: 'Cardiac Cost', help: HELP.cc, color: 'var(--s-hill)', points: ccPts, unit: 'beats/km', note: 'lower is better · assumption-free', table: tableFor(ccPts, 'beats/km') }),
+      card({ title: 'Vertical Ratio', help: HELP.vr, color: 'var(--s-vo2)', points: vrPts, unit: '%', note: 'lower is better · running form', table: tableFor(vrPts, '%') })
     ].join('');
 
     // ── Endurance & recovery ──
@@ -362,18 +451,18 @@
     var zeCard = '<div class="chart-card">'
       + '<div class="chart-head"><div class="chart-title"><span class="t-dot" style="background:var(--s-vo2)"></span>Efficiency by HR zone</div></div>'
       + '<div class="chart-note">metres per heartbeat · higher is better</div>'
-      + barChart(zeRows, 'var(--s-vo2)') + '</div>';
+      + barChart(zeRows, 'var(--s-vo2)') + helpBlock(HELP.zone) + '</div>';
 
     document.getElementById('loadCharts').innerHTML = [
-      card({ title: 'Aerobic Decoupling', color: 'var(--s-ei)', points: decPts, unit: '%',
+      card({ title: 'Aerobic Decoupling', help: HELP.decoupling, color: 'var(--s-ei)', points: decPts, unit: '%',
              note: 'LOWER is better · under 5% = aerobically sound', refValue: 5, refLabel: '5%',
              table: tableFor(decPts, '%') }),
-      card({ title: 'Training Load', color: 'var(--s-hill)', points: loadPts, unit: 'TRIMP',
+      card({ title: 'Training Load', help: HELP.load, color: 'var(--s-hill)', points: loadPts, unit: 'TRIMP',
              note: 'zone-weighted minutes · per week', table: tableFor(loadPts, 'TRIMP') }),
-      card({ title: 'Recovery Balance', color: 'var(--s-hrv)', points: recPts, unit: '',
+      card({ title: 'Recovery Balance', help: HELP.recovery, color: 'var(--s-hrv)', points: recPts, unit: '',
              note: 'HRV vs load · below 0 = load outpacing recovery', refValue: 0, refLabel: '0',
              table: tableFor(recPts, 'index') }),
-      card({ title: 'Endurance : VO₂max', color: 'var(--s-end)', points: evPts, unit: '',
+      card({ title: 'Endurance : VO₂max', help: HELP.ratio, color: 'var(--s-end)', points: evPts, unit: '',
              note: 'endurance per unit of aerobic capacity · higher is better',
              table: tableFor(evPts, 'ratio') }),
       zeCard
