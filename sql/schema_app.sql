@@ -118,6 +118,24 @@ CREATE TABLE IF NOT EXISTS activity_locations (
     synced_at       TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+-- Fastest time covering a target distance within a single activity, found by a
+-- rolling window over the activity's distance-vs-time stream (see
+-- scripts/sync_best_efforts.py). One row per activity per distance.
+CREATE TABLE IF NOT EXISTS best_efforts (
+    activity_id      TEXT NOT NULL,
+    distance_key     TEXT NOT NULL,
+    date             DATE,
+    activity_name    TEXT,
+    activity_type    TEXT,
+    distance_m       DOUBLE PRECISION NOT NULL,
+    duration_s       DOUBLE PRECISION NOT NULL,
+    pace_secs_per_km DOUBLE PRECISION,
+    computed_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (activity_id, distance_key)
+);
+
+CREATE INDEX IF NOT EXISTS idx_be_key_time ON best_efforts(distance_key, duration_s);
+CREATE INDEX IF NOT EXISTS idx_be_date ON best_efforts(date DESC);
 CREATE INDEX IF NOT EXISTS idx_loc_date ON activity_locations(date DESC);
 CREATE INDEX IF NOT EXISTS idx_loc_type ON activity_locations(type);
 CREATE INDEX IF NOT EXISTS idx_loc_name ON activity_locations(location_name);

@@ -235,6 +235,8 @@ jobs:
           # up next day; any backlog drains gradually.
           LOCATION_ROUTES: "1"
           LOCATION_ROUTE_LIMIT: "25"
+          # Best efforts also cost one detail request per new run.
+          BEST_EFFORT_LIMIT: "25"
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"

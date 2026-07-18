@@ -164,6 +164,7 @@
 /* ── Constants ── */
 var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 var RUNNING=['Run','TrailRun','VirtualRun','run','trail_run','virtual_run'];
+var BEST=null;   // /api/best-efforts payload
 var BANDS=[
   {key:'short',label:'< 3 km',min:0,max:3000,color:'#a78bfa'},
   {key:'mid',label:'3–6 km',min:3000,max:6000,color:'#00bbf9'},
@@ -508,6 +509,73 @@ function buildSplitAnalysis(runs){
 }
 
 /* ── Main render ── */
+
+/* ── Best Efforts ──────────────────────────────────────────────────────────
+   Fastest time covering each target distance, found by a rolling window over
+   the activity's distance-vs-time stream (see scripts/sync_best_efforts.py).
+   Distances the athlete has never covered are still listed, so the table shows
+   what is missing rather than quietly omitting it. */
+function fmtDur(sec){
+  sec=Math.round(sec);
+  var h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),x=sec%60;
+  return (h? h+':'+String(m).padStart(2,'0') : String(m))+':'+String(x).padStart(2,'0');
+}
+function fmtPace(p){
+  if(!p) return '—';
+  var m=Math.floor(p/60),x=Math.round(p%60);
+  if(x===60){m++;x=0;}
+  return m+':'+String(x).padStart(2,'0')+'/km';
+}
+function buildBestEfforts(){
+  if(!BEST) return '<div class="sec-title">Best Efforts</div><div class="error-msg">Loading best efforts…</div>';
+  var have=BEST.distances.filter(function(d){return d.best;});
+  var miss=BEST.distances.filter(function(d){return !d.best;});
+  var html='<div class="sec-title">Best Efforts <span class="badge-count">'+have.length+' distances</span>'
+    +'<span style="margin-left:auto;font-size:10px;font-weight:400;color:var(--muted)">'
+    +'fastest segment anywhere in a run · '+BEST.activities_analysed+' runs analysed</span></div>';
+
+  html+='<div class="lb-wrap"><table class="lb-t"><thead><tr>'
+    +'<th>Distance</th><th>Best</th><th class="r">Pace</th><th>Session</th><th>Date</th>'
+    +'</tr></thead><tbody>';
+  BEST.distances.forEach(function(d){
+    if(!d.best){
+      html+='<tr style="opacity:.42"><td><b>'+escH(d.label)+'</b></td>'
+        +'<td colspan="4" style="color:var(--muted)">not covered yet</td></tr>';
+      return;
+    }
+    var b=d.best;
+    html+='<tr><td><b>'+escH(d.label)+'</b></td>'
+      +'<td style="font-weight:700;color:var(--accent)">'+fmtDur(b.duration_s)+'</td>'
+      +'<td class="r">'+fmtPace(b.pace_secs_per_km)+'</td>'
+      +'<td>'+escH(b.name||'—')+'</td>'
+      +'<td style="color:var(--muted)">'+escH(b.date||'')+'</td></tr>';
+  });
+  html+='</tbody></table></div>';
+
+  // Top-5 per distance, so a single lucky run is visible in context.
+  have.forEach(function(d){
+    if(d.leaderboard.length<2) return;
+    html+='<div class="section" style="margin-top:14px"><div class="sec-title" style="margin-bottom:8px">'
+      +escH(d.label)+' — top '+d.leaderboard.length+'</div>';
+    html+='<div class="lb-wrap"><table class="lb-t"><thead><tr>'
+      +'<th>#</th><th>Time</th><th class="r">Pace</th><th>Session</th><th>Date</th>'
+      +'</tr></thead><tbody>';
+    d.leaderboard.forEach(function(b){
+      html+='<tr><td style="color:var(--muted)">'+b.rank+'</td>'
+        +'<td style="font-weight:700">'+fmtDur(b.duration_s)+'</td>'
+        +'<td class="r">'+fmtPace(b.pace_secs_per_km)+'</td>'
+        +'<td>'+escH(b.name||'—')+'</td>'
+        +'<td style="color:var(--muted)">'+escH(b.date||'')+'</td></tr>';
+    });
+    html+='</tbody></table></div></div>';
+  });
+  if(miss.length){
+    html+='<div style="font-size:10px;color:var(--muted);margin-top:10px">'
+      +escH(miss.map(function(d){return d.label;}).join(' · '))+' — no run has covered these distances yet.</div>';
+  }
+  return html;
+}
+
 function render(){
   var runs=getFiltered();
   var content=document.getElementById('content');
@@ -527,11 +595,16 @@ function render(){
   });
   var splitCount=getAllSplits(runs).length;
   html+='<button class="btab'+(S.band===4?' active':'')+'" data-band="4">Best 1km Splits <span class="badge-count">'+splitCount+'</span></button>';
+  var beCount=BEST?BEST.distances.filter(function(d){return d.best;}).length:0;
+  html+='<button class="btab'+(S.band===5?' active':'')+'" data-band="5">Best Efforts'
+      + (BEST?' <span class="badge-count">'+beCount+'</span>':'')+'</button>';
   html+='</div>';
 
   // 3. Leaderboard
   html+='<div class="section">';
-  if(S.band<4){
+  if(S.band===5){
+    html+=buildBestEfforts();
+  }else if(S.band<4){
     var lb=getLB(runs,S.band);
     var modeLabel=S.zone2?'Zone 2 · ':'';
     var periodLabel=S.period==='all'?'All Time':S.period==='month'?'This Month':'Last 3 Months';
@@ -593,6 +666,11 @@ document.getElementById('z2Btn').addEventListener('click',function(){
 });
 
 /* ── Load ── */
+fetch(((window.GS_API_BASE||'/api').replace(/\/$/,''))+'/best-efforts?top=5')
+  .then(function(r){return r.ok?r.json():null;})
+  .then(function(j){ BEST=j; if(S.raw&&S.raw.length) render(); })
+  .catch(function(){ BEST=null; });
+
 fetch('activities.json').then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
 .then(function(data){
   S.raw=data.activities||[];

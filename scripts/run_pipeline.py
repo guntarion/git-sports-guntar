@@ -306,6 +306,13 @@ def run_pipeline(
                 sync_locations()
             except Exception as exc:
                 print(f"Warning: location sync failed (non-fatal): {exc}")
+            # Best efforts (non-fatal). Resumable: only runs not already
+            # analysed are fetched, so a normal day costs a request or two.
+            try:
+                from sync_best_efforts import main as sync_best_efforts
+                sync_best_efforts()
+            except Exception as exc:
+                print(f"Warning: best-effort sync failed (non-fatal): {exc}")
         # AI insights (non-fatal) — internally skips if no new running data
         qwen_key = os.environ.get("QWEN_API_KEY", "").strip()
         if qwen_key:
