@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Activities</title>
+  <title>Activities | Garmin Git</title>
+  <meta name="description" content="Turn your Garmin activities into a GitHub-style dashboard: activity heatmaps, Running Economy, best efforts, sleep and HRV trends, and route maps — updated daily." />
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <meta name="theme-color" content="#0f172a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -887,7 +890,7 @@
     var runs = getRunningActivities().slice(0, count);
     var payload = {
       _metadata: {
-        description: 'Running activities exported from git-sweaty dashboard for AI analysis',
+        description: 'Running activities exported from Garmin Git for AI analysis',
         exported_at: new Date().toISOString(),
         activity_count: runs.length,
         total_running_available: getRunningActivities().length,

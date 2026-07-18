@@ -1,12 +1,14 @@
 <p align="center">
-  <img src="./site/git-sweaty-logo.svg" alt="git-sweaty-logo" /><br>
+  <img src="./site/icon.svg" alt="Garmin Git" width="96" /><br>
   <sub>
-    (create your own README banner like this
-    <a href="https://github.com/aspain/heatmap-logo">here</a>)
+    (heatmap banner generator by
+    <a href="https://github.com/aspain/heatmap-logo">aspain/heatmap-logo</a>)
   </sub>
 </p>
 
-# Garmin → Interactive Training Dashboard
+<h1 align="center">Garmin Git</h1>
+<p align="center"><b>Your Garmin training history as a GitHub-style dashboard</b><br>
+<sub>heatmaps · running economy · recovery science · route maps</sub></p>
 
 > **Fork of [aspain/git-sweaty](https://github.com/aspain/git-sweaty).**
 > All core pipeline, heatmap rendering, and GitHub Actions infrastructure credit goes to the

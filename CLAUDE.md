@@ -1,4 +1,4 @@
-# CLAUDE.md — git-sports-guntar
+# CLAUDE.md — Garmin Git (repo: git-sports-guntar)
 
 ## Project Overview
 

@@ -29,7 +29,7 @@ const UNIT_SYSTEM_TO_UNITS = Object.freeze({
   imperial: Object.freeze({ distance: "mi", elevation: "ft" }),
   metric: Object.freeze({ distance: "km", elevation: "m" }),
 });
-const PAGE_TITLE_SUFFIX = " | git-sweaty";
+const PAGE_TITLE_SUFFIX = " | Garmin Git";
 
 const typeButtons = document.getElementById("typeButtons");
 const yearButtons = document.getElementById("yearButtons");
