@@ -385,8 +385,11 @@
     }, 100);
   }
 
-  renderTags();
-  renderList();
+  // Hydrate from the database (shows a login gate on first load), then render.
+  GS.ready().then(function () {
+    renderTags();
+    renderList();
+  });
 }());
 </script>
 </body>

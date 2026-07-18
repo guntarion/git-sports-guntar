@@ -254,7 +254,8 @@
     e.target.value = '';
   });
 
-  render();
+  // Hydrate from the database (shows a login gate on first load), then render.
+  GS.ready().then(function () { render(); });
 }());
 </script>
 </body>

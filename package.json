@@ -1,0 +1,13 @@
+{
+  "name": "git-sports-guntar",
+  "version": "1.0.0",
+  "description": "Fitness dashboard with Postgres-backed journal/todos + AI insights",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}
