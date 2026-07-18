@@ -272,6 +272,101 @@ def sync_garmin_metrics(conn, client, hrv_days: int = 0) -> Dict[str, int]:
     except Exception as exc:
         print(f"  body_composition failed: {exc}", file=sys.stderr)
 
+    # Acute/chronic load + ACWR + training status phrase (current snapshot).
+    # ACWR is the acute:chronic workload ratio Garmin uses to judge whether the
+    # recent 7-day load sits sensibly against the 28-day baseline.
+    try:
+        ts = client.get_training_status(d_today) or {}
+        latest = ((ts.get("mostRecentTrainingStatus") or {}).get("latestTrainingStatusData") or {})
+        for _dev, block in latest.items():
+            acute = (block or {}).get("acuteTrainingLoadDTO") or {}
+            day = (block or {}).get("calendarDate") or d_today
+            if acute.get("dailyTrainingLoadAcute") is not None:
+                _put(conn, "acute_load", day, acute.get("dailyTrainingLoadAcute"))
+                bump("acute_load")
+            if acute.get("dailyTrainingLoadChronic") is not None:
+                _put(conn, "chronic_load", day, acute.get("dailyTrainingLoadChronic"))
+                bump("chronic_load")
+            if acute.get("dailyAcuteChronicWorkloadRatio") is not None:
+                _put(conn, "acwr", day, acute.get("dailyAcuteChronicWorkloadRatio"), {
+                    "status": acute.get("acwrStatus"),
+                    "percent": acute.get("acwrPercent"),
+                    "chronic_min": acute.get("minTrainingLoadChronic"),
+                    "chronic_max": acute.get("maxTrainingLoadChronic"),
+                })
+                bump("acwr")
+            phrase = (block or {}).get("trainingStatusFeedbackPhrase")
+            if phrase:
+                _put(conn, "training_status_phrase", day, (block or {}).get("trainingStatus"),
+                     {"phrase": phrase})
+                bump("training_status_phrase")
+            break
+        time.sleep(1)
+    except Exception as exc:
+        print(f"  acute/chronic load failed: {exc}", file=sys.stderr)
+
+    # Per-day series: Pulse Ox, recovery time, training readiness. Each needs
+    # one request per day, so they share the HRV backfill depth and the same
+    # resumable skip-what-we-have approach.
+    def _daily_backfill(metric: str, days: int, fetch):
+        if days <= 0:
+            return
+        with conn, conn.cursor() as cur:
+            cur.execute("SELECT date FROM performance_metrics WHERE metric=%s", (metric,))
+            have = {r[0].isoformat() for r in cur.fetchall()}
+        todo = [dd for dd in ((today - timedelta(days=i)).isoformat() for i in range(days))
+                if dd not in have]
+        if not todo:
+            return
+        print(f"  {metric} backfill: {len(todo)} days to fetch ({len(have)} stored)")
+        misses = 0
+        for n, day in enumerate(todo, 1):
+            try:
+                fetch(day)
+                misses = 0
+                time.sleep(1.2)
+            except Exception as exc:
+                misses += 1
+                print(f"  {metric} {day} failed ({misses}): {exc}", file=sys.stderr)
+                if misses >= 5:
+                    print(f"  too many consecutive {metric} failures; stopping early.", file=sys.stderr)
+                    break
+                time.sleep(5 * misses)
+            if n % 25 == 0:
+                print(f"  {metric} progress: {n}/{len(todo)}")
+
+    def _fetch_spo2(day: str) -> None:
+        s = client.get_spo2_data(day) or {}
+        if s.get("averageSpO2") is not None:
+            _put(conn, "spo2_avg", s.get("calendarDate") or day, s.get("averageSpO2"),
+                 {"lowest": s.get("lowestSpO2")})
+            bump("spo2_avg")
+
+    def _fetch_readiness(day: str) -> None:
+        rows = client.get_training_readiness(day) or []
+        if not rows:
+            return
+        t = rows[0]
+        cal = t.get("calendarDate") or day
+        if t.get("score") is not None:
+            _put(conn, "training_readiness", cal, t.get("score"), {
+                "level": t.get("level"),
+                "feedback": t.get("feedbackShort"),
+                "sleepScore": t.get("sleepScore"),
+            })
+            bump("training_readiness")
+        # NOTE: recoveryTime is in MINUTES, not hours. A 12 km run showed 1614
+        # (= 26.9 h); reading it as hours would be off by 60x.
+        if t.get("recoveryTime") is not None:
+            _put(conn, "recovery_time_min", cal, t.get("recoveryTime"))
+            bump("recovery_time_min")
+        if t.get("acuteLoad") is not None:
+            _put(conn, "acute_load", cal, t.get("acuteLoad"))
+            bump("acute_load")
+
+    _daily_backfill("spo2_avg", hrv_days, _fetch_spo2)
+    _daily_backfill("training_readiness", hrv_days, _fetch_readiness)
+
     # HRV — one Garmin request per day. Resumable: days already stored are
     # skipped, so a long backfill can be re-run to fill whatever it missed.
     if hrv_days > 0:

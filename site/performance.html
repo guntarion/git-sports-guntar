@@ -37,6 +37,15 @@
     .tile .t-value{font-size:22px;font-weight:700;margin-top:6px;line-height:1.1}
     .tile .t-unit{font-size:11px;color:var(--muted);font-weight:400}
     .tile .t-meta{font-size:10px;color:var(--muted);margin-top:4px}
+    .t-cmp{font-size:10px;margin-top:5px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+    .t-cmp .cmp-arrow{font-weight:700}
+    .cmp-better{color:#22c55e}
+    .cmp-worse{color:#ef4444}
+    .cmp-same,.cmp-neutral{color:var(--muted)}
+    .t-cmp .cmp-base{color:var(--muted)}
+    .t-thin{font-size:9px;color:var(--muted);font-style:italic;margin-top:2px}
+    .cmp-banner{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 13px;font-size:11px;color:var(--muted);margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .cmp-banner b{color:var(--text)}
     .charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:12px}
     .chart-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 14px 8px}
     .chart-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:2px}
@@ -111,6 +120,7 @@
     <button class="fbtn" data-days="0">All</button>
   </div>
 
+  <div id="cmpBanner"></div>
   <div id="tiles" class="tiles"></div>
 
   <div class="sec-title">Garmin measurements <span class="sec-sub">as reported by the watch</span></div>
@@ -369,6 +379,38 @@
     }
   };
 
+  /* Garmin reports recovery time in MINUTES (a 12 km run gave 1614 = 26.9 h).
+     Reading it as hours would be off by 60x. */
+  function fmtRecovery(mins) {
+    if (mins === null || mins === undefined) return null;
+    if (mins < 60) return mins + ' min';
+    var h = Math.floor(mins / 60), r = Math.round(mins % 60);
+    return h >= 24 ? Math.floor(h / 24) + 'd ' + (h % 24) + 'h' : h + 'h' + (r ? ' ' + r + 'm' : '');
+  }
+
+  function humanPhrase(p) {
+    if (!p) return null;
+    return String(p).replace(/_\d+$/, '').replace(/_/g, ' ').toLowerCase()
+      .replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
+  /* Month-over-month line inside a tile. Hidden when there is no previous-month
+     value to compare against (e.g. current-only snapshots like ACWR). */
+  function cmpLine(c, win) {
+    if (!c || c.previous === null || c.current === null || c.verdict === null) return '';
+    var cls = 'cmp-' + c.verdict;
+    var arrow = c.delta > 0 ? '▲' : c.delta < 0 ? '▼' : '■';
+    var sign = c.delta > 0 ? '+' : '';
+    var pct = (c.pct !== null && isFinite(c.pct)) ? ' (' + sign + c.pct + '%)' : '';
+    var word = c.verdict === 'better' ? 'better' : c.verdict === 'worse' ? 'worse' : c.verdict === 'same' ? 'no change' : '';
+    var thin = (c.n_current > 0 && c.n_current < 3)
+      ? '<div class="t-thin">only ' + c.n_current + ' reading' + (c.n_current === 1 ? '' : 's') + ' this month yet</div>' : '';
+    return '<div class="t-cmp ' + cls + '"><span class="cmp-arrow">' + arrow + '</span>'
+      + '<span>' + sign + c.delta + pct + '</span>'
+      + (word ? '<span>' + word + '</span>' : '')
+      + '<span class="cmp-base">vs ' + esc(win ? win.prev_label : 'last month') + '</span></div>' + thin;
+  }
+
   function series(metricRows) {
     return (metricRows || []).map(function (r) { return { d: r.date, v: r.value }; });
   }
@@ -390,21 +432,53 @@
     var m = d.metrics || {};
     var re = d.running_economy || [];
 
-    // ── Headline tiles ──
+    // ── Headline tiles with month-over-month comparison ──
     var reRoll = re.length ? re[re.length - 1].re_rolling : null;
+    var cmp = (d.comparison && d.comparison.metrics) || {};
+    var win = (d.comparison && d.comparison.window) || null;
+    var lastOf = function (k) { var a = m[k]; return a && a.length ? a[a.length - 1] : null; };
+
+    if (win) {
+      document.getElementById('cmpBanner').innerHTML =
+        '<span><b>' + esc(win.month_label) + ' 1–' + win.days_elapsed + '</b> vs <b>'
+        + esc(win.prev_label) + ' 1–' + win.days_elapsed + '</b></span>'
+        + '<span class="cmp-base">· same elapsed window, so a part-way month compares fairly</span>';
+    }
+
     var tiles = [
-      { label: 'VO₂ Max', color: 'var(--s-vo2)', value: d.summary.vo2max_latest, unit: 'ml/kg/min' },
-      { label: 'Endurance Score', color: 'var(--s-end)', value: d.summary.endurance_latest, unit: '' },
-      { label: 'Running Economy', color: 'var(--s-re)', value: reRoll, unit: 'ml/kg/km', meta: d.summary.re_rating ? d.summary.re_rating + ' · lower is better' : 'lower is better' },
-      { label: 'HRV (last night)', color: 'var(--s-hrv)', value: d.summary.hrv_latest, unit: 'ms' },
-      { label: 'Hill Score', color: 'var(--s-hill)', value: d.summary.hill_latest, unit: '' },
-      { label: 'Aerobic Decoupling', color: 'var(--s-ei)', value: d.summary.decoupling_latest, unit: '%', meta: 'under 5% is sound' },
-      { label: 'Recovery Balance', color: 'var(--s-hrv)', value: d.summary.recovery_latest, unit: '', meta: 'below 0 = load > recovery' }
+      { key: 'vo2max', label: 'VO₂ Max', color: 'var(--s-vo2)', value: d.summary.vo2max_latest, unit: 'ml/kg/min' },
+      { key: 'endurance_score', label: 'Endurance Score', color: 'var(--s-end)', value: d.summary.endurance_latest, unit: '' },
+      { key: 'running_economy', label: 'Running Economy', color: 'var(--s-re)', value: reRoll, unit: 'ml/kg/km', meta: d.summary.re_rating ? d.summary.re_rating + ' · lower is better' : 'lower is better' },
+      { key: 'hrv', label: 'HRV (last night)', color: 'var(--s-hrv)', value: d.summary.hrv_latest, unit: 'ms' },
+      { key: 'hill_score', label: 'Hill Score', color: 'var(--s-hill)', value: d.summary.hill_latest, unit: '' },
+      { key: 'aerobic_decoupling', label: 'Aerobic Decoupling', color: 'var(--s-ei)', value: d.summary.decoupling_latest, unit: '%', meta: 'under 5% is sound' },
+      { key: 'recovery_balance', label: 'Recovery Balance', color: 'var(--s-hrv)', value: d.summary.recovery_latest, unit: '', meta: 'below 0 = load > recovery' },
+      { key: 'spo2_avg', label: 'Pulse Ox', color: 'var(--s-vo2)', value: lastOf('spo2_avg') ? lastOf('spo2_avg').value : null, unit: '%',
+        meta: lastOf('spo2_avg') && lastOf('spo2_avg').extra ? 'lowest ' + lastOf('spo2_avg').extra.lowest + '%' : '' },
+      { key: 'recovery_time_min', label: 'Recovery Time', color: 'var(--s-ei)',
+        value: lastOf('recovery_time_min') ? fmtRecovery(lastOf('recovery_time_min').value) : null, unit: '', raw: true,
+        meta: 'until fully recovered' },
+      { key: 'training_readiness', label: 'Training Readiness', color: 'var(--s-end)',
+        value: lastOf('training_readiness') ? lastOf('training_readiness').value : null, unit: '',
+        meta: lastOf('training_readiness') && lastOf('training_readiness').extra ? String(lastOf('training_readiness').extra.level || '') : '' },
+      { key: 'acute_load', label: 'Acute Load', color: 'var(--s-hill)',
+        value: lastOf('acute_load') ? lastOf('acute_load').value : null, unit: '',
+        meta: lastOf('chronic_load') ? 'chronic ' + lastOf('chronic_load').value : '' },
+      { key: 'acwr', label: 'Acute : Chronic', color: 'var(--s-hrv)',
+        value: lastOf('acwr') ? lastOf('acwr').value : null, unit: '',
+        meta: lastOf('acwr') && lastOf('acwr').extra ? String(lastOf('acwr').extra.status || '') : '' },
+      { key: 'training_status_phrase', label: 'Training Status', color: 'var(--s-re)',
+        value: lastOf('training_status_phrase') && lastOf('training_status_phrase').extra
+          ? humanPhrase(lastOf('training_status_phrase').extra.phrase) : null, unit: '', raw: true }
     ];
+
     document.getElementById('tiles').innerHTML = tiles.map(function (t) {
+      var v = (t.value !== null && t.value !== undefined) ? t.value : '—';
       return '<div class="tile"><div class="t-label"><span class="t-dot" style="background:' + t.color + '"></span>' + esc(t.label) + '</div>'
-        + '<div class="t-value">' + (t.value !== null && t.value !== undefined ? t.value : '—') + ' <span class="t-unit">' + esc(t.unit) + '</span></div>'
-        + (t.meta ? '<div class="t-meta">' + esc(t.meta) + '</div>' : '') + '</div>';
+        + '<div class="t-value"' + (t.raw ? ' style="font-size:16px"' : '') + '>' + esc(String(v))
+        + (t.unit ? ' <span class="t-unit">' + esc(t.unit) + '</span>' : '') + '</div>'
+        + (t.meta ? '<div class="t-meta">' + esc(t.meta) + '</div>' : '')
+        + cmpLine(cmp[t.key], win) + '</div>';
     }).join('');
 
     // ── Raw Garmin ──
