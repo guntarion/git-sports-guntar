@@ -354,6 +354,15 @@ def generate_ai_insights() -> bool:
     # Append to history (newest first, capped at MAX_HISTORY)
     _append_to_history(output)
 
+    # Persist to PostgreSQL so insights outlive the static JSON files.
+    # Non-fatal: a DB outage must not fail the pipeline.
+    try:
+        from ai_insights_db import save_insight
+
+        save_insight(output, kind="daily")
+    except Exception as exc:
+        print(f"Warning: could not save AI insights to DB: {exc}", file=sys.stderr)
+
     print(f"AI insights written to {OUTPUT_PATH}")
     return True
 

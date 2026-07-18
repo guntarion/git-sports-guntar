@@ -454,3 +454,19 @@ jobs:
           git push origin HEAD:${branch}
           popd >/dev/null
           git worktree remove "${data_worktree}" --force
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_yJWGALmfpSj9HTIxOHAOfpGF
+          VERCEL_PROJECT_ID: prj_IjclNa8YvC88kLBsRPX6GJmUAace
+        run: |
+          set -uo pipefail
+          if [ -z "${VERCEL_TOKEN:-}" ]; then
+            echo "::warning::VERCEL_TOKEN not configured; skipping Vercel deploy. The site will keep serving the previous build."
+            exit 0
+          fi
+          # The workspace already holds the freshly generated site/*.json, so this
+          # uploads the current data directly (no dependency on Vercel fetching
+          # the dashboard-data branch).
+          npx --yes vercel@latest deploy --prod --yes --token "${VERCEL_TOKEN}"
