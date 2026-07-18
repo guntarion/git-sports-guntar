@@ -69,6 +69,14 @@
     .race-item{background:var(--card2);border-radius:8px;padding:10px 12px}
     .race-item .r-d{font-size:10px;color:var(--muted)}
     .race-item .r-t{font-size:16px;font-weight:700;margin-top:3px}
+    .bars{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+    .bar-row{display:grid;grid-template-columns:26px 1fr 46px 58px;align-items:center;gap:8px;font-size:10px}
+    .bar-label{color:var(--muted)}
+    .bar-track{background:rgba(255,255,255,.06);border-radius:3px;height:10px;overflow:hidden}
+    .bar-fill{height:100%;border-radius:3px}
+    .bar-val{text-align:right;font-weight:700;font-size:11px}
+    .bar-n{color:var(--muted);text-align:right}
+    .zero-line{stroke:var(--muted);stroke-width:1;opacity:.45}
   </style>
 </head>
 <body>
@@ -101,6 +109,9 @@
 
   <div class="sec-title">Derived metrics <span class="sec-sub">computed from your run data</span></div>
   <div id="derivedCharts" class="charts"></div>
+
+  <div class="sec-title">Endurance &amp; recovery <span class="sec-sub">durability and training balance</span></div>
+  <div id="loadCharts" class="charts"></div>
 
   <div id="raceBox"></div>
 
@@ -169,6 +180,13 @@
       svg += '<line class="grid-line" x1="' + padL + '" y1="' + gy + '" x2="' + (W - padR) + '" y2="' + gy + '"/>';
       svg += '<text class="axis-text" x="' + (padL - 5) + '" y="' + (gy + 3) + '" text-anchor="end">' + fmtTick(gv) + '</text>';
     }
+    // Reference line (e.g. 0 for recovery balance, 5% for decoupling) — the
+    // value a reader is judging each point against.
+    if (opts.refValue !== undefined && opts.refValue > lo && opts.refValue < hi) {
+      var ry = Y(opts.refValue);
+      svg += '<line class="zero-line" x1="' + padL + '" y1="' + ry + '" x2="' + (W - padR) + '" y2="' + ry + '" stroke-dasharray="2 3"/>';
+      svg += '<text class="axis-text" x="' + (W - padR) + '" y="' + (ry - 3) + '" text-anchor="end">' + esc(opts.refLabel || '') + '</text>';
+    }
     // x labels: first / middle / last
     [0, Math.floor(pts.length / 2), pts.length - 1].forEach(function (idx, k) {
       var p = pts[idx];
@@ -196,6 +214,20 @@
     var meta = JSON.stringify(pts.map(function (p) { return [p.d, p.v, X(p.d), Y(p.v)]; }));
     return '<div class="chart-wrap"><svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" data-pts=\'' + meta + '\' data-unit="' + esc(opts.unit || '') + '" data-w="' + W + '">'
       + svg + '</svg><div class="tip"></div></div>';
+  }
+
+  /* Zone efficiency is a magnitude comparison across ordered categories, not a
+     time series — bars in a single hue, never a line and never a rainbow. */
+  function barChart(rows, color) {
+    if (!rows.length) return '<div class="empty">Not enough data yet</div>';
+    var max = Math.max.apply(null, rows.map(function (r) { return r.v; }));
+    return '<div class="bars">' + rows.map(function (r) {
+      var pct = max > 0 ? (r.v / max * 100) : 0;
+      return '<div class="bar-row"><div class="bar-label">' + esc(r.k) + '</div>'
+        + '<div class="bar-track"><div class="bar-fill" style="width:' + pct.toFixed(1) + '%;background:' + color + '"></div></div>'
+        + '<div class="bar-val">' + r.v + '</div>'
+        + '<div class="bar-n">' + (r.n != null ? r.n + ' splits' : '') + '</div></div>';
+    }).join('') + '</div>';
   }
 
   function attachHover(root) {
@@ -276,7 +308,9 @@
       { label: 'Endurance Score', color: 'var(--s-end)', value: d.summary.endurance_latest, unit: '' },
       { label: 'Running Economy', color: 'var(--s-re)', value: reRoll, unit: 'ml/kg/km', meta: d.summary.re_rating ? d.summary.re_rating + ' · lower is better' : 'lower is better' },
       { label: 'HRV (last night)', color: 'var(--s-hrv)', value: d.summary.hrv_latest, unit: 'ms' },
-      { label: 'Hill Score', color: 'var(--s-hill)', value: d.summary.hill_latest, unit: '' }
+      { label: 'Hill Score', color: 'var(--s-hill)', value: d.summary.hill_latest, unit: '' },
+      { label: 'Aerobic Decoupling', color: 'var(--s-ei)', value: d.summary.decoupling_latest, unit: '%', meta: 'under 5% is sound' },
+      { label: 'Recovery Balance', color: 'var(--s-hrv)', value: d.summary.recovery_latest, unit: '', meta: 'below 0 = load > recovery' }
     ];
     document.getElementById('tiles').innerHTML = tiles.map(function (t) {
       return '<div class="tile"><div class="t-label"><span class="t-dot" style="background:' + t.color + '"></span>' + esc(t.label) + '</div>'
@@ -310,6 +344,39 @@
       card({ title: 'Efficiency Index', color: 'var(--s-ei)', points: eiPts, unit: 'm/beat', note: 'higher is better · metres per heartbeat', table: tableFor(eiPts, 'm/beat') }),
       card({ title: 'Cardiac Cost', color: 'var(--s-hill)', points: ccPts, unit: 'beats/km', note: 'lower is better · assumption-free', table: tableFor(ccPts, 'beats/km') }),
       card({ title: 'Vertical Ratio', color: 'var(--s-vo2)', points: vrPts, unit: '%', note: 'lower is better · running form', table: tableFor(vrPts, '%') })
+    ].join('');
+
+    // ── Endurance & recovery ──
+    var der = d.derived || [];
+    var decPts = der.filter(function (r) { return r.decoupling_pct !== null; })
+                    .map(function (r) { return { d: r.date, v: r.decoupling_pct }; });
+    var loadPts = series(m.training_load_weekly);
+    var recPts = series(m.recovery_balance);
+    var evPts = series(m.endurance_vo2_ratio);
+
+    var ze = d.summary.zone_efficiency;
+    var zeRows = ze ? Object.keys(ze).sort().map(function (k) {
+      return { k: k.toUpperCase(), v: ze[k].ei, n: ze[k].splits };
+    }) : [];
+
+    var zeCard = '<div class="chart-card">'
+      + '<div class="chart-head"><div class="chart-title"><span class="t-dot" style="background:var(--s-vo2)"></span>Efficiency by HR zone</div></div>'
+      + '<div class="chart-note">metres per heartbeat · higher is better</div>'
+      + barChart(zeRows, 'var(--s-vo2)') + '</div>';
+
+    document.getElementById('loadCharts').innerHTML = [
+      card({ title: 'Aerobic Decoupling', color: 'var(--s-ei)', points: decPts, unit: '%',
+             note: 'LOWER is better · under 5% = aerobically sound', refValue: 5, refLabel: '5%',
+             table: tableFor(decPts, '%') }),
+      card({ title: 'Training Load', color: 'var(--s-hill)', points: loadPts, unit: 'TRIMP',
+             note: 'zone-weighted minutes · per week', table: tableFor(loadPts, 'TRIMP') }),
+      card({ title: 'Recovery Balance', color: 'var(--s-hrv)', points: recPts, unit: '',
+             note: 'HRV vs load · below 0 = load outpacing recovery', refValue: 0, refLabel: '0',
+             table: tableFor(recPts, 'index') }),
+      card({ title: 'Endurance : VO₂max', color: 'var(--s-end)', points: evPts, unit: '',
+             note: 'endurance per unit of aerobic capacity · higher is better',
+             table: tableFor(evPts, 'ratio') }),
+      zeCard
     ].join('');
 
     // ── Race predictions ──

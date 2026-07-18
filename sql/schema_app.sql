@@ -84,6 +84,18 @@ CREATE TABLE IF NOT EXISTS performance_metrics (
     CONSTRAINT performance_metrics_metric_date_key UNIQUE (metric, date)
 );
 
+-- Second-order per-activity metrics (see scripts/derived_metrics.py).
+-- Kept separate from running_economy because they qualify different runs:
+-- decoupling needs a long steady effort, RE needs a clean km 2-4 window.
+CREATE TABLE IF NOT EXISTS activity_derived (
+    activity_id     TEXT PRIMARY KEY,
+    date            DATE NOT NULL,
+    decoupling_pct  NUMERIC(6,2),
+    trimp           NUMERIC(8,1),
+    computed_at     TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_derived_date ON activity_derived(date DESC);
 CREATE INDEX IF NOT EXISTS idx_re_date ON running_economy(date DESC);
 CREATE INDEX IF NOT EXISTS idx_perf_metric_date ON performance_metrics(metric, date DESC);
 CREATE INDEX IF NOT EXISTS idx_journal_created ON journal_entries(created_at DESC);

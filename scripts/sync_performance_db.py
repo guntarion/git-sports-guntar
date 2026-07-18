@@ -113,6 +113,70 @@ def _put(conn, metric: str, day: str, value: Optional[float], extra: Any = None)
         })
 
 
+DERIVED_UPSERT = """
+INSERT INTO activity_derived (activity_id, date, decoupling_pct, trimp, computed_at)
+VALUES (%(activity_id)s, %(date)s, %(decoupling_pct)s, %(trimp)s, now())
+ON CONFLICT (activity_id) DO UPDATE SET
+    date=EXCLUDED.date, decoupling_pct=EXCLUDED.decoupling_pct,
+    trimp=EXCLUDED.trimp, computed_at=now()
+"""
+
+
+def sync_derived_metrics(conn, config: Dict[str, Any]) -> Dict[str, int]:
+    """Aerobic decoupling, training load, zone efficiency, endurance:VO2max
+    and the combined recovery-balance series."""
+    import derived_metrics as dm
+    from running_economy import params_from_config
+
+    if not os.path.exists(ACTIVITIES_PATH):
+        return {}
+
+    activities = (read_json(ACTIVITIES_PATH) or {}).get("activities") or []
+    p = params_from_config(config)
+    counts: Dict[str, int] = {}
+
+    rows = dm.compute_per_activity(activities, p)
+    for r in rows:
+        with conn, conn.cursor() as cur:
+            cur.execute(DERIVED_UPSERT, r)
+    counts["activity_derived"] = len(rows)
+    counts["with_decoupling"] = sum(1 for r in rows if r["decoupling_pct"] is not None)
+
+    # Weekly training load
+    loads = dm.weekly_load(activities)
+    for week, val in sorted(loads.items()):
+        _put(conn, "training_load_weekly", week, val)
+    counts["training_load_weekly"] = len(loads)
+
+    # Zone efficiency — a distribution, stored as one dated snapshot
+    ze = dm.zone_efficiency(activities, p)
+    if ze:
+        _put(conn, "zone_efficiency", date.today().isoformat(), None, ze)
+        counts["zone_efficiency"] = len(ze)
+
+    # Series that need what is already in the DB
+    def fetch(metric):
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT date, value FROM performance_metrics WHERE metric=%s ORDER BY date",
+                (metric,))
+            return [{"date": r[0].isoformat(), "value": float(r[1]) if r[1] is not None else None}
+                    for r in cur.fetchall()]
+
+    hrv = fetch("hrv")
+    for r in dm.recovery_balance(hrv, loads):
+        _put(conn, "recovery_balance", r["date"], r["value"],
+             {"hrv": r["hrv"], "load": r["load"]})
+    counts["recovery_balance"] = len(dm.recovery_balance(hrv, loads))
+
+    ratio = dm.endurance_vo2_ratio(fetch("endurance_score"), fetch("vo2max"))
+    for r in ratio:
+        _put(conn, "endurance_vo2_ratio", r["date"], r["value"])
+    counts["endurance_vo2_ratio"] = len(ratio)
+
+    return counts
+
+
 def sync_garmin_metrics(conn, client, hrv_days: int = 0) -> Dict[str, int]:
     """Pull performance metrics. hrv_days>0 backfills that many days of HRV
     (one request per day — Garmin rate limits, so keep it modest)."""
@@ -283,6 +347,15 @@ def main() -> int:
         counts = sync_garmin_metrics(conn, client, hrv_days=hrv_days)
         if counts:
             print("Performance metrics: " + ", ".join(f"{k}={v}" for k, v in sorted(counts.items())))
+
+        # Must run after the Garmin pull: recovery_balance and the
+        # endurance:VO2max ratio read HRV / endurance / vo2max back out of the DB.
+        try:
+            dcounts = sync_derived_metrics(conn, config)
+            if dcounts:
+                print("Derived metrics: " + ", ".join(f"{k}={v}" for k, v in sorted(dcounts.items())))
+        except Exception as exc:
+            print(f"Warning: derived metrics failed (non-fatal): {exc}", file=sys.stderr)
     except Exception as exc:
         print(f"Warning: performance DB sync failed: {exc}", file=sys.stderr)
     finally:

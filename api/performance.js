@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     const to = isDate(url.searchParams.get('to')) ? url.searchParams.get('to') : '2999-12-31';
     const authed = isAuthed(req);
 
-    const [pm, re] = await Promise.all([
+    const [pm, re, der] = await Promise.all([
       query(
         `SELECT metric, date, value, extra FROM performance_metrics
           WHERE date BETWEEN $1 AND $2 ORDER BY metric, date`,
@@ -36,6 +36,11 @@ export default async function handler(req, res) {
                 efficiency_index, cardiac_cost, vertical_ratio, avg_cadence,
                 avg_ground_contact, window_hr, window_pace_secs_per_km, total_distance_m
            FROM running_economy
+          WHERE date BETWEEN $1 AND $2 ORDER BY date`,
+        [from, to]
+      ),
+      query(
+        `SELECT activity_id, date, decoupling_pct, trimp FROM activity_derived
           WHERE date BETWEEN $1 AND $2 ORDER BY date`,
         [from, to]
       ),
@@ -68,6 +73,13 @@ export default async function handler(req, res) {
       total_distance_m: r.total_distance_m === null ? null : Number(r.total_distance_m),
     }));
 
+    const derived = der.rows.map((r) => ({
+      activity_id: r.activity_id,
+      date: r.date instanceof Date ? r.date.toISOString().slice(0, 10) : r.date,
+      decoupling_pct: r.decoupling_pct === null ? null : Number(r.decoupling_pct),
+      trimp: r.trimp === null ? null : Number(r.trimp),
+    }));
+
     const last = (arr) => (arr && arr.length ? arr[arr.length - 1] : null);
     const summary = {
       vo2max_latest: last(metrics.vo2max)?.value ?? null,
@@ -78,12 +90,20 @@ export default async function handler(req, res) {
       re_rolling_latest: last(running_economy)?.re_rolling ?? null,
       re_rating: last(running_economy)?.rating ?? null,
       race_predictions: last(metrics.race_predictions)?.extra ?? null,
+      decoupling_latest: (() => {
+        const d = derived.filter((x) => x.decoupling_pct !== null);
+        return d.length ? d[d.length - 1].decoupling_pct : null;
+      })(),
+      zone_efficiency: last(metrics.zone_efficiency)?.extra ?? null,
+      recovery_latest: last(metrics.recovery_balance)?.value ?? null,
+      endurance_vo2_latest: last(metrics.endurance_vo2_ratio)?.value ?? null,
       counts: Object.fromEntries(Object.entries(metrics).map(([k, v]) => [k, v.length])),
       running_economy_n: running_economy.length,
+      derived_n: derived.length,
       authed,
     };
 
-    return sendJson(res, 200, { metrics, running_economy, summary, range: { from, to } });
+    return sendJson(res, 200, { metrics, running_economy, derived, summary, range: { from, to } });
   } catch (err) {
     return sendJson(res, 500, { error: 'server_error', detail: String((err && err.message) || err) });
   }
