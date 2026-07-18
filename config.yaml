@@ -98,3 +98,13 @@ units:
 
 heatmaps:
   week_start: "sunday" # "sunday" or "monday"
+
+running_economy:
+  # Personal physiological constants. hr_max is the highest HR actually recorded
+  # in this athlete's runs; hr_rest comes from Garmin wellness.
+  # vo2max_ref is FROZEN on purpose — see scripts/running_economy.py for why
+  # feeding the per-activity vo2_max makes the metric circular.
+  hr_max: 181
+  hr_rest: 54
+  vo2max_ref: 39.0
+  sex: "male"          # selects Garmin's rating band table

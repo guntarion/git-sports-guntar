@@ -227,6 +227,9 @@ jobs:
           UPDATE_README_LINK: ${{ github.event_name != 'workflow_dispatch' || inputs.update_readme_link }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+          # HRV needs one Garmin request per day; keep the daily top-up small so
+          # the sync stays well inside Garmin's rate limits.
+          HRV_BACKFILL_DAYS: "7"
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"

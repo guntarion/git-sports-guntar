@@ -290,6 +290,14 @@ def run_pipeline(
                 print(f"DB sync: {db_summary}")
             except Exception as exc:
                 print(f"Warning: DB sync failed (non-fatal): {exc}")
+            # Running Economy + Garmin performance metrics (non-fatal).
+            # Reuses the already-authenticated pipeline run; HRV backfill depth
+            # is controlled by HRV_BACKFILL_DAYS (one Garmin request per day).
+            try:
+                from sync_performance_db import main as sync_performance
+                sync_performance()
+            except Exception as exc:
+                print(f"Warning: performance sync failed (non-fatal): {exc}")
         # AI insights (non-fatal) — internally skips if no new running data
         qwen_key = os.environ.get("QWEN_API_KEY", "").strip()
         if qwen_key:

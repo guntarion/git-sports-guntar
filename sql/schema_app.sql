@@ -50,6 +50,42 @@ CREATE TABLE IF NOT EXISTS ai_insights (
     CONSTRAINT ai_insights_fp_gen_key UNIQUE (running_fingerprint, generated_at)
 );
 
+-- Per-activity Running Economy, computed over a fixed km 2-4 window so runs of
+-- different lengths stay comparable (see scripts/running_economy.py).
+CREATE TABLE IF NOT EXISTS running_economy (
+    activity_id             TEXT PRIMARY KEY,
+    date                    DATE NOT NULL,
+    re_ml_kg_km             NUMERIC(6,1) NOT NULL,
+    re_rolling              NUMERIC(6,1),
+    score                   INTEGER,
+    rating                  TEXT,
+    efficiency_index        NUMERIC(8,4),
+    cardiac_cost            NUMERIC(7,1),
+    vertical_ratio          NUMERIC(5,2),
+    avg_cadence             INTEGER,
+    avg_ground_contact      INTEGER,
+    window_hr               NUMERIC(5,1),
+    window_pace_secs_per_km NUMERIC(6,1),
+    window_distance_m       NUMERIC(8,1),
+    total_distance_m        NUMERIC(9,1),
+    computed_at             TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+-- Garmin performance metrics over time (VO2max, endurance score, hill score,
+-- HRV, race predictions, weight...). Long/narrow so new metric types need no
+-- migration; `extra` keeps the raw payload for anything not modelled yet.
+CREATE TABLE IF NOT EXISTS performance_metrics (
+    id          BIGSERIAL PRIMARY KEY,
+    metric      TEXT NOT NULL,
+    date        DATE NOT NULL,
+    value       NUMERIC(12,3),
+    extra       JSONB,
+    synced_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+    CONSTRAINT performance_metrics_metric_date_key UNIQUE (metric, date)
+);
+
+CREATE INDEX IF NOT EXISTS idx_re_date ON running_economy(date DESC);
+CREATE INDEX IF NOT EXISTS idx_perf_metric_date ON performance_metrics(metric, date DESC);
 CREATE INDEX IF NOT EXISTS idx_journal_created ON journal_entries(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_todos_created   ON todos(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_todos_done      ON todos(done);
