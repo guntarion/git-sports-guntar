@@ -230,6 +230,11 @@ jobs:
           # HRV needs one Garmin request per day; keep the daily top-up small so
           # the sync stays well inside Garmin's rate limits.
           HRV_BACKFILL_DAYS: "7"
+          # Session map: coordinates are a cheap bulk call, routes cost one
+          # request per activity, so cap them per run. New sessions are picked
+          # up next day; any backlog drains gradually.
+          LOCATION_ROUTES: "1"
+          LOCATION_ROUTE_LIMIT: "25"
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"

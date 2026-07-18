@@ -197,12 +197,21 @@ def main() -> int:
         print("DATABASE_URL not set; skipping location sync.", file=sys.stderr)
         return 0
 
-    want_routes = "--routes" in sys.argv
+    # CLI flags win; otherwise fall back to env so the daily pipeline can call
+    # main() directly. Routes cost one request per activity, so the pipeline
+    # caps how many it fetches per run — a backlog then drains over several
+    # days instead of hammering Garmin in one go.
+    want_routes = "--routes" in sys.argv or os.environ.get("LOCATION_ROUTES", "") == "1"
     limit = None
     if "--limit" in sys.argv:
         try:
             limit = int(sys.argv[sys.argv.index("--limit") + 1])
         except (IndexError, ValueError):
+            limit = None
+    if limit is None:
+        try:
+            limit = int(os.environ.get("LOCATION_ROUTE_LIMIT", "") or 0) or None
+        except ValueError:
             limit = None
 
     try:

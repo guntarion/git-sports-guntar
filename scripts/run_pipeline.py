@@ -298,6 +298,14 @@ def run_pipeline(
                 sync_performance()
             except Exception as exc:
                 print(f"Warning: performance sync failed (non-fatal): {exc}")
+            # Session locations + GPS routes (non-fatal). Coordinates are a
+            # cheap bulk call; routes are capped per run via
+            # LOCATION_ROUTE_LIMIT so a backlog drains over several days.
+            try:
+                from sync_locations import main as sync_locations
+                sync_locations()
+            except Exception as exc:
+                print(f"Warning: location sync failed (non-fatal): {exc}")
         # AI insights (non-fatal) — internally skips if no new running data
         qwen_key = os.environ.get("QWEN_API_KEY", "").strip()
         if qwen_key:
