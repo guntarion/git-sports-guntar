@@ -25,9 +25,11 @@ from typing import Any, Dict, List, Optional
 
 from utils import load_config
 
-# Sports worth mapping. Garmin type keys are matched as substrings, so
-# "trail_running" and "indoor_cycling" both resolve correctly.
-MAPPED_SPORTS = ("running", "walking", "hiking", "cycling", "biking")
+# No sport allowlist on purpose. An allowlist silently drops whatever it did
+# not anticipate — it already lost a `multi_sport` session. The presence of GPS
+# coordinates is the real test of "can this be mapped", and it also excludes
+# indoor work (treadmill, indoor_cycling, strength) for free, since Garmin
+# reports no position for those.
 
 UPSERT = """
 INSERT INTO activity_locations (
@@ -73,11 +75,6 @@ def _ensure_schema(conn) -> None:
             cur.execute(open(path, "r", encoding="utf-8").read())
 
 
-def _is_mapped(type_key: str) -> bool:
-    t = (type_key or "").lower()
-    return any(s in t for s in MAPPED_SPORTS)
-
-
 def _simplify(points: List[Dict], max_points: int = 500) -> List[List[float]]:
     """[[lat, lon], ...] rounded to ~1 m, evenly downsampled if very long.
 
@@ -109,8 +106,7 @@ def fetch_coordinates(conn, client, page_size: int = 200) -> Dict[str, int]:
         for a in batch:
             seen += 1
             type_key = ((a.get("activityType") or {}).get("typeKey")) or ""
-            if not _is_mapped(type_key):
-                continue
+            # Mappable == has coordinates. See the note at the top of the file.
             if a.get("startLatitude") is None or a.get("startLongitude") is None:
                 continue
             row = {

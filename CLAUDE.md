@@ -71,6 +71,8 @@ Every DB/AI stage is **non-fatal** — a failure there must never break the acti
 | Analytics | `site/analytics.html` | `activities.json` + `ai_insights.json` | Charts, AI Coach panel |
 | Records | `site/records.html` | `activities.json` | Leaderboards, PRs, split rankings |
 | **Performance** | `site/performance.html` | **`/api/performance`** | Garmin health metrics + derived sports-science metrics over time |
+| **Wellness** | `site/wellness.html` | **`/api/performance`** | Sleep stages, Body Battery, RHR, steps, stress, PRs |
+| **Map** | `site/map.html` | **`/api/locations`** | Session locations + GPS routes (auth-gated) |
 | Journal | `site/journal.html` | **`/api/journal`** | Markdown training journal |
 | Todos | `site/todos.html` | **`/api/todos`** | Action items |
 
@@ -81,7 +83,8 @@ Every DB/AI stage is **non-fatal** — a failure there must never break the acti
 | `/api/journal` | **required** | Journal CRUD + bulk import |
 | `/api/todos` | **required** | Todo CRUD, toggle, clearCompleted |
 | `/api/session` | — | Validates the access token (login gate) |
-| `/api/performance` | public* | Time-series performance data |
+| `/api/performance` | public* | Time-series performance data (+ `latest_any` singletons) |
+| `/api/locations` | **required** | Session coordinates + GPS routes — never public |
 
 \* Public read matches the rest of the dashboard. **`weight_kg` is the one exception** — returned
 only to an authenticated caller.
@@ -100,6 +103,7 @@ Schema reference: `sql/schema_app.sql` (also applied lazily by the API and the s
 | `running_economy` | Per-activity RE, score, EI, cardiac cost, vertical ratio |
 | `activity_derived` | Per-activity aerobic decoupling + TRIMP |
 | `performance_metrics` | Long/narrow time series: `metric`, `date`, `value`, `extra` JSONB |
+| `activity_locations` | Session coordinates, place names and `route` polylines (private) |
 | `activities`, `activity_splits`, `activity_hr_zones` | From `sync_db.py` (optional) |
 
 `performance_metrics` is intentionally long/narrow so a new metric needs no migration.
@@ -120,6 +124,7 @@ Schema reference: `sql/schema_app.sql` (also applied lazily by the API and the s
 | `scripts/derived_metrics.py` | Decoupling, TRIMP, zone efficiency, recovery balance |
 | `scripts/sync_performance_db.py` | Writes the above to PG + pulls Garmin health metrics |
 | `scripts/ai_insights_db.py` | Persists AI reports (`--backfill` imports history JSON) |
+| `scripts/sync_locations.py` | Session coordinates (bulk) + GPS routes (`--routes`, resumable) |
 | `scripts/garmin_login_local.py` | Interactive local Garmin login (MFA-aware) |
 | `scripts/vercel_build.sh` | Vercel build step: hydrate `site/*.json` from `dashboard-data` |
 | `docs/performance-metrics.md` | **Definitions + formulas for every Performance metric** |

@@ -166,6 +166,26 @@ export default async function handler(req, res) {
       total_distance_m: r.total_distance_m === null ? null : Number(r.total_distance_m),
     }));
 
+    // Singletons: measured once (or rarely) and not tied to the selected
+    // window. Without this they vanish whenever the range excludes their one
+    // reading — e.g. a lactate threshold test from March disappearing under a
+    // 3-month filter.
+    const singles = await query(
+      `SELECT DISTINCT ON (metric) metric, date, value, extra
+         FROM performance_metrics
+        WHERE metric IN ('lactate_threshold_hr','personal_records','training_status_phrase',
+                         'acwr','chronic_load','race_predictions')
+        ORDER BY metric, date DESC`
+    );
+    const latest_any = {};
+    for (const r of singles.rows) {
+      latest_any[r.metric] = {
+        date: r.date instanceof Date ? r.date.toISOString().slice(0, 10) : r.date,
+        value: r.value === null ? null : Number(r.value),
+        extra: r.extra || null,
+      };
+    }
+
     const derived = der.rows.map((r) => ({
       activity_id: r.activity_id,
       date: r.date instanceof Date ? r.date.toISOString().slice(0, 10) : r.date,
@@ -214,7 +234,8 @@ export default async function handler(req, res) {
       buildComparison('training_load_weekly', d0.load_cur, d0.load_prev, 0, 0, 0);
 
     return sendJson(res, 200, {
-      metrics, running_economy, derived, summary, comparison, range: { from, to },
+      metrics, running_economy, derived, summary, comparison, latest_any,
+      range: { from, to },
     });
   } catch (err) {
     return sendJson(res, 500, { error: 'server_error', detail: String((err && err.message) || err) });

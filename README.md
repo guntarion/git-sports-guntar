@@ -71,10 +71,6 @@ month-over-month verdict on every headline number.
 Recovery Time · Training Readiness · Acute & Chronic Load · ACWR · Training Status ·
 Race Predictions
 
-**Also collected into PostgreSQL** (stored and queryable via `/api/performance`, not yet charted):
-Lactate Threshold HR · Resting HR · Sleep duration, score & stages · Body Battery · Weekly Stress ·
-Daily Steps · Intensity Minutes · Personal Records · Body weight
-
 **Derived metrics** (see [`docs/performance-metrics.md`](docs/performance-metrics.md) for every
 formula):
 
@@ -105,6 +101,24 @@ gap than the entire baseline spread.
 is compared against **day 1–18 of last month**, never against the full previous month. Equal-length
 windows are fair for both averages and sums, so the comparison is valid from day 1 of a month.
 Tiles with fewer than 3 readings say so instead of implying confidence they do not have.
+
+### 🌙 Wellness — sleep, recovery and daily load
+
+![Wellness Page](docs/screenshot-wellness.png)
+
+Sleep stages stacked per night (deep / light / REM / awake) with the nightly score, Body Battery
+as a charge-vs-drain diverging chart, resting heart rate, daily steps against the Garmin goal,
+weekly stress, lactate threshold, and Garmin's personal records.
+
+### 🗺️ Map — where every session happened
+
+![Map Page](docs/screenshot-map.png)
+
+Every GPS session drawn as a route on a dark basemap, coloured by sport, with a ranked places
+sidebar, sport filters and click-to-fly navigation.
+
+**This page is fully auth-gated with no public path.** The start coordinates of a run typically
+disclose a home address, and the rest of this dashboard is public.
 
 ### 🤖 AI Coach (Coach RunAnalytica)
 
@@ -261,6 +275,8 @@ assert upstream README wording this fork deliberately replaced.
 | Analytics | `/analytics.html` | public |
 | Records | `/records.html` | public |
 | Performance | `/performance.html` | public (body weight requires token) |
+| Wellness | `/wellness.html` | public |
+| Map | `/map.html` | **token** |
 | Journal | `/journal.html` | **token** |
 | Todos | `/todos.html` | **token** |
 
