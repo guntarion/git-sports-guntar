@@ -1,0 +1,23 @@
+# Never upload secrets — env comes from Vercel env vars, not files.
+.env
+.env.*
+config.local.yaml
+.garmin_token_store
+
+# Keep Vercel from auto-detecting this as a Python project: the ETL pipeline
+# runs in GitHub Actions, not on Vercel. requirements.txt at the root would
+# otherwise make Vercel look for a Python entrypoint and fail the build.
+requirements.txt
+scripts/*.py
+
+# Local tooling / bulk data that the deployment does not need.
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+activities/
+data/
+heatmaps/
+tests/
+docs/
+.github/
