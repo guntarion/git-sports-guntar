@@ -34,3 +34,6 @@ Setup.txt
 # Node
 node_modules/
 .vercel
+
+# Playwright MCP output
+.playwright-mcp/

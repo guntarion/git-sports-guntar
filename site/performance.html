@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Performance — git-sports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0f172a;--card:#1e293b;--card2:#243048;--border:#334155;
+      --text:#f1f5f9;--muted:#94a3b8;--accent:#00bbf9;
+      /* Chart series — validated against this surface for CVD separation,
+         lightness band, chroma and contrast. Do not substitute by eye. */
+      --s-vo2:#3987e5; --s-end:#008300; --s-re:#d55181;
+      --s-hill:#c98500; --s-hrv:#199e70; --s-ei:#d95926;
+      --good:#22c55e; --bad:#ef4444;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;min-height:100vh;padding:0 0 60px}
+    header{background:var(--card);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10}
+    .header-title{font-size:15px;font-weight:700}
+    .header-nav a{color:var(--muted);text-decoration:none;font-size:12px;border:1px solid var(--border);padding:5px 12px;border-radius:6px;margin-left:8px;transition:color .15s,border-color .15s;display:inline-block;margin-bottom:4px}
+    .header-nav a:hover{color:var(--text);border-color:var(--muted)}
+    .page-body{max-width:1100px;margin:0 auto;padding:20px 16px}
+    .filters{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+    .filter-label{color:var(--muted);font-size:11px;margin-right:4px}
+    .fbtn{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:inherit;font-size:11px;padding:4px 12px;border-radius:20px;cursor:pointer;transition:all .15s}
+    .fbtn:hover{border-color:var(--accent);color:var(--text)}
+    .fbtn.active{background:var(--accent);border-color:var(--accent);color:#000;font-weight:700}
+    .sec-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:26px 0 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .sec-sub{margin-left:auto;font-size:10px;font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0}
+    .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+    .tile{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+    .tile .t-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:6px}
+    .t-dot{width:8px;height:8px;border-radius:50%;flex:0 0 8px}
+    .tile .t-value{font-size:22px;font-weight:700;margin-top:6px;line-height:1.1}
+    .tile .t-unit{font-size:11px;color:var(--muted);font-weight:400}
+    .tile .t-meta{font-size:10px;color:var(--muted);margin-top:4px}
+    .charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:12px}
+    .chart-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 14px 8px}
+    .chart-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:2px}
+    .chart-title{font-size:12px;font-weight:700;display:flex;align-items:center;gap:7px}
+    .chart-note{font-size:10px;color:var(--muted)}
+    .chart-latest{font-size:12px;font-weight:700}
+    .chart-wrap{position:relative}
+    /* Scale uniformly: stretching the viewBox (preserveAspectRatio="none")
+       squashes the axis text and turns the round markers into ellipses. */
+    svg.chart{width:100%;height:auto;display:block;overflow:visible}
+    .grid-line{stroke:rgba(255,255,255,.07);stroke-width:1}
+    .axis-text{fill:var(--muted);font-size:9px;font-family:inherit}
+    .series-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+    .series-dot{stroke:var(--card);stroke-width:2}
+    .crosshair{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3;opacity:0}
+    .tip{position:absolute;pointer-events:none;background:#0b1220;border:1px solid var(--border);border-radius:6px;padding:6px 9px;font-size:11px;white-space:nowrap;opacity:0;transition:opacity .1s;z-index:5}
+    .tip b{font-weight:700}
+    .legend{display:flex;gap:12px;font-size:10px;color:var(--muted);margin-top:4px}
+    .legend span{display:flex;align-items:center;gap:5px}
+    .empty{color:var(--muted);font-size:11px;padding:28px 0;text-align:center}
+    .note{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;font-size:11px;color:var(--muted);line-height:1.6;margin-top:12px}
+    .note b{color:var(--text)}
+    table.tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
+    table.tbl th,table.tbl td{text-align:right;padding:5px 8px;border-bottom:1px solid var(--border)}
+    table.tbl th:first-child,table.tbl td:first-child{text-align:left}
+    table.tbl th{color:var(--muted);font-weight:400;font-size:10px;text-transform:uppercase}
+    details.tblwrap{margin-top:10px}
+    details.tblwrap summary{cursor:pointer;font-size:10px;color:var(--muted)}
+    .race-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+    .race-item{background:var(--card2);border-radius:8px;padding:10px 12px}
+    .race-item .r-d{font-size:10px;color:var(--muted)}
+    .race-item .r-t{font-size:16px;font-weight:700;margin-top:3px}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-title">Performance</div>
+  <nav class="header-nav">
+    <a href="analytics.html">Analytics</a>
+    <a href="records.html">Records</a>
+    <a href="activities.html">Activities</a>
+    <a href="journal.html">Journal</a>
+    <a href="todos.html">Todos</a>
+    <a href="./">Dashboard</a>
+  </nav>
+</header>
+
+<div class="page-body">
+  <div class="filters">
+    <span class="filter-label">Range</span>
+    <button class="fbtn" data-days="90">3M</button>
+    <button class="fbtn active" data-days="180">6M</button>
+    <button class="fbtn" data-days="365">1Y</button>
+    <button class="fbtn" data-days="0">All</button>
+  </div>
+
+  <div id="tiles" class="tiles"></div>
+
+  <div class="sec-title">Garmin measurements <span class="sec-sub">as reported by the watch</span></div>
+  <div id="rawCharts" class="charts"></div>
+
+  <div class="sec-title">Derived metrics <span class="sec-sub">computed from your run data</span></div>
+  <div id="derivedCharts" class="charts"></div>
+
+  <div id="raceBox"></div>
+
+  <div class="note">
+    <b>How Running Economy is estimated.</b> Garmin's own figure needs an HRM&nbsp;600 strap
+    (it measures step speed loss), so this is an approximation on the same scale —
+    <b>ml O₂/kg/km, lower is better</b>. Oxygen cost is estimated from %heart-rate reserve
+    (the standard %HRR≈%VO2R relationship) and divided by speed.
+    <br><br>
+    Every run is measured over a <b>fixed km 2–4 window</b>, not the whole run. Measured end-to-end,
+    the number tracks how <i>far</i> you ran rather than how efficiently: longer runs accumulate
+    cardiac drift, and on your history that produced a false decline exactly while your VO₂max rose.
+    Treadmill runs are excluded (their pace is accelerometer-derived), as are intervals, hilly runs,
+    and anything outside an easy/steady effort — the same conditions Garmin requires.
+    <br><br>
+    The <b>score</b> is relative to <i>your own</i> baseline (50 = your median), because the absolute
+    value carries an unknown offset. Trust the <b>rolling median</b> line over any single run.
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var API = (window.GS_API_BASE || '/api').replace(/\/$/, '');
+  var state = { days: 180, data: null };
+
+  function fmtDate(d) { return d.slice(5); }           // MM-DD
+  function fmtSecs(s) {
+    s = Math.round(s);
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(x).padStart(2, '0');
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]); }); }
+
+  /* ── Line chart ────────────────────────────────────────────────────────────
+     One metric per chart — never two scales on one axis. Recessive grid,
+     2px line, 8px hover targets, crosshair + tooltip. */
+  function lineChart(opts) {
+    var pts = opts.points.filter(function (p) { return p.v !== null && p.v !== undefined; });
+    if (pts.length < 2) return '<div class="empty">Not enough data yet</div>';
+
+    var W = 440, H = 165, padL = 40, padR = 12, padT = 12, padB = 22;
+    var xs = W - padL - padR, ys = H - padT - padB;
+    var vals = pts.map(function (p) { return p.v; });
+    var extra = opts.series2 ? opts.series2.filter(function (p) { return p.v != null; }).map(function (p) { return p.v; }) : [];
+    var lo = Math.min.apply(null, vals.concat(extra)), hi = Math.max.apply(null, vals.concat(extra));
+    if (lo === hi) { lo -= 1; hi += 1; }
+    var pad = (hi - lo) * 0.12; lo -= pad; hi += pad;
+
+    var t0 = new Date(pts[0].d).getTime(), t1 = new Date(pts[pts.length - 1].d).getTime();
+    if (t1 === t0) t1 = t0 + 1;
+    function X(d) { return padL + (new Date(d).getTime() - t0) / (t1 - t0) * xs; }
+    function Y(v) { return padT + (1 - (v - lo) / (hi - lo)) * ys; }
+
+    // Enough decimals that the four tick labels stay distinct — a 0.70–0.83
+    // range rounded to 1dp prints "0.8, 0.8, 0.8, 0.7".
+    var span = hi - lo;
+    var dp = span >= 6 ? 0 : span >= 0.6 ? 1 : span >= 0.06 ? 2 : 3;
+    var fmtTick = function (v) { return v.toFixed(dp); };
+
+    var svg = '';
+    // recessive grid + y labels
+    for (var i = 0; i <= 3; i++) {
+      var gv = lo + span * i / 3, gy = Y(gv);
+      svg += '<line class="grid-line" x1="' + padL + '" y1="' + gy + '" x2="' + (W - padR) + '" y2="' + gy + '"/>';
+      svg += '<text class="axis-text" x="' + (padL - 5) + '" y="' + (gy + 3) + '" text-anchor="end">' + fmtTick(gv) + '</text>';
+    }
+    // x labels: first / middle / last
+    [0, Math.floor(pts.length / 2), pts.length - 1].forEach(function (idx, k) {
+      var p = pts[idx];
+      svg += '<text class="axis-text" x="' + X(p.d) + '" y="' + (H - 6) + '" text-anchor="' + (k === 0 ? 'start' : k === 2 ? 'end' : 'middle') + '">' + fmtDate(p.d) + '</text>';
+    });
+
+    function path(arr) {
+      return arr.map(function (p, i) { return (i ? 'L' : 'M') + X(p.d).toFixed(1) + ' ' + Y(p.v).toFixed(1); }).join(' ');
+    }
+    // secondary series (same unit & scale — e.g. rolling median)
+    if (opts.series2) {
+      var s2 = opts.series2.filter(function (p) { return p.v != null; });
+      if (s2.length > 1) svg += '<path class="series-line" d="' + path(s2) + '" stroke="' + opts.color2 + '" stroke-dasharray="4 3" opacity="0.9"/>';
+    }
+    svg += '<path class="series-line" d="' + path(pts) + '" stroke="' + opts.color + '"/>';
+    // markers (only when sparse enough to stay readable)
+    if (pts.length <= 40) {
+      pts.forEach(function (p) {
+        svg += '<circle class="series-dot" cx="' + X(p.d).toFixed(1) + '" cy="' + Y(p.v).toFixed(1) + '" r="3.2" fill="' + opts.color + '"/>';
+      });
+    }
+    svg += '<line class="crosshair" id="ch" y1="' + padT + '" y2="' + (H - padB) + '"/>';
+    svg += '<circle class="series-dot" id="chDot" r="4.5" fill="' + opts.color + '" opacity="0"/>';
+
+    var meta = JSON.stringify(pts.map(function (p) { return [p.d, p.v, X(p.d), Y(p.v)]; }));
+    return '<div class="chart-wrap"><svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" data-pts=\'' + meta + '\' data-unit="' + esc(opts.unit || '') + '" data-w="' + W + '">'
+      + svg + '</svg><div class="tip"></div></div>';
+  }
+
+  function attachHover(root) {
+    root.querySelectorAll('.chart-wrap').forEach(function (wrap) {
+      var svg = wrap.querySelector('svg'), tip = wrap.querySelector('.tip');
+      if (!svg) return;
+      var pts; try { pts = JSON.parse(svg.getAttribute('data-pts')); } catch (e) { return; }
+      var unit = svg.getAttribute('data-unit') || '';
+      var VW = +svg.getAttribute('data-w');
+      var ch = svg.querySelector('#ch'), dot = svg.querySelector('#chDot');
+      function move(ev) {
+        var r = svg.getBoundingClientRect();
+        var cx = (ev.clientX - r.left) / r.width * VW;
+        var best = null, bd = 1e9;
+        pts.forEach(function (p) { var d = Math.abs(p[2] - cx); if (d < bd) { bd = d; best = p; } });
+        if (!best) return;
+        if (ch) { ch.setAttribute('x1', best[2]); ch.setAttribute('x2', best[2]); ch.style.opacity = 1; }
+        if (dot) { dot.setAttribute('cx', best[2]); dot.setAttribute('cy', best[3]); dot.style.opacity = 1; }
+        tip.innerHTML = '<b>' + best[1] + '</b> ' + esc(unit) + '<br>' + best[0];
+        tip.style.opacity = 1;
+        var px = best[2] / VW * r.width;
+        tip.style.left = Math.min(Math.max(px - 40, 0), r.width - 96) + 'px';
+        tip.style.top = '2px';
+      }
+      wrap.addEventListener('mousemove', move);
+      wrap.addEventListener('touchmove', function (e) { if (e.touches[0]) move(e.touches[0]); }, { passive: true });
+      wrap.addEventListener('mouseleave', function () {
+        tip.style.opacity = 0; if (ch) ch.style.opacity = 0; if (dot) dot.style.opacity = 0;
+      });
+    });
+  }
+
+  function card(o) {
+    var latest = o.points.length ? o.points[o.points.length - 1].v : null;
+    return '<div class="chart-card">'
+      + '<div class="chart-head"><div class="chart-title"><span class="t-dot" style="background:' + o.color + '"></span>' + esc(o.title) + '</div>'
+      + '<div class="chart-latest" style="color:' + o.color + '">' + (latest !== null ? latest + (o.unitShort || '') : '—') + '</div></div>'
+      + (o.note ? '<div class="chart-note">' + esc(o.note) + '</div>' : '')
+      + lineChart(o)
+      + (o.legend || '')
+      + (o.table || '')
+      + '</div>';
+  }
+
+  function tableFor(points, unit) {
+    if (!points.length) return '';
+    var rows = points.slice(-12).reverse().map(function (p) {
+      return '<tr><td>' + p.d + '</td><td>' + p.v + '</td></tr>';
+    }).join('');
+    return '<details class="tblwrap"><summary>Show data</summary><table class="tbl"><thead><tr><th>Date</th><th>' + esc(unit) + '</th></tr></thead><tbody>' + rows + '</tbody></table></details>';
+  }
+
+  function series(metricRows) {
+    return (metricRows || []).map(function (r) { return { d: r.date, v: r.value }; });
+  }
+
+  function trend(points) {
+    if (!points || points.length < 4) return '';
+    var h = Math.floor(points.length / 2);
+    var a = points.slice(0, h).map(function (p) { return p.v; });
+    var b = points.slice(h).map(function (p) { return p.v; });
+    var ma = a.reduce(function (x, y) { return x + y; }, 0) / a.length;
+    var mb = b.reduce(function (x, y) { return x + y; }, 0) / b.length;
+    var diff = mb - ma;
+    if (!isFinite(diff) || Math.abs(diff) < 1e-9) return 'flat';
+    return (diff > 0 ? '+' : '') + diff.toFixed(1) + ' vs earlier';
+  }
+
+  function render() {
+    var d = state.data;
+    var m = d.metrics || {};
+    var re = d.running_economy || [];
+
+    // ── Headline tiles ──
+    var reRoll = re.length ? re[re.length - 1].re_rolling : null;
+    var tiles = [
+      { label: 'VO₂ Max', color: 'var(--s-vo2)', value: d.summary.vo2max_latest, unit: 'ml/kg/min' },
+      { label: 'Endurance Score', color: 'var(--s-end)', value: d.summary.endurance_latest, unit: '' },
+      { label: 'Running Economy', color: 'var(--s-re)', value: reRoll, unit: 'ml/kg/km', meta: d.summary.re_rating ? d.summary.re_rating + ' · lower is better' : 'lower is better' },
+      { label: 'HRV (last night)', color: 'var(--s-hrv)', value: d.summary.hrv_latest, unit: 'ms' },
+      { label: 'Hill Score', color: 'var(--s-hill)', value: d.summary.hill_latest, unit: '' }
+    ];
+    document.getElementById('tiles').innerHTML = tiles.map(function (t) {
+      return '<div class="tile"><div class="t-label"><span class="t-dot" style="background:' + t.color + '"></span>' + esc(t.label) + '</div>'
+        + '<div class="t-value">' + (t.value !== null && t.value !== undefined ? t.value : '—') + ' <span class="t-unit">' + esc(t.unit) + '</span></div>'
+        + (t.meta ? '<div class="t-meta">' + esc(t.meta) + '</div>' : '') + '</div>';
+    }).join('');
+
+    // ── Raw Garmin ──
+    var vo2 = series(m.vo2max), end = series(m.endurance_score), hill = series(m.hill_score), hrv = series(m.hrv);
+    document.getElementById('rawCharts').innerHTML = [
+      card({ title: 'VO₂ Max', color: 'var(--s-vo2)', points: vo2, unit: 'ml/kg/min', unitShort: '', note: trend(vo2) ? 'higher is better · ' + trend(vo2) : 'higher is better', table: tableFor(vo2, 'ml/kg/min') }),
+      card({ title: 'Endurance Score', color: 'var(--s-end)', points: end, unit: '', note: 'higher is better · weekly', table: tableFor(end, 'score') }),
+      card({ title: 'HRV (last night avg)', color: 'var(--s-hrv)', points: hrv, unit: 'ms', note: 'overnight heart-rate variability', table: tableFor(hrv, 'ms') }),
+      card({ title: 'Hill Score', color: 'var(--s-hill)', points: hill, unit: '', note: 'higher is better · daily', table: tableFor(hill, 'score') })
+    ].join('');
+
+    // ── Derived ──
+    var rePts = re.map(function (r) { return { d: r.date, v: r.re_ml_kg_km }; });
+    var reRollPts = re.map(function (r) { return { d: r.date, v: r.re_rolling }; });
+    var eiPts = re.map(function (r) { return { d: r.date, v: r.efficiency_index }; });
+    var ccPts = re.map(function (r) { return { d: r.date, v: r.cardiac_cost }; });
+    var vrPts = re.map(function (r) { return { d: r.date, v: r.vertical_ratio }; });
+
+    var reLegend = '<div class="legend"><span><span class="t-dot" style="background:var(--s-re)"></span>per run</span>'
+      + '<span><span class="t-dot" style="background:var(--muted)"></span>rolling median (5)</span></div>';
+
+    document.getElementById('derivedCharts').innerHTML = [
+      card({ title: 'Running Economy', color: 'var(--s-re)', points: rePts, series2: reRollPts, color2: 'var(--muted)',
+             unit: 'ml/kg/km', note: 'LOWER is better · fixed km 2–4 window', legend: reLegend,
+             table: tableFor(rePts, 'ml/kg/km') }),
+      card({ title: 'Efficiency Index', color: 'var(--s-ei)', points: eiPts, unit: 'm/beat', note: 'higher is better · metres per heartbeat', table: tableFor(eiPts, 'm/beat') }),
+      card({ title: 'Cardiac Cost', color: 'var(--s-hill)', points: ccPts, unit: 'beats/km', note: 'lower is better · assumption-free', table: tableFor(ccPts, 'beats/km') }),
+      card({ title: 'Vertical Ratio', color: 'var(--s-vo2)', points: vrPts, unit: '%', note: 'lower is better · running form', table: tableFor(vrPts, '%') })
+    ].join('');
+
+    // ── Race predictions ──
+    var rp = d.summary.race_predictions;
+    document.getElementById('raceBox').innerHTML = rp ? (
+      '<div class="sec-title">Race predictions <span class="sec-sub">Garmin estimate</span></div>'
+      + '<div class="race-grid">'
+      + [['5K', rp.time5K], ['10K', rp.time10K], ['Half', rp.timeHalfMarathon], ['Marathon', rp.timeMarathon]]
+        .filter(function (x) { return x[1]; })
+        .map(function (x) { return '<div class="race-item"><div class="r-d">' + x[0] + '</div><div class="r-t">' + fmtSecs(x[1]) + '</div></div>'; }).join('')
+      + '</div>') : '';
+
+    attachHover(document.body);
+  }
+
+  function load() {
+    var q = '';
+    if (state.days > 0) {
+      var from = new Date(Date.now() - state.days * 864e5).toISOString().slice(0, 10);
+      q = '?from=' + from;
+    }
+    document.getElementById('tiles').innerHTML = '<div class="empty">Loading…</div>';
+    fetch(API + '/performance' + q)
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (j) { state.data = j; render(); })
+      .catch(function (e) {
+        document.getElementById('tiles').innerHTML = '<div class="empty">Could not load performance data (' + esc(e.message) + ')</div>';
+      });
+  }
+
+  document.querySelectorAll('.fbtn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.fbtn').forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      state.days = +b.getAttribute('data-days');
+      load();
+    });
+  });
+
+  load();
+}());
+</script>
+</body>
+</html>

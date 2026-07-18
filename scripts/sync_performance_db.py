@@ -208,24 +208,43 @@ def sync_garmin_metrics(conn, client, hrv_days: int = 0) -> Dict[str, int]:
     except Exception as exc:
         print(f"  body_composition failed: {exc}", file=sys.stderr)
 
-    # HRV — one request per day, so only walk back as far as asked.
-    for i in range(hrv_days):
-        day = (today - timedelta(days=i)).isoformat()
-        try:
-            hrv = client.get_hrv_data(day) or {}
-            s = hrv.get("hrvSummary") or {}
-            if s.get("lastNightAvg") is not None:
-                _put(conn, "hrv", s.get("calendarDate") or day, s.get("lastNightAvg"), {
-                    "weeklyAvg": s.get("weeklyAvg"),
-                    "lastNight5MinHigh": s.get("lastNight5MinHigh"),
-                    "status": s.get("status"),
-                    "baseline": s.get("baseline"),
-                })
-                bump("hrv")
-            time.sleep(1.2)
-        except Exception as exc:
-            print(f"  hrv {day} failed: {exc}", file=sys.stderr)
-            break  # likely rate limited — stop rather than hammer
+    # HRV — one Garmin request per day. Resumable: days already stored are
+    # skipped, so a long backfill can be re-run to fill whatever it missed.
+    if hrv_days > 0:
+        with conn, conn.cursor() as cur:
+            cur.execute("SELECT date FROM performance_metrics WHERE metric='hrv'")
+            have = {r[0].isoformat() for r in cur.fetchall()}
+
+        wanted = [(today - timedelta(days=i)).isoformat() for i in range(hrv_days)]
+        todo = [d for d in wanted if d not in have]
+        if todo:
+            print(f"  HRV backfill: {len(todo)} days to fetch ({len(have)} already stored)")
+
+        misses = 0
+        for n, day in enumerate(todo, 1):
+            try:
+                hrv = client.get_hrv_data(day) or {}
+                s = hrv.get("hrvSummary") or {}
+                if s.get("lastNightAvg") is not None:
+                    _put(conn, "hrv", s.get("calendarDate") or day, s.get("lastNightAvg"), {
+                        "weeklyAvg": s.get("weeklyAvg"),
+                        "lastNight5MinHigh": s.get("lastNight5MinHigh"),
+                        "status": s.get("status"),
+                        "baseline": s.get("baseline"),
+                    })
+                    bump("hrv")
+                misses = 0
+                time.sleep(1.2)
+            except Exception as exc:
+                misses += 1
+                print(f"  hrv {day} failed ({misses}): {exc}", file=sys.stderr)
+                if misses >= 5:
+                    print("  too many consecutive HRV failures; stopping backfill early.",
+                          file=sys.stderr)
+                    break
+                time.sleep(5 * misses)  # back off rather than hammer a rate limit
+            if n % 25 == 0:
+                print(f"  HRV progress: {n}/{len(todo)}")
 
     return counts
 
