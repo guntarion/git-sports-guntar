@@ -189,6 +189,12 @@
   }
 
   function mount(host, opts) {
+    // A missing or wrong host is a wiring mistake; say so rather than doing
+    // nothing and leaving the page looking merely empty.
+    if (!host) {
+      if (window.console) console.error('[analysis] mount(): host element not found');
+      return null;
+    }
     injectStyle();
     var kind = opts.kind || 'performance';
     // Never let a caller-supplied days() take the panel down with it.
