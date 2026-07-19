@@ -127,6 +127,7 @@ Schema reference: `sql/schema_app.sql` (also applied lazily by the API and the s
 | `scripts/sync_locations.py` | Session coordinates (bulk) + GPS routes (`--routes`, resumable) |
 | `scripts/garmin_login_local.py` | Interactive local Garmin login (MFA-aware) |
 | `scripts/vercel_build.sh` | Vercel build step: hydrate `site/*.json` from `dashboard-data` |
+| `site/nav.js` | **The** navigation component — add new pages to its `PAGES` list, not to each HTML file |
 | `docs/performance-metrics.md` | **Definitions + formulas for every Performance metric** |
 | `config.yaml` | Base config incl. `running_economy` personal constants |
 | `.env` | `DATABASE_URL` (gitignored, **repo root — never `site/`**) |
@@ -171,6 +172,10 @@ Applied consistently across frontend and backend:
   day. Backfills are resumable — they skip dates already stored and back off on failure.
 - Python scripts assume **cwd = repo root** (paths like `site/activities.json` are relative).
 - `site/app.js` is ~186 KB — the heatmap SPA with complex touch handling.
+- **Navigation lives only in `site/nav.js`.** It injects itself and strips the
+  three legacy nav shapes (`.header-nav`, `.header-links`, bare `.nav-back`
+  links). Do not hand-write nav markup in a page; add the route to `PAGES`.
+  It also rescues index.html's `.repo-link`, which `app.js` still updates.
 - Vercel auto-detects this as a **Python** project because of the root `requirements.txt`;
   `vercel.json` pins `framework: null` and `.vercelignore` excludes the Python files.
 - New Vercel projects enable **Deployment Protection** (SSO), which 302-redirects everything

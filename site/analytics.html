@@ -60,7 +60,12 @@
     .zone-time{width:52px;font-size:10px;color:var(--muted);text-align:right;flex-shrink:0}
     .zone-delta{width:40px;font-size:10px;text-align:right;flex-shrink:0}
     .zone-delta.up{color:var(--green)}.zone-delta.down{color:var(--red)}
-    .month-table{width:100%;border-collapse:collapse;font-size:12px}
+    .month-table{width:100%;border-collapse:collapse;font-size:12px;min-width:520px}
+    /* An eight-column table cannot fit a phone. Let it scroll inside its own
+       box instead of forcing the whole page sideways. */
+    .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .table-scroll::-webkit-scrollbar{height:7px}
+    .table-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
     .month-table th{color:var(--muted);font-weight:500;text-align:left;padding:6px 10px;border-bottom:1px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.04em}
     .month-table td{padding:8px 10px;border-bottom:1px solid rgba(51,65,85,.5)}
     .month-table tr:last-child td{border-bottom:none}
@@ -502,7 +507,7 @@ function render(){
     var ef=calcEff(a);if(ef)mm.effs.push(ef);
   });
   var mList=Object.keys(mMap).sort().reverse();
-  html+='<div class="section"><div class="sec-title">Monthly Summary</div><div class="chart-card"><table class="month-table"><tr><th>Month</th><th class="num">Runs</th><th class="num">Dist</th><th class="num">Time</th><th class="num">Avg Pace</th><th class="num">Avg HR</th><th class="num">Efficiency</th><th class="num">Aerobic TE</th></tr>';
+  html+='<div class="section"><div class="sec-title">Monthly Summary</div><div class="chart-card"><div class="table-scroll"><table class="month-table"><tr><th>Month</th><th class="num">Runs</th><th class="num">Dist</th><th class="num">Time</th><th class="num">Avg Pace</th><th class="num">Avg HR</th><th class="num">Efficiency</th><th class="num">Aerobic TE</th></tr>';
   mList.forEach(function(m,i){
     var d=mMap[m],prev=i<mList.length-1?mMap[mList[i+1]]:null;
     var parts=m.split('-'),label=MONTHS[+parts[1]-1]+' '+parts[0];
@@ -516,7 +521,7 @@ function render(){
     var teLvl=ae?Math.min(4,Math.floor(parseFloat(ae))):0;
     html+='<tr><td>'+label+'</td><td class="num"><span class="badge">'+d.count+'</span></td><td class="num">'+fDS(d.dist,'km')+deltaArrow(d.dist,prev?prev.dist:null,false)+'</td><td class="num">'+fDur(d.time)+'</td><td class="num">'+(ap?fP(ap):' —')+deltaArrow(ap,pAp,true)+'</td><td class="num">'+(ah?ah+' bpm':'—')+deltaArrow(ah,pAh,true)+'</td><td class="num">'+(ef||'—')+deltaArrow(ef?+ef:null,pEf?+pEf:null,false)+'</td><td class="num">'+(ae?'<span class="te-badge te-'+teLvl+'">'+ae+'</span>':'—')+'</td></tr>';
   });
-  html+='</table></div></div>';
+  html+='</table></div></div></div>';
 
   content.innerHTML=html;
 
@@ -559,5 +564,6 @@ Promise.all([
   document.getElementById('content').innerHTML='<div class="error-msg">Could not load data<br>'+err.message+'</div>';
 });
 </script>
+  <script src="nav.js"></script>
 </body>
 </html>
