@@ -191,7 +191,17 @@
   function mount(host, opts) {
     injectStyle();
     var kind = opts.kind || 'performance';
-    var daysFn = opts.days || function () { return 180; };
+    // Never let a caller-supplied days() take the panel down with it.
+    var rawDays = opts.days || function () { return 180; };
+    function daysFn() {
+      try {
+        var d = rawDays();
+        return (typeof d === 'number' && isFinite(d)) ? d : 180;
+      } catch (e) {
+        if (window.console) console.warn('[analysis] days() failed, using 180:', e);
+        return 180;
+      }
+    }
     var title = opts.title || (kind === 'analytics' ? 'Training Block Review' : 'What does this all mean?');
     var sub = opts.subtitle || (kind === 'analytics'
       ? 'AI review of the block and what the next one should be'
@@ -231,6 +241,17 @@
     }
 
     function load() {
+      // Guard the whole body: anything thrown before fetch() would otherwise
+      // leave "Loading…" on screen with no error and no way to retry.
+      try {
+        doLoad();
+      } catch (e) {
+        body.innerHTML = '<div class="gsa-err">Could not load: ' + esc(e.message) + '</div>';
+        goBtn.style.display = '';
+      }
+    }
+
+    function doLoad() {
       fetch(API + '/analyze?kind=' + kind + '&days=' + daysFn())
         .then(function (r) { return r.json(); })
         .then(paint)

@@ -176,6 +176,9 @@ Applied consistently across frontend and backend:
   three legacy nav shapes (`.header-nav`, `.header-links`, bare `.nav-back`
   links). Do not hand-write nav markup in a page; add the route to `PAGES`.
   It also rescues index.html's `.repo-link`, which `app.js` still updates.
+- `api/analyze.js` needs `maxDuration: 180` in `vercel.json` (Pro plan). It calls Qwen with a
+  ~5.5 KB prompt and up to 4000 output tokens, which exceeds the 30 s default and returns 504.
+  `vercel.json` rejects unknown keys, so this note lives here rather than inline.
 - Vercel auto-detects this as a **Python** project because of the root `requirements.txt`;
   `vercel.json` pins `framework: null` and `.vercelignore` excludes the Python files.
 - New Vercel projects enable **Deployment Protection** (SSO), which 302-redirects everything

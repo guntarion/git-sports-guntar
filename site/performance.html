@@ -600,7 +600,14 @@
   <script>
     GSAnalysis.mount(document.getElementById("aiPanel"), {
       kind: "performance",
-      days: function () { return state.days || 180; }
+      // Read the active range chip from the DOM. The page keeps its range in a
+      // variable scoped inside its own IIFE, which this script cannot see —
+      // referencing it threw ReferenceError and left the panel stuck loading.
+      days: function () {
+        var b = document.querySelector(".filters .fbtn.active");
+        var d = b && parseInt(b.getAttribute("data-days"), 10);
+        return isFinite(d) ? d : 180;
+      }
     });
   </script>
 </body>

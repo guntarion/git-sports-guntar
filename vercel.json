@@ -5,6 +5,9 @@
   "buildCommand": "bash scripts/vercel_build.sh || true",
   "outputDirectory": "site",
   "functions": {
+    "api/analyze.js": {
+      "maxDuration": 180
+    },
     "api/**/*.js": {
       "maxDuration": 30
     }
@@ -12,7 +15,12 @@
   "headers": [
     {
       "source": "/api/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
     }
   ]
 }
