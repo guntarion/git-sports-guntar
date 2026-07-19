@@ -79,6 +79,9 @@
     .gate .g-icon{font-size:30px}
     .gate .g-title{font-size:14px;font-weight:700}
     .gate .g-sub{font-size:11px;color:var(--muted);max-width:400px;line-height:1.6}
+    .gate .g-btn{margin-top:6px;background:var(--accent);border:none;color:#000;font-family:inherit;
+                 font-size:12px;font-weight:700;padding:9px 22px;border-radius:8px;cursor:pointer;transition:.15s}
+    .gate .g-btn:hover{background:#38bdf8}
 
     .leaflet-container{background:#0b1220}
     .leaflet-popup-content-wrapper{background:var(--card);color:var(--text);border-radius:9px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace}
@@ -133,6 +136,9 @@
     <div class="g-title">Private map</div>
     <div class="g-sub">Session locations are only shown to you. Unlock with your access
       password to load routes.</div>
+    <!-- Explicit affordance: if the prompt is missed or a load fails, this is
+         the way back in rather than a dead end. -->
+    <button class="g-btn" id="unlockBtn">Unlock</button>
   </div>
 </div>
 
@@ -372,21 +378,26 @@
   function token() { try { return localStorage.getItem('gs_api_token') || ''; } catch (e) { return ''; } }
 
   // GS.ready() runs the shared login gate, then we load with the stored token.
-  GS.ready().then(function () {
-    document.getElementById('gate').style.display = 'none';
-    initMap();
-    return fetch(API + '/locations?routes=1', { headers: { Authorization: 'Bearer ' + token() } });
-  }).then(function (r) {
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    return r.json();
-  }).then(function (j) {
-    state.data = j;
-    renderStats(); renderChips(); renderList(); draw();
-  }).catch(function (e) {
-    var g = document.getElementById('gate');
-    g.style.display = 'flex';
-    g.querySelector('.g-sub').textContent = 'Could not load the map (' + e.message + ').';
-  });
+  var mapReady = false;
+  function start() {
+    return GS.ready().then(function () {
+      document.getElementById('gate').style.display = 'none';
+      if (!mapReady) { initMap(); mapReady = true; }
+      return fetch(API + '/locations?routes=1', { headers: { Authorization: 'Bearer ' + token() } });
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).then(function (j) {
+      state.data = j;
+      renderStats(); renderChips(); renderList(); draw();
+    }).catch(function (e) {
+      var g = document.getElementById('gate');
+      g.style.display = 'flex';
+      g.querySelector('.g-sub').textContent = 'Could not load the map (' + e.message + '). Try unlocking again.';
+    });
+  }
+  document.getElementById('unlockBtn').addEventListener('click', start);
+  start();
 }());
 </script>
 </body>

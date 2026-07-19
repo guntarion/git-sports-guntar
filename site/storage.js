@@ -61,8 +61,8 @@
       overlay.className = 'gs-modal-overlay';
       overlay.innerHTML =
         '<div class="gs-modal">' +
-          '<h3>Unlock Journal &amp; Todos</h3>' +
-          '<div class="gs-activity-info">' + escH(message || 'Enter your access password to sync with the database.') + '</div>' +
+          '<h3>Unlock private data</h3>' +
+          '<div class="gs-activity-info">' + escH(message || 'Journal, todos and your session map are private. Enter your access password to unlock them on this device.') + '</div>' +
           '<label>Password</label>' +
           '<input type="password" id="gsPw" placeholder="Access password..." />' +
           '<div id="gsPwErr" style="color:#f87171;font-size:11px;margin:-6px 0 10px;display:none">Wrong password. Try again.</div>' +
@@ -300,7 +300,12 @@
 
   // ── Inline Modal (unchanged styling) ───────────────────────────────────────
   var modalCSS = [
-    '.gs-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px}',
+    /* A modal must be the topmost layer, always. At z-index 1000 the login
+       prompt was painted *behind* the map page's opaque lock screen (z-index
+       1500), so the password box existed but could never be seen or typed
+       into — and the lock screen only lifts after a successful login, which
+       made it a deadlock. Keep this above every page-level overlay. */
+    '.gs-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px}',
     '.gs-modal{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:20px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;font-family:"JetBrains Mono",monospace;color:#f1f5f9;font-size:13px}',
     '.gs-modal h3{font-size:15px;margin-bottom:14px;color:#f1f5f9}',
     '.gs-modal label{display:block;font-size:11px;color:#94a3b8;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}',
