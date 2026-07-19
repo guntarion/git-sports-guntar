@@ -1,0 +1,22 @@
+{
+  "name": "Garmin Git",
+  "short_name": "Garmin Git",
+  "description": "Your Garmin training history as a GitHub-style dashboard: heatmaps, Running Economy, best efforts, sleep and HRV trends, and route maps.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "shortcuts": [
+    { "name": "Performance", "url": "performance.html" },
+    { "name": "Wellness", "url": "wellness.html" },
+    { "name": "Map", "url": "map.html" }
+  ]
+}

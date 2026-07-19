@@ -22,6 +22,10 @@ QWEN_ENDPOINT = os.environ.get(
     "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions",
 )
 QWEN_MODEL = "qwen-plus"
+# Bump when the prompt or the data summary changes shape. It is part of the
+# regeneration fingerprint, so an improved prompt takes effect on the next run
+# instead of waiting for the athlete's data to happen to change.
+PROMPT_VERSION = "v2-recovery-aware"
 
 RUNNING_TYPES = {"run", "trailrun", "virtualrun", "trail_run", "virtual_run"}
 
@@ -48,6 +52,15 @@ def _build_data_summary(activities: List[Dict]) -> Dict[str, Any]:
     last_month = (now.replace(day=1) - timedelta(days=1)).strftime("%Y-%m")
     days_left = (now.replace(month=now.month % 12 + 1, day=1) - now).days if now.month < 12 else \
                 (now.replace(year=now.year + 1, month=1, day=1) - now).days
+
+    prior_months = []
+    y, m = now.year, now.month
+    for _ in range(4):
+        m -= 1
+        if m == 0:
+            m = 12
+            y -= 1
+        prior_months.append(f"{y:04d}-{m:02d}")
 
     def month_stats(runs_list, mk):
         mr = [a for a in runs_list if _month_key(a.get("date", "")) == mk]
@@ -89,8 +102,9 @@ def _build_data_summary(activities: List[Dict]) -> Dict[str, Any]:
             "best_pace_secs": min(paces) if paces else None,
         }
 
-    # Last 5 runs for context
-    recent = runs[-5:]
+    # Last 10 runs: five was too short a window to see a pattern, and the
+    # model kept commenting on single sessions as if they were trends.
+    recent = runs[-10:]
     recent_summary = []
     for a in recent:
         recent_summary.append({
@@ -106,64 +120,119 @@ def _build_data_summary(activities: List[Dict]) -> Dict[str, Any]:
             "vertical_osc": a.get("avg_vertical_osc"),
         })
 
-    return {
+    summary = {
         "total_runs": len(runs),
         "total_km": round(sum(a.get("distance", 0) for a in runs) / 1000, 1),
         "date_range": f"{runs[0].get('date')} to {runs[-1].get('date')}",
         "this_month": month_stats(runs, this_month),
         "last_month": month_stats(runs, last_month),
+        "months_back": [m for m in (month_stats(runs, k) for k in prior_months) if m],
         "days_left_this_month": days_left,
         "recent_runs": recent_summary,
     }
 
+    # Recovery, load and efficiency context from PostgreSQL. Without this the
+    # coach advises on training while blind to sleep, HRV and accumulated load.
+    try:
+        from ai_context import safe_build
+
+        ctx = safe_build()
+        if ctx:
+            summary.update(ctx)
+    except Exception as exc:
+        print(f"  AI context unavailable: {exc}", file=sys.stderr)
+
+    return summary
+
 
 def _build_prompt(data_summary: Dict) -> str:
-    """Build the ACTOR-framed prompt."""
+    """Build the ACTOR-framed prompt.
+
+    The earlier version saw only monthly aggregates plus five runs, so it could
+    not tell whether a hard week was earned or reckless. It now receives the
+    recovery, load and efficiency context too, and is explicitly required to
+    reconcile them before prescribing anything.
+    """
     data_json = json.dumps(data_summary, indent=2, ensure_ascii=False)
+    days_left = data_summary.get("days_left_this_month", 0)
 
-    return f"""## AGENT (Role Definition)
-You are Coach RunAnalytica — an elite running coach and sports scientist with 15 years of experience coaching recreational runners. You specialize in heart rate-based training, periodization, and data-driven performance analysis using Garmin metrics (pace, HR zones, cadence, stride length, ground contact time, vertical oscillation, VO2 max, training effect).
+    return f"""## AGENT
+You are Coach RunAnalytica — an elite running coach and sports scientist with 15 years
+coaching recreational runners. You specialise in heart-rate-based training, periodisation,
+recovery management and data-driven analysis of Garmin metrics.
 
-## CONTEXT (Background)
-You are analyzing running data for a recreational runner who uses a Garmin watch. The data comes from their personal running log and includes per-activity stats, HR zone distributions, and monthly aggregates. They are focused on health and continuous improvement. They want actionable, data-specific guidance — not generic running advice.
+## CONTEXT
+A recreational runner's full training dataset is below. Beyond the runs themselves it
+includes recovery (HRV, sleep, resting HR, training readiness, body battery, stress),
+accumulated load (acute vs chronic, ACWR, weekly TRIMP, recovery balance) and efficiency
+(Running Economy in ml O2/kg/km where LOWER is better, aerobic decoupling, VO2max,
+best efforts, per-zone efficiency).
 
-Here is their data:
 ```json
 {data_json}
 ```
 
-## TASK (Instructions)
-Analyze the provided data and produce these sections:
+Reading notes so you interpret the fields correctly:
+- `running_economy`: LOWER is better. `rolling_median` is more trustworthy than any single run.
+- `aerobic_decoupling_pct`: under 5% means the aerobic system held up over the run.
+- `recovery_balance`: HRV z-score minus load z-score. Below 0 means load is outpacing recovery.
+- `acwr`: acute:chronic workload ratio. Roughly 0.8–1.3 is the usual safe band; above ~1.5 is
+  a spike, below ~0.8 is detraining.
+- Trend objects give `recent_avg` vs `baseline_avg`, so judge direction, not just level.
+- Absent fields mean "not measured", never "zero". Say so rather than inventing a value.
 
-1. **MONTHLY PERFORMANCE REVIEW**: Compare this month vs last month across: total km, number of runs, avg pace, avg HR, avg aerobic TE, aerobic efficiency, cadence. For each metric, state current value, previous value, change amount, and whether it improved or declined. Identify the single most notable finding.
+## TASK
+Work through these in order. Later sections must be consistent with earlier ones.
 
-2. **GOAL TRACKER**: Calculate what the runner needs to do in the remaining {data_summary.get('days_left_this_month', 0)} days to match or exceed last month's totals. Be specific: "You need X.X more km across Y sessions."
+1. **RECOVERY & READINESS FIRST.** Before any training advice, judge whether this athlete is
+   recovered. Weigh HRV vs baseline, sleep duration and debt, resting HR direction, training
+   readiness, recovery balance and ACWR. State the verdict plainly.
 
-3. **TRAINING INSIGHTS**: Provide 3-4 specific insights based on the data. Categories: aerobic_efficiency, hr_zones, running_form, training_load, recovery. Each insight should reference actual numbers from the data.
+2. **MONTHLY PERFORMANCE REVIEW.** This month vs last month: total km, runs, avg pace, avg HR,
+   aerobic TE, efficiency, cadence. Give current, previous, change and verdict for each, then
+   name the single most notable finding. Use `months_back` to say whether it is a real trend
+   or a one-month blip.
 
-4. **RECOMMENDATIONS**: Give exactly 3 actionable recommendations for the coming week. Each must reference specific data points and be immediately actionable (e.g., "Do your next run at Zone 2 HR <135bpm for 5km" rather than "run more").
+3. **GOAL TRACKER.** What is needed in the remaining {days_left} days to match last month.
+   Be concrete: "X.X km across Y sessions". If recovery is poor, say plainly that chasing the
+   number is the wrong call rather than encouraging it anyway.
 
-5. **WEEKLY FOCUS**: A theme for the coming week with 2-3 suggested session types.
+4. **TRAINING INSIGHTS.** 3–5 insights, each citing actual numbers. Prefer insights that
+   connect two domains — e.g. how sleep debt shows up in Running Economy, or how a load spike
+   tracks with decoupling — over restating one metric.
 
-## OUTPUTS (Expected Format)
-Return ONLY valid JSON (no markdown, no code fences) with this exact structure:
+5. **RECOMMENDATIONS.** Exactly 3, for the coming week, immediately actionable and specific
+   ("Zone 2, HR under 135, 5 km easy on Tuesday" — not "run more"). **Each must be consistent
+   with the readiness verdict in step 1.** Do not prescribe intensity or volume increases when
+   recovery indicators are poor; prescribe the recovery action instead and say what would have
+   to improve before the harder work makes sense.
+
+6. **RISK FLAGS.** Any overtraining, injury or illness risk signals — load spikes, chronic
+   sleep debt, HRV suppression, rising resting HR, worsening decoupling. Empty list if genuinely none.
+
+7. **WEEKLY FOCUS.** A theme plus 2–3 session types that follow from the above.
+
+## OUTPUT
+Return ONLY valid JSON (no markdown, no code fences) with exactly this structure:
 {{
+  "readiness": {{
+    "status": "recovered | adequate | compromised",
+    "score_0_100": 0,
+    "drivers": ["metric-specific reason with numbers"],
+    "guidance": "one sentence on what this means for the coming week"
+  }},
   "monthly_review": {{
     "summary": "1-2 sentence overall assessment",
     "metrics": [
       {{ "name": "Total Distance", "current": "X.X km", "previous": "Y.Y km", "change": "+/-Z.Z km", "verdict": "improved" }}
     ],
-    "highlight": "The single most notable finding in one sentence"
+    "highlight": "the single most notable finding in one sentence"
   }},
   "goal_tracker": {{
-    "km_this_month": 0,
-    "km_last_month": 0,
-    "km_remaining": 0,
-    "sessions_this_month": 0,
-    "sessions_last_month": 0,
-    "sessions_remaining": 0,
+    "km_this_month": 0, "km_last_month": 0, "km_remaining": 0,
+    "sessions_this_month": 0, "sessions_last_month": 0, "sessions_remaining": 0,
     "projection": "On track / Behind / Ahead",
-    "message": "Specific narrative about what to do"
+    "message": "specific narrative, including whether chasing it is advisable"
   }},
   "insights": [
     {{ "category": "aerobic_efficiency", "title": "...", "body": "...", "severity": "positive" }}
@@ -171,24 +240,23 @@ Return ONLY valid JSON (no markdown, no code fences) with this exact structure:
   "recommendations": [
     {{ "action": "...", "reason": "...", "priority": "high" }}
   ],
-  "weekly_focus": {{
-    "theme": "...",
-    "description": "...",
-    "suggested_sessions": ["..."]
-  }}
+  "risk_flags": [
+    {{ "risk": "...", "evidence": "numbers that show it", "severity": "warning", "action": "..." }}
+  ],
+  "weekly_focus": {{ "theme": "...", "description": "...", "suggested_sessions": ["..."] }}
 }}
 
-## RULES (Guidelines)
-- Use metric units only (km, min/km, bpm, spm)
-- Be specific with numbers — always reference actual values from the data
-- Compare against the runner's OWN history, never generic population benchmarks
-- Keep recommendations practical for a recreational runner (3-5 runs/week)
-- If data is insufficient for a section, include the section but note it honestly
-- Tone: encouraging, data-driven, like a supportive coach who respects the runner's intelligence
-- verdicts must be exactly one of: "improved", "declined", "stable"
-- severity must be exactly one of: "positive", "warning", "neutral"
-- priority must be exactly one of: "high", "medium"
-- Return ONLY the JSON object, nothing else"""
+## RULES
+- Metric units only (km, min/km, bpm, spm, ml/kg/km).
+- Always cite actual numbers from the data; never generic advice.
+- Compare against this runner's OWN history, never population benchmarks.
+- Practical for a recreational runner training 3–5 times a week.
+- If data for a section is missing, say so honestly instead of inventing it.
+- Tone: encouraging but straight — do not cheer on a training increase that the recovery data
+  contradicts.
+- verdict ∈ improved | declined | stable · severity ∈ positive | warning | neutral ·
+  priority ∈ high | medium · status ∈ recovered | adequate | compromised
+- Return ONLY the JSON object."""
 
 
 def _call_qwen(prompt: str, api_key: str) -> Optional[Dict]:
@@ -203,7 +271,7 @@ def _call_qwen(prompt: str, api_key: str) -> Optional[Dict]:
             {"role": "user", "content": prompt},
         ],
         "temperature": 0.7,
-        "max_tokens": 3000,
+        "max_tokens": 4000,
     }
 
     req = urllib.request.Request(
@@ -250,7 +318,7 @@ def _running_fingerprint(activities: List[Dict]) -> str:
     count = len(runs)
     latest_date = runs[-1].get("date", "") if runs else ""
     total_dist = round(sum(a.get("distance", 0) for a in runs))
-    return f"{count}:{latest_date}:{total_dist}"
+    return f"{PROMPT_VERSION}:{count}:{latest_date}:{total_dist}"
 
 
 def _should_regenerate(activities: List[Dict]) -> bool:
@@ -341,6 +409,7 @@ def generate_ai_insights() -> bool:
     output = {
         "generated_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
         "model": QWEN_MODEL,
+        "prompt_version": PROMPT_VERSION,
         "running_fingerprint": _running_fingerprint(activities),
         "data_summary": summary,
         "insights": insights,
