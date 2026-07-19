@@ -134,6 +134,19 @@ CREATE TABLE IF NOT EXISTS best_efforts (
     PRIMARY KEY (activity_id, distance_key)
 );
 
+-- On-demand AI analyses, cached per (kind, period) so repeat clicks are free.
+-- `inputs_fingerprint` lets the UI tell a stale analysis from a current one
+-- without re-billing the model.
+CREATE TABLE IF NOT EXISTS ai_analyses (
+    kind               TEXT NOT NULL,
+    period_key         TEXT NOT NULL,
+    generated_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
+    model              TEXT,
+    inputs_fingerprint TEXT,
+    payload            JSONB NOT NULL,
+    PRIMARY KEY (kind, period_key)
+);
+
 CREATE INDEX IF NOT EXISTS idx_be_key_time ON best_efforts(distance_key, duration_s);
 CREATE INDEX IF NOT EXISTS idx_be_date ON best_efforts(date DESC);
 CREATE INDEX IF NOT EXISTS idx_loc_date ON activity_locations(date DESC);

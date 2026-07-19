@@ -131,6 +131,7 @@
     <button class="fbtn" data-days="0">All</button>
   </div>
 
+  <div id="aiPanel"></div>
   <div id="cmpBanner"></div>
   <div id="tiles" class="tiles"></div>
 
@@ -594,5 +595,13 @@
 }());
 </script>
   <script src="nav.js"></script>
+  <script src="storage.js"></script>
+  <script src="analysis.js"></script>
+  <script>
+    GSAnalysis.mount(document.getElementById("aiPanel"), {
+      kind: "performance",
+      days: function () { return state.days || 180; }
+    });
+  </script>
 </body>
 </html>
