@@ -1,6 +1,145 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.2,
+      "avg_hr": 98,
+      "calories": 43,
+      "date": "2026-07-19",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 571,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23650930966",
+      "max_hr": 113,
+      "moving_time": 570.6,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-07-19T16:07:15",
+      "type": "WeightTraining"
+    },
+    {
+      "aerobic_te": 0.4,
+      "avg_cadence": 90,
+      "avg_hr": 100,
+      "avg_pace_secs_per_km": 1059,
+      "avg_stride_len": 62.64,
+      "calories": 18,
+      "date": "2026-07-19",
+      "distance": 170.4,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 181,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23650798584",
+      "max_hr": 129,
+      "moving_time": 133.0,
+      "name": "Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 100,
+          "avg_speed_mps": 0.944,
+          "distance": 170.4,
+          "duration": 133.0,
+          "max_hr": 129,
+          "pace_secs_per_km": 1059
+        }
+      ],
+      "start_date_local": "2026-07-19T16:00:10",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 0.1,
+      "avg_hr": 105,
+      "calories": 11,
+      "date": "2026-07-19",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 116,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23650691471",
+      "max_hr": 125,
+      "moving_time": 68.5,
+      "name": "Jump Rope",
+      "raw_type": "jump_rope",
+      "start_date_local": "2026-07-19T15:55:49",
+      "type": "jump_rope"
+    },
+    {
       "aerobic_te": 0.3,
       "avg_hr": 102,
       "avg_pace_secs_per_km": 262,
@@ -16358,7 +16497,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-07-19T08:48:35.494451+00:00",
+  "generated_at": "2026-07-19T09:35:00.376561+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

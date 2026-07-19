@@ -1826,6 +1826,27 @@
       "subtype": "cycling",
       "type": "Ride",
       "year": 2026
+    },
+    {
+      "date": "2026-07-19",
+      "hour": 15,
+      "subtype": "jump_rope",
+      "type": "jump_rope",
+      "year": 2026
+    },
+    {
+      "date": "2026-07-19",
+      "hour": 16,
+      "subtype": "walking",
+      "type": "Walk",
+      "year": 2026
+    },
+    {
+      "date": "2026-07-19",
+      "hour": 16,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -3143,6 +3164,15 @@
           "distance": 2384.6099853515625,
           "elevation_gain": 27.0,
           "moving_time": 2074.0
+        },
+        "2026-07-19": {
+          "activity_ids": [
+            "23650798584"
+          ],
+          "count": 1,
+          "distance": 170.41000366210938,
+          "elevation_gain": 0.0,
+          "moving_time": 133.0
         }
       },
       "WeightTraining": {
@@ -3703,6 +3733,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 1220.904052734375
+        },
+        "2026-07-19": {
+          "activity_ids": [
+            "23650930966"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 570.5800170898438
         }
       },
       "Workout": {
@@ -3963,6 +4002,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 161.24000549316406
+        },
+        "2026-07-19": {
+          "activity_ids": [
+            "23650691471"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 68.4800033569336
         }
       },
       "meditation": {
@@ -3999,7 +4047,7 @@
       }
     }
   },
-  "generated_at": "2026-07-19T08:48:35.461574+00:00",
+  "generated_at": "2026-07-19T09:34:57.852357+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
