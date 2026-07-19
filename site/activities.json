@@ -1,6 +1,114 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.3,
+      "avg_hr": 102,
+      "avg_pace_secs_per_km": 262,
+      "calories": 50,
+      "date": "2026-07-18",
+      "distance": 2331.3,
+      "elevation_gain": 1.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 612,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23641533328",
+      "max_hr": 119,
+      "moving_time": 601.0,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 102,
+          "avg_speed_mps": 3.81,
+          "distance": 2331.3,
+          "duration": 601.0,
+          "elevation_gain": 1.0,
+          "max_hr": 119,
+          "pace_secs_per_km": 262
+        }
+      ],
+      "start_date_local": "2026-07-18T18:48:23",
+      "type": "Ride"
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_hr": 104,
+      "avg_pace_secs_per_km": 263,
+      "calories": 48,
+      "date": "2026-07-18",
+      "distance": 2213.6,
+      "elevation_gain": 8.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 581,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23637309726",
+      "max_hr": 117,
+      "moving_time": 576.0,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 104,
+          "avg_speed_mps": 3.809,
+          "distance": 2213.6,
+          "duration": 576.0,
+          "elevation_gain": 8.0,
+          "max_hr": 117,
+          "pace_secs_per_km": 263
+        }
+      ],
+      "start_date_local": "2026-07-18T11:38:10",
+      "type": "Ride"
+    },
+    {
       "aerobic_te": 3.1,
       "avg_cadence": 153,
       "avg_ground_contact": 314,
@@ -16250,7 +16358,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-07-18T04:43:04.007766+00:00",
+  "generated_at": "2026-07-19T05:16:21.209419+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
