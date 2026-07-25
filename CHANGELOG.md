@@ -1,3 +1,16 @@
+## 2026-07-26 05:59:40
+
+feat: add /export-health-csv command for 6-month health data export
+
+- scripts/export_health_csv.py pivots performance_metrics into a wide,
+  one-row-per-day CSV, expanding extra JSONB (sleep stages, SpO2 low,
+  HRV status) into columns; defaults to 6 months, --months/--days flags
+- .claude/commands/export-health-csv.md wraps it as a slash command
+- gitignore exports/ and health_export_*.csv — personal medical data,
+  never commit
+
+---
+
 ## 2026-03-23 12:19:24
 
 feat: add Garmin token refresh command and update sync schedule
