@@ -1,6 +1,227 @@
 {
   "activities": [
     {
+      "aerobic_te": 3.6,
+      "anaerobic_te": 0.2,
+      "avg_cadence": 147,
+      "avg_ground_contact": 314,
+      "avg_hr": 150,
+      "avg_pace_secs_per_km": 544,
+      "avg_stride_len": 74.68,
+      "avg_vertical_osc": 7.7,
+      "calories": 1073,
+      "date": "2026-07-25",
+      "distance": 14804.5,
+      "elevation_gain": 14.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 61,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 2011,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 3693,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 2137,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 148,
+          "zone": 5
+        }
+      ],
+      "id": "23721181896",
+      "max_hr": 182,
+      "moving_time": 8047.2,
+      "name": "From Home to ARAH Coffee - Parenting SMA Al Uswah",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 140,
+          "avg_speed_mps": 2.019,
+          "distance": 1000.0,
+          "duration": 495.0,
+          "elevation_gain": 2.0,
+          "max_hr": 150,
+          "pace_secs_per_km": 495
+        },
+        {
+          "avg_hr": 137,
+          "avg_speed_mps": 1.725,
+          "distance": 1000.0,
+          "duration": 579.0,
+          "max_hr": 146,
+          "pace_secs_per_km": 580
+        },
+        {
+          "avg_hr": 137,
+          "avg_speed_mps": 1.727,
+          "distance": 1000.0,
+          "duration": 579.2,
+          "elevation_gain": 1.0,
+          "max_hr": 142,
+          "pace_secs_per_km": 579
+        },
+        {
+          "avg_hr": 144,
+          "avg_speed_mps": 1.869,
+          "distance": 1000.0,
+          "duration": 535.0,
+          "max_hr": 157,
+          "pace_secs_per_km": 535
+        },
+        {
+          "avg_hr": 152,
+          "avg_speed_mps": 1.967,
+          "distance": 1000.0,
+          "duration": 508.0,
+          "max_hr": 158,
+          "pace_secs_per_km": 508
+        },
+        {
+          "avg_hr": 148,
+          "avg_speed_mps": 1.845,
+          "distance": 1000.0,
+          "duration": 542.0,
+          "elevation_gain": 1.0,
+          "max_hr": 160,
+          "pace_secs_per_km": 542
+        },
+        {
+          "avg_hr": 149,
+          "avg_speed_mps": 1.771,
+          "distance": 1000.0,
+          "duration": 564.7,
+          "max_hr": 156,
+          "pace_secs_per_km": 565
+        },
+        {
+          "avg_hr": 154,
+          "avg_speed_mps": 1.933,
+          "distance": 1000.0,
+          "duration": 517.0,
+          "elevation_gain": 1.0,
+          "max_hr": 164,
+          "pace_secs_per_km": 517
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 1.879,
+          "distance": 1000.0,
+          "duration": 532.0,
+          "max_hr": 167,
+          "pace_secs_per_km": 532
+        },
+        {
+          "avg_hr": 158,
+          "avg_speed_mps": 1.943,
+          "distance": 1000.0,
+          "duration": 514.7,
+          "elevation_gain": 2.0,
+          "max_hr": 170,
+          "pace_secs_per_km": 515
+        },
+        {
+          "avg_hr": 152,
+          "avg_speed_mps": 1.745,
+          "distance": 1000.0,
+          "duration": 573.0,
+          "elevation_gain": 2.0,
+          "max_hr": 165,
+          "pace_secs_per_km": 573
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 1.758,
+          "distance": 1000.0,
+          "duration": 568.9,
+          "max_hr": 164,
+          "pace_secs_per_km": 569
+        },
+        {
+          "avg_hr": 160,
+          "avg_speed_mps": 1.866,
+          "distance": 1000.0,
+          "duration": 536.0,
+          "max_hr": 169,
+          "pace_secs_per_km": 536
+        },
+        {
+          "avg_hr": 154,
+          "avg_speed_mps": 1.74,
+          "distance": 1000.0,
+          "duration": 574.7,
+          "elevation_gain": 4.0,
+          "max_hr": 182,
+          "pace_secs_per_km": 575
+        },
+        {
+          "avg_hr": 162,
+          "avg_speed_mps": 1.876,
+          "distance": 804.5,
+          "duration": 428.0,
+          "max_hr": 173,
+          "pace_secs_per_km": 533
+        }
+      ],
+      "start_date_local": "2026-07-25T05:22:57",
+      "type": "Run",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 1.3,
+      "anaerobic_te": 0.4,
+      "avg_hr": 107,
+      "calories": 140,
+      "date": "2026-07-24",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1343,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 154,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 3,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23712892804",
+      "max_hr": 144,
+      "moving_time": 1500.8,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-07-24T16:26:39",
+      "type": "WeightTraining"
+    },
+    {
       "aerobic_te": 0.7,
       "avg_hr": 112,
       "avg_pace_secs_per_km": 291,
@@ -17021,7 +17242,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-07-24T05:15:10.507342+00:00",
+  "generated_at": "2026-07-25T04:59:10.083148+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
