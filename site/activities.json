@@ -1,6 +1,190 @@
 {
   "activities": [
     {
+      "aerobic_te": 3.2,
+      "avg_cadence": 152,
+      "avg_ground_contact": 291,
+      "avg_hr": 135,
+      "avg_pace_secs_per_km": 488,
+      "avg_stride_len": 79.92,
+      "avg_vertical_osc": 7.7,
+      "calories": 301,
+      "date": "2026-07-29",
+      "distance": 4073.6,
+      "elevation_gain": 1.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 901,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 253,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 475,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 352,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 2,
+          "zone": 5
+        }
+      ],
+      "id": "23770039125",
+      "max_hr": 169,
+      "moving_time": 1982.7,
+      "name": "Tempo Run with fastest 1km at 6:43",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 116,
+          "avg_speed_mps": 1.828,
+          "distance": 1337.5,
+          "duration": 729.0,
+          "max_hr": 146,
+          "pace_secs_per_km": 547
+        },
+        {
+          "avg_hr": 151,
+          "avg_speed_mps": 2.499,
+          "distance": 668.0,
+          "duration": 267.0,
+          "elevation_gain": 1.0,
+          "max_hr": 157,
+          "pace_secs_per_km": 400
+        },
+        {
+          "avg_hr": 132,
+          "avg_speed_mps": 1.325,
+          "distance": 169.2,
+          "duration": 127.7,
+          "max_hr": 157,
+          "pace_secs_per_km": 755
+        },
+        {
+          "avg_hr": 151,
+          "avg_speed_mps": 2.467,
+          "distance": 1029.5,
+          "duration": 417.0,
+          "max_hr": 168,
+          "pace_secs_per_km": 405
+        },
+        {
+          "avg_hr": 136,
+          "avg_speed_mps": 1.38,
+          "distance": 245.5,
+          "duration": 177.9,
+          "max_hr": 169,
+          "pace_secs_per_km": 725
+        },
+        {
+          "avg_hr": 147,
+          "avg_speed_mps": 2.361,
+          "distance": 623.9,
+          "duration": 264.0,
+          "max_hr": 167,
+          "pace_secs_per_km": 424
+        }
+      ],
+      "start_date_local": "2026-07-29T06:38:57",
+      "type": "Run",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_hr": 93,
+      "calories": 82,
+      "date": "2026-07-28",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1221,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23760474975",
+      "max_hr": 124,
+      "moving_time": 633.7,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-07-28T16:28:20",
+      "type": "WeightTraining"
+    },
+    {
+      "aerobic_te": 0.3,
+      "anaerobic_te": 0.1,
+      "avg_hr": 108,
+      "calories": 26,
+      "date": "2026-07-28",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 241,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 8,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23760238639",
+      "max_hr": 138,
+      "moving_time": 167.0,
+      "name": "Jump Rope",
+      "raw_type": "jump_rope",
+      "start_date_local": "2026-07-28T16:20:41",
+      "type": "jump_rope"
+    },
+    {
       "aerobic_te": 1.4,
       "avg_cadence": 105,
       "avg_hr": 116,
@@ -17422,7 +17606,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-07-28T04:58:23.150474+00:00",
+  "generated_at": "2026-07-29T05:16:22.539727+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
