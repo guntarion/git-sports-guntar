@@ -1,6 +1,391 @@
 {
   "activities": [
     {
+      "aerobic_te": 2.3,
+      "avg_cadence": 52,
+      "avg_ground_contact": 355,
+      "avg_hr": 135,
+      "avg_pace_secs_per_km": 1047,
+      "avg_stride_len": 75.55,
+      "avg_vertical_osc": 5.6,
+      "calories": 214,
+      "date": "2026-07-31",
+      "distance": 1650.9,
+      "elevation_gain": 82.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1028,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 165,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 259,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 276,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23795666084",
+      "max_hr": 165,
+      "moving_time": 1558.0,
+      "name": "Mojokerto Trail Running",
+      "raw_type": "trail_running",
+      "splits": [
+        {
+          "avg_hr": 128,
+          "avg_speed_mps": 0.996,
+          "distance": 885.7,
+          "duration": 845.0,
+          "elevation_gain": 11.0,
+          "max_hr": 148,
+          "pace_secs_per_km": 1004
+        },
+        {
+          "avg_hr": 141,
+          "avg_speed_mps": 0.919,
+          "distance": 759.1,
+          "duration": 701.0,
+          "elevation_gain": 71.0,
+          "max_hr": 165,
+          "pace_secs_per_km": 1088
+        },
+        {
+          "avg_hr": 160,
+          "avg_speed_mps": 0.421,
+          "distance": 6.0,
+          "duration": 12.0,
+          "max_hr": 162,
+          "pace_secs_per_km": 2375
+        }
+      ],
+      "start_date_local": "2026-07-31T09:32:21",
+      "type": "TrailRun"
+    },
+    {
+      "aerobic_te": 2.6,
+      "anaerobic_te": 0.1,
+      "avg_cadence": 63,
+      "avg_ground_contact": 334,
+      "avg_hr": 144,
+      "avg_pace_secs_per_km": 903,
+      "avg_stride_len": 77.61,
+      "avg_vertical_osc": 5.8,
+      "calories": 207,
+      "date": "2026-07-31",
+      "distance": 1561.3,
+      "elevation_gain": 100.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 419,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 166,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 158,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 663,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23795531176",
+      "max_hr": 166,
+      "moving_time": 1253.2,
+      "name": "Mojokerto Trail Running",
+      "raw_type": "trail_running",
+      "splits": [
+        {
+          "avg_hr": 128,
+          "avg_speed_mps": 1.026,
+          "distance": 637.6,
+          "duration": 533.0,
+          "elevation_gain": 23.0,
+          "max_hr": 162,
+          "pace_secs_per_km": 975
+        },
+        {
+          "avg_hr": 149,
+          "avg_speed_mps": 1.071,
+          "distance": 154.4,
+          "duration": 136.0,
+          "elevation_gain": 17.0,
+          "max_hr": 160,
+          "pace_secs_per_km": 934
+        },
+        {
+          "avg_hr": 158,
+          "avg_speed_mps": 0.97,
+          "distance": 280.5,
+          "duration": 231.0,
+          "elevation_gain": 36.0,
+          "max_hr": 164,
+          "pace_secs_per_km": 1031
+        },
+        {
+          "avg_hr": 158,
+          "avg_speed_mps": 1.388,
+          "distance": 484.6,
+          "duration": 349.2,
+          "elevation_gain": 24.0,
+          "max_hr": 166,
+          "pace_secs_per_km": 720
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 0.856,
+          "distance": 4.0,
+          "duration": 4.0,
+          "max_hr": 155,
+          "pace_secs_per_km": 1168
+        }
+      ],
+      "start_date_local": "2026-07-31T09:01:45",
+      "type": "TrailRun"
+    },
+    {
+      "aerobic_te": 2.0,
+      "avg_cadence": 44,
+      "avg_ground_contact": 350,
+      "avg_hr": 126,
+      "avg_pace_secs_per_km": 1202,
+      "avg_stride_len": 74.46,
+      "avg_vertical_osc": 5.9,
+      "calories": 297,
+      "date": "2026-07-31",
+      "distance": 2250.9,
+      "elevation_gain": 2.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1878,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 777,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 50,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23795199238",
+      "max_hr": 148,
+      "moving_time": 1872.0,
+      "name": "Mojokerto Trail Running",
+      "raw_type": "trail_running",
+      "splits": [
+        {
+          "avg_hr": 121,
+          "avg_speed_mps": 0.626,
+          "distance": 1000.0,
+          "duration": 846.0,
+          "elevation_gain": 1.0,
+          "max_hr": 138,
+          "pace_secs_per_km": 1597
+        },
+        {
+          "avg_hr": 133,
+          "avg_speed_mps": 1.166,
+          "distance": 1000.0,
+          "duration": 791.0,
+          "max_hr": 148,
+          "pace_secs_per_km": 858
+        },
+        {
+          "avg_hr": 131,
+          "avg_speed_mps": 1.008,
+          "distance": 250.9,
+          "duration": 235.0,
+          "elevation_gain": 1.0,
+          "max_hr": 141,
+          "pace_secs_per_km": 992
+        }
+      ],
+      "start_date_local": "2026-07-31T07:25:10",
+      "type": "TrailRun"
+    },
+    {
+      "aerobic_te": 3.1,
+      "avg_cadence": 18,
+      "avg_ground_contact": 370,
+      "avg_hr": 141,
+      "avg_pace_secs_per_km": 1479,
+      "avg_stride_len": 79.52,
+      "avg_vertical_osc": 5.5,
+      "calories": 484,
+      "date": "2026-07-31",
+      "distance": 2247.3,
+      "elevation_gain": 426.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 474,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 966,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1884,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23795198554",
+      "max_hr": 155,
+      "moving_time": 1836.0,
+      "name": "Mojokerto Trail Running",
+      "raw_type": "trail_running",
+      "splits": [
+        {
+          "avg_hr": 135,
+          "avg_speed_mps": 0.877,
+          "distance": 1000.0,
+          "duration": 956.0,
+          "elevation_gain": 150.0,
+          "max_hr": 151,
+          "pace_secs_per_km": 1140
+        },
+        {
+          "avg_hr": 143,
+          "avg_speed_mps": 0.571,
+          "distance": 1000.0,
+          "duration": 662.0,
+          "elevation_gain": 226.0,
+          "max_hr": 155,
+          "pace_secs_per_km": 1751
+        },
+        {
+          "avg_hr": 146,
+          "avg_speed_mps": 0.571,
+          "distance": 247.3,
+          "duration": 218.0,
+          "elevation_gain": 50.0,
+          "max_hr": 151,
+          "pace_secs_per_km": 1751
+        }
+      ],
+      "start_date_local": "2026-07-31T05:58:19",
+      "type": "TrailRun"
+    },
+    {
+      "aerobic_te": 0.7,
+      "avg_cadence": 103,
+      "avg_hr": 107,
+      "avg_pace_secs_per_km": 697,
+      "avg_stride_len": 83.31,
+      "calories": 75,
+      "date": "2026-07-30",
+      "distance": 1088.2,
+      "elevation_gain": 1.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 759,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23787980350",
+      "max_hr": 124,
+      "moving_time": 739.0,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 107,
+          "avg_speed_mps": 1.44,
+          "distance": 1000.0,
+          "duration": 676.0,
+          "elevation_gain": 1.0,
+          "max_hr": 124,
+          "pace_secs_per_km": 694
+        },
+        {
+          "avg_hr": 107,
+          "avg_speed_mps": 1.369,
+          "distance": 88.2,
+          "duration": 63.0,
+          "max_hr": 111,
+          "pace_secs_per_km": 730
+        }
+      ],
+      "start_date_local": "2026-07-30T17:39:19",
+      "type": "Walk",
+      "vo2_max": 39.0
+    },
+    {
       "aerobic_te": 3.2,
       "avg_cadence": 152,
       "avg_ground_contact": 291,
@@ -17606,7 +17991,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-07-30T04:52:52.221564+00:00",
+  "generated_at": "2026-07-31T05:30:17.554995+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
