@@ -42,7 +42,7 @@
       "id": "23795666084",
       "max_hr": 165,
       "moving_time": 1558.0,
-      "name": "Mojokerto Trail Running",
+      "name": "Lorokan 1.100 mdpl - Balik via Air Terjun",
       "raw_type": "trail_running",
       "splits": [
         {
@@ -118,7 +118,7 @@
       "id": "23795531176",
       "max_hr": 166,
       "moving_time": 1253.2,
-      "name": "Mojokerto Trail Running",
+      "name": "Lorokan 1.100 mdpl - Berangkat",
       "raw_type": "trail_running",
       "splits": [
         {
@@ -211,7 +211,7 @@
       "id": "23795199238",
       "max_hr": 148,
       "moving_time": 1872.0,
-      "name": "Mojokerto Trail Running",
+      "name": "Puthuk Siwur 1429 Mdpl - Mudun",
       "raw_type": "trail_running",
       "splits": [
         {
@@ -286,7 +286,7 @@
       "id": "23795198554",
       "max_hr": 155,
       "moving_time": 1836.0,
-      "name": "Mojokerto Trail Running",
+      "name": "Puthuk Siwur 1429 Mdpl - Munggah",
       "raw_type": "trail_running",
       "splits": [
         {
@@ -17991,7 +17991,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-07-31T05:30:17.554995+00:00",
+  "generated_at": "2026-08-01T05:21:29.787125+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

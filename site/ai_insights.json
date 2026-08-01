@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T05:59:11Z",
+  "generated_at": "2026-08-01T05:48:40Z",
   "model": "qwen-plus",
   "prompt_version": "v2-recovery-aware",
   "running_fingerprint": "v2-recovery-aware:79:2026-07-31:353240",
@@ -7,7 +7,8 @@
     "total_runs": 79,
     "total_km": 353.2,
     "date_range": "2026-01-09 to 2026-07-31",
-    "this_month": {
+    "this_month": null,
+    "last_month": {
       "month": "2026-07",
       "runs": 14,
       "total_km": 82.4,
@@ -26,26 +27,26 @@
       "longest_km": 14.8,
       "best_pace_secs": 475
     },
-    "last_month": {
-      "month": "2026-06",
-      "runs": 11,
-      "total_km": 61.0,
-      "avg_pace_secs": 539,
-      "avg_hr": 140,
-      "avg_aerobic_te": 2.7,
-      "avg_cadence": 151,
-      "avg_efficiency": 13.46,
-      "zone_pct": {
-        "z1": 24,
-        "z2": 29,
-        "z3": 31,
-        "z4": 15,
-        "z5": 1
-      },
-      "longest_km": 11.1,
-      "best_pace_secs": 392
-    },
     "months_back": [
+      {
+        "month": "2026-07",
+        "runs": 14,
+        "total_km": 82.4,
+        "avg_pace_secs": 518,
+        "avg_hr": 141,
+        "avg_aerobic_te": 2.9,
+        "avg_cadence": 118,
+        "avg_efficiency": 13.64,
+        "zone_pct": {
+          "z1": 19,
+          "z2": 29,
+          "z3": 29,
+          "z4": 18,
+          "z5": 4
+        },
+        "longest_km": 14.8,
+        "best_pace_secs": 475
+      },
       {
         "month": "2026-06",
         "runs": 11,
@@ -102,28 +103,9 @@
         },
         "longest_km": 6.2,
         "best_pace_secs": 428
-      },
-      {
-        "month": "2026-03",
-        "runs": 7,
-        "total_km": 32.9,
-        "avg_pace_secs": 534,
-        "avg_hr": 142,
-        "avg_aerobic_te": 3.0,
-        "avg_cadence": 150,
-        "avg_efficiency": 13.28,
-        "zone_pct": {
-          "z1": 4,
-          "z2": 47,
-          "z3": 36,
-          "z4": 12,
-          "z5": 1
-        },
-        "longest_km": 6.0,
-        "best_pace_secs": 456
       }
     ],
-    "days_left_this_month": 1,
+    "days_left_this_month": 31,
     "recent_runs": [
       {
         "date": "2026-07-12",
@@ -248,54 +230,54 @@
     ],
     "recovery": {
       "hrv_ms": {
-        "recent_avg": 71.3,
-        "baseline_avg": 59.8,
-        "delta": 11.5,
+        "recent_avg": 71.1,
+        "baseline_avg": 60.0,
+        "delta": 11.2,
         "n_recent": 7,
-        "pct_vs_baseline": 19.3,
-        "latest": 72.0
+        "pct_vs_baseline": 18.6,
+        "latest": 69.0
       },
       "sleep_hours": {
         "recent_avg": 5.0,
         "baseline_avg": 4.4,
-        "delta": 0.6,
+        "delta": 0.5,
         "n_recent": 7,
-        "pct_vs_baseline": 13.0
+        "pct_vs_baseline": 11.9
       },
       "sleep_under_7h_last_14d": 14,
       "resting_hr_bpm": {
-        "recent_avg": 49.4,
-        "baseline_avg": 52.9,
-        "delta": -3.6,
+        "recent_avg": 49.0,
+        "baseline_avg": 52.8,
+        "delta": -3.8,
         "n_recent": 8,
-        "pct_vs_baseline": -6.7
+        "pct_vs_baseline": -7.3
       },
       "training_readiness": {
-        "latest": 4,
-        "avg_7d": 38.6
+        "latest": 17,
+        "avg_7d": 34.5
       },
-      "recovery_time_hours_latest": 31.2,
+      "recovery_time_hours_latest": 7.4,
       "body_battery_charged": {
-        "recent_avg": 62.6,
-        "baseline_avg": 60.0,
-        "delta": 2.6,
+        "recent_avg": 65.4,
+        "baseline_avg": 60.7,
+        "delta": 4.7,
         "n_recent": 8,
-        "pct_vs_baseline": 4.4
+        "pct_vs_baseline": 7.7
       },
       "stress_weekly": {
-        "recent_avg": 29.6,
-        "baseline_avg": 33.4,
-        "delta": -3.9,
+        "recent_avg": 29.0,
+        "baseline_avg": 33.3,
+        "delta": -4.3,
         "n_recent": 16,
-        "pct_vs_baseline": -11.6
+        "pct_vs_baseline": -13.0
       },
-      "spo2_pct_avg_7d": 93.9
+      "spo2_pct_avg_7d": 94.0
     },
     "training_load": {
-      "acute_load": 367.0,
-      "chronic_load": 241.0,
-      "acwr": 1.5,
-      "acwr_status": "HIGH",
+      "acute_load": 316.0,
+      "chronic_load": 234.0,
+      "acwr": 1.3,
+      "acwr_status": "OPTIMAL",
       "weekly_trimp": {
         "recent_avg": 522.2,
         "baseline_avg": 438.6,
@@ -310,8 +292,8 @@
         462
       ],
       "recovery_balance": {
-        "latest": 1.35,
-        "avg_4w": 0.0,
+        "latest": 1.27,
+        "avg_4w": -0.0,
         "meaning": "HRV z-score minus load z-score; below 0 = load outpacing recovery"
       }
     },
@@ -349,7 +331,7 @@
       "recent_avg": 39.1,
       "baseline_avg": 36.5,
       "delta": 2.7,
-      "n_recent": 13,
+      "n_recent": 12,
       "pct_vs_baseline": 7.3
     },
     "best_efforts_seconds": {
@@ -385,10 +367,10 @@
       }
     },
     "race_predictions_seconds": {
-      "time5K": 2023,
-      "time10K": 4326,
-      "timeMarathon": 22667,
-      "timeHalfMarathon": 9988
+      "time5K": 2026,
+      "time10K": 4332,
+      "timeMarathon": 22697,
+      "timeHalfMarathon": 10000
     },
     "garmin_training_status": "PRODUCTIVE_10",
     "efficiency_by_hr_zone_m_per_beat": {
@@ -402,18 +384,17 @@
   "insights": {
     "readiness": {
       "status": "compromised",
-      "score_0_100": 32,
+      "score_0_100": 38,
       "drivers": [
-        "ACWR = 1.5 (HIGH), exceeding safe band of 0.8–1.3",
-        "Recovery balance = 1.35 but avg_4w = 0.0 — recent HRV gain (71.3 ms vs baseline 59.8 ms, +19.3%) is being overwhelmed by acute load spike",
-        "Sleep: 5.0h avg but 14/14 days <7h — chronic sleep debt confirmed",
-        "Training readiness latest = 4 (scale unknown but contextually very low)",
-        "Resting HR improved (-3.6 bpm) but insufficient to offset load/sleep deficits"
+        "HRV is elevated (+18.6% vs baseline), but sleep is chronically insufficient (5.0h avg, 14/14 nights <7h), resting HR has dropped (-7.3% vs baseline) — a sign of parasympathetic dominance masking fatigue rather than true recovery",
+        "Training readiness score is critically low (latest = 17, 7-day avg = 34.5)",
+        "Recovery balance is neutral (1.27), but ACWR = 1.3 sits at upper edge of optimal — and load has spiked to 625 TRIMP in one week (June), while recent recovery signals are weak",
+        "Body battery is modestly improved (+7.7%), but stress is down (-13.0%) likely due to reduced activity, not resilience"
       ],
-      "guidance": "The body is under cumulative strain; priority this week must be active recovery and load reduction — not performance gains."
+      "guidance": "This athlete is not recovered enough for quality training; the priority this week is sleep restoration and neural recovery — not volume or intensity."
     },
     "monthly_review": {
-      "summary": "July shows strong volume growth and pace improvement versus June, but at clear physiological cost — efficiency and decoupling metrics deteriorated while sleep debt deepened.",
+      "summary": "July shows meaningful aerobic progress (VO2max +2.7%, efficiency improved slightly) but with concerning physiological trade-offs: cadence increased sharply while pace slowed, aerobic TE rose, and decoupling worsened — suggesting fatigue is compromising economy.",
       "metrics": [
         {
           "name": "Total Distance",
@@ -437,7 +418,7 @@
           "verdict": "improved"
         },
         {
-          "name": "Avg HR",
+          "name": "Avg HR (bpm)",
           "current": "141",
           "previous": "140",
           "change": "+1",
@@ -465,82 +446,88 @@
           "verdict": "declined"
         }
       ],
-      "highlight": "Cadence dropped sharply from 151 spm in June to 118 spm in July — a 22% decrease — coinciding with higher volume, lower sleep, and rising aerobic decoupling (median 7.11% vs 0.84% in June)."
+      "highlight": "Cadence dropped 33 spm from June to July — the largest single-month change in the 4-month history — coinciding with rising aerobic TE and worsening decoupling, indicating neuromuscular fatigue is overriding aerobic gains."
     },
     "goal_tracker": {
-      "km_this_month": 82.4,
-      "km_last_month": 61.0,
-      "km_remaining": -21.4,
-      "sessions_this_month": 14,
-      "sessions_last_month": 11,
-      "sessions_remaining": -3,
-      "projection": "Ahead",
-      "message": "You’ve already exceeded last month’s distance (61.0 km) by 21.4 km and runs (11) by 3 — no further running is needed or advisable given compromised recovery status and chronic sleep debt."
+      "km_this_month": 0,
+      "km_last_month": 82.4,
+      "km_remaining": 82.4,
+      "sessions_this_month": 0,
+      "sessions_last_month": 14,
+      "sessions_remaining": 14,
+      "projection": "Behind",
+      "message": "Chasing 82.4 km in the remaining 31 days is not advisable — current readiness (training readiness score 17), chronic sleep debt (14/14 nights <7h), and compromised decoupling (7.09%) indicate the body is not prepared to absorb that load safely. Prioritizing recovery now will yield better long-term volume adherence and performance than forcing it."
     },
     "insights": [
       {
         "category": "sleep_efficiency",
-        "title": "Chronic sleep debt correlates with reduced running economy",
-        "body": "Average sleep = 5.0h (14/14 nights <7h) aligns with elevated Running Economy (257.0 ml O2/kg/km, 'Recreational' rating) and worsening aerobic decoupling (7.09% vs 0.84% in June) — both metrics degrade under sleep restriction.",
+        "title": "Chronic sleep debt correlates with deteriorating running economy",
+        "body": "Sleep averaged only 5.0h (vs 4.4h baseline), yet running economy worsened from 13.42 (May) to 13.64 (July); recent RE values show volatility (234.6 → 262.2 → 257.0), consistent with poor sleep impairing metabolic consistency and neuromuscular coordination.",
         "severity": "warning"
       },
       {
-        "category": "load_recovery",
-        "title": "HRV rebound is masking load accumulation",
-        "body": "HRV increased +19.3% vs baseline (71.3 vs 59.8 ms), yet ACWR = 1.5 and recovery balance avg_4w = 0.0 — indicating the nervous system is compensating temporarily, not sustaining adaptation.",
+        "category": "load_decoupling",
+        "title": "Load spike in late June preceded sharp rise in aerobic decoupling",
+        "body": "The highest weekly TRIMP (625) occurred in June — followed by July’s median decoupling (7.11%) doubling May’s (2.7%) and exceeding the 5% aerobic threshold; this suggests accumulated fatigue is now manifesting as mid-run efficiency collapse.",
         "severity": "warning"
       },
       {
-        "category": "biomechanics_efficiency",
-        "title": "Cadence collapse signals fatigue-driven form degradation",
-        "body": "Cadence fell from 151 spm (June) to 118 spm (July), matching a +0.2 rise in aerobic TE and +0.18 in efficiency — all consistent with neuromuscular fatigue reducing stride coordination and increasing oxygen cost.",
+        "category": "hrv_resting_hr",
+        "title": "Elevated HRV masks suppressed autonomic resilience",
+        "body": "HRV is up (+11.2 ms), but resting HR dropped (-3.8 bpm) and training readiness is critically low (17) — classic signs of 'parasympathetic overreach', where the nervous system is fatigued but compensating via vagal dominance, not true recovery.",
         "severity": "warning"
       },
       {
-        "category": "zone_efficiency",
-        "title": "Zone 2 remains most efficient — but usage declined",
-        "body": "Efficiency per HR zone shows Z2 = 0.7879 m/beat (highest among non-Z1 zones), yet Z2 % dropped from 29% (June) to 29% (July) — stable but not leveraged to offset rising Z3/Z4 load (Z3+Z4 = 47% in July vs 46% in June).",
-        "severity": "neutral"
+        "category": "cadence_pace",
+        "title": "Cadence collapse reflects neuromuscular fatigue, not fitness loss",
+        "body": "Cadence fell from 151 spm (June) to 118 spm (July) despite faster average pace (518 vs 539 sec/km), and ground contact time increased (309–319 ms across recent runs) — evidence of reduced stride elasticity and propulsion efficiency under fatigue.",
+        "severity": "warning"
       }
     ],
     "recommendations": [
       {
-        "action": "Complete zero running on August 1 — full rest day with ≥7h sleep and no structured activity",
-        "reason": "Sleep debt is chronic (14/14 days <7h) and training readiness is critically low (latest = 4); neural and metabolic recovery requires full cessation.",
+        "action": "Complete 3 consecutive nights of ≥7.5 hours of sleep — no screens after 21:00, room temperature ≤20°C, no caffeine after 13:00",
+        "reason": "14/14 nights <7h sleep is the dominant recovery deficit and directly impairs HRV stabilization, decoupling control, and running economy",
         "priority": "high"
       },
       {
-        "action": "Perform 20 min Zone 1 walk (HR ≤120 bpm) on August 2 and August 3, outdoors if possible, focusing on diaphragmatic breathing",
-        "reason": "Maintains circulatory stimulus without taxing autonomic recovery; supports HRV consolidation after acute load spike (ACWR = 1.5).",
+        "action": "Perform 10 minutes of guided diaphragmatic breathing (5s inhale / 5s exhale) daily before bed, tracked via HRV app",
+        "reason": "To support vagal tone re-calibration and shift from parasympathetic overreach toward balanced autonomic function",
         "priority": "high"
       },
       {
-        "action": "Measure and log sleep duration and resting HR each morning for next 7 days; target ≥6.5h sleep and resting HR ≤51 bpm before reintroducing Zone 2",
-        "reason": "Resting HR has improved (-3.6 bpm) but remains a lagging indicator — sustained sub-51 bpm + 6.5h sleep confirms parasympathetic recovery is consolidating.",
+        "action": "Replace all running with walking (4.5–5.5 km, HR <115 bpm) on Monday, Wednesday, and Friday — zero zones, zero pace targets",
+        "reason": "Current readiness score (17) and decoupling (7.09%) contraindicate running; walking preserves circulation and neuromuscular priming without adding load",
         "priority": "high"
       }
     ],
     "risk_flags": [
       {
-        "risk": "Overtraining onset",
-        "evidence": "ACWR = 1.5 (HIGH), recovery balance avg_4w = 0.0, 14/14 days <7h sleep, aerobic decoupling median = 7.11% (>5% threshold)",
+        "risk": "Autonomic fatigue syndrome",
+        "evidence": "Training readiness 17, resting HR 49 bpm (↓3.8 vs baseline), HRV 69.0 ms (↑ but contextually misleading), sleep <7h ×14 days",
         "severity": "warning",
-        "action": "Cancel all intensity and reduce weekly TRIMP by ≥40% for next 7 days"
+        "action": "Pause all structured training for 5 days; prioritize sleep, hydration, and vagal stimulation"
       },
       {
-        "risk": "Biomechanical injury vulnerability",
-        "evidence": "Cadence dropped 33 spm (151 → 118), vertical oscillation decreased (7.7–7.9 → 5.5–5.9) but ground contact time increased (291–319 → 334–370 ms) — suggesting stiff, inefficient landing strategy",
+        "risk": "Aerobic inefficiency cascade",
+        "evidence": "Aerobic decoupling 7.09% (↑ from 2.7% in May), VO2max stable (39.0) but running economy worsening (13.64), vertical oscillillation unchanged (~7.7–7.9 cm) despite longer ground contact (309–370 ms)",
         "severity": "warning",
-        "action": "Pause all runs >3 km until cadence stabilizes ≥140 spm in Zone 2 efforts"
+        "action": "Eliminate all Zone 3+ efforts for 10 days; reassess decoupling after 3 fully recovered runs"
+      },
+      {
+        "risk": "Neuromuscular injury susceptibility",
+        "evidence": "Cadence dropped 33 spm, ground contact increased up to 370 ms (July 31), stride length decreased (74.46–79.92 cm vs 83.4–86.42 cm in fresher runs), vertical oscillillation remained high (~7.7 cm) — inefficient force application pattern",
+        "severity": "warning",
+        "action": "Zero hill work, zero speed drills, zero barefoot or minimalist footwear for next 2 weeks"
       }
     ],
     "weekly_focus": {
-      "theme": "Neuromuscular Reset",
-      "description": "Prioritize autonomic recalibration and movement quality over volume or pace — restore sleep architecture, re-establish baseline cadence rhythm, and rebuild HRV resilience through low-threshold stimulus.",
+      "theme": "Neuromuscular Reset & Sleep Anchoring",
+      "description": "This week prioritizes restoring autonomic balance and circadian rhythm before reintroducing running stimulus — using sleep duration, breathwork, and low-impact movement to rebuild foundational resilience.",
       "suggested_sessions": [
-        "20-min Zone 1 walk with breath focus",
-        "5-min barefoot mobility drill sequence (ankle circles, calf rolls, glute bridges)",
-        "10-min guided HRV biofeedback session (using Garmin Body Battery or external app)"
+        "Guided diaphragmatic breathing (10 min, pre-bed)",
+        "Brisk walking (5 km, HR <115 bpm, flat terrain)",
+        "Mobility flow (15 min: hip CARs, calf rockers, supine knee-to-chest with diaphragmatic breath)"
       ]
     }
   }
