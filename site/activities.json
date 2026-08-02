@@ -1,6 +1,124 @@
 {
   "activities": [
     {
+      "aerobic_te": 1.9,
+      "avg_cadence": 131,
+      "avg_ground_contact": 309,
+      "avg_hr": 119,
+      "avg_pace_secs_per_km": 637,
+      "avg_stride_len": 66.63,
+      "avg_vertical_osc": 6.6,
+      "calories": 193,
+      "date": "2026-08-02",
+      "distance": 2710.0,
+      "elevation_gain": 24.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1493,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 212,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 21,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23817870091",
+      "max_hr": 146,
+      "moving_time": 1718.0,
+      "name": "Milo Family Run 2,5k with Asya",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 114,
+          "avg_speed_mps": 1.514,
+          "distance": 1000.0,
+          "duration": 660.0,
+          "elevation_gain": 9.0,
+          "max_hr": 126,
+          "pace_secs_per_km": 661
+        },
+        {
+          "avg_hr": 118,
+          "avg_speed_mps": 1.6,
+          "distance": 1000.0,
+          "duration": 621.0,
+          "elevation_gain": 6.0,
+          "max_hr": 136,
+          "pace_secs_per_km": 625
+        },
+        {
+          "avg_hr": 129,
+          "avg_speed_mps": 1.612,
+          "distance": 710.0,
+          "duration": 437.0,
+          "elevation_gain": 9.0,
+          "max_hr": 146,
+          "pace_secs_per_km": 620
+        }
+      ],
+      "start_date_local": "2026-08-02T05:53:17",
+      "type": "Run"
+    },
+    {
+      "aerobic_te": 0.2,
+      "avg_hr": 85,
+      "calories": 56,
+      "date": "2026-08-01",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1078,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23809354634",
+      "max_hr": 112,
+      "moving_time": 476.4,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-08-01T15:43:45",
+      "type": "WeightTraining"
+    },
+    {
       "aerobic_te": 2.3,
       "avg_cadence": 52,
       "avg_ground_contact": 355,
@@ -17991,7 +18109,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-01T05:21:29.787125+00:00",
+  "generated_at": "2026-08-02T05:21:32.523838+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
