@@ -1,6 +1,188 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.2,
+      "avg_hr": 96,
+      "calories": 33,
+      "date": "2026-08-04",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 445,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23843608655",
+      "max_hr": 121,
+      "moving_time": 255.7,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-08-04T10:53:43",
+      "type": "WeightTraining"
+    },
+    {
+      "aerobic_te": 0.7,
+      "anaerobic_te": 2.0,
+      "avg_cadence": 10,
+      "avg_hr": 107,
+      "avg_pace_secs_per_km": 2817,
+      "avg_stride_len": 201.72,
+      "calories": 110,
+      "date": "2026-08-03",
+      "distance": 436.8,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1191,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 25,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 2,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 1,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 9,
+          "zone": 5
+        }
+      ],
+      "id": "23836014672",
+      "max_hr": 188,
+      "moving_time": 316.0,
+      "name": "Sidoarjo Volleyball",
+      "raw_type": "volleyball",
+      "splits": [
+        {
+          "avg_hr": 107,
+          "avg_speed_mps": 0.355,
+          "distance": 436.8,
+          "duration": 316.0,
+          "max_hr": 188,
+          "pace_secs_per_km": 2817
+        }
+      ],
+      "start_date_local": "2026-08-03T20:00:16",
+      "type": "volleyball"
+    },
+    {
+      "aerobic_te": 0.8,
+      "avg_hr": 106,
+      "calories": 159,
+      "date": "2026-08-03",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1840,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 18,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23835689105",
+      "max_hr": 134,
+      "moving_time": 1858.2,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-08-03T19:22:17",
+      "type": "Workout"
+    },
+    {
+      "aerobic_te": 0.2,
+      "avg_hr": 86,
+      "calories": 52,
+      "date": "2026-08-03",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 920,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23833268463",
+      "max_hr": 120,
+      "moving_time": 438.5,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-08-03T15:49:52",
+      "type": "WeightTraining"
+    },
+    {
       "aerobic_te": 0.5,
       "avg_hr": 105,
       "avg_pace_secs_per_km": 253,
@@ -18163,7 +18345,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-03T05:35:47.521933+00:00",
+  "generated_at": "2026-08-04T04:58:29.998692+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

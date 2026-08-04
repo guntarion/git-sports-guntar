@@ -2008,6 +2008,34 @@
       "subtype": "cycling",
       "type": "Ride",
       "year": 2026
+    },
+    {
+      "date": "2026-08-03",
+      "hour": 15,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-03",
+      "hour": 19,
+      "subtype": "indoor_cardio",
+      "type": "Workout",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-03",
+      "hour": 20,
+      "subtype": "volleyball",
+      "type": "volleyball",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-04",
+      "hour": 10,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -4068,6 +4096,24 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 476.40399169921875
+        },
+        "2026-08-03": {
+          "activity_ids": [
+            "23833268463"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 438.4859924316406
+        },
+        "2026-08-04": {
+          "activity_ids": [
+            "23843608655"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 255.70599365234375
         }
       },
       "Workout": {
@@ -4189,6 +4235,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 539.125
+        },
+        "2026-08-03": {
+          "activity_ids": [
+            "23835689105"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 1858.18994140625
         }
       },
       "breathwork": {
@@ -4388,10 +4443,21 @@
           "elevation_gain": 17.0,
           "moving_time": 5270.662052154541
         }
+      },
+      "volleyball": {
+        "2026-08-03": {
+          "activity_ids": [
+            "23836014672"
+          ],
+          "count": 1,
+          "distance": 436.82000732421875,
+          "elevation_gain": 0.0,
+          "moving_time": 316.0
+        }
       }
     }
   },
-  "generated_at": "2026-08-03T05:35:30.334063+00:00",
+  "generated_at": "2026-08-04T04:58:11.574098+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
@@ -4447,6 +4513,10 @@
     "multi_sport": {
       "accent": "#ffbe0b",
       "label": "Multi sport"
+    },
+    "volleyball": {
+      "accent": "#fee440",
+      "label": "Volleyball"
     }
   },
   "types": [
@@ -4462,7 +4532,8 @@
     "jump_rope",
     "meditation",
     "multi_sport",
-    "breathwork"
+    "breathwork",
+    "volleyball"
   ],
   "units": {
     "distance": "km",
