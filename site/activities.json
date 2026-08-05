@@ -1,6 +1,230 @@
 {
   "activities": [
     {
+      "aerobic_te": 2.4,
+      "avg_cadence": 159,
+      "avg_ground_contact": 298,
+      "avg_hr": 142,
+      "avg_pace_secs_per_km": 505,
+      "avg_stride_len": 74.88,
+      "avg_vertical_osc": 7.9,
+      "calories": 236,
+      "date": "2026-08-05",
+      "distance": 3328.3,
+      "elevation_gain": 1.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 71,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 965,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 620,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 24,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23855082452",
+      "max_hr": 157,
+      "moving_time": 1678.0,
+      "name": "The 1st running session at Denpasar Bali",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 142,
+          "avg_speed_mps": 1.982,
+          "distance": 3328.3,
+          "duration": 1678.0,
+          "elevation_gain": 1.0,
+          "max_hr": 157,
+          "pace_secs_per_km": 505
+        }
+      ],
+      "start_date_local": "2026-08-05T05:54:03",
+      "type": "Run",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_cadence": 88,
+      "avg_hr": 90,
+      "avg_pace_secs_per_km": 951,
+      "avg_stride_len": 71.37,
+      "calories": 39,
+      "date": "2026-08-04",
+      "distance": 590.5,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 562,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23848713722",
+      "max_hr": 101,
+      "moving_time": 431.0,
+      "name": "Badung Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 90,
+          "avg_speed_mps": 1.051,
+          "distance": 590.5,
+          "duration": 431.0,
+          "max_hr": 101,
+          "pace_secs_per_km": 951
+        }
+      ],
+      "start_date_local": "2026-08-04T20:39:48",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 0.6,
+      "avg_cadence": 92,
+      "avg_hr": 104,
+      "avg_pace_secs_per_km": 791,
+      "avg_stride_len": 81.67,
+      "calories": 68,
+      "date": "2026-08-04",
+      "distance": 946.8,
+      "elevation_gain": 3.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 739,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23846185038",
+      "max_hr": 124,
+      "moving_time": 648.0,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 104,
+          "avg_speed_mps": 1.264,
+          "distance": 946.8,
+          "duration": 648.0,
+          "elevation_gain": 3.0,
+          "max_hr": 124,
+          "pace_secs_per_km": 791
+        }
+      ],
+      "start_date_local": "2026-08-04T16:10:08",
+      "type": "Walk",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 0.4,
+      "avg_hr": 105,
+      "avg_pace_secs_per_km": 297,
+      "calories": 39,
+      "date": "2026-08-04",
+      "distance": 1455.7,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 432,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23843967678",
+      "max_hr": 119,
+      "moving_time": 425.0,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 105,
+          "avg_speed_mps": 3.369,
+          "distance": 1455.7,
+          "duration": 425.0,
+          "max_hr": 119,
+          "pace_secs_per_km": 297
+        }
+      ],
+      "start_date_local": "2026-08-04T11:34:10",
+      "type": "Ride"
+    },
+    {
       "aerobic_te": 0.2,
       "avg_hr": 96,
       "calories": 33,
@@ -18345,7 +18569,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-04T04:58:29.998692+00:00",
+  "generated_at": "2026-08-05T04:59:58.657980+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
