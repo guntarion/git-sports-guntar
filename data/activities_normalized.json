@@ -5849,5 +5849,25 @@
     "type": "Run",
     "vo2_max": 39.0,
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.1,
+    "avg_cadence": 89,
+    "avg_hr": 82,
+    "avg_speed_mps": 1.096,
+    "avg_stride_len": 73.1,
+    "calories": 45,
+    "date": "2026-08-05",
+    "distance": 1002.6199951171875,
+    "elevation_gain": 10.0,
+    "id": "23862443418",
+    "max_hr": 98,
+    "moving_time": 833.0,
+    "name": "Badung Walking",
+    "raw_activity_type": "walking",
+    "raw_type": "walking",
+    "start_date_local": "2026-08-05T19:00:50",
+    "type": "Walk",
+    "year": 2026
   }
 ]

@@ -1,6 +1,70 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.1,
+      "avg_cadence": 89,
+      "avg_hr": 82,
+      "avg_pace_secs_per_km": 912,
+      "avg_stride_len": 73.1,
+      "calories": 45,
+      "date": "2026-08-05",
+      "distance": 1002.6,
+      "elevation_gain": 10.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 912,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23862443418",
+      "max_hr": 98,
+      "moving_time": 833.0,
+      "name": "Badung Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 82,
+          "avg_speed_mps": 1.096,
+          "distance": 1000.0,
+          "duration": 832.0,
+          "elevation_gain": 10.0,
+          "max_hr": 98,
+          "pace_secs_per_km": 912
+        },
+        {
+          "avg_hr": 86,
+          "avg_speed_mps": 1.196,
+          "distance": 2.6,
+          "duration": 1.0,
+          "max_hr": 86,
+          "pace_secs_per_km": 836
+        }
+      ],
+      "start_date_local": "2026-08-05T19:00:50",
+      "type": "Walk"
+    },
+    {
       "aerobic_te": 2.4,
       "avg_cadence": 159,
       "avg_ground_contact": 298,
@@ -18569,7 +18633,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-05T04:59:58.657980+00:00",
+  "generated_at": "2026-08-06T05:11:16.026189+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
