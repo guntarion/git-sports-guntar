@@ -2071,6 +2071,20 @@
       "subtype": "walking",
       "type": "Walk",
       "year": 2026
+    },
+    {
+      "date": "2026-08-06",
+      "hour": 15,
+      "subtype": "volleyball",
+      "type": "volleyball",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-06",
+      "hour": 19,
+      "subtype": "volleyball",
+      "type": "volleyball",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -4525,11 +4539,21 @@
           "distance": 436.82000732421875,
           "elevation_gain": 0.0,
           "moving_time": 316.0
+        },
+        "2026-08-06": {
+          "activity_ids": [
+            "23871841162",
+            "23875082002"
+          ],
+          "count": 2,
+          "distance": 743.7200260162354,
+          "elevation_gain": 0.0,
+          "moving_time": 547.0
         }
       }
     }
   },
-  "generated_at": "2026-08-06T05:11:01.242166+00:00",
+  "generated_at": "2026-08-07T04:21:21.738569+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
@@ -4602,10 +4626,10 @@
     "WeightTraining",
     "Workout",
     "jump_rope",
+    "volleyball",
     "meditation",
     "multi_sport",
-    "breathwork",
-    "volleyball"
+    "breathwork"
   ],
   "units": {
     "distance": "km",
