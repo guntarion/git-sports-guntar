@@ -5910,5 +5910,28 @@
     "start_date_local": "2026-08-06T19:59:19",
     "type": "volleyball",
     "year": 2026
+  },
+  {
+    "aerobic_te": 3.3,
+    "avg_cadence": 157,
+    "avg_ground_contact": 283,
+    "avg_hr": 152,
+    "avg_speed_mps": 2.206,
+    "avg_stride_len": 83.64,
+    "avg_vertical_osc": 7.9,
+    "calories": 311,
+    "date": "2026-08-07",
+    "distance": 4036.469970703125,
+    "elevation_gain": 17.0,
+    "id": "23884835774",
+    "max_hr": 172,
+    "moving_time": 1825.73099899292,
+    "name": "Sidoarjo Running",
+    "raw_activity_type": "running",
+    "raw_type": "running",
+    "start_date_local": "2026-08-07T16:22:17",
+    "type": "Run",
+    "vo2_max": 39.0,
+    "year": 2026
   }
 ]

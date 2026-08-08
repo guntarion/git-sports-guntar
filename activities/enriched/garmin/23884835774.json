@@ -1,0 +1,109 @@
+{
+  "hr_zones": [
+    {
+      "low_bpm": 57,
+      "seconds": 105,
+      "zone": 1
+    },
+    {
+      "low_bpm": 132,
+      "seconds": 185,
+      "zone": 2
+    },
+    {
+      "low_bpm": 144,
+      "seconds": 808,
+      "zone": 3
+    },
+    {
+      "low_bpm": 156,
+      "seconds": 680,
+      "zone": 4
+    },
+    {
+      "low_bpm": 169,
+      "seconds": 48,
+      "zone": 5
+    }
+  ],
+  "id": "23884835774",
+  "splits": [
+    {
+      "avg_hr": 138,
+      "avg_speed_mps": 2.232,
+      "distance": 1036.3,
+      "duration": 462.0,
+      "elevation_gain": 9.0,
+      "max_hr": 153
+    },
+    {
+      "avg_hr": 158,
+      "avg_speed_mps": 2.392,
+      "distance": 971.5,
+      "duration": 406.0,
+      "elevation_gain": 1.0,
+      "max_hr": 166
+    },
+    {
+      "avg_hr": 157,
+      "avg_speed_mps": 1.488,
+      "distance": 75.4,
+      "duration": 50.7,
+      "max_hr": 166
+    },
+    {
+      "avg_hr": 155,
+      "avg_speed_mps": 2.319,
+      "distance": 429.5,
+      "duration": 185.0,
+      "elevation_gain": 1.0,
+      "max_hr": 163
+    },
+    {
+      "avg_hr": 152,
+      "avg_speed_mps": 1.311,
+      "distance": 88.9,
+      "duration": 67.8,
+      "elevation_gain": 1.0,
+      "max_hr": 160
+    },
+    {
+      "avg_hr": 150,
+      "avg_speed_mps": 2.247,
+      "distance": 404.3,
+      "duration": 179.9,
+      "elevation_gain": 1.0,
+      "max_hr": 161
+    },
+    {
+      "avg_hr": 155,
+      "avg_speed_mps": 1.312,
+      "distance": 69.8,
+      "duration": 53.0,
+      "max_hr": 162
+    },
+    {
+      "avg_hr": 154,
+      "avg_speed_mps": 2.253,
+      "distance": 436.1,
+      "duration": 193.0,
+      "elevation_gain": 1.0,
+      "max_hr": 164
+    },
+    {
+      "avg_hr": 159,
+      "avg_speed_mps": 1.346,
+      "distance": 59.7,
+      "duration": 44.3,
+      "elevation_gain": 1.0,
+      "max_hr": 164
+    },
+    {
+      "avg_hr": 162,
+      "avg_speed_mps": 2.525,
+      "distance": 465.0,
+      "duration": 184.0,
+      "max_hr": 172
+    }
+  ]
+}

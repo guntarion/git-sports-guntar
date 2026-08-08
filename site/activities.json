@@ -1,6 +1,143 @@
 {
   "activities": [
     {
+      "aerobic_te": 3.3,
+      "avg_cadence": 157,
+      "avg_ground_contact": 283,
+      "avg_hr": 152,
+      "avg_pace_secs_per_km": 453,
+      "avg_stride_len": 83.64,
+      "avg_vertical_osc": 7.9,
+      "calories": 311,
+      "date": "2026-08-07",
+      "distance": 4036.5,
+      "elevation_gain": 17.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 105,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 185,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 808,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 680,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 48,
+          "zone": 5
+        }
+      ],
+      "id": "23884835774",
+      "max_hr": 172,
+      "moving_time": 1825.7,
+      "name": "Sidoarjo Running",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 138,
+          "avg_speed_mps": 2.232,
+          "distance": 1036.3,
+          "duration": 462.0,
+          "elevation_gain": 9.0,
+          "max_hr": 153,
+          "pace_secs_per_km": 448
+        },
+        {
+          "avg_hr": 158,
+          "avg_speed_mps": 2.392,
+          "distance": 971.5,
+          "duration": 406.0,
+          "elevation_gain": 1.0,
+          "max_hr": 166,
+          "pace_secs_per_km": 418
+        },
+        {
+          "avg_hr": 157,
+          "avg_speed_mps": 1.488,
+          "distance": 75.4,
+          "duration": 50.7,
+          "max_hr": 166,
+          "pace_secs_per_km": 672
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 2.319,
+          "distance": 429.5,
+          "duration": 185.0,
+          "elevation_gain": 1.0,
+          "max_hr": 163,
+          "pace_secs_per_km": 431
+        },
+        {
+          "avg_hr": 152,
+          "avg_speed_mps": 1.311,
+          "distance": 88.9,
+          "duration": 67.8,
+          "elevation_gain": 1.0,
+          "max_hr": 160,
+          "pace_secs_per_km": 763
+        },
+        {
+          "avg_hr": 150,
+          "avg_speed_mps": 2.247,
+          "distance": 404.3,
+          "duration": 179.9,
+          "elevation_gain": 1.0,
+          "max_hr": 161,
+          "pace_secs_per_km": 445
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 1.312,
+          "distance": 69.8,
+          "duration": 53.0,
+          "max_hr": 162,
+          "pace_secs_per_km": 762
+        },
+        {
+          "avg_hr": 154,
+          "avg_speed_mps": 2.253,
+          "distance": 436.1,
+          "duration": 193.0,
+          "elevation_gain": 1.0,
+          "max_hr": 164,
+          "pace_secs_per_km": 444
+        },
+        {
+          "avg_hr": 159,
+          "avg_speed_mps": 1.346,
+          "distance": 59.7,
+          "duration": 44.3,
+          "elevation_gain": 1.0,
+          "max_hr": 164,
+          "pace_secs_per_km": 743
+        },
+        {
+          "avg_hr": 162,
+          "avg_speed_mps": 2.525,
+          "distance": 465.0,
+          "duration": 184.0,
+          "max_hr": 172,
+          "pace_secs_per_km": 396
+        }
+      ],
+      "start_date_local": "2026-08-07T16:22:17",
+      "type": "Run",
+      "vo2_max": 39.0
+    },
+    {
       "aerobic_te": 0.5,
       "anaerobic_te": 0.2,
       "avg_cadence": 10,
@@ -18744,7 +18881,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-07T04:21:37.289408+00:00",
+  "generated_at": "2026-08-08T03:18:54.849834+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
