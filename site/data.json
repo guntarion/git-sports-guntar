@@ -2092,6 +2092,27 @@
       "subtype": "running",
       "type": "Run",
       "year": 2026
+    },
+    {
+      "date": "2026-08-08",
+      "hour": 15,
+      "subtype": "volleyball",
+      "type": "volleyball",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-08",
+      "hour": 19,
+      "subtype": "running",
+      "type": "Run",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-09",
+      "hour": 5,
+      "subtype": "running",
+      "type": "Run",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -3026,6 +3047,24 @@
           "distance": 4036.469970703125,
           "elevation_gain": 17.0,
           "moving_time": 1825.73099899292
+        },
+        "2026-08-08": {
+          "activity_ids": [
+            "23899154987"
+          ],
+          "count": 1,
+          "distance": 504.69000244140625,
+          "elevation_gain": 23.0,
+          "moving_time": 267.0
+        },
+        "2026-08-09": {
+          "activity_ids": [
+            "23905337802"
+          ],
+          "count": 1,
+          "distance": 12019.3203125,
+          "elevation_gain": 200.0,
+          "moving_time": 6219.406024932861
         }
       },
       "TrailRun": {
@@ -4565,11 +4604,20 @@
           "distance": 743.7200260162354,
           "elevation_gain": 0.0,
           "moving_time": 547.0
+        },
+        "2026-08-08": {
+          "activity_ids": [
+            "23896049545"
+          ],
+          "count": 1,
+          "distance": 154.47999572753906,
+          "elevation_gain": 0.0,
+          "moving_time": 117.0
         }
       }
     }
   },
-  "generated_at": "2026-08-08T03:18:38.735321+00:00",
+  "generated_at": "2026-08-09T03:26:37.143109+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
