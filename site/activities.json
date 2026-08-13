@@ -1,6 +1,214 @@
 {
   "activities": [
     {
+      "aerobic_te": 2.8,
+      "avg_cadence": 159,
+      "avg_ground_contact": 299,
+      "avg_hr": 148,
+      "avg_pace_secs_per_km": 498,
+      "avg_stride_len": 75.9,
+      "avg_vertical_osc": 8.0,
+      "calories": 335,
+      "date": "2026-08-13",
+      "distance": 4511.0,
+      "elevation_gain": 26.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 149,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 437,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1242,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 419,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23955872912",
+      "max_hr": 165,
+      "moving_time": 2244.6,
+      "name": "Tebet Eco Park Running",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 133,
+          "avg_speed_mps": 1.971,
+          "distance": 1000.0,
+          "duration": 507.0,
+          "elevation_gain": 8.0,
+          "max_hr": 150,
+          "pace_secs_per_km": 507
+        },
+        {
+          "avg_hr": 146,
+          "avg_speed_mps": 2.094,
+          "distance": 1000.0,
+          "duration": 477.6,
+          "elevation_gain": 3.0,
+          "max_hr": 156,
+          "pace_secs_per_km": 478
+        },
+        {
+          "avg_hr": 152,
+          "avg_speed_mps": 1.953,
+          "distance": 1000.0,
+          "duration": 512.0,
+          "elevation_gain": 6.0,
+          "max_hr": 159,
+          "pace_secs_per_km": 512
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 1.998,
+          "distance": 1000.0,
+          "duration": 500.0,
+          "elevation_gain": 6.0,
+          "max_hr": 165,
+          "pace_secs_per_km": 501
+        },
+        {
+          "avg_hr": 158,
+          "avg_speed_mps": 2.051,
+          "distance": 511.0,
+          "duration": 248.0,
+          "elevation_gain": 2.0,
+          "max_hr": 162,
+          "pace_secs_per_km": 488
+        }
+      ],
+      "start_date_local": "2026-08-13T06:03:24",
+      "type": "Run",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_cadence": 94,
+      "avg_hr": 81,
+      "avg_pace_secs_per_km": 898,
+      "avg_stride_len": 70.5,
+      "calories": 45,
+      "date": "2026-08-13",
+      "distance": 600.0,
+      "elevation_gain": 2.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 539,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23955284419",
+      "max_hr": 91,
+      "moving_time": 520.0,
+      "name": "Jakarta Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 81,
+          "avg_speed_mps": 1.113,
+          "distance": 600.0,
+          "duration": 520.0,
+          "elevation_gain": 2.0,
+          "max_hr": 91,
+          "pace_secs_per_km": 898
+        }
+      ],
+      "start_date_local": "2026-08-13T04:34:14",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_cadence": 111,
+      "avg_hr": 97,
+      "avg_pace_secs_per_km": 680,
+      "avg_stride_len": 79.08,
+      "calories": 29,
+      "date": "2026-08-12",
+      "distance": 466.3,
+      "elevation_gain": 1.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 317,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23948356431",
+      "max_hr": 102,
+      "moving_time": 305.0,
+      "name": "Jakarta Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 97,
+          "avg_speed_mps": 1.471,
+          "distance": 466.3,
+          "duration": 305.0,
+          "elevation_gain": 1.0,
+          "max_hr": 102,
+          "pace_secs_per_km": 680
+        }
+      ],
+      "start_date_local": "2026-08-12T18:26:15",
+      "type": "Walk",
+      "vo2_max": 39.0
+    },
+    {
       "aerobic_te": 0.1,
       "avg_cadence": 96,
       "avg_hr": 64,
@@ -19427,7 +19635,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-12T04:00:25.549516+00:00",
+  "generated_at": "2026-08-13T04:04:09.157227+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
