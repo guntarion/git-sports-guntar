@@ -1,6 +1,60 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.5,
+      "avg_hr": 112,
+      "avg_pace_secs_per_km": 314,
+      "calories": 50,
+      "date": "2026-08-14",
+      "distance": 1606.2,
+      "elevation_gain": 1.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 505,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23973035465",
+      "max_hr": 126,
+      "moving_time": 500.0,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 112,
+          "avg_speed_mps": 3.184,
+          "distance": 1606.2,
+          "duration": 500.0,
+          "elevation_gain": 1.0,
+          "max_hr": 126,
+          "pace_secs_per_km": 314
+        }
+      ],
+      "start_date_local": "2026-08-14T17:39:33",
+      "type": "Ride"
+    },
+    {
       "aerobic_te": 0.3,
       "avg_cadence": 108,
       "avg_hr": 99,
@@ -554,7 +608,7 @@
       "id": "23905337802",
       "max_hr": 167,
       "moving_time": 6219.4,
-      "name": "Sidoarjo Running",
+      "name": "PokCan Long Run",
       "raw_type": "running",
       "splits": [
         {
@@ -19691,7 +19745,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-14T04:00:57.538260+00:00",
+  "generated_at": "2026-08-15T02:45:57.178978+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

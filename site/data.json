@@ -2176,6 +2176,13 @@
       "subtype": "walking",
       "type": "Walk",
       "year": 2026
+    },
+    {
+      "date": "2026-08-14",
+      "hour": 17,
+      "subtype": "cycling",
+      "type": "Ride",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -2545,6 +2552,15 @@
           "distance": 2082.18994140625,
           "elevation_gain": 1.0,
           "moving_time": 691.0
+        },
+        "2026-08-14": {
+          "activity_ids": [
+            "23973035465"
+          ],
+          "count": 1,
+          "distance": 1606.219970703125,
+          "elevation_gain": 1.0,
+          "moving_time": 500.0
         }
       },
       "Run": {
@@ -4745,7 +4761,7 @@
       }
     }
   },
-  "generated_at": "2026-08-14T04:00:38.215702+00:00",
+  "generated_at": "2026-08-15T02:45:44.964679+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
