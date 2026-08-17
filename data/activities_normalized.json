@@ -6247,5 +6247,43 @@
     "start_date_local": "2026-08-16T02:53:04",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.3,
+    "avg_hr": 92,
+    "calories": 71,
+    "date": "2026-08-16",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "23996279235",
+    "max_hr": 117,
+    "moving_time": 1132.364013671875,
+    "name": "Strength",
+    "raw_activity_type": "strength_training",
+    "raw_type": "strength_training",
+    "start_date_local": "2026-08-16T16:51:32",
+    "type": "WeightTraining",
+    "year": 2026
+  },
+  {
+    "aerobic_te": 2.2,
+    "avg_cadence": 148,
+    "avg_hr": 128,
+    "avg_speed_mps": 1.673,
+    "avg_stride_len": 67.67,
+    "calories": 395,
+    "date": "2026-08-17",
+    "distance": 6005.509765625,
+    "elevation_gain": 3.0,
+    "id": "24004648607",
+    "max_hr": 144,
+    "moving_time": 3577.5579833984375,
+    "name": "Walking nunggu anak upacara 17-an",
+    "raw_activity_type": "walking",
+    "raw_type": "walking",
+    "start_date_local": "2026-08-17T06:44:07",
+    "type": "Walk",
+    "vo2_max": 39.0,
+    "year": 2026
   }
 ]

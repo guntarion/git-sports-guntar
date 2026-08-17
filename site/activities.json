@@ -1,6 +1,155 @@
 {
   "activities": [
     {
+      "aerobic_te": 2.2,
+      "avg_cadence": 148,
+      "avg_hr": 128,
+      "avg_pace_secs_per_km": 598,
+      "avg_stride_len": 67.67,
+      "calories": 395,
+      "date": "2026-08-17",
+      "distance": 6005.5,
+      "elevation_gain": 3.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1568,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 2019,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 2,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24004648607",
+      "max_hr": 144,
+      "moving_time": 3577.6,
+      "name": "Walking nunggu anak upacara 17-an",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 112,
+          "avg_speed_mps": 1.568,
+          "distance": 1000.0,
+          "duration": 636.0,
+          "max_hr": 123,
+          "pace_secs_per_km": 638
+        },
+        {
+          "avg_hr": 118,
+          "avg_speed_mps": 1.479,
+          "distance": 1000.0,
+          "duration": 669.0,
+          "elevation_gain": 1.0,
+          "max_hr": 126,
+          "pace_secs_per_km": 676
+        },
+        {
+          "avg_hr": 130,
+          "avg_speed_mps": 1.741,
+          "distance": 1000.0,
+          "duration": 574.0,
+          "max_hr": 134,
+          "pace_secs_per_km": 574
+        },
+        {
+          "avg_hr": 136,
+          "avg_speed_mps": 1.77,
+          "distance": 1000.0,
+          "duration": 565.0,
+          "elevation_gain": 1.0,
+          "max_hr": 140,
+          "pace_secs_per_km": 565
+        },
+        {
+          "avg_hr": 139,
+          "avg_speed_mps": 1.792,
+          "distance": 1000.0,
+          "duration": 558.0,
+          "max_hr": 144,
+          "pace_secs_per_km": 558
+        },
+        {
+          "avg_hr": 139,
+          "avg_speed_mps": 1.744,
+          "distance": 1000.0,
+          "duration": 573.6,
+          "elevation_gain": 1.0,
+          "max_hr": 144,
+          "pace_secs_per_km": 573
+        },
+        {
+          "avg_hr": 140,
+          "avg_speed_mps": 1.644,
+          "distance": 5.5,
+          "duration": 2.0,
+          "max_hr": 141,
+          "pace_secs_per_km": 608
+        }
+      ],
+      "start_date_local": "2026-08-17T06:44:07",
+      "type": "Walk",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_hr": 92,
+      "calories": 71,
+      "date": "2026-08-16",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1132,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "23996279235",
+      "max_hr": 117,
+      "moving_time": 1132.4,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-08-16T16:51:32",
+      "type": "WeightTraining"
+    },
+    {
       "aerobic_te": 0.1,
       "avg_cadence": 103,
       "avg_hr": 86,
@@ -19896,7 +20045,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-16T02:53:54.791454+00:00",
+  "generated_at": "2026-08-17T02:54:02.774123+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
