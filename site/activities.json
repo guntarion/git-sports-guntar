@@ -1,6 +1,207 @@
 {
   "activities": [
     {
+      "aerobic_te": 2.4,
+      "avg_cadence": 151,
+      "avg_ground_contact": 307,
+      "avg_hr": 128,
+      "avg_pace_secs_per_km": 552,
+      "avg_stride_len": 71.7,
+      "avg_vertical_osc": 7.5,
+      "calories": 407,
+      "date": "2026-08-19",
+      "distance": 6004.4,
+      "elevation_gain": 3.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 2019,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 1235,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 58,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24029355449",
+      "max_hr": 147,
+      "moving_time": 3308.0,
+      "name": "Tropodo Route Running",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 114,
+          "avg_speed_mps": 1.763,
+          "distance": 586.7,
+          "duration": 330.0,
+          "elevation_gain": 1.0,
+          "max_hr": 121,
+          "pace_secs_per_km": 567
+        },
+        {
+          "avg_hr": 117,
+          "avg_speed_mps": 0.782,
+          "distance": 10.3,
+          "duration": 12.0,
+          "max_hr": 118,
+          "pace_secs_per_km": 1279
+        },
+        {
+          "avg_hr": 121,
+          "avg_speed_mps": 1.767,
+          "distance": 1168.0,
+          "duration": 660.0,
+          "max_hr": 130,
+          "pace_secs_per_km": 566
+        },
+        {
+          "avg_hr": 122,
+          "avg_speed_mps": 1.089,
+          "distance": 2.6,
+          "duration": 2.0,
+          "max_hr": 128,
+          "pace_secs_per_km": 918
+        },
+        {
+          "avg_hr": 132,
+          "avg_speed_mps": 1.838,
+          "distance": 4236.8,
+          "duration": 2304.0,
+          "elevation_gain": 2.0,
+          "max_hr": 147,
+          "pace_secs_per_km": 544
+        }
+      ],
+      "start_date_local": "2026-08-19T04:58:25",
+      "type": "Run",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_hr": 99,
+      "avg_pace_secs_per_km": 299,
+      "calories": 59,
+      "date": "2026-08-18",
+      "distance": 2677.5,
+      "elevation_gain": 3.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 801,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24022059676",
+      "max_hr": 115,
+      "moving_time": 786.0,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 99,
+          "avg_speed_mps": 3.343,
+          "distance": 2677.5,
+          "duration": 786.0,
+          "elevation_gain": 3.0,
+          "max_hr": 115,
+          "pace_secs_per_km": 299
+        }
+      ],
+      "start_date_local": "2026-08-18T17:39:26",
+      "type": "Ride"
+    },
+    {
+      "aerobic_te": 1.2,
+      "avg_cadence": 31,
+      "avg_hr": 113,
+      "avg_pace_secs_per_km": 5102,
+      "avg_stride_len": 37.09,
+      "calories": 122,
+      "date": "2026-08-18",
+      "distance": 237.6,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1111,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 99,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24017403656",
+      "max_hr": 138,
+      "moving_time": 212.0,
+      "name": "Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 113,
+          "avg_speed_mps": 0.196,
+          "distance": 237.6,
+          "duration": 212.0,
+          "max_hr": 138,
+          "pace_secs_per_km": 5102
+        }
+      ],
+      "start_date_local": "2026-08-18T09:51:47",
+      "type": "Walk"
+    },
+    {
       "aerobic_te": 2.2,
       "avg_cadence": 148,
       "avg_hr": 128,
@@ -20045,7 +20246,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-18T02:49:56.320938+00:00",
+  "generated_at": "2026-08-19T02:51:33.286810+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
