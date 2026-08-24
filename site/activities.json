@@ -107,7 +107,7 @@
       "id": "24078535243",
       "max_hr": 127,
       "moving_time": 5214.2,
-      "name": "Sidoarjo Running",
+      "name": "Recovery Jalan Cepat",
       "raw_type": "running",
       "splits": [
         {
@@ -258,7 +258,7 @@
       "id": "24054696048",
       "max_hr": 162,
       "moving_time": 3738.2,
-      "name": "Sidoarjo Running",
+      "name": "Recovery turn Into Interval Run",
       "raw_type": "running",
       "splits": [
         {
@@ -20802,7 +20802,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-23T02:56:24.062540+00:00",
+  "generated_at": "2026-08-24T02:57:04.323160+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
