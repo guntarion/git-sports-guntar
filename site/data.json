@@ -2351,6 +2351,34 @@
       "subtype": "running",
       "type": "Run",
       "year": 2026
+    },
+    {
+      "date": "2026-08-28",
+      "hour": 4,
+      "subtype": "cycling",
+      "type": "Ride",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-28",
+      "hour": 16,
+      "subtype": "jump_rope",
+      "type": "jump_rope",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-28",
+      "hour": 16,
+      "subtype": "strength_training",
+      "type": "WeightTraining",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-28",
+      "hour": 17,
+      "subtype": "cycling",
+      "type": "Ride",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -2785,6 +2813,16 @@
           "distance": 1181.27001953125,
           "elevation_gain": 1.0,
           "moving_time": 379.0
+        },
+        "2026-08-28": {
+          "activity_ids": [
+            "24141883958",
+            "24146912223"
+          ],
+          "count": 2,
+          "distance": 4783.8798828125,
+          "elevation_gain": 24.0,
+          "moving_time": 1235.0
         }
       },
       "Run": {
@@ -4767,6 +4805,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 374.0350036621094
+        },
+        "2026-08-28": {
+          "activity_ids": [
+            "24145892632"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 407.8059997558594
         }
       },
       "Workout": {
@@ -5063,6 +5110,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 167.0399932861328
+        },
+        "2026-08-28": {
+          "activity_ids": [
+            "24145781391"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 137.55999755859375
         }
       },
       "meditation": {
@@ -5129,7 +5185,7 @@
       }
     }
   },
-  "generated_at": "2026-08-27T12:14:06.289392+00:00",
+  "generated_at": "2026-08-28T13:39:28.232142+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
