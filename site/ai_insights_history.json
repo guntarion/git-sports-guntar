@@ -1,5 +1,156 @@
 [
   {
+    "generated_at": "2026-08-29T09:03:58Z",
+    "model": "qwen-plus",
+    "prompt_version": "v2-recovery-aware",
+    "running_fingerprint": "v2-recovery-aware:89:2026-08-27:404577",
+    "insights": {
+      "readiness": {
+        "status": "compromised",
+        "score_0_100": 38,
+        "drivers": [
+          "HRV recent_avg (79.1 ms) is +16.7% vs baseline, but latest reading dropped sharply to 63.0 ms — a 6.5 ms dip below baseline and lowest in recent record",
+          "Sleep averaged only 4.9 hrs/night over last 8 days, with all 14 nights in last 2 weeks under 7 hours — chronic sleep debt confirmed",
+          "Resting HR improved (-3.7 bpm), but this likely reflects reduced sympathetic drive due to fatigue rather than true recovery",
+          "Recovery balance is +3.74 (strong positive), yet ACWR = 0.9 suggests low acute load — meaning the positive balance stems from *reduced training*, not robust recovery",
+          "Training readiness score is 46 (low-moderate), consistent with accumulated fatigue masked by low output"
+        ],
+        "guidance": "This athlete is fatigued and sleep-deprived; the body is conserving energy rather than preparing for quality work — prioritize sleep restoration and low-stimulus movement before adding intensity or volume."
+      },
+      "monthly_review": {
+        "summary": "August shows a sharp reduction in volume and intensity versus July, with slower average pace, lower HR, and higher aerobic TE — indicating a deliberate or fatigue-driven downshift, supported by declining weekly TRIMP (-34% vs baseline).",
+        "metrics": [
+          {
+            "name": "Total Distance",
+            "current": "51.3 km",
+            "previous": "82.4 km",
+            "change": "-31.1 km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Runs",
+            "current": "10",
+            "previous": "14",
+            "change": "-4",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg Pace",
+            "current": "8:54 min/km",
+            "previous": "8:38 min/km",
+            "change": "+0:16 min/km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Avg HR",
+            "current": "134 bpm",
+            "previous": "141 bpm",
+            "change": "-7 bpm",
+            "verdict": "improved"
+          },
+          {
+            "name": "Aerobic TE",
+            "current": "2.6%",
+            "previous": "2.9%",
+            "change": "-0.3%",
+            "verdict": "improved"
+          },
+          {
+            "name": "Efficiency",
+            "current": "14.12 ml/kg/km",
+            "previous": "13.64 ml/kg/km",
+            "change": "+0.48 ml/kg/km",
+            "verdict": "declined"
+          },
+          {
+            "name": "Cadence",
+            "current": "149 spm",
+            "previous": "118 spm",
+            "change": "+31 spm",
+            "verdict": "improved"
+          }
+        ],
+        "highlight": "Cadence jumped +31 spm from July to August — the largest single-month change across all metrics — and aligns with increased Z1 time (43% vs 19%), suggesting a strategic or compensatory shift toward easy, high-cadence running amid fatigue."
+      },
+      "goal_tracker": {
+        "km_this_month": 51.3,
+        "km_last_month": 82.4,
+        "km_remaining": 31.1,
+        "sessions_this_month": 10,
+        "sessions_last_month": 14,
+        "sessions_remaining": 4,
+        "projection": "Behind",
+        "message": "To match last month’s 82.4 km, 31.1 km must be run in 3 days — an unsustainable ~10.4 km/day. Given compromised readiness (sleep debt, HRV volatility, low training readiness), chasing this number risks injury or burnout; the priority is rest and sleep consolidation, not volume catch-up."
+      },
+      "insights": [
+        {
+          "category": "sleep_efficiency",
+          "title": "Chronic sleep debt correlates with worsened running economy",
+          "body": "Sleep averaged 4.9 hrs/night while running economy (latest 253.5 ml/kg/km) is 10–15% higher (worse) than the rolling median of prior months (e.g., 234.6–253.9); poor sleep impairs neuromuscular coordination and metabolic efficiency, directly elevating O2 cost.",
+          "severity": "warning"
+        },
+        {
+          "category": "load_recovery",
+          "title": "Low acute load masks underlying fatigue, not recovery",
+          "body": "ACWR = 0.9 and acute load = 176 (vs chronic 186) suggest 'optimal' load management, yet resting HR dropped -3.7 bpm *and* HRV latest = 63.0 ms (below baseline 67.8) — classic signs of parasympathetic dominance from exhaustion, not freshness.",
+          "severity": "warning"
+        },
+        {
+          "category": "aerobic_efficiency",
+          "title": "Improved decoupling despite lower intensity suggests preserved aerobic integrity",
+          "body": "Latest aerobic decoupling = 4.8% (just under 5% threshold), and median recent = 7.11% — yet August’s avg HR (134 bpm) is 7 bpm lower than July’s (141 bpm), indicating the aerobic system remains resilient *even as effort level drops*, likely due to consistent Z1/Z2 exposure (43% Z1 this month).",
+          "severity": "positive"
+        },
+        {
+          "category": "biomechanics",
+          "title": "Cadence surge coincides with longer stride and lower vertical oscillation",
+          "body": "Cadence rose +31 spm (118→149), stride length increased (e.g., 83.64 m on 2026-08-07 → 94.09 m on 2026-08-27), and vertical oscillation stayed stable (7.5–8.0 cm) — suggesting more efficient force application, possibly as compensation for fatigue-induced pacing conservatism.",
+          "severity": "neutral"
+        }
+      ],
+      "recommendations": [
+        {
+          "action": "Prioritize 7+ hours of sleep for all remaining 3 days of August — no exceptions, no screens after 21:00, consistent bedtime",
+          "reason": "All 14 nights in last 2 weeks were <7h; sleep is the primary lever to restore HRV, reduce stress, and reverse efficiency decline",
+          "priority": "high"
+        },
+        {
+          "action": "One 30-min Zone 1 walk or mobility session (HR <110 bpm) on 2026-08-28 — zero running",
+          "reason": "HRV latest (63.0 ms) is suppressed and training readiness is low (46); active recovery supports parasympathetic rebound without cardiac or musculoskeletal load",
+          "priority": "high"
+        },
+        {
+          "action": "Skip all HR-based zone targets for next 3 runs; instead, run by perceived exertion: 'conversational, able to hum' — stop if breath becomes rhythmic or cadence drops below 145 spm",
+          "reason": "Cadence variability (136–159 spm) and elevated aerobic TE (3.0–3.5%) on recent longer runs signal emerging neuromuscular fatigue that HR alone won’t reveal",
+          "priority": "high"
+        }
+      ],
+      "risk_flags": [
+        {
+          "risk": "Chronic sleep deprivation",
+          "evidence": "14/14 nights <7h in last 14 days; sleep avg = 4.9 hrs vs baseline 4.6 — worsening trend",
+          "severity": "warning",
+          "action": "Enforce strict sleep hygiene for 7 consecutive nights before reassessing readiness"
+        },
+        {
+          "risk": "HRV suppression masking fatigue",
+          "evidence": "Latest HRV = 63.0 ms, 6.5 ms below baseline (67.8 ms) and 16.1 ms below recent avg (79.1 ms)",
+          "severity": "warning",
+          "action": "Suspend all Z3+ efforts until HRV stabilizes ≥72 ms for 3 consecutive days"
+        }
+      ],
+      "weekly_focus": {
+        "theme": "Sleep-First Recovery Reset",
+        "description": "Restore autonomic balance through non-negotiable sleep and neural quiet, using low-load movement to maintain circulation without triggering stress response.",
+        "suggested_sessions": [
+          "Zone 1 walk (30 min, HR <110 bpm)",
+          "Dynamic mobility + diaphragmatic breathing (20 min)",
+          "Easy jog only if sleep ≥7h x 3 nights AND morning HRV ≥72 ms"
+        ]
+      }
+    }
+  },
+  {
     "generated_at": "2026-08-28T14:15:00Z",
     "model": "qwen-plus",
     "prompt_version": "v2-recovery-aware",
@@ -7440,130 +7591,6 @@
           "Zone 2 foundation run (5–6 km, HR ≤135 bpm)",
           "Active recovery (20 min, HR <110 bpm)",
           "Technique-focused tempo run (6 km w/ VO2 max warmup, vertical osc & ground contact targets)"
-        ]
-      }
-    }
-  },
-  {
-    "generated_at": "2026-07-11T05:08:56Z",
-    "model": "qwen-plus",
-    "running_fingerprint": "69:2026-07-08:292243",
-    "insights": {
-      "monthly_review": {
-        "summary": "You've shifted toward higher-intensity running this month, with a notable increase in Zone 4 time and faster average pace, but at the cost of reduced volume and lower aerobic TE — suggesting a recent emphasis on quality over quantity.",
-        "metrics": [
-          {
-            "name": "Total Distance",
-            "current": "21.4 km",
-            "previous": "61.0 km",
-            "change": "-39.6 km",
-            "verdict": "declined"
-          },
-          {
-            "name": "Number of Runs",
-            "current": "4",
-            "previous": "11",
-            "change": "-7",
-            "verdict": "declined"
-          },
-          {
-            "name": "Avg Pace (sec/km)",
-            "current": "502",
-            "previous": "539",
-            "change": "-37",
-            "verdict": "improved"
-          },
-          {
-            "name": "Avg HR (bpm)",
-            "current": "145",
-            "previous": "140",
-            "change": "+5",
-            "verdict": "declined"
-          },
-          {
-            "name": "Avg Aerobic TE",
-            "current": "3.0",
-            "previous": "2.7",
-            "change": "+0.3",
-            "verdict": "improved"
-          },
-          {
-            "name": "Aerobic Efficiency (km/hr per bpm)",
-            "current": "13.9",
-            "previous": "13.46",
-            "change": "+0.44",
-            "verdict": "improved"
-          },
-          {
-            "name": "Avg Cadence (spm)",
-            "current": "148",
-            "previous": "151",
-            "change": "-3",
-            "verdict": "declined"
-          }
-        ],
-        "highlight": "Zone 4 time jumped from 15% last month to 35% this month — the largest proportional shift across all HR zones."
-      },
-      "goal_tracker": {
-        "km_this_month": 21.4,
-        "km_last_month": 61.0,
-        "km_remaining": 39.6,
-        "sessions_this_month": 4,
-        "sessions_last_month": 11,
-        "sessions_remaining": 7,
-        "projection": "Behind",
-        "message": "You need 39.6 more km across 7 remaining sessions — averaging ~5.7 km per run — to match last month’s volume. Given your recent 10.0 km long run and strong aerobic TE (4.0), 3–4 runs of 6–8 km at Zone 2–3 HR would be realistic and sustainable."
-      },
-      "insights": [
-        {
-          "category": "aerobic_efficiency",
-          "title": "Improved efficiency despite higher intensity",
-          "body": "Aerobic efficiency rose from 13.46 to 13.9 km/hr per bpm this month, even as avg HR increased +5 bpm and Zone 4 time tripled — indicating better cardiovascular economy under load.",
-          "severity": "positive"
-        },
-        {
-          "category": "hr_zones",
-          "title": "Zone 4 dominance displaces foundational Zone 2 time",
-          "body": "Zone 4 now accounts for 35% of total HR time (up from 15%), while Zone 2 dropped from 29% to 15% — reducing time spent building aerobic base and recovery capacity.",
-          "severity": "warning"
-        },
-        {
-          "category": "running_form",
-          "title": "Cadence decline correlates with longer efforts and fatigue",
-          "body": "Avg cadence fell from 151 spm (June) to 148 spm (July), and the slowest cadence (136 spm) occurred on the 4.0 km recovery run (7/08) — suggesting form breakdown at low HR, possibly due to accumulated fatigue or insufficient recovery.",
-          "severity": "warning"
-        },
-        {
-          "category": "training_load",
-          "title": "High-intensity density without compensatory recovery",
-          "body": "Three of your last five runs (6.5 km, 10.0 km, 4.0 km) were completed in just 4 days (7/01–7/08), with only one true easy day (0.9 km on 7/06); yet VO2 max remains stable at 39.0 — a sign resilience is holding, but not indefinitely.",
-          "severity": "warning"
-        }
-      ],
-      "recommendations": [
-        {
-          "action": "Do your next run as a strict 6.0 km Zone 2 session (HR ≤135 bpm), focusing on cadence ≥150 spm and stride length ≥75 cm.",
-          "reason": "To rebuild Zone 2 volume (down 14% MoM) and counter cadence drift observed in recent easy efforts.",
-          "priority": "high"
-        },
-        {
-          "action": "Insert a full rest day before your next long run — no activity except walking — following the 10.0 km effort on 7/05.",
-          "reason": "Your 7/08 run showed lowest cadence (136 spm) and lowest HR (129 bpm), signaling residual fatigue; Garmin VO2 max has plateaued at 39.0, indicating no recent aerobic gain without recovery.",
-          "priority": "high"
-        },
-        {
-          "action": "Perform a 5-minute cadence drill post-run: 1 min @ 155 spm, 1 min @ 160 spm, 1 min @ 155 spm, 2 min @ 152 spm — immediately after your next two Zone 2 runs.",
-          "reason": "To reinforce neuromuscular patterning and offset the -3 spm MoM cadence drop, especially since ground contact time improved slightly (312 → 300 ms) but cadence declined.",
-          "priority": "medium"
-        }
-      ],
-      "weekly_focus": {
-        "theme": "Aerobic Reconnection",
-        "description": "Re-establish Zone 2 endurance capacity and neuromuscular coordination lost during recent high-Zone 4 emphasis — prioritizing consistency, rhythm, and recovery responsiveness over pace or distance targets.",
-        "suggested_sessions": [
-          "6 km Zone 2 run (HR ≤135 bpm, cadence ≥150 spm)",
-          "45-min easy walk or mobility session (zero HR data required)",
-          "3 km progressive run: 1 km Z2 → 1 km Z3 → 1 km Z2, focusing on smooth transitions"
         ]
       }
     }

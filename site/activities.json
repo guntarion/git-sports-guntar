@@ -1,6 +1,91 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.6,
+      "avg_hr": 100,
+      "calories": 74,
+      "date": "2026-08-29",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 861,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 10,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24155732051",
+      "max_hr": 134,
+      "moving_time": 896.9,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-08-29T13:36:06",
+      "type": "Workout"
+    },
+    {
+      "aerobic_te": 0.3,
+      "anaerobic_te": 1.1,
+      "avg_hr": 91,
+      "calories": 36,
+      "date": "2026-08-29",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 533,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 1,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 3,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 7,
+          "zone": 5
+        }
+      ],
+      "id": "24155731953",
+      "max_hr": 172,
+      "moving_time": 543.6,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-08-29T13:21:29",
+      "type": "Workout"
+    },
+    {
       "aerobic_te": 0.8,
       "avg_hr": 115,
       "avg_pace_secs_per_km": 255,
@@ -21677,7 +21762,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-28T13:39:49.052645+00:00",
+  "generated_at": "2026-08-29T08:31:04.269160+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

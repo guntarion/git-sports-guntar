@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T13:39:28.221891+00:00",
+  "generated_at": "2026-08-29T08:30:45.745803+00:00",
   "years": {
     "2026": {
       "Hike": {
@@ -2563,6 +2563,16 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 1858.18994140625
+        },
+        "2026-08-29": {
+          "activity_ids": [
+            "24155731953",
+            "24155732051"
+          ],
+          "count": 2,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 1440.4819946289062
         }
       },
       "breathwork": {

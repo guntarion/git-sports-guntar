@@ -6721,5 +6721,40 @@
     "start_date_local": "2026-08-28T17:36:37",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.3,
+    "anaerobic_te": 1.1,
+    "avg_hr": 91,
+    "calories": 36,
+    "date": "2026-08-29",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "24155731953",
+    "max_hr": 172,
+    "moving_time": 543.5859985351562,
+    "name": "Cardio",
+    "raw_activity_type": "indoor_cardio",
+    "raw_type": "indoor_cardio",
+    "start_date_local": "2026-08-29T13:21:29",
+    "type": "Workout",
+    "year": 2026
+  },
+  {
+    "aerobic_te": 0.6,
+    "avg_hr": 100,
+    "calories": 74,
+    "date": "2026-08-29",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "24155732051",
+    "max_hr": 134,
+    "moving_time": 896.89599609375,
+    "name": "Cardio",
+    "raw_activity_type": "indoor_cardio",
+    "raw_type": "indoor_cardio",
+    "start_date_local": "2026-08-29T13:36:06",
+    "type": "Workout",
+    "year": 2026
   }
 ]
