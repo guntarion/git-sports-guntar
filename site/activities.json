@@ -1,6 +1,232 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.7,
+      "anaerobic_te": 2.0,
+      "avg_hr": 107,
+      "calories": 57,
+      "date": "2026-08-30",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 575,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 4,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 7,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 16,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 16,
+          "zone": 5
+        }
+      ],
+      "id": "24167147881",
+      "max_hr": 193,
+      "moving_time": 617.5,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-08-30T11:38:56",
+      "type": "Workout"
+    },
+    {
+      "aerobic_te": 1.0,
+      "avg_hr": 115,
+      "calories": 74,
+      "date": "2026-08-30",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 621,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 42,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24167147843",
+      "max_hr": 135,
+      "moving_time": 662.9,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-08-30T11:16:28",
+      "type": "Workout"
+    },
+    {
+      "aerobic_te": 0.5,
+      "avg_hr": 104,
+      "calories": 53,
+      "date": "2026-08-30",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 576,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 9,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24167147708",
+      "max_hr": 136,
+      "moving_time": 585.4,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-08-30T09:27:40",
+      "type": "Workout"
+    },
+    {
+      "aerobic_te": 0.6,
+      "avg_cadence": 73,
+      "avg_hr": 90,
+      "avg_pace_secs_per_km": 1046,
+      "avg_stride_len": 77.83,
+      "calories": 67,
+      "date": "2026-08-30",
+      "distance": 850.5,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 890,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24167147638",
+      "max_hr": 121,
+      "moving_time": 819.0,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 90,
+          "avg_speed_mps": 0.956,
+          "distance": 850.5,
+          "duration": 819.0,
+          "max_hr": 121,
+          "pace_secs_per_km": 1046
+        }
+      ],
+      "start_date_local": "2026-08-30T06:36:41",
+      "type": "Walk",
+      "vo2_max": 40.0
+    },
+    {
+      "aerobic_te": 0.9,
+      "anaerobic_te": 0.4,
+      "avg_hr": 103,
+      "calories": 117,
+      "date": "2026-08-29",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1376,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 17,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24160937976",
+      "max_hr": 141,
+      "moving_time": 1399.6,
+      "name": "Cardio",
+      "raw_type": "indoor_cardio",
+      "start_date_local": "2026-08-29T20:49:57",
+      "type": "Workout"
+    },
+    {
       "aerobic_te": 0.6,
       "avg_hr": 100,
       "calories": 74,
@@ -21762,7 +21988,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-29T08:31:04.269160+00:00",
+  "generated_at": "2026-08-30T07:44:31.086730+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

@@ -2393,6 +2393,41 @@
       "subtype": "indoor_cardio",
       "type": "Workout",
       "year": 2026
+    },
+    {
+      "date": "2026-08-29",
+      "hour": 20,
+      "subtype": "indoor_cardio",
+      "type": "Workout",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-30",
+      "hour": 6,
+      "subtype": "walking",
+      "type": "Walk",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-30",
+      "hour": 9,
+      "subtype": "indoor_cardio",
+      "type": "Workout",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-30",
+      "hour": 11,
+      "subtype": "indoor_cardio",
+      "type": "Workout",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-30",
+      "hour": 11,
+      "subtype": "indoor_cardio",
+      "type": "Workout",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -4097,6 +4132,15 @@
           "distance": 1261.5699462890625,
           "elevation_gain": 0.0,
           "moving_time": 1042.0
+        },
+        "2026-08-30": {
+          "activity_ids": [
+            "24167147638"
+          ],
+          "count": 1,
+          "distance": 850.4500122070312,
+          "elevation_gain": 0.0,
+          "moving_time": 819.0
         }
       },
       "WeightTraining": {
@@ -4962,12 +5006,24 @@
         "2026-08-29": {
           "activity_ids": [
             "24155731953",
-            "24155732051"
+            "24155732051",
+            "24160937976"
           ],
-          "count": 2,
+          "count": 3,
           "distance": 0.0,
           "elevation_gain": 0.0,
-          "moving_time": 1440.4819946289062
+          "moving_time": 2840.0910034179688
+        },
+        "2026-08-30": {
+          "activity_ids": [
+            "24167147708",
+            "24167147843",
+            "24167147881"
+          ],
+          "count": 3,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 1865.8809814453125
         }
       },
       "breathwork": {
@@ -5209,7 +5265,7 @@
       }
     }
   },
-  "generated_at": "2026-08-29T08:30:45.755853+00:00",
+  "generated_at": "2026-08-30T07:44:11.499489+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
