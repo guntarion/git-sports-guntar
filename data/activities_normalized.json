@@ -6865,5 +6865,42 @@
     "start_date_local": "2026-08-31T04:14:47",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "aerobic_te": 2.0,
+    "avg_cadence": 102,
+    "avg_hr": 129,
+    "avg_speed_mps": 1.264,
+    "avg_stride_len": 74.19,
+    "calories": 190,
+    "date": "2026-08-31",
+    "distance": 2010.6400146484375,
+    "elevation_gain": 0.0,
+    "id": "24181377176",
+    "max_hr": 150,
+    "moving_time": 1238.0,
+    "name": "Walking",
+    "raw_activity_type": "walking",
+    "raw_type": "walking",
+    "start_date_local": "2026-08-31T16:18:00",
+    "type": "Walk",
+    "year": 2026
+  },
+  {
+    "aerobic_te": 0.2,
+    "avg_hr": 104,
+    "calories": 18,
+    "date": "2026-08-31",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "24181453848",
+    "max_hr": 117,
+    "moving_time": 198.49400329589844,
+    "name": "Strength",
+    "raw_activity_type": "strength_training",
+    "raw_type": "strength_training",
+    "start_date_local": "2026-08-31T16:46:24",
+    "type": "WeightTraining",
+    "year": 2026
   }
 ]

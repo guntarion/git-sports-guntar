@@ -2,6 +2,119 @@
   "activities": [
     {
       "aerobic_te": 0.2,
+      "avg_hr": 104,
+      "calories": 18,
+      "date": "2026-08-31",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 198,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24181453848",
+      "max_hr": 117,
+      "moving_time": 198.5,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-08-31T16:46:24",
+      "type": "WeightTraining"
+    },
+    {
+      "aerobic_te": 2.0,
+      "avg_cadence": 102,
+      "avg_hr": 129,
+      "avg_pace_secs_per_km": 791,
+      "avg_stride_len": 74.19,
+      "calories": 190,
+      "date": "2026-08-31",
+      "distance": 2010.6,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 528,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 900,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 163,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24181377176",
+      "max_hr": 150,
+      "moving_time": 1238.0,
+      "name": "Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 120,
+          "avg_speed_mps": 1.218,
+          "distance": 1000.0,
+          "duration": 614.0,
+          "max_hr": 145,
+          "pace_secs_per_km": 821
+        },
+        {
+          "avg_hr": 139,
+          "avg_speed_mps": 1.308,
+          "distance": 1000.0,
+          "duration": 620.0,
+          "max_hr": 150,
+          "pace_secs_per_km": 765
+        },
+        {
+          "avg_hr": 150,
+          "avg_speed_mps": 1.942,
+          "distance": 10.6,
+          "duration": 4.0,
+          "max_hr": 150,
+          "pace_secs_per_km": 515
+        }
+      ],
+      "start_date_local": "2026-08-31T16:18:00",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 0.2,
       "avg_hr": 89,
       "avg_pace_secs_per_km": 289,
       "calories": 47,
@@ -22042,7 +22155,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-08-31T07:58:42.887845+00:00",
+  "generated_at": "2026-09-01T07:04:59.954202+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
