@@ -2,6 +2,162 @@
   "activities": [
     {
       "aerobic_te": 0.2,
+      "avg_hr": 89,
+      "avg_pace_secs_per_km": 290,
+      "calories": 40,
+      "date": "2026-09-02",
+      "distance": 2334.9,
+      "elevation_gain": 3.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 678,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24202879359",
+      "max_hr": 109,
+      "moving_time": 677.0,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 89,
+          "avg_speed_mps": 3.445,
+          "distance": 2334.9,
+          "duration": 677.0,
+          "elevation_gain": 3.0,
+          "max_hr": 109,
+          "pace_secs_per_km": 290
+        }
+      ],
+      "start_date_local": "2026-09-02T04:16:09",
+      "type": "Ride"
+    },
+    {
+      "aerobic_te": 2.4,
+      "avg_cadence": 138,
+      "avg_ground_contact": 389,
+      "avg_hr": 140,
+      "avg_pace_secs_per_km": 576,
+      "avg_stride_len": 74.46,
+      "avg_vertical_osc": 7.0,
+      "calories": 344,
+      "date": "2026-09-01",
+      "distance": 5009.9,
+      "elevation_gain": 13.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 70,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 2357,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 450,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 5,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24193992511",
+      "max_hr": 157,
+      "moving_time": 2882.2,
+      "name": "Sidoarjo Running Zone 2",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 136,
+          "avg_speed_mps": 1.967,
+          "distance": 1009.4,
+          "duration": 512.0,
+          "elevation_gain": 6.0,
+          "max_hr": 147,
+          "pace_secs_per_km": 508
+        },
+        {
+          "avg_hr": 143,
+          "avg_speed_mps": 1.81,
+          "distance": 997.0,
+          "duration": 550.8,
+          "max_hr": 148,
+          "pace_secs_per_km": 552
+        },
+        {
+          "avg_hr": 140,
+          "avg_speed_mps": 1.656,
+          "distance": 997.8,
+          "duration": 602.0,
+          "elevation_gain": 2.0,
+          "max_hr": 147,
+          "pace_secs_per_km": 604
+        },
+        {
+          "avg_hr": 139,
+          "avg_speed_mps": 1.607,
+          "distance": 999.7,
+          "duration": 622.0,
+          "elevation_gain": 2.0,
+          "max_hr": 144,
+          "pace_secs_per_km": 622
+        },
+        {
+          "avg_hr": 140,
+          "avg_speed_mps": 1.687,
+          "distance": 999.8,
+          "duration": 592.7,
+          "elevation_gain": 2.0,
+          "max_hr": 157,
+          "pace_secs_per_km": 593
+        },
+        {
+          "avg_hr": 137,
+          "avg_speed_mps": 2.225,
+          "distance": 6.1,
+          "duration": 2.7,
+          "max_hr": 137,
+          "pace_secs_per_km": 449
+        }
+      ],
+      "start_date_local": "2026-09-01T15:58:53",
+      "type": "Run",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 0.2,
       "avg_hr": 104,
       "calories": 18,
       "date": "2026-08-31",
@@ -22155,7 +22311,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-09-01T07:04:59.954202+00:00",
+  "generated_at": "2026-09-02T06:42:05.807303+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
