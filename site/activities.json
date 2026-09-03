@@ -1,6 +1,137 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.4,
+      "avg_cadence": 104,
+      "avg_hr": 103,
+      "avg_pace_secs_per_km": 773,
+      "avg_stride_len": 74.56,
+      "calories": 68,
+      "date": "2026-09-03",
+      "distance": 1076.1,
+      "elevation_gain": 1.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 831,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24217241186",
+      "max_hr": 112,
+      "moving_time": 830.0,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 103,
+          "avg_speed_mps": 1.294,
+          "distance": 1000.0,
+          "duration": 772.0,
+          "elevation_gain": 1.0,
+          "max_hr": 112,
+          "pace_secs_per_km": 773
+        },
+        {
+          "avg_hr": 101,
+          "avg_speed_mps": 1.293,
+          "distance": 76.1,
+          "duration": 58.0,
+          "max_hr": 105,
+          "pace_secs_per_km": 773
+        }
+      ],
+      "start_date_local": "2026-09-03T06:56:09",
+      "type": "Walk",
+      "vo2_max": 40.0
+    },
+    {
+      "aerobic_te": 2.3,
+      "avg_cadence": 159,
+      "avg_ground_contact": 282,
+      "avg_hr": 147,
+      "avg_pace_secs_per_km": 369,
+      "avg_stride_len": 101.78,
+      "avg_vertical_osc": 9.2,
+      "calories": 73,
+      "date": "2026-09-03",
+      "distance": 1037.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 41,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 74,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 163,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 105,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24216950249",
+      "max_hr": 161,
+      "moving_time": 381.7,
+      "name": "1k preparation for Bromo event",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 146,
+          "avg_speed_mps": 2.69,
+          "distance": 1000.0,
+          "duration": 371.7,
+          "max_hr": 160,
+          "pace_secs_per_km": 372
+        },
+        {
+          "avg_hr": 160,
+          "avg_speed_mps": 3.311,
+          "distance": 37.0,
+          "duration": 10.0,
+          "max_hr": 161,
+          "pace_secs_per_km": 302
+        }
+      ],
+      "start_date_local": "2026-09-03T06:47:42",
+      "type": "Run",
+      "vo2_max": 40.0
+    },
+    {
       "aerobic_te": 0.2,
       "avg_hr": 89,
       "avg_pace_secs_per_km": 290,
@@ -22311,7 +22442,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-09-02T06:42:05.807303+00:00",
+  "generated_at": "2026-09-03T06:45:02.070850+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

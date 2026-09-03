@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-09-02T06:46:17Z",
+  "generated_at": "2026-09-03T06:49:18Z",
   "model": "qwen-plus",
   "prompt_version": "v2-recovery-aware",
-  "running_fingerprint": "v2-recovery-aware:90:2026-09-01:409587",
+  "running_fingerprint": "v2-recovery-aware:91:2026-09-03:410624",
   "data_summary": {
-    "total_runs": 90,
-    "total_km": 409.6,
-    "date_range": "2026-01-09 to 2026-09-01",
+    "total_runs": 91,
+    "total_km": 410.6,
+    "date_range": "2026-01-09 to 2026-09-03",
     "this_month": {
       "month": "2026-09",
-      "runs": 1,
-      "total_km": 5.0,
-      "avg_pace_secs": 576,
-      "avg_hr": 140,
-      "avg_aerobic_te": 2.4,
-      "avg_cadence": 138,
-      "avg_efficiency": 12.4,
+      "runs": 2,
+      "total_km": 6.0,
+      "avg_pace_secs": 472,
+      "avg_hr": 144,
+      "avg_aerobic_te": 2.3,
+      "avg_cadence": 148,
+      "avg_efficiency": 15.42,
       "zone_pct": {
-        "z1": 2,
-        "z2": 82,
-        "z3": 16,
-        "z4": 0,
+        "z1": 3,
+        "z2": 74,
+        "z3": 19,
+        "z4": 3,
         "z5": 0
       },
       "longest_km": 5.0,
-      "best_pace_secs": 576
+      "best_pace_secs": 369
     },
     "last_month": {
       "month": "2026-08",
@@ -123,20 +123,8 @@
         "best_pace_secs": 447
       }
     ],
-    "days_left_this_month": 29,
+    "days_left_this_month": 28,
     "recent_runs": [
-      {
-        "date": "2026-08-05",
-        "distance_km": 3.3,
-        "pace_min_km": 8.42,
-        "avg_hr": 142,
-        "cadence": 159,
-        "aerobic_te": 2.4,
-        "vo2_max": 39.0,
-        "stride_len": 74.88,
-        "ground_contact": 298,
-        "vertical_osc": 7.9
-      },
       {
         "date": "2026-08-07",
         "distance_km": 4.0,
@@ -244,135 +232,162 @@
         "stride_len": 74.46,
         "ground_contact": 389,
         "vertical_osc": 7.0
+      },
+      {
+        "date": "2026-09-03",
+        "distance_km": 1.0,
+        "pace_min_km": 6.15,
+        "avg_hr": 147,
+        "cadence": 159,
+        "aerobic_te": 2.3,
+        "vo2_max": 40.0,
+        "stride_len": 101.78,
+        "ground_contact": 282,
+        "vertical_osc": 9.2
       }
     ]
   },
   "insights": {
     "readiness": {
       "status": "compromised",
-      "score_0_100": 32,
+      "score_0_100": 38,
       "drivers": [
-        "Recovery balance not provided, but ACWR cannot be calculated due to missing acute/chronic load metrics — critical gap; HRV data absent, so no baseline comparison; resting HR data absent; training readiness not provided; only 1 run in September vs 10 in August suggests abrupt drop-off likely due to fatigue or illness; recent runs show elevated aerobic TE (3.5 on 8.9 km, 3.3 on 4.0 km) — above 3.0 indicates aerobic strain; ground contact time spiked to 385 ms on 8.23 (vs median ~295–305 ms), consistent with fatigue-induced gait deterioration"
+        "ACWR is missing but recent runs show acute load accumulation without corresponding recovery metrics (HRV, sleep, resting HR not provided — absence implies no tracking or suppression)",
+        "Recovery balance cannot be calculated (no HRV/load z-scores in data), but last two runs (2026-09-01 and 2026-09-03) show elevated HR (140, 147 bpm) at slow paces (9:36, 6:09 min/km), suggesting autonomic strain",
+        "Aerobic TE dropped to 2.3–2.4 in recent easy runs — below 2.6–2.9 seen in July–August — indicating reduced fatigue resilience",
+        "This month’s avg HR (144 bpm) is 10 bpm higher than last month’s (134 bpm) despite slower avg pace (7:52 vs 8:54 min/km), a classic sign of incomplete recovery"
       ],
-      "guidance": "The athlete is not recovered enough for structured intensity or volume increase; priority is rest, sleep hygiene, and low-stimulus movement."
+      "guidance": "The body is not recovered enough to absorb additional training stress; priority this week must be nervous system restoration, not volume or intensity."
     },
     "monthly_review": {
-      "summary": "Running volume collapsed from 51.3 km in August to just 5.0 km in September, with pace slowing significantly and zone distribution shifting heavily toward Z2 — indicating either forced reduction or loss of capacity.",
+      "summary": "September has started with dramatically lower volume and markedly higher physiological strain compared to August — a sharp decline in workload paired with signs of residual fatigue.",
       "metrics": [
         {
           "name": "Total Distance",
-          "current": "5.0 km",
+          "current": "6.0 km",
           "previous": "51.3 km",
-          "change": "-46.3 km",
+          "change": "-45.3 km",
           "verdict": "declined"
         },
         {
           "name": "Runs",
-          "current": "1",
+          "current": "2",
           "previous": "10",
-          "change": "-9",
+          "change": "-8",
           "verdict": "declined"
         },
         {
-          "name": "Avg Pace (sec/km)",
-          "current": "576",
-          "previous": "534",
-          "change": "+42",
-          "verdict": "declined"
+          "name": "Avg Pace",
+          "current": "7:52 min/km",
+          "previous": "8:54 min/km",
+          "change": "+62 secs faster",
+          "verdict": "improved"
         },
         {
           "name": "Avg HR",
-          "current": "140",
-          "previous": "134",
-          "change": "+6",
+          "current": "144 bpm",
+          "previous": "134 bpm",
+          "change": "+10 bpm",
           "verdict": "declined"
         },
         {
           "name": "Avg Aerobic TE",
-          "current": "2.4",
+          "current": "2.3",
           "previous": "2.6",
-          "change": "-0.2",
-          "verdict": "improved"
+          "change": "-0.3",
+          "verdict": "declined"
         },
         {
-          "name": "Avg Efficiency (ml/kg/km)",
-          "current": "12.4",
-          "previous": "14.12",
-          "change": "-1.72",
-          "verdict": "improved"
+          "name": "Avg Efficiency",
+          "current": "15.42 ml/kg/km",
+          "previous": "14.12 ml/kg/km",
+          "change": "+1.30",
+          "verdict": "declined"
         },
         {
           "name": "Avg Cadence",
-          "current": "138",
-          "previous": "149",
-          "change": "-11",
-          "verdict": "declined"
+          "current": "148 spm",
+          "previous": "149 spm",
+          "change": "-1 spm",
+          "verdict": "stable"
         }
       ],
-      "highlight": "The 12.4 ml/kg/km efficiency this month is the lowest (best) value in the entire 5-month history — a meaningful improvement — but it occurred during a single 5.0 km run at very slow pace (9:36/km), suggesting reduced neuromuscular demand rather than true physiological gain."
+      "highlight": "Despite running 45 km less and 8 fewer sessions, average heart rate rose by 10 bpm while pace improved — strongly indicating reduced parasympathetic tone and compensatory effort, not fitness gain."
     },
     "goal_tracker": {
-      "km_this_month": 5.0,
+      "km_this_month": 6.0,
       "km_last_month": 51.3,
-      "km_remaining": 46.3,
-      "sessions_this_month": 1,
+      "km_remaining": 45.3,
+      "sessions_this_month": 2,
       "sessions_last_month": 10,
-      "sessions_remaining": 9,
+      "sessions_remaining": 8,
       "projection": "Behind",
-      "message": "Catching up would require ~46 km across 9 sessions (~5.1 km/session) in 29 days — but readiness is compromised, aerobic TE is elevated in recent longer efforts, and cadence dropped sharply, indicating fatigue. Chasing last month’s volume is medically inadvisable and risks injury or burnout."
+      "message": "Catching up to last month’s 51.3 km would require ~1.6 km/day for 28 days — but readiness is compromised, so chasing that number risks further fatigue accumulation or injury; volume should remain low and purposeful until recovery metrics rebound."
     },
     "insights": [
       {
-        "category": "aerobic_efficiency",
-        "title": "Efficiency improved only under low-load conditions",
-        "body": "Best efficiency (12.4 ml/kg/km) occurred during the sole September run — a 5.0 km effort at 9:36/km (576 sec/km) and HR 140, well below lactate threshold; contrast with August’s best efficiency (14.12) achieved across higher-volume, mixed-intensity work — suggesting the 'improvement' reflects deconditioning, not adaptation.",
+        "category": "autonomic_effort",
+        "title": "Elevated HR at low intensities signals sympathetic dominance",
+        "body": "Avg HR increased +10 bpm from Aug to Sep while avg pace improved by 62 sec/km — and recent easy runs (e.g., 2026-09-01: 9:36 min/km @ 140 bpm; 2026-08-23: 10:51 min/km @ 111 bpm) confirm disproportionate cardiac output for sub-threshold efforts.",
         "severity": "warning"
       },
       {
-        "category": "biomechanics_recovery",
-        "title": "Fatigue visibly altered gait mechanics",
-        "body": "Ground contact time jumped from median ~295–305 ms to 385 ms on 8.23 (slow 10:51/km pace), while vertical oscillation dropped to 6.6 mm — classic signs of reduced leg spring and compensatory shuffling gait under fatigue.",
+        "category": "running_economy",
+        "title": "Worsening efficiency correlates with aerobic TE decline",
+        "body": "Avg efficiency rose from 14.12 (Aug) to 15.42 (Sep) — a +1.30 ml/kg/km deterioration — while avg aerobic TE fell from 2.6 to 2.3, suggesting reduced metabolic stability during steady-state efforts.",
         "severity": "warning"
       },
       {
-        "category": "intensity_distribution",
-        "title": "Z3 work disappeared while Z2 dominance increased",
-        "body": "Z3 % dropped from 26% in August to 16% in September, while Z2 rose from 22% to 82%; this extreme polarisation — without Z1 recovery work (only 2% Z1) — suggests accumulated fatigue prevented sustaining even moderate intensities, not intentional polarised training.",
+        "category": "biomechanical_compensation",
+        "title": "Cadence and stride length variability indicate fatigue adaptation",
+        "body": "Cadence dropped sharply in two recent runs (138–139 spm on 2026-09-01 and 2026-08-23) versus typical 148–159 spm, while stride length swung from 65.7 cm (2026-08-23) to 101.8 cm (2026-09-03) — a 55% range — likely reflecting inconsistent neuromuscular control under fatigue.",
+        "severity": "warning"
+      },
+      {
+        "category": "recovery_signaling",
+        "title": "Ground contact time spikes align with low-effort runs",
+        "body": "Two of the three longest ground contact times (385 ms on 2026-08-23, 389 ms on 2026-09-01) occurred during very slow, low-HR runs — a known marker of reduced neuromuscular readiness and delayed elastic recoil.",
         "severity": "warning"
       }
     ],
     "recommendations": [
       {
-        "action": "Complete full rest (no running) on Tuesday and Thursday; walk 30 min at <100 bpm on Wednesday and Saturday.",
-        "reason": "Cadence dropped 11 spm, ground contact increased 80+ ms, and aerobic TE remains >3.0 in recent long efforts — all indicate systemic fatigue requiring unload.",
+        "action": "Complete one 30-min Zone 1 walk or very light jog (HR ≤120 bpm, pace ≥12:00 min/km) on Tuesday — no distance target, only rhythm and breath awareness.",
+        "reason": "To stimulate vagal tone without cardiovascular load; matches compromised readiness status and counters elevated baseline HR.",
         "priority": "high"
       },
       {
-        "action": "Zone 1 easy run: 3.5 km, HR ≤125 bpm, cadence ≥145 spm, on Sunday — stop immediately if HR exceeds 128 or cadence falls below 140.",
-        "reason": "To test autonomic resilience and reinforce efficient stride before reintroducing stimulus; Z1 was nearly absent (2%) this month, increasing decoupling risk.",
+        "action": "Perform 10 minutes of guided diaphragmatic breathing (5-sec inhale, 6-sec exhale) each evening before bed, tracked via HRV app if available.",
+        "reason": "Directly targets autonomic imbalance evidenced by high HR at low intensities and absent recovery metrics.",
         "priority": "high"
       },
       {
-        "action": "Perform daily 10-min HRV-guided box breathing (4-4-4-4) after waking, tracking subjective energy and morning HR if possible.",
-        "reason": "HRV data is missing but essential for recovery calibration; breathwork improves parasympathetic tone and may accelerate HRV rebound.",
+        "action": "Skip all running Thursday–Sunday; replace with mobility drills (calf/hip flexor release + single-leg balance holds) and 20 min of non-weight-bearing cardio (e.g., arm ergometer) at RPE ≤2.",
+        "reason": "Prevents further sympathetic loading while preserving circulatory stimulus; consistent with HRV suppression risk and poor recovery balance.",
         "priority": "high"
       }
     ],
     "risk_flags": [
       {
-        "risk": "Early overreaching",
-        "evidence": "Aerobic TE >3.0 on three of last five runs (8.7, 8.9, 8.27), ground contact time ↑80+ ms on 8.23, cadence ↓13 spm from July peak (151 → 138), and complete absence of Z1 work this month",
+        "risk": "Autonomic overreach",
+        "evidence": "Avg HR +10 bpm with faster pace, elevated HR on easy runs (140–147 bpm), and aerobic TE drop from 2.6→2.3",
         "severity": "warning",
-        "action": "Pause all Z2+ running for 5 days; reassess after Zone 1 test run"
+        "action": "Pause all Zone 3+ efforts and monitor HR response to Zone 1 efforts for 3 days"
+      },
+      {
+        "risk": "Neuromuscular fatigue accumulation",
+        "evidence": "Ground contact >385 ms on two slow runs, cadence <140 spm, vertical oscillillation spike to 9.2 cm (2026-09-03)",
+        "severity": "warning",
+        "action": "Eliminate all speedwork and hill efforts until cadence stabilizes ≥145 spm and ground contact <320 ms on Zone 2 runs"
       }
     ],
     "weekly_focus": {
-      "theme": "Autonomic Reset",
-      "description": "Prioritise vagal tone restoration and neuromuscular recovery over distance or pace; rebuild rhythm before load.",
+      "theme": "Parasympathetic re-engagement",
+      "description": "Prioritizing nervous system reset over mechanical or metabolic stimulus — using rhythm, breath, and minimal load to restore HRV responsiveness and reduce resting sympathetic tone.",
       "suggested_sessions": [
-        "HR-led walking",
-        "Zone 1 mobility run",
-        "Non-running movement (cycling/swimming <110 bpm)"
+        "Zone 1 rhythm run/walk (HR ≤120 bpm)",
+        "Diaphragmatic breathing + HRV biofeedback",
+        "Non-weight-bearing cardio + mobility"
       ]
     }
   }

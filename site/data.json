@@ -2463,6 +2463,20 @@
       "subtype": "cycling",
       "type": "Ride",
       "year": 2026
+    },
+    {
+      "date": "2026-09-03",
+      "hour": 6,
+      "subtype": "running",
+      "type": "Run",
+      "year": 2026
+    },
+    {
+      "date": "2026-09-03",
+      "hour": 6,
+      "subtype": "walking",
+      "type": "Walk",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -3580,6 +3594,15 @@
           "distance": 5009.91015625,
           "elevation_gain": 13.0,
           "moving_time": 2882.2380044460297
+        },
+        "2026-09-03": {
+          "activity_ids": [
+            "24216950249"
+          ],
+          "count": 1,
+          "distance": 1037.0,
+          "elevation_gain": 0.0,
+          "moving_time": 381.7090148925781
         }
       },
       "TrailRun": {
@@ -4212,6 +4235,15 @@
           "distance": 2010.6400146484375,
           "elevation_gain": 0.0,
           "moving_time": 1238.0
+        },
+        "2026-09-03": {
+          "activity_ids": [
+            "24217241186"
+          ],
+          "count": 1,
+          "distance": 1076.0999755859375,
+          "elevation_gain": 1.0,
+          "moving_time": 830.0
         }
       },
       "WeightTraining": {
@@ -5345,7 +5377,7 @@
       }
     }
   },
-  "generated_at": "2026-09-02T06:41:50.061350+00:00",
+  "generated_at": "2026-09-03T06:44:47.245713+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
