@@ -1,6 +1,277 @@
 {
   "activities": [
     {
+      "aerobic_te": 5.0,
+      "anaerobic_te": 0.8,
+      "avg_cadence": 90,
+      "avg_ground_contact": 327,
+      "avg_hr": 158,
+      "avg_pace_secs_per_km": 742,
+      "avg_stride_len": 77.22,
+      "avg_vertical_osc": 6.9,
+      "calories": 1196,
+      "date": "2026-09-06",
+      "distance": 10672.1,
+      "elevation_gain": 463.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 55,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 437,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1880,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 5085,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 464,
+          "zone": 5
+        }
+      ],
+      "id": "24253740200",
+      "max_hr": 180,
+      "moving_time": 7120.0,
+      "name": "Bromo Marathon",
+      "raw_type": "trail_running",
+      "splits": [
+        {
+          "avg_hr": 158,
+          "avg_speed_mps": 1.751,
+          "distance": 1000.0,
+          "duration": 564.0,
+          "elevation_gain": 33.0,
+          "max_hr": 170,
+          "pace_secs_per_km": 571
+        },
+        {
+          "avg_hr": 161,
+          "avg_speed_mps": 1.09,
+          "distance": 1000.0,
+          "duration": 758.0,
+          "elevation_gain": 115.0,
+          "max_hr": 171,
+          "pace_secs_per_km": 917
+        },
+        {
+          "avg_hr": 156,
+          "avg_speed_mps": 0.94,
+          "distance": 1000.0,
+          "duration": 885.0,
+          "elevation_gain": 117.0,
+          "max_hr": 174,
+          "pace_secs_per_km": 1064
+        },
+        {
+          "avg_hr": 156,
+          "avg_speed_mps": 0.953,
+          "distance": 1000.0,
+          "duration": 800.0,
+          "elevation_gain": 89.0,
+          "max_hr": 165,
+          "pace_secs_per_km": 1049
+        },
+        {
+          "avg_hr": 150,
+          "avg_speed_mps": 1.119,
+          "distance": 1000.0,
+          "duration": 796.0,
+          "elevation_gain": 45.0,
+          "max_hr": 166,
+          "pace_secs_per_km": 894
+        },
+        {
+          "avg_hr": 159,
+          "avg_speed_mps": 2.091,
+          "distance": 1000.0,
+          "duration": 478.0,
+          "max_hr": 167,
+          "pace_secs_per_km": 478
+        },
+        {
+          "avg_hr": 162,
+          "avg_speed_mps": 1.795,
+          "distance": 1000.0,
+          "duration": 542.0,
+          "elevation_gain": 3.0,
+          "max_hr": 169,
+          "pace_secs_per_km": 557
+        },
+        {
+          "avg_hr": 165,
+          "avg_speed_mps": 1.418,
+          "distance": 1000.0,
+          "duration": 643.0,
+          "elevation_gain": 36.0,
+          "max_hr": 175,
+          "pace_secs_per_km": 705
+        },
+        {
+          "avg_hr": 158,
+          "avg_speed_mps": 1.59,
+          "distance": 1000.0,
+          "duration": 626.0,
+          "elevation_gain": 2.0,
+          "max_hr": 169,
+          "pace_secs_per_km": 629
+        },
+        {
+          "avg_hr": 159,
+          "avg_speed_mps": 1.505,
+          "distance": 1000.0,
+          "duration": 637.0,
+          "elevation_gain": 3.0,
+          "max_hr": 168,
+          "pace_secs_per_km": 664
+        },
+        {
+          "avg_hr": 165,
+          "avg_speed_mps": 1.716,
+          "distance": 672.1,
+          "duration": 391.0,
+          "elevation_gain": 21.0,
+          "max_hr": 180,
+          "pace_secs_per_km": 583
+        }
+      ],
+      "start_date_local": "2026-09-06T07:00:03",
+      "type": "TrailRun",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 2.3,
+      "avg_cadence": 104,
+      "avg_hr": 134,
+      "avg_pace_secs_per_km": 801,
+      "avg_stride_len": 71.49,
+      "calories": 176,
+      "date": "2026-09-06",
+      "distance": 1834.2,
+      "elevation_gain": 134.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 436,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 272,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 646,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 114,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24253739875",
+      "max_hr": 158,
+      "moving_time": 1463.0,
+      "name": "Pasuruan Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 122,
+          "avg_speed_mps": 1.165,
+          "distance": 1000.0,
+          "duration": 854.0,
+          "elevation_gain": 69.0,
+          "max_hr": 156,
+          "pace_secs_per_km": 858
+        },
+        {
+          "avg_hr": 150,
+          "avg_speed_mps": 1.368,
+          "distance": 834.2,
+          "duration": 609.0,
+          "elevation_gain": 65.0,
+          "max_hr": 158,
+          "pace_secs_per_km": 731
+        }
+      ],
+      "start_date_local": "2026-09-06T05:59:53",
+      "type": "Walk",
+      "vo2_max": 39.0
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_cadence": 84,
+      "avg_hr": 90,
+      "avg_pace_secs_per_km": 973,
+      "avg_stride_len": 72.81,
+      "calories": 21,
+      "date": "2026-09-05",
+      "distance": 313.0,
+      "elevation_gain": 2.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 305,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24246507019",
+      "max_hr": 102,
+      "moving_time": 290.0,
+      "name": "Pasuruan Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 90,
+          "avg_speed_mps": 1.028,
+          "distance": 313.0,
+          "duration": 290.0,
+          "elevation_gain": 2.0,
+          "max_hr": 102,
+          "pace_secs_per_km": 973
+        }
+      ],
+      "start_date_local": "2026-09-05T17:37:41",
+      "type": "Walk"
+    },
+    {
       "aerobic_te": 0.3,
       "avg_hr": 93,
       "avg_pace_secs_per_km": 266,
@@ -22496,7 +22767,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-09-05T06:34:25.624635+00:00",
+  "generated_at": "2026-09-06T06:44:24.641265+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
