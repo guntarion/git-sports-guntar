@@ -43,7 +43,7 @@
       "id": "24253740200",
       "max_hr": 180,
       "moving_time": 7120.0,
-      "name": "Bromo Marathon",
+      "name": "Bromo Marathon - Trail Run 10k",
       "raw_type": "trail_running",
       "splits": [
         {
@@ -22767,7 +22767,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-09-06T06:44:24.641265+00:00",
+  "generated_at": "2026-09-07T06:52:54.649690+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
