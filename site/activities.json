@@ -1,6 +1,155 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.2,
+      "avg_hr": 90,
+      "avg_pace_secs_per_km": 295,
+      "calories": 40,
+      "date": "2026-09-08",
+      "distance": 2269.8,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 669,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24277106242",
+      "max_hr": 101,
+      "moving_time": 664.0,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 90,
+          "avg_speed_mps": 3.391,
+          "distance": 2269.8,
+          "duration": 664.0,
+          "max_hr": 101,
+          "pace_secs_per_km": 295
+        }
+      ],
+      "start_date_local": "2026-09-08T04:06:28",
+      "type": "Ride"
+    },
+    {
+      "aerobic_te": 0.2,
+      "avg_hr": 103,
+      "avg_pace_secs_per_km": 339,
+      "calories": 20,
+      "date": "2026-09-07",
+      "distance": 692.9,
+      "elevation_gain": 9.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 235,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24269112466",
+      "max_hr": 112,
+      "moving_time": 227.0,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 103,
+          "avg_speed_mps": 2.946,
+          "distance": 692.9,
+          "duration": 227.0,
+          "elevation_gain": 9.0,
+          "max_hr": 112,
+          "pace_secs_per_km": 339
+        }
+      ],
+      "start_date_local": "2026-09-07T17:36:23",
+      "type": "Ride"
+    },
+    {
+      "aerobic_te": 0.1,
+      "avg_hr": 90,
+      "calories": 30,
+      "date": "2026-09-07",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 481,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24268211472",
+      "max_hr": 110,
+      "moving_time": 481.0,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-09-07T15:49:01",
+      "type": "WeightTraining"
+    },
+    {
       "aerobic_te": 5.0,
       "anaerobic_te": 0.8,
       "avg_cadence": 90,
@@ -22767,7 +22916,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-09-07T06:52:54.649690+00:00",
+  "generated_at": "2026-09-08T06:48:57.411331+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
