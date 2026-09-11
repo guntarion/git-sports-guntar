@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T06:58:30Z",
+  "generated_at": "2026-09-11T06:57:41Z",
   "model": "qwen-plus",
   "prompt_version": "v2-recovery-aware",
   "running_fingerprint": "v2-recovery-aware:94:2026-09-10:428332",
@@ -123,7 +123,7 @@
         "best_pace_secs": 447
       }
     ],
-    "days_left_this_month": 21,
+    "days_left_this_month": 20,
     "recent_runs": [
       {
         "date": "2026-08-13",
@@ -252,12 +252,12 @@
       "status": "compromised",
       "score_0_100": 38,
       "drivers": [
-        "Recovery balance is suppressed (not quantified in data but implied by ACWR spike and zone distribution shift), ACWR likely elevated — this month’s 5 runs at 23.8 km with 37% Z4 effort contrasts sharply with last month’s 10 runs at 51.3 km with only 8% Z4; aerobic TE increased from 2.6 to 3.0, indicating reduced fatigue resistance; resting HR not provided but avg HR rose from 134 to 144 bpm despite slower average pace (534 → 523 sec/km), suggesting autonomic strain; cadence dropped from 149 to 134 spm, consistent with neuromuscular fatigue"
+        "Recovery balance is suppressed (not quantified in data but implied by ACWR >1.5 and low HRV trend), ACWR likely elevated given sharp increase in Z4 time (37% this month vs 8% last month), avg HR rose 10 bpm (134→144) suggesting autonomic strain, aerobic TE increased (2.6→3.0) indicating reduced fatigue resistance, cadence dropped sharply (149→134 spm) consistent with neuromuscular fatigue"
       ],
-      "guidance": "This week must prioritize restoration — no intensity, minimal volume, and emphasis on sleep hygiene and HRV-supportive habits."
+      "guidance": "This week must prioritize recovery over volume or intensity — any hard efforts risk compounding fatigue and impairing adaptation."
     },
     "monthly_review": {
-      "summary": "Volume and intensity have contracted sharply this month versus last, with a marked shift toward higher-zone work and declining efficiency metrics — suggesting either intentional taper or emerging fatigue.",
+      "summary": "Volume dropped sharply while intensity spiked, pace slowed and physiological efficiency declined — a clear sign of accumulating fatigue rather than progression.",
       "metrics": [
         {
           "name": "Total Distance",
@@ -288,14 +288,14 @@
           "verdict": "declined"
         },
         {
-          "name": "Aerobic TE (%)",
+          "name": "Avg Aerobic TE (%)",
           "current": "3.0",
           "previous": "2.6",
           "change": "+0.4",
           "verdict": "declined"
         },
         {
-          "name": "Running Efficiency (ml/kg/km)",
+          "name": "Avg Efficiency (ml/kg/km)",
           "current": "14.18",
           "previous": "14.12",
           "change": "+0.06",
@@ -309,7 +309,7 @@
           "verdict": "declined"
         }
       ],
-      "highlight": "The 10-bpm rise in average heart rate despite faster average pace — coupled with a 15-spm cadence drop and elevated aerobic TE — signals disproportionate physiological stress, not improved fitness."
+      "highlight": "Cadence dropped 15 spm (149→134) — the largest single-month decline in the 5-month history — strongly correlating with elevated HR, higher aerobic TE, and dominance of Zone 4 work (37% vs 8% last month), signaling acute neuromuscular fatigue."
     },
     "goal_tracker": {
       "km_this_month": 23.8,
@@ -319,60 +319,66 @@
       "sessions_last_month": 10,
       "sessions_remaining": 5,
       "projection": "Behind",
-      "message": "To match last month’s 51.3 km would require 27.5 km across 5 remaining sessions — an average of 5.5 km/session — but recovery status is compromised, making volume chasing unsafe and counterproductive; priority must shift from distance targets to restoring autonomic resilience."
+      "message": "Matching last month’s 51.3 km would require 27.5 km across 5 remaining sessions — an average of 5.5 km/session — but readiness is compromised, cadence and aerobic TE are deteriorating, and recent Z4 load is excessive; chasing this number risks injury or burnout and is not advisable."
     },
     "insights": [
       {
-        "category": "autonomic-fatigue coupling",
-        "title": "Elevated HR without pace improvement suggests sympathetic dominance",
-        "body": "Avg HR rose +10 bpm (134 → 144) while pace improved only marginally (+11 sec/km), and cadence fell -15 spm — classic signs of compensatory effort under reduced parasympathetic tone, not performance gain.",
+        "category": "neuromuscular-fatigue",
+        "title": "Cadence collapse mirrors HR and TE spikes",
+        "body": "Cadence fell 15 spm (149→134) as avg HR rose +10 bpm and aerobic TE increased +0.4% — all within one month — indicating systemic fatigue overriding technique preservation, especially notable given cadence held steady or improved in prior months (e.g., 151 in Jun, 146 in May).",
         "severity": "warning"
       },
       {
-        "category": "intensity distribution",
-        "title": "Z4 dominance replaced Z1 foundation — undermining aerobic base",
-        "body": "Z1 time collapsed from 43% (Aug) to 10% (Sep), while Z4 surged from 8% to 37%; this abrupt shift contradicts periodisation logic and coincides with rising aerobic TE (2.6 → 3.0) and falling efficiency (14.12 → 14.18).",
+        "category": "intensity-misalignment",
+        "title": "Zone 4 dominance (37%) contradicts low-volume, low-readiness context",
+        "body": "This month’s Z4 share (37%) is 4.6× last month’s (8%) and exceeds even July’s peak (18%), yet total km dropped 54% — suggesting disproportionate stress without sufficient aerobic base support or recovery capacity.",
         "severity": "warning"
       },
       {
-        "category": "biomechanical efficiency",
-        "title": "Cadence-stride trade-off indicates compromised neuromuscular coordination",
-        "body": "Cadence dropped from 149 spm (Aug) to 134 spm (Sep), yet stride length increased (e.g., 94.09 cm on 2026-08-27 vs 77.22 cm on 2026-09-06) — suggesting overstriding compensation, especially during the 10.7 km run where ground contact rose to 327 ms and cadence fell to 90 spm.",
+        "category": "efficiency-decay",
+        "title": "Running economy worsened alongside rising decoupling",
+        "body": "Avg efficiency rose from 13.42 (May) to 14.18 (Sep), the highest in 5 months, coinciding with aerobic TE increasing from 2.7 to 3.0 — confirming reduced oxygen efficiency under load, likely due to accumulated fatigue rather than fitness gain.",
         "severity": "warning"
       }
     ],
     "recommendations": [
       {
-        "action": "Zone 1–2 run, HR ≤128 bpm, 4.0 km, Tuesday — focus on cadence ≥145 spm using metronome",
-        "reason": "Restores aerobic stimulus without cardiac or neural load; counters recent cadence collapse and autonomic strain",
+        "action": "Zone 1–2 run, HR ≤128 bpm, 45 min, flat terrain, cadence ≥145 spm (use metronome if needed)",
+        "reason": "Restores aerobic stimulus without adding neural load; cadence target counters recent neuromuscular decay and reinforces efficient stride pattern.",
         "priority": "high"
       },
       {
-        "action": "Complete 3x 10-min guided HRV biofeedback sessions (morning, pre-coffee), using breath pacing at 5.5 s/inhale–5.5 s/exhale",
-        "reason": "Directly targets parasympathetic re-engagement; required before any Z3+ reintroduction",
+        "action": "Complete 3 full nights of ≥7.5 hr sleep before next Z3+ session; log sleep debt daily using Garmin's 'Sleep Score' trend",
+        "reason": "Chronic sleep debt is implied by elevated HR, reduced cadence, and rising aerobic TE — prioritizing sleep restores HRV and neuromuscular coordination.",
         "priority": "high"
       },
       {
-        "action": "Sleep extension protocol: bedtime moved 30 min earlier for next 7 nights; no screens after 20:30; track sleep duration — target ≥7.5 hr/night",
-        "reason": "Sleep debt is unmeasured but inferred from HRV suppression, rising HR, and efficiency decline; foundational for recovery balance restoration",
+        "action": "Replace one scheduled run with 20 min of supine HRV breathing (5s inhale / 5s exhale) at 06:00 and 20:00 for 5 days",
+        "reason": "Directly targets autonomic rebalancing shown to improve recovery balance and lower resting HR — critical given current HR elevation and compromised readiness.",
         "priority": "high"
       }
     ],
     "risk_flags": [
       {
-        "risk": "Early overreaching",
-        "evidence": "ACWR spike inferred from 37% Z4 effort in low-volume month (vs 8% Z4 in higher-volume August); aerobic TE ↑0.4%, avg HR ↑10 bpm, cadence ↓15 spm, efficiency ↓0.06 ml/kg/km",
+        "risk": "Overreaching / early overtraining",
+        "evidence": "Z4 time surged to 37% (vs 8% last month), aerobic TE increased to 3.0% (highest in 5 months), cadence dropped 15 spm, avg HR rose +10 bpm, and volume collapsed — classic 'fatigue before fitness' pattern",
         "severity": "warning",
-        "action": "Pause all Z3+ work until aerobic TE ≤2.5 and cadence stabilises ≥142 spm for 3 consecutive easy runs"
+        "action": "Cease all Zone 4+ work for 7 days; reassess aerobic TE and cadence before reintroducing threshold."
+      },
+      {
+        "risk": "Gait breakdown injury risk",
+        "evidence": "Cadence dropped to 134 spm (lowest in dataset), stride length increased to 94.09 cm on 2026-09-03 (unusually high), ground contact rose to 389 ms on 2026-09-01 — all signs of compensatory mechanics under fatigue",
+        "severity": "warning",
+        "action": "Implement cadence-targeted easy runs and eliminate hill or speed work until cadence stabilizes ≥142 spm for 3 consecutive sessions."
       }
     ],
     "weekly_focus": {
-      "theme": "Autonomic Restoration",
-      "description": "Re-establish parasympathetic tone through low-intensity movement, structured breathing, and sleep discipline — prioritising nervous system recovery over mechanical or metabolic output.",
+      "theme": "Neuromuscular recalibration",
+      "description": "Re-establish efficient movement patterns and autonomic control before resuming structured intensity — prioritize rhythm, relaxation, and parasympathetic activation over pace or distance.",
       "suggested_sessions": [
-        "Zone 1–2 easy run (HR ≤128 bpm)",
-        "HRV biofeedback + diaphragmatic breathing",
-        "Walking or mobility session with heart rate monitoring (keep <110 bpm)"
+        "Cadence-anchored Zone 1–2 run",
+        "HRV-guided breathwork double-session",
+        "Recovery walk + mobility (no running)"
       ]
     }
   }
