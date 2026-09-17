@@ -7447,5 +7447,28 @@
     "start_date_local": "2026-09-16T09:20:22",
     "type": "WeightTraining",
     "year": 2026
+  },
+  {
+    "aerobic_te": 2.9,
+    "avg_cadence": 155,
+    "avg_ground_contact": 301,
+    "avg_hr": 145,
+    "avg_speed_mps": 2.171,
+    "avg_stride_len": 83.28,
+    "avg_vertical_osc": 8.4,
+    "calories": 338,
+    "date": "2026-09-17",
+    "distance": 4564.89013671875,
+    "elevation_gain": 1.0,
+    "id": "24389653956",
+    "max_hr": 160,
+    "moving_time": 2098.929000854492,
+    "name": "Training Session #4 - Tempo",
+    "raw_activity_type": "running",
+    "raw_type": "running",
+    "start_date_local": "2026-09-17T05:12:40",
+    "type": "Run",
+    "vo2_max": 42.0,
+    "year": 2026
   }
 ]
