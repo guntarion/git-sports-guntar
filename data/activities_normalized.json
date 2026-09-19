@@ -7470,5 +7470,28 @@
     "type": "Run",
     "vo2_max": 42.0,
     "year": 2026
+  },
+  {
+    "aerobic_te": 2.6,
+    "avg_cadence": 148,
+    "avg_ground_contact": 318,
+    "avg_hr": 146,
+    "avg_speed_mps": 2.013,
+    "avg_stride_len": 80.03,
+    "avg_vertical_osc": 8.3,
+    "calories": 363,
+    "date": "2026-09-18",
+    "distance": 5005.35009765625,
+    "elevation_gain": 2.0,
+    "id": "24405428602",
+    "max_hr": 160,
+    "moving_time": 2480.593002319336,
+    "name": "Training Sesi # 5 - Easy",
+    "raw_activity_type": "running",
+    "raw_type": "running",
+    "start_date_local": "2026-09-18T15:43:50",
+    "type": "Run",
+    "vo2_max": 42.0,
+    "year": 2026
   }
 ]
