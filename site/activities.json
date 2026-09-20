@@ -1,6 +1,232 @@
 {
   "activities": [
     {
+      "aerobic_te": 2.9,
+      "avg_cadence": 152,
+      "avg_ground_contact": 309,
+      "avg_hr": 138,
+      "avg_pace_secs_per_km": 501,
+      "avg_stride_len": 77.97,
+      "avg_vertical_osc": 8.1,
+      "calories": 504,
+      "date": "2026-09-20",
+      "distance": 7304.2,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 643,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 1547,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1465,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24425342503",
+      "max_hr": 153,
+      "moving_time": 3651.7,
+      "name": "Training Sesi # 6 - Easy Long",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 104,
+          "avg_speed_mps": 1.67,
+          "distance": 500.9,
+          "duration": 298.0,
+          "max_hr": 116,
+          "pace_secs_per_km": 599
+        },
+        {
+          "avg_hr": 128,
+          "avg_speed_mps": 2.066,
+          "distance": 1000.0,
+          "duration": 484.1,
+          "max_hr": 135,
+          "pace_secs_per_km": 484
+        },
+        {
+          "avg_hr": 136,
+          "avg_speed_mps": 2.066,
+          "distance": 1000.0,
+          "duration": 484.0,
+          "max_hr": 141,
+          "pace_secs_per_km": 484
+        },
+        {
+          "avg_hr": 141,
+          "avg_speed_mps": 2.079,
+          "distance": 1000.0,
+          "duration": 481.0,
+          "max_hr": 144,
+          "pace_secs_per_km": 481
+        },
+        {
+          "avg_hr": 144,
+          "avg_speed_mps": 2.056,
+          "distance": 1000.0,
+          "duration": 486.0,
+          "max_hr": 149,
+          "pace_secs_per_km": 486
+        },
+        {
+          "avg_hr": 147,
+          "avg_speed_mps": 2.05,
+          "distance": 951.9,
+          "duration": 464.4,
+          "max_hr": 150,
+          "pace_secs_per_km": 488
+        },
+        {
+          "avg_hr": 149,
+          "avg_speed_mps": 2.05,
+          "distance": 1000.0,
+          "duration": 487.0,
+          "max_hr": 153,
+          "pace_secs_per_km": 488
+        },
+        {
+          "avg_hr": 152,
+          "avg_speed_mps": 2.086,
+          "distance": 234.2,
+          "duration": 112.3,
+          "max_hr": 153,
+          "pace_secs_per_km": 479
+        },
+        {
+          "avg_hr": 138,
+          "avg_speed_mps": 1.719,
+          "distance": 515.8,
+          "duration": 299.0,
+          "max_hr": 151,
+          "pace_secs_per_km": 582
+        },
+        {
+          "avg_hr": 140,
+          "avg_speed_mps": 1.811,
+          "distance": 101.5,
+          "duration": 56.0,
+          "max_hr": 141,
+          "pace_secs_per_km": 552
+        }
+      ],
+      "start_date_local": "2026-09-20T05:08:25",
+      "type": "Run",
+      "vo2_max": 41.0
+    },
+    {
+      "aerobic_te": 0.2,
+      "avg_hr": 92,
+      "avg_pace_secs_per_km": 319,
+      "calories": 24,
+      "date": "2026-09-19",
+      "distance": 1072.2,
+      "elevation_gain": 6.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 342,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24418948922",
+      "max_hr": 112,
+      "moving_time": 329.0,
+      "name": "Sidoarjo Cycling",
+      "raw_type": "cycling",
+      "splits": [
+        {
+          "avg_hr": 92,
+          "avg_speed_mps": 3.136,
+          "distance": 1072.2,
+          "duration": 329.0,
+          "elevation_gain": 6.0,
+          "max_hr": 112,
+          "pace_secs_per_km": 319
+        }
+      ],
+      "start_date_local": "2026-09-19T18:41:08",
+      "type": "Ride"
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_hr": 97,
+      "calories": 49,
+      "date": "2026-09-19",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 615,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24415415203",
+      "max_hr": 126,
+      "moving_time": 615.3,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-09-19T14:02:06",
+      "type": "WeightTraining"
+    },
+    {
       "aerobic_te": 2.6,
       "avg_cadence": 148,
       "avg_ground_contact": 318,
@@ -24289,7 +24515,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-09-19T06:55:06.753713+00:00",
+  "generated_at": "2026-09-20T07:20:22.145132+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
