@@ -7463,7 +7463,7 @@
     "id": "24389653956",
     "max_hr": 160,
     "moving_time": 2098.929000854492,
-    "name": "Training Session #4 - Tempo",
+    "name": "Training Sesi #4 - Tempo",
     "raw_activity_type": "running",
     "raw_type": "running",
     "start_date_local": "2026-09-17T05:12:40",
@@ -7550,6 +7550,25 @@
     "start_date_local": "2026-09-20T05:08:25",
     "type": "Run",
     "vo2_max": 41.0,
+    "year": 2026
+  },
+  {
+    "avg_cadence": 84,
+    "avg_hr": 88,
+    "avg_speed_mps": 0.869,
+    "avg_stride_len": 61.7,
+    "calories": 2,
+    "date": "2026-09-20",
+    "distance": 28.309999465942383,
+    "elevation_gain": 0.0,
+    "id": "24428148341",
+    "max_hr": 105,
+    "moving_time": 31.0,
+    "name": "Lumajang Walking",
+    "raw_activity_type": "walking",
+    "raw_type": "walking",
+    "start_date_local": "2026-09-20T15:23:54",
+    "type": "Walk",
     "year": 2026
   }
 ]

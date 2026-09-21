@@ -1,6 +1,60 @@
 {
   "activities": [
     {
+      "avg_cadence": 84,
+      "avg_hr": 88,
+      "avg_pace_secs_per_km": 1151,
+      "avg_stride_len": 61.7,
+      "calories": 2,
+      "date": "2026-09-20",
+      "distance": 28.3,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 33,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24428148341",
+      "max_hr": 105,
+      "moving_time": 31.0,
+      "name": "Lumajang Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 88,
+          "avg_speed_mps": 0.869,
+          "distance": 28.3,
+          "duration": 31.0,
+          "max_hr": 105,
+          "pace_secs_per_km": 1151
+        }
+      ],
+      "start_date_local": "2026-09-20T15:23:54",
+      "type": "Walk"
+    },
+    {
       "aerobic_te": 2.9,
       "avg_cadence": 152,
       "avg_ground_contact": 309,
@@ -384,7 +438,7 @@
       "id": "24389653956",
       "max_hr": 160,
       "moving_time": 2098.9,
-      "name": "Training Session #4 - Tempo",
+      "name": "Training Sesi #4 - Tempo",
       "raw_type": "running",
       "splits": [
         {
@@ -24515,7 +24569,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-09-20T07:20:22.145132+00:00",
+  "generated_at": "2026-09-21T07:30:25.816515+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
