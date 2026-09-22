@@ -1,6 +1,164 @@
 {
   "activities": [
     {
+      "aerobic_te": 2.6,
+      "avg_cadence": 154,
+      "avg_ground_contact": 303,
+      "avg_hr": 140,
+      "avg_pace_secs_per_km": 479,
+      "avg_stride_len": 80.4,
+      "avg_vertical_osc": 8.3,
+      "calories": 354,
+      "date": "2026-09-22",
+      "distance": 5017.2,
+      "elevation_gain": 1.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 351,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 754,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1298,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24449307876",
+      "max_hr": 154,
+      "moving_time": 2398.3,
+      "name": "Training Sesi # 7 - Easy",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 109,
+          "avg_speed_mps": 1.778,
+          "distance": 533.4,
+          "duration": 296.0,
+          "max_hr": 120,
+          "pace_secs_per_km": 562
+        },
+        {
+          "avg_hr": 139,
+          "avg_speed_mps": 2.176,
+          "distance": 1000.0,
+          "duration": 459.6,
+          "elevation_gain": 1.0,
+          "max_hr": 147,
+          "pace_secs_per_km": 460
+        },
+        {
+          "avg_hr": 142,
+          "avg_speed_mps": 2.14,
+          "distance": 1000.0,
+          "duration": 467.2,
+          "max_hr": 146,
+          "pace_secs_per_km": 467
+        },
+        {
+          "avg_hr": 146,
+          "avg_speed_mps": 2.13,
+          "distance": 581.7,
+          "duration": 273.0,
+          "max_hr": 150,
+          "pace_secs_per_km": 469
+        },
+        {
+          "avg_hr": 149,
+          "avg_speed_mps": 2.139,
+          "distance": 1000.0,
+          "duration": 467.0,
+          "max_hr": 152,
+          "pace_secs_per_km": 468
+        },
+        {
+          "avg_hr": 152,
+          "avg_speed_mps": 2.135,
+          "distance": 282.7,
+          "duration": 132.4,
+          "max_hr": 154,
+          "pace_secs_per_km": 468
+        },
+        {
+          "avg_hr": 148,
+          "avg_speed_mps": 2.033,
+          "distance": 609.8,
+          "duration": 299.0,
+          "max_hr": 154,
+          "pace_secs_per_km": 492
+        },
+        {
+          "avg_hr": 150,
+          "avg_speed_mps": 2.279,
+          "distance": 9.6,
+          "duration": 4.0,
+          "max_hr": 151,
+          "pace_secs_per_km": 439
+        }
+      ],
+      "start_date_local": "2026-09-22T05:03:18",
+      "type": "Run",
+      "vo2_max": 41.0
+    },
+    {
+      "aerobic_te": 0.4,
+      "anaerobic_te": 0.1,
+      "avg_hr": 97,
+      "calories": 91,
+      "date": "2026-09-21",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1194,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 6,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24440996024",
+      "max_hr": 135,
+      "moving_time": 1200.5,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-09-21T16:23:56",
+      "type": "WeightTraining"
+    },
+    {
       "avg_cadence": 84,
       "avg_hr": 88,
       "avg_pace_secs_per_km": 1151,
@@ -24569,7 +24727,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-09-21T07:30:25.816515+00:00",
+  "generated_at": "2026-09-22T07:10:23.761301+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
