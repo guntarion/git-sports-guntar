@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T07:31:10Z",
+  "generated_at": "2026-09-28T08:08:48Z",
   "model": "qwen-plus",
   "prompt_version": "v2-recovery-aware",
   "running_fingerprint": "v2-recovery-aware:103:2026-09-27:477961",
@@ -123,7 +123,7 @@
         "best_pace_secs": 447
       }
     ],
-    "days_left_this_month": 4,
+    "days_left_this_month": 3,
     "recent_runs": [
       {
         "date": "2026-09-10",
@@ -252,12 +252,12 @@
       "status": "adequate",
       "score_0_100": 62,
       "drivers": [
-        "Recovery balance not provided — cannot calculate; ACWR not provided in dataset; resting HR trend not available (no longitudinal RHR values); training readiness not provided; HRV and sleep metrics absent from input data"
+        "Recovery balance not provided — missing HRV, sleep, resting HR, training readiness, and body battery data in input; ACWR cannot be calculated due to absent acute/chronic load metrics; however, aerobic decoupling remains stable (2.4–3.1% across recent runs), avg HR is steady (134–146 bpm), and no upward drift in resting HR or VO₂max decline observed"
       ],
-      "guidance": "Without recovery metrics (HRV, sleep, resting HR, training readiness, recovery balance), readiness is inferred as adequate based on stable aerobic decoupling (2.4–3.1% across recent runs, all <5%), no signs of autonomic strain in HR response, and absence of load-related red flags — but true readiness status is data-limited."
+      "guidance": "Training can continue at current intensity and volume, but avoid adding stress until recovery metrics are available to confirm resilience."
     },
     "monthly_review": {
-      "summary": "September shows a clear shift toward higher-intensity running: volume increased sharply (+22.1 km), pace improved significantly (+35 sec/km faster), zone distribution shifted markedly toward Z3–Z4, and cadence rose while efficiency slightly declined — consistent with a deliberate build phase.",
+      "summary": "September shows meaningful acceleration: faster pace, higher zone 3–4 time, and improved best effort pace vs August — but cadence dropped slightly and efficiency plateaued after prior gains.",
       "metrics": [
         {
           "name": "Total Distance",
@@ -274,42 +274,42 @@
           "verdict": "improved"
         },
         {
-          "name": "Avg Pace",
-          "current": "499 sec/km (8:19/km)",
-          "previous": "534 sec/km (8:54/km)",
-          "change": "-35 sec/km",
+          "name": "Avg Pace (sec/km)",
+          "current": "499",
+          "previous": "534",
+          "change": "-35",
           "verdict": "improved"
         },
         {
-          "name": "Avg HR",
-          "current": "141 bpm",
-          "previous": "134 bpm",
-          "change": "+7 bpm",
+          "name": "Avg HR (bpm)",
+          "current": "141",
+          "previous": "134",
+          "change": "+7",
           "verdict": "declined"
         },
         {
-          "name": "Aerobic TE",
-          "current": "2.9%",
-          "previous": "2.6%",
-          "change": "+0.3%",
+          "name": "Avg Aerobic TE (%)",
+          "current": "2.9",
+          "previous": "2.6",
+          "change": "+0.3",
           "verdict": "declined"
         },
         {
-          "name": "Efficiency",
-          "current": "14.6 ml/kg/km",
-          "previous": "14.12 ml/kg/km",
-          "change": "+0.48 ml/kg/km",
+          "name": "Avg Efficiency (ml/kg/km)",
+          "current": "14.6",
+          "previous": "14.12",
+          "change": "+0.48",
           "verdict": "declined"
         },
         {
-          "name": "Cadence",
-          "current": "145 spm",
-          "previous": "149 spm",
-          "change": "-4 spm",
-          "verdict": "stable"
+          "name": "Avg Cadence (spm)",
+          "current": "145",
+          "previous": "149",
+          "change": "-4",
+          "verdict": "declined"
         }
       ],
-      "highlight": "The 35-sec/km pace improvement alongside a +7 bpm average HR and 33% of time in Zone 3 — up from 26% last month — reflects a sustained, multi-month intensity shift confirmed by the 2026-07 to 2026-09 progression (Z3%: 29% → 29% → 33%)."
+      "highlight": "Best pace improved sharply from 453 sec/km (7:33) in August to 369 sec/km (6:09) in September — a 84-sec/km jump that aligns with increased Z3–Z4 volume (52% of running time this month vs 34% last month) and suggests targeted neuromuscular adaptation."
     },
     "goal_tracker": {
       "km_this_month": 73.4,
@@ -319,72 +319,60 @@
       "sessions_last_month": 10,
       "sessions_remaining": 0,
       "projection": "Ahead",
-      "message": "You’ve already exceeded last month’s total distance (73.4 vs 51.3 km) and run count (14 vs 10) — no additional sessions or km are needed in the remaining 4 days. Given missing recovery data, prioritizing consistency over further volume gain is prudent."
+      "message": "The runner has already exceeded last month’s distance (by +22.1 km) and sessions (by +4) with 3 days remaining — no additional running is needed to match August, and given the absence of recovery metrics, prioritising rest or very light activity over volume chasing is advisable."
     },
     "insights": [
       {
         "category": "intensity_distribution",
-        "title": "Zone 3 dominance correlates with declining efficiency",
-        "body": "Zone 3 share rose from 26% (Aug) to 33% (Sep), coinciding with efficiency worsening from 14.12 to 14.6 ml/kg/km — the largest monthly increase in this metric since May (13.42). This suggests accumulated Z3 work may be outpacing neuromuscular adaptation.",
+        "title": "Zone 3–4 dominance correlates with pace acceleration but rising aerobic decoupling",
+        "body": "Z3+Z4 share jumped from 34% (Aug) to 52% (Sep), coinciding with best pace improving by 84 sec/km — yet average aerobic TE rose from 2.6% to 2.9%, suggesting early signs of fatigue accumulation within sustained efforts.",
         "severity": "warning"
       },
       {
-        "category": "aerobic_efficiency",
-        "title": "Stable aerobic decoupling despite rising intensity",
-        "body": "Recent runs show aerobic TE between 2.4–3.1%, all under 5% — even during faster efforts like 7.4 km at 8:08/km (2.9%) and 4.7 km at 7:26/km (3.1%). This indicates preserved aerobic integrity despite higher load.",
-        "severity": "positive"
+        "category": "biomechanics_efficiency",
+        "title": "Cadence drop (149 → 145 spm) accompanies efficiency decline (14.12 → 14.6 ml/kg/km)",
+        "body": "Lower cadence and higher oxygen cost occurred alongside increased Z3–Z4 load; notably, stride length increased (e.g., 86.49 cm on 2026-09-24) while ground contact remained stable (~305 ms), hinting at less economical force application under fatigue.",
+        "severity": "warning"
       },
       {
-        "category": "biomechanics",
-        "title": "Cadence–stride length trade-off emerging",
-        "body": "Cadence dropped from 149 spm (Aug) to 145 spm (Sep) while stride length increased (e.g., 86.49 cm on 2026-09-24 vs 76.39 cm on 2026-09-13), suggesting a shift toward longer, less frequent strides — possibly linked to fatigue or pacing strategy.",
+        "category": "recovery_signal",
+        "title": "Stable VO₂max (41–42) despite rising load suggests preserved aerobic capacity — but no HRV/sleep data limits confidence",
+        "body": "VO₂max held at 41–42 across 7 of last 10 runs — a positive sign — yet without HRV or resting HR trend data, we cannot determine whether this stability reflects true resilience or masked fatigue.",
         "severity": "neutral"
-      },
-      {
-        "category": "performance_consistency",
-        "title": "Best pace acceleration without VO₂max change",
-        "body": "Best 1-km pace improved from 453 sec/km (7:33) in Aug to 369 sec/km (6:09) in Sep — a dramatic 84-sec gain — yet VO₂max remains stable at 41–42 mL/kg/min, implying gains are likely neuromuscular or metabolic (e.g., lactate buffering), not central aerobic.",
-        "severity": "positive"
       }
     ],
     "recommendations": [
       {
-        "action": "Zone 2 run: 6 km at HR ≤135 bpm, cadence ≥148 spm, on Tuesday",
-        "reason": "Restores aerobic base while reinforcing efficient turnover after recent Z3-heavy load; aligns with stable HRV-inferred adequacy but avoids pushing recovery limits.",
+        "action": "Perform 30 min Zone 1 walk or easy spin on 2026-09-28 (HR < 120 bpm), zero running.",
+        "reason": "No recovery metrics are available to confirm readiness for further running stress; low-intensity non-impact activity supports circulation and parasympathetic engagement without load.",
         "priority": "high"
       },
       {
-        "action": "Strides + form drill session: 6 × 15-sec fast-leg cycles off 5-min easy jog, focusing on quick turnover and minimal vertical oscillillation (<8.0 cm)",
-        "reason": "Addresses rising vertical oscillation (8.2–8.6 cm in last 4 runs) and cadence dip — both associated with fatigue-induced inefficiency.",
+        "action": "Conduct 5 min morning HRV check (via Garmin or chest strap) and log sleep duration for all 3 remaining days — report any night with <6.5 hr sleep or HRV z-score < −0.8.",
+        "reason": "Critical missing inputs for readiness assessment; establishing baseline recovery data this week enables precise decisions next month.",
         "priority": "high"
       },
       {
-        "action": "Complete one full rest day with ≥7.5 hours sleep and no structured activity on Thursday",
-        "reason": "Compensates for missing recovery data by proactively safeguarding against cumulative fatigue — especially given 14 runs this month and elevated Z3 exposure.",
-        "priority": "high"
+        "action": "Run 5.0 km easy on 2026-09-30 at pace > 8:30 min/km (510 sec/km) and HR ≤ 135 bpm — stop if aerobic TE exceeds 2.5% at 3 km.",
+        "reason": "Maintains aerobic stimulus without accumulating decoupling debt; uses real-time aerobic TE as a fatigue gatekeeper.",
+        "priority": "medium"
       }
     ],
     "risk_flags": [
       {
-        "risk": "Early-stage aerobic efficiency decay",
-        "evidence": "Running economy worsened from 14.12 to 14.6 ml/kg/km (+0.48) while Z3% increased 7 pts and aerobic TE rose 0.3 pts — a triad suggesting diminishing returns from current intensity mix.",
+        "risk": "Early aerobic fatigue accumulation",
+        "evidence": "Aerobic TE increased from 2.6% (Aug) to 2.9% (Sep); 3 of last 10 runs show TE ≥ 3.1% (2026-09-10, 2026-09-24, 2026-09-27)",
         "severity": "warning",
-        "action": "Reduce Z3 volume by ~20% next month unless efficiency rebounds to ≤14.2 ml/kg/km."
-      },
-      {
-        "risk": "Neuromuscular fatigue accumulation",
-        "evidence": "Vertical oscillation increased from 7.7–7.9 cm (early Sep) to 8.3–8.6 cm (late Sep), ground contact time rose to 318 ms on 2026-09-18, and cadence fell — all biomechanical signs of reduced spring efficiency.",
-        "severity": "warning",
-        "action": "Insert two stride-focused sessions and monitor vertical oscillation trend weekly."
+        "action": "Pause Z3+Z4 work until aerobic TE sustains ≤ 2.5% across 3 consecutive easy runs."
       }
     ],
     "weekly_focus": {
-      "theme": "Consolidate intensity gains with aerobic resilience",
-      "description": "Balance the clear progress in speed and Z3 tolerance with deliberate reinforcement of efficiency, recovery responsiveness, and movement economy — preventing premature fatigue-driven regression.",
+      "theme": "Fatigue Gatekeeping",
+      "description": "Using real-time aerobic decoupling and subjective readiness to calibrate effort — not pushing pace or volume until recovery signals are confirmed.",
       "suggested_sessions": [
-        "Zone 2 endurance run",
-        "Strides + form drills",
-        "Full rest day"
+        "Zone 1 active recovery (no run)",
+        "HR-capped easy run with aerobic TE checkpoint",
+        "Mobility + breathwork session (20 min)"
       ]
     }
   }
