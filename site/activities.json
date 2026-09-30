@@ -1,6 +1,118 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.1,
+      "avg_cadence": 89,
+      "avg_hr": 92,
+      "avg_pace_secs_per_km": 944,
+      "avg_stride_len": 70.76,
+      "calories": 25,
+      "date": "2026-09-29",
+      "distance": 420.3,
+      "elevation_gain": 4.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 397,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24540511946",
+      "max_hr": 114,
+      "moving_time": 373.0,
+      "name": "Tangerang Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 92,
+          "avg_speed_mps": 1.059,
+          "distance": 420.3,
+          "duration": 373.0,
+          "elevation_gain": 4.0,
+          "max_hr": 114,
+          "pace_secs_per_km": 944
+        }
+      ],
+      "start_date_local": "2026-09-29T18:56:08",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_cadence": 51,
+      "avg_hr": 98,
+      "avg_pace_secs_per_km": 990,
+      "avg_stride_len": 117.36,
+      "calories": 29,
+      "date": "2026-09-29",
+      "distance": 333.9,
+      "elevation_gain": 7.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 283,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24538523281",
+      "max_hr": 121,
+      "moving_time": 268.0,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 98,
+          "avg_speed_mps": 1.01,
+          "distance": 333.9,
+          "duration": 268.0,
+          "elevation_gain": 7.0,
+          "max_hr": 121,
+          "pace_secs_per_km": 990
+        }
+      ],
+      "start_date_local": "2026-09-29T16:01:27",
+      "type": "Walk"
+    },
+    {
       "aerobic_te": 2.7,
       "avg_cadence": 154,
       "avg_ground_contact": 305,
@@ -25349,7 +25461,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-09-29T07:45:10.261881+00:00",
+  "generated_at": "2026-09-30T07:49:07.428375+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
