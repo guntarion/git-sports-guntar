@@ -1,6 +1,184 @@
 {
   "activities": [
     {
+      "aerobic_te": 2.7,
+      "avg_cadence": 155,
+      "avg_ground_contact": 302,
+      "avg_hr": 141,
+      "avg_pace_secs_per_km": 468,
+      "avg_stride_len": 82.21,
+      "avg_vertical_osc": 8.4,
+      "calories": 328,
+      "date": "2026-10-01",
+      "distance": 4526.8,
+      "elevation_gain": 10.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 300,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 670,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1031,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 115,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24560845170",
+      "max_hr": 164,
+      "moving_time": 2109.4,
+      "name": "Training Sesi # 12 - Easy on Tebet Edu Park",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 115,
+          "avg_speed_mps": 1.993,
+          "distance": 598.0,
+          "duration": 294.0,
+          "max_hr": 131,
+          "pace_secs_per_km": 502
+        },
+        {
+          "avg_hr": 137,
+          "avg_speed_mps": 2.139,
+          "distance": 1000.0,
+          "duration": 467.4,
+          "elevation_gain": 1.0,
+          "max_hr": 143,
+          "pace_secs_per_km": 468
+        },
+        {
+          "avg_hr": 144,
+          "avg_speed_mps": 2.11,
+          "distance": 475.1,
+          "duration": 225.0,
+          "elevation_gain": 2.0,
+          "max_hr": 149,
+          "pace_secs_per_km": 474
+        },
+        {
+          "avg_hr": 145,
+          "avg_speed_mps": 2.167,
+          "distance": 1000.0,
+          "duration": 461.5,
+          "elevation_gain": 3.0,
+          "max_hr": 151,
+          "pace_secs_per_km": 461
+        },
+        {
+          "avg_hr": 149,
+          "avg_speed_mps": 2.136,
+          "distance": 295.9,
+          "duration": 138.5,
+          "elevation_gain": 1.0,
+          "max_hr": 152,
+          "pace_secs_per_km": 468
+        },
+        {
+          "avg_hr": 152,
+          "avg_speed_mps": 2.177,
+          "distance": 653.1,
+          "duration": 299.0,
+          "elevation_gain": 1.0,
+          "max_hr": 158,
+          "pace_secs_per_km": 459
+        },
+        {
+          "avg_hr": 156,
+          "avg_speed_mps": 2.25,
+          "distance": 504.7,
+          "duration": 224.0,
+          "elevation_gain": 1.0,
+          "max_hr": 164,
+          "pace_secs_per_km": 444
+        }
+      ],
+      "start_date_local": "2026-10-01T06:03:19",
+      "type": "Run",
+      "vo2_max": 41.0
+    },
+    {
+      "aerobic_te": 0.4,
+      "anaerobic_te": 0.1,
+      "avg_cadence": 94,
+      "avg_hr": 88,
+      "avg_pace_secs_per_km": 790,
+      "avg_stride_len": 80.19,
+      "calories": 64,
+      "date": "2026-09-30",
+      "distance": 1002.8,
+      "elevation_gain": 12.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 792,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24553024445",
+      "max_hr": 115,
+      "moving_time": 775.0,
+      "name": "Jakarta Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 88,
+          "avg_speed_mps": 1.265,
+          "distance": 1000.0,
+          "duration": 774.0,
+          "elevation_gain": 12.0,
+          "max_hr": 115,
+          "pace_secs_per_km": 791
+        },
+        {
+          "avg_hr": 94,
+          "avg_speed_mps": 1.752,
+          "distance": 2.8,
+          "duration": 1.0,
+          "max_hr": 94,
+          "pace_secs_per_km": 571
+        }
+      ],
+      "start_date_local": "2026-09-30T18:03:25",
+      "type": "Walk",
+      "vo2_max": 41.0
+    },
+    {
       "aerobic_te": 0.1,
       "avg_cadence": 89,
       "avg_hr": 92,
@@ -25461,7 +25639,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-09-30T07:49:07.428375+00:00",
+  "generated_at": "2026-10-01T08:08:10.406315+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
