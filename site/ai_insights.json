@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-10-02T07:53:44Z",
+  "generated_at": "2026-10-03T07:29:47Z",
   "model": "qwen-plus",
   "prompt_version": "v2-recovery-aware",
-  "running_fingerprint": "v2-recovery-aware:105:2026-10-01:487605",
+  "running_fingerprint": "v2-recovery-aware:106:2026-10-02:492360",
   "data_summary": {
-    "total_runs": 105,
-    "total_km": 487.6,
-    "date_range": "2026-01-09 to 2026-10-01",
+    "total_runs": 106,
+    "total_km": 492.4,
+    "date_range": "2026-01-09 to 2026-10-02",
     "this_month": {
       "month": "2026-10",
-      "runs": 1,
-      "total_km": 4.5,
-      "avg_pace_secs": 468,
-      "avg_hr": 141,
-      "avg_aerobic_te": 2.7,
-      "avg_cadence": 155,
-      "avg_efficiency": 15.15,
+      "runs": 2,
+      "total_km": 9.3,
+      "avg_pace_secs": 467,
+      "avg_hr": 144,
+      "avg_aerobic_te": 3.0,
+      "avg_cadence": 154,
+      "avg_efficiency": 14.93,
       "zone_pct": {
-        "z1": 14,
-        "z2": 32,
-        "z3": 49,
-        "z4": 5,
-        "z5": 0
+        "z1": 13,
+        "z2": 37,
+        "z3": 31,
+        "z4": 15,
+        "z5": 4
       },
-      "longest_km": 4.5,
-      "best_pace_secs": 468
+      "longest_km": 4.8,
+      "best_pace_secs": 466
     },
     "last_month": {
       "month": "2026-09",
@@ -123,20 +123,8 @@
         "best_pace_secs": 392
       }
     ],
-    "days_left_this_month": 30,
+    "days_left_this_month": 29,
     "recent_runs": [
-      {
-        "date": "2026-09-15",
-        "distance_km": 5.0,
-        "pace_min_km": 8.08,
-        "avg_hr": 137,
-        "cadence": 152,
-        "aerobic_te": 2.9,
-        "vo2_max": 42.0,
-        "stride_len": 80.01,
-        "ground_contact": 302,
-        "vertical_osc": 8.2
-      },
       {
         "date": "2026-09-17",
         "distance_km": 4.6,
@@ -244,6 +232,18 @@
         "stride_len": 82.21,
         "ground_contact": 302,
         "vertical_osc": 8.4
+      },
+      {
+        "date": "2026-10-02",
+        "distance_km": 4.8,
+        "pace_min_km": 7.77,
+        "avg_hr": 146,
+        "cadence": 153,
+        "aerobic_te": 3.3,
+        "vo2_max": 41.0,
+        "stride_len": 82.0,
+        "ground_contact": 300,
+        "vertical_osc": 8.1
       }
     ]
   },
@@ -252,142 +252,142 @@
       "status": "compromised",
       "score_0_100": 38,
       "drivers": [
-        "Recovery balance not provided — critical missing metric for readiness assessment",
-        "ACWR cannot be calculated — acute/chronic load data absent, preventing load-safety evaluation",
-        "HRV, sleep duration/debt, resting HR, and training readiness values are all missing from input — no physiological recovery signals available",
-        "This month’s volume (4.5 km) is only 5.7% of last month’s (78.5 km), suggesting abrupt drop possibly due to fatigue or illness"
+        "Recovery balance not provided — critical missing metric",
+        "ACWR cannot be calculated (acute/chronic load data absent), but this month’s 2 runs (9.3 km) vs last month’s 15 runs (78.5 km) implies acute load collapse and likely chronic load erosion",
+        "HRV, sleep duration/debt, resting HR, and training readiness metrics are entirely absent — no recovery signal available",
+        "Aerobic TE rose from 2.9 to 3.0 and efficiency worsened from 14.58 to 14.93 — both suggest reduced fatigue resilience"
       ],
-      "guidance": "Do not increase training load; prioritize rest, sleep hygiene, and re-establishing baseline recovery metrics before resuming structured running."
+      "guidance": "Training volume and intensity must be held at minimum viable levels until objective recovery metrics (especially HRV and sleep) are restored and reported."
     },
     "monthly_review": {
-      "summary": "Running volume collapsed this month (4.5 km vs 78.5 km), pace improved slightly but on minimal data, and zone distribution shifted sharply toward Z3 — likely reflecting either a single hard effort or measurement artifact given the absence of corroborating intensity metrics.",
+      "summary": "This month shows a dramatic drop in volume and frequency, with modest pace improvement but declining efficiency — consistent with deconditioning or forced reduction due to fatigue or external stress.",
       "metrics": [
         {
           "name": "Total Distance",
-          "current": "4.5 km",
+          "current": "9.3 km",
           "previous": "78.5 km",
-          "change": "-74.0 km",
+          "change": "-69.2 km",
           "verdict": "declined"
         },
         {
           "name": "Runs",
-          "current": "1",
+          "current": "2",
           "previous": "15",
-          "change": "-14",
+          "change": "-13",
           "verdict": "declined"
         },
         {
           "name": "Avg Pace (sec/km)",
-          "current": "468",
+          "current": "467",
           "previous": "497",
-          "change": "-29 sec/km",
+          "change": "-30",
           "verdict": "improved"
         },
         {
           "name": "Avg HR (bpm)",
-          "current": "141",
+          "current": "144",
           "previous": "142",
-          "change": "-1 bpm",
-          "verdict": "stable"
+          "change": "+2",
+          "verdict": "declined"
         },
         {
           "name": "Avg Aerobic TE",
-          "current": "2.7",
+          "current": "3.0",
           "previous": "2.9",
-          "change": "-0.2",
-          "verdict": "improved"
+          "change": "+0.1",
+          "verdict": "declined"
         },
         {
           "name": "Avg Efficiency (ml/kg/km)",
-          "current": "15.15",
+          "current": "14.93",
           "previous": "14.58",
-          "change": "+0.57",
+          "change": "+0.35",
           "verdict": "declined"
         },
         {
           "name": "Avg Cadence (spm)",
-          "current": "155",
+          "current": "154",
           "previous": "146",
-          "change": "+9 spm",
+          "change": "+8",
           "verdict": "improved"
         }
       ],
-      "highlight": "The 95% drop in monthly volume — from 78.5 km to just 4.5 km — is not a blip but a full cessation of training, confirmed across all months_back showing consistent activity until September, then near-zero output in October; this strongly indicates an external disruption (e.g., injury, illness, or burnout), not a planned taper."
+      "highlight": "The 69.2 km drop in monthly volume — from 78.5 km to just 9.3 km — is not a blip but a full-order-of-magnitude reduction, confirmed across all prior months (June–September consistently >51 km), indicating a hard break in training continuity rather than normal variation."
     },
     "goal_tracker": {
-      "km_this_month": 4.5,
+      "km_this_month": 9.3,
       "km_last_month": 78.5,
-      "km_remaining": 74.0,
-      "sessions_this_month": 1,
+      "km_remaining": 69.2,
+      "sessions_this_month": 2,
       "sessions_last_month": 15,
-      "sessions_remaining": 14,
+      "sessions_remaining": 13,
       "projection": "Behind",
-      "message": "Chasing last month’s volume is medically inadvisable given the compromised readiness status and complete lack of recovery metrics — attempting to make up 74 km in 30 days would require >2.4 km/day and risk injury or relapse; focus instead on rebuilding consistency and monitoring recovery signals first."
+      "message": "Matching last month would require 69.2 km across 13 sessions (~5.3 km/session) in 29 days — but given compromised readiness and absence of recovery metrics, chasing this volume is unsafe and counterproductive; priority must shift to restoring baseline readiness before rebuilding load."
     },
     "insights": [
       {
-        "category": "intensity_distribution",
-        "title": "Z3 dominance without Z4/Z5 support suggests inefficient effort allocation",
-        "body": "This month’s run was 49% Z3 despite zero Z4/Z5 time — unusual for a single 4.5 km run at 7:48/km (468 sec/km); normally such pace would elicit more Z4 contribution unless HR zones are miscalibrated or effort was highly variable.",
-        "severity": "warning"
-      },
-      {
-        "category": "efficiency_vs_volume",
-        "title": "Running economy worsened despite lower volume and higher cadence",
-        "body": "Avg efficiency rose from 14.58 to 15.15 ml/kg/km (worse) even as cadence increased +9 spm and aerobic TE improved — indicating possible form breakdown or fatigue-induced compensation, especially given vertical oscillillation stable at ~8.3–8.4 cm but ground contact time not available for validation.",
-        "severity": "warning"
-      },
-      {
         "category": "aerobic_efficiency",
-        "title": "Aerobic decoupling remained stable (2.4–3.1%) despite declining VO2max trend",
-        "body": "Recent runs show aerobic TE between 2.4–3.1%, well under 5% threshold, yet VO2max declined from 42.0 (Sep 15) to 41.0 (Sep 22 onward) — suggesting early aerobic deconditioning masked by preserved endurance efficiency, a classic sign of detraining onset.",
+        "title": "Pace improved despite higher HR and worse efficiency",
+        "body": "Avg pace quickened by 30 sec/km while avg HR rose (+2 bpm) and running economy worsened (+0.35 ml/kg/km) — suggesting compensation via less efficient mechanics or elevated sympathetic tone rather than true aerobic gain.",
         "severity": "warning"
       },
       {
-        "category": "biomechanics",
-        "title": "Stride length increased +6.5 cm while ground contact time is unreported",
-        "body": "Stride length rose from 77.97 cm (Sep 20) to 86.49 cm (Sep 24) — a 11% jump — with no ground contact time data to assess whether this reflects power gain or overstriding; vertical oscillillation held steady at 8.1–8.6 cm, making inefficiency unlikely but injury risk uncertain.",
-        "severity": "neutral"
+        "category": "neuromuscular",
+        "title": "Cadence surge without stride length increase",
+        "body": "Cadence jumped +8 spm (146 → 154) while recent stride length (80–86 cm) remains stable and below July’s peak (86.49 cm on 2026-09-24), implying shorter, choppier steps — often seen with fatigue or reduced leg spring efficiency.",
+        "severity": "warning"
+      },
+      {
+        "category": "training_distribution",
+        "title": "Zone 3 dominance persists amid volume crash",
+        "body": "Zone 3 still accounts for 31% of effort this month (vs 33% in Sept, 29% in July), even as total volume collapsed — indicating disproportionate reliance on moderate-intensity work without sufficient Z1/Z2 base or Z4/Z5 stimulus, likely impairing recovery capacity.",
+        "severity": "warning"
+      },
+      {
+        "category": "consistency",
+        "title": "Longest run shrank from 14.8 km (July) to 4.8 km (Oct)",
+        "body": "The longest run decreased by 10.0 km over three months (14.8 → 12.0 → 10.7 → 4.8), tracking precisely with the progressive decline in weekly volume and aerobic TE — a red flag for endurance reserve erosion.",
+        "severity": "warning"
       }
     ],
     "recommendations": [
       {
-        "action": "Complete a 20-minute Zone 1 walk or easy spin (HR <120 bpm) on Tuesday, Wednesday, and Friday — no running allowed",
-        "reason": "Zero recovery metrics are available; low-intensity non-impact movement supports autonomic reset without adding load",
+        "action": "Complete 3x Zone 1 runs (HR ≤128 bpm) of 35–45 min each, no distance target — stop if HR drifts >5 bpm above baseline or cadence drops >5 spm",
+        "reason": "Zone 1 preserves aerobic base while minimizing autonomic stress; HR ceiling set 10 bpm below lowest recent avg HR (134 in Aug) to accommodate current compromised status",
         "priority": "high"
       },
       {
-        "action": "Log sleep duration and subjective energy each morning for 7 days using a simple notebook — no apps or wearables required",
-        "reason": "Sleep debt is a primary missing driver of readiness; objective tracking must begin before any load reintroduction",
+        "action": "Perform daily 5-min HRV-guided breathing (inhale 5s, exhale 6s) and log sleep duration — no running if <6.5 hrs slept the prior night",
+        "reason": "Directly addresses missing recovery signals by building parasympathetic capacity and enforcing sleep-based gatekeeping",
         "priority": "high"
       },
       {
-        "action": "Perform daily 5-minute HRV-guided box breathing (4-4-4-4) upon waking, using free Breathly app or timer",
-        "reason": "HRV is absent from dataset but trainable via vagal stimulation; this builds readiness infrastructure before HRV measurement resumes",
-        "priority": "medium"
+        "action": "Replace one scheduled run with 20 min barefoot calf + glute activation drills on grass (3x10 heel raises, 3x12 single-leg bridges, 3x30 sec single-leg balance eyes closed)",
+        "reason": "Counters deteriorating stride integrity and ground contact time stability (300–318 ms range) with neuromuscular reconnection",
+        "priority": "high"
       }
     ],
     "risk_flags": [
       {
-        "risk": "Acute detraining",
-        "evidence": "VO2max dropped from 42.0 to 41.0 across September, and zero running in October — typical 0.5–1.0 point/month decline becomes clinically meaningful with no counterbalancing stimulus",
+        "risk": "Endurance deconditioning",
+        "evidence": "Longest run dropped 10.0 km since July; avg efficiency worsened 0.47 ml/kg/km from June (13.46) to now (14.93); aerobic TE increased 0.4 pts from June (2.7) to now (3.0)",
         "severity": "warning",
-        "action": "Reintroduce running only after 3 consecutive days of ≥7h sleep and subjective energy ≥6/10"
+        "action": "Prioritise 3+ Z1 sessions weekly and delay any zone 3+ efforts until efficiency stabilises ≤14.6 and longest run ≥8 km"
       },
       {
-        "risk": "Biomechanical compensation",
-        "evidence": "Cadence increased +9 spm while efficiency worsened (+0.57 ml/kg/km) and stride length jumped +6.5 cm in 4 days — suggests forced turnover to maintain pace amid fatigue or reduced force production",
+        "risk": "Neuromuscular inefficiency",
+        "evidence": "Cadence up +8 spm but stride length unchanged and vertical oscillation holding at 8.1–8.6 cm (above ideal ≤7.5 cm for recreational runners), suggesting compensatory stiffness or reduced elastic return",
         "severity": "warning",
-        "action": "Delay running until cadence stabilizes within ±2 spm of September’s 146 spm average"
+        "action": "Add daily mobility + barefoot activation as prescribed; monitor vertical oscillation — if >8.5 cm persists beyond 10 days, add gait retraining cues"
       }
     ],
     "weekly_focus": {
-      "theme": "Reconnection",
-      "description": "Re-establish autonomic and perceptual feedback loops before reloading — prioritize nervous system regulation, sleep consistency, and mindful movement over distance or pace.",
+      "theme": "Reconnection before reconstruction",
+      "description": "Re-establish autonomic control, neuromuscular coordination, and aerobic rhythm — not volume or pace — using heart rate gates, breathwork, and ground-feel drills to rebuild the foundation for sustainable progress.",
       "suggested_sessions": [
-        "Zone 1 mobility walk (20 min, HR <120)",
-        "Diaphragmatic breathing + body scan (10 min)",
-        "Foam roll quads/IT band/calves (12 min)"
+        "Zone 1 HR-capped run (≤128 bpm)",
+        "HRV-guided breathwork + sleep logging",
+        "Barefoot neuromuscular activation"
       ]
     }
   }

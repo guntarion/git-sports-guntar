@@ -2778,6 +2778,13 @@
       "subtype": "running",
       "type": "Run",
       "year": 2026
+    },
+    {
+      "date": "2026-10-02",
+      "hour": 16,
+      "subtype": "running",
+      "type": "Run",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -4096,6 +4103,15 @@
           "distance": 4526.77001953125,
           "elevation_gain": 10.0,
           "moving_time": 2109.447982788086
+        },
+        "2026-10-02": {
+          "activity_ids": [
+            "24576167763"
+          ],
+          "count": 1,
+          "distance": 4755.60009765625,
+          "elevation_gain": 155.0,
+          "moving_time": 2207.0279846191406
         }
       },
       "TrailRun": {
@@ -6033,7 +6049,7 @@
       }
     }
   },
-  "generated_at": "2026-10-02T07:49:31.446702+00:00",
+  "generated_at": "2026-10-03T07:25:17.030371+00:00",
   "other_bucket": "OtherSports",
   "repo": "guntarion/git-sports-guntar",
   "source": "garmin",
