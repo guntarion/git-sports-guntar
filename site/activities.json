@@ -1,6 +1,174 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.1,
+      "avg_cadence": 85,
+      "avg_hr": 80,
+      "avg_pace_secs_per_km": 918,
+      "avg_stride_len": 76.43,
+      "calories": 14,
+      "date": "2026-10-06",
+      "distance": 229.3,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 211,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24619313294",
+      "max_hr": 87,
+      "moving_time": 205.0,
+      "name": "Jakarta Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 80,
+          "avg_speed_mps": 1.089,
+          "distance": 229.3,
+          "duration": 205.0,
+          "max_hr": 87,
+          "pace_secs_per_km": 918
+        }
+      ],
+      "start_date_local": "2026-10-06T03:53:12",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 0.3,
+      "avg_cadence": 85,
+      "avg_hr": 94,
+      "avg_pace_secs_per_km": 949,
+      "avg_stride_len": 73.82,
+      "calories": 37,
+      "date": "2026-10-05",
+      "distance": 527.5,
+      "elevation_gain": 17.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 500,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24612970398",
+      "max_hr": 109,
+      "moving_time": 455.0,
+      "name": "Tangerang Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 94,
+          "avg_speed_mps": 1.054,
+          "distance": 527.5,
+          "duration": 455.0,
+          "elevation_gain": 17.0,
+          "max_hr": 109,
+          "pace_secs_per_km": 949
+        }
+      ],
+      "start_date_local": "2026-10-05T18:04:52",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 0.5,
+      "avg_cadence": 88,
+      "avg_hr": 103,
+      "avg_pace_secs_per_km": 853,
+      "avg_stride_len": 79.24,
+      "calories": 62,
+      "date": "2026-10-05",
+      "distance": 789.1,
+      "elevation_gain": 13.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 671,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 2,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24611258366",
+      "max_hr": 131,
+      "moving_time": 642.0,
+      "name": "Sidoarjo Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 103,
+          "avg_speed_mps": 1.172,
+          "distance": 789.1,
+          "duration": 642.0,
+          "elevation_gain": 13.0,
+          "max_hr": 131,
+          "pace_secs_per_km": 853
+        }
+      ],
+      "start_date_local": "2026-10-05T15:27:29",
+      "type": "Walk",
+      "vo2_max": 41.0
+    },
+    {
       "aerobic_te": 0.6,
       "avg_cadence": 106,
       "avg_hr": 103,
@@ -25982,7 +26150,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-10-05T08:04:23.619230+00:00",
+  "generated_at": "2026-10-06T08:25:38.117338+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
