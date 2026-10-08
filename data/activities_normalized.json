@@ -8007,5 +8007,28 @@
     "start_date_local": "2026-10-06T22:05:04",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "aerobic_te": 3.4,
+    "avg_cadence": 154,
+    "avg_ground_contact": 297,
+    "avg_hr": 151,
+    "avg_speed_mps": 2.322,
+    "avg_stride_len": 88.3,
+    "avg_vertical_osc": 8.6,
+    "calories": 317,
+    "date": "2026-10-07",
+    "distance": 4136.080078125,
+    "elevation_gain": 73.0,
+    "id": "24637360175",
+    "max_hr": 168,
+    "moving_time": 1779.2799987792969,
+    "name": "Training Sesi # 15 - Short Interval",
+    "raw_activity_type": "running",
+    "raw_type": "running",
+    "start_date_local": "2026-10-07T16:30:04",
+    "type": "Run",
+    "vo2_max": 41.0,
+    "year": 2026
   }
 ]
