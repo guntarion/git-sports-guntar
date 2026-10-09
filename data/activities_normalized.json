@@ -8030,5 +8030,40 @@
     "type": "Run",
     "vo2_max": 41.0,
     "year": 2026
+  },
+  {
+    "aerobic_te": 0.1,
+    "avg_hr": 78,
+    "calories": 50,
+    "date": "2026-10-08",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "24649416568",
+    "max_hr": 105,
+    "moving_time": 1200.8170166015625,
+    "name": "Strength",
+    "raw_activity_type": "strength_training",
+    "raw_type": "strength_training",
+    "start_date_local": "2026-10-08T16:27:23",
+    "type": "WeightTraining",
+    "year": 2026
+  },
+  {
+    "aerobic_te": 0.2,
+    "avg_hr": 99,
+    "avg_speed_mps": 3.75,
+    "calories": 34,
+    "date": "2026-10-08",
+    "distance": 1597.6600341796875,
+    "elevation_gain": 21.0,
+    "id": "24650086524",
+    "max_hr": 114,
+    "moving_time": 420.0,
+    "name": "Sidoarjo Cycling",
+    "raw_activity_type": "cycling",
+    "raw_type": "cycling",
+    "start_date_local": "2026-10-08T17:35:02",
+    "type": "Ride",
+    "year": 2026
   }
 ]
