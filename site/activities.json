@@ -1,6 +1,158 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.6,
+      "avg_hr": 99,
+      "calories": 135,
+      "date": "2026-10-10",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1782,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 19,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24668537971",
+      "max_hr": 136,
+      "moving_time": 1800.9,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-10-10T07:37:56",
+      "type": "WeightTraining"
+    },
+    {
+      "aerobic_te": 2.9,
+      "avg_cadence": 148,
+      "avg_ground_contact": 302,
+      "avg_hr": 145,
+      "avg_pace_secs_per_km": 488,
+      "avg_stride_len": 82.25,
+      "avg_vertical_osc": 8.1,
+      "calories": 315,
+      "date": "2026-10-09",
+      "distance": 4267.8,
+      "elevation_gain": 31.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 366,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 240,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1125,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 350,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24660799145",
+      "max_hr": 162,
+      "moving_time": 2074.4,
+      "name": "Training Sesi # 16 - Easy",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 132,
+          "avg_speed_mps": 2.076,
+          "distance": 622.7,
+          "duration": 294.0,
+          "elevation_gain": 11.0,
+          "max_hr": 144,
+          "pace_secs_per_km": 482
+        },
+        {
+          "avg_hr": 146,
+          "avg_speed_mps": 2.215,
+          "distance": 1000.0,
+          "duration": 451.5,
+          "elevation_gain": 4.0,
+          "max_hr": 156,
+          "pace_secs_per_km": 451
+        },
+        {
+          "avg_hr": 150,
+          "avg_speed_mps": 2.167,
+          "distance": 1000.0,
+          "duration": 461.0,
+          "elevation_gain": 4.0,
+          "max_hr": 156,
+          "pace_secs_per_km": 461
+        },
+        {
+          "avg_hr": 154,
+          "avg_speed_mps": 2.2,
+          "distance": 631.2,
+          "duration": 286.9,
+          "max_hr": 162,
+          "pace_secs_per_km": 455
+        },
+        {
+          "avg_hr": 157,
+          "avg_speed_mps": 2.081,
+          "distance": 576.9,
+          "duration": 277.0,
+          "elevation_gain": 12.0,
+          "max_hr": 161,
+          "pace_secs_per_km": 481
+        },
+        {
+          "avg_hr": 127,
+          "avg_speed_mps": 1.438,
+          "distance": 431.4,
+          "duration": 300.0,
+          "max_hr": 157,
+          "pace_secs_per_km": 695
+        },
+        {
+          "avg_hr": 118,
+          "avg_speed_mps": 1.228,
+          "distance": 5.6,
+          "duration": 4.0,
+          "max_hr": 119,
+          "pace_secs_per_km": 814
+        }
+      ],
+      "start_date_local": "2026-10-09T16:03:23",
+      "type": "Run",
+      "vo2_max": 41.0
+    },
+    {
       "aerobic_te": 0.2,
       "avg_hr": 99,
       "avg_pace_secs_per_km": 267,
@@ -26505,7 +26657,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-10-09T08:17:43.384393+00:00",
+  "generated_at": "2026-10-10T07:58:50.378084+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
