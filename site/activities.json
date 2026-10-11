@@ -1,6 +1,298 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.2,
+      "avg_cadence": 98,
+      "avg_hr": 87,
+      "avg_pace_secs_per_km": 796,
+      "avg_stride_len": 76.39,
+      "calories": 38,
+      "date": "2026-10-11",
+      "distance": 619.3,
+      "elevation_gain": 1.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 493,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24680619553",
+      "max_hr": 107,
+      "moving_time": 485.0,
+      "name": "Kediri Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 87,
+          "avg_speed_mps": 1.257,
+          "distance": 619.3,
+          "duration": 485.0,
+          "elevation_gain": 1.0,
+          "max_hr": 107,
+          "pace_secs_per_km": 796
+        }
+      ],
+      "start_date_local": "2026-10-11T11:20:24",
+      "type": "Walk"
+    },
+    {
+      "aerobic_te": 2.9,
+      "avg_cadence": 153,
+      "avg_ground_contact": 303,
+      "avg_hr": 140,
+      "avg_pace_secs_per_km": 470,
+      "avg_stride_len": 82.28,
+      "avg_vertical_osc": 8.4,
+      "calories": 389,
+      "date": "2026-10-11",
+      "distance": 5356.4,
+      "elevation_gain": 72.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 711,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 539,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1060,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 208,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24679219629",
+      "max_hr": 167,
+      "moving_time": 2515.1,
+      "name": "Training Sesi # 17 - Easy Kediri Running",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 117,
+          "avg_speed_mps": 1.967,
+          "distance": 590.2,
+          "duration": 299.0,
+          "elevation_gain": 11.0,
+          "max_hr": 131,
+          "pace_secs_per_km": 508
+        },
+        {
+          "avg_hr": 126,
+          "avg_speed_mps": 2.088,
+          "distance": 1000.0,
+          "duration": 478.0,
+          "elevation_gain": 26.0,
+          "max_hr": 137,
+          "pace_secs_per_km": 479
+        },
+        {
+          "avg_hr": 140,
+          "avg_speed_mps": 2.204,
+          "distance": 1000.0,
+          "duration": 453.0,
+          "elevation_gain": 20.0,
+          "max_hr": 146,
+          "pace_secs_per_km": 454
+        },
+        {
+          "avg_hr": 146,
+          "avg_speed_mps": 2.131,
+          "distance": 570.0,
+          "duration": 267.5,
+          "elevation_gain": 6.0,
+          "max_hr": 149,
+          "pace_secs_per_km": 469
+        },
+        {
+          "avg_hr": 146,
+          "avg_speed_mps": 2.047,
+          "distance": 1000.0,
+          "duration": 488.0,
+          "elevation_gain": 2.0,
+          "max_hr": 151,
+          "pace_secs_per_km": 489
+        },
+        {
+          "avg_hr": 152,
+          "avg_speed_mps": 2.166,
+          "distance": 241.6,
+          "duration": 111.6,
+          "elevation_gain": 1.0,
+          "max_hr": 157,
+          "pace_secs_per_km": 462
+        },
+        {
+          "avg_hr": 153,
+          "avg_speed_mps": 2.164,
+          "distance": 649.2,
+          "duration": 299.0,
+          "elevation_gain": 4.0,
+          "max_hr": 162,
+          "pace_secs_per_km": 462
+        },
+        {
+          "avg_hr": 164,
+          "avg_speed_mps": 2.567,
+          "distance": 305.4,
+          "duration": 119.0,
+          "elevation_gain": 1.0,
+          "max_hr": 167,
+          "pace_secs_per_km": 390
+        }
+      ],
+      "start_date_local": "2026-10-11T05:16:04",
+      "type": "Run",
+      "vo2_max": 41.0
+    },
+    {
+      "aerobic_te": 0.1,
+      "avg_cadence": 99,
+      "avg_hr": 83,
+      "avg_pace_secs_per_km": 864,
+      "avg_stride_len": 69.96,
+      "calories": 36,
+      "date": "2026-10-11",
+      "distance": 556.7,
+      "elevation_gain": 7.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 481,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24678760288",
+      "max_hr": 95,
+      "moving_time": 481.0,
+      "name": "Kediri Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 83,
+          "avg_speed_mps": 1.157,
+          "distance": 556.7,
+          "duration": 481.0,
+          "elevation_gain": 7.0,
+          "max_hr": 95,
+          "pace_secs_per_km": 864
+        }
+      ],
+      "start_date_local": "2026-10-11T03:52:13",
+      "type": "Walk",
+      "vo2_max": 41.0
+    },
+    {
+      "aerobic_te": 0.2,
+      "avg_cadence": 95,
+      "avg_hr": 91,
+      "avg_pace_secs_per_km": 851,
+      "avg_stride_len": 74.02,
+      "calories": 62,
+      "date": "2026-10-10",
+      "distance": 941.0,
+      "elevation_gain": 7.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 801,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24672729417",
+      "max_hr": 106,
+      "moving_time": 792.0,
+      "name": "Kediri Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 91,
+          "avg_speed_mps": 1.175,
+          "distance": 941.0,
+          "duration": 792.0,
+          "elevation_gain": 7.0,
+          "max_hr": 106,
+          "pace_secs_per_km": 851
+        }
+      ],
+      "start_date_local": "2026-10-10T17:20:39",
+      "type": "Walk",
+      "vo2_max": 41.0
+    },
+    {
       "aerobic_te": 0.6,
       "avg_hr": 99,
       "calories": 135,
@@ -26657,7 +26949,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-10-10T07:58:50.378084+00:00",
+  "generated_at": "2026-10-11T08:07:32.865726+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
