@@ -8266,5 +8266,28 @@
     "start_date_local": "2026-10-14T10:52:23",
     "type": "WeightTraining",
     "year": 2026
+  },
+  {
+    "aerobic_te": 2.4,
+    "avg_cadence": 153,
+    "avg_ground_contact": 302,
+    "avg_hr": 132,
+    "avg_speed_mps": 2.009,
+    "avg_stride_len": 77.64,
+    "avg_vertical_osc": 8.0,
+    "calories": 337,
+    "date": "2026-10-15",
+    "distance": 4823.85986328125,
+    "elevation_gain": 1.0,
+    "id": "24727330995",
+    "max_hr": 146,
+    "moving_time": 2395.987984895706,
+    "name": "Training Sesi # 19 - Easy Run",
+    "raw_activity_type": "running",
+    "raw_type": "running",
+    "start_date_local": "2026-10-15T04:46:46",
+    "type": "Run",
+    "vo2_max": 41.0,
+    "year": 2026
   }
 ]
