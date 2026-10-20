@@ -8424,5 +8424,29 @@
     "start_date_local": "2026-10-19T10:52:58",
     "type": "WeightTraining",
     "year": 2026
+  },
+  {
+    "aerobic_te": 3.4,
+    "anaerobic_te": 0.1,
+    "avg_cadence": 144,
+    "avg_ground_contact": 295,
+    "avg_hr": 140,
+    "avg_speed_mps": 2.106,
+    "avg_stride_len": 85.77,
+    "avg_vertical_osc": 8.0,
+    "calories": 549,
+    "date": "2026-10-20",
+    "distance": 7492.7998046875,
+    "elevation_gain": 0.0,
+    "id": "24785088007",
+    "max_hr": 160,
+    "moving_time": 3534.6089811325073,
+    "name": "Training Sesi #22 - Long Interval",
+    "raw_activity_type": "running",
+    "raw_type": "running",
+    "start_date_local": "2026-10-20T05:08:10",
+    "type": "Run",
+    "vo2_max": 41.0,
+    "year": 2026
   }
 ]
