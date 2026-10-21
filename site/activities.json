@@ -1,6 +1,61 @@
 {
   "activities": [
     {
+      "avg_cadence": 88,
+      "avg_hr": 96,
+      "avg_pace_secs_per_km": 999,
+      "avg_stride_len": 67.75,
+      "calories": 11,
+      "date": "2026-10-21",
+      "distance": 141.6,
+      "elevation_gain": 2.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 142,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24797941202",
+      "max_hr": 105,
+      "moving_time": 134.0,
+      "name": "Surabaya Walking",
+      "raw_type": "walking",
+      "splits": [
+        {
+          "avg_hr": 96,
+          "avg_speed_mps": 1.001,
+          "distance": 141.6,
+          "duration": 134.0,
+          "elevation_gain": 2.0,
+          "max_hr": 105,
+          "pace_secs_per_km": 999
+        }
+      ],
+      "start_date_local": "2026-10-21T09:03:48",
+      "type": "Walk"
+    },
+    {
       "aerobic_te": 3.4,
       "anaerobic_te": 0.1,
       "avg_cadence": 144,
@@ -28192,7 +28247,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-10-20T06:58:55.892361+00:00",
+  "generated_at": "2026-10-21T06:52:36.838380+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",

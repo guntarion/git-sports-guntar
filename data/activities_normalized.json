@@ -8448,5 +8448,24 @@
     "type": "Run",
     "vo2_max": 41.0,
     "year": 2026
+  },
+  {
+    "avg_cadence": 88,
+    "avg_hr": 96,
+    "avg_speed_mps": 1.001,
+    "avg_stride_len": 67.75,
+    "calories": 11,
+    "date": "2026-10-21",
+    "distance": 141.60000610351562,
+    "elevation_gain": 2.0,
+    "id": "24797941202",
+    "max_hr": 105,
+    "moving_time": 134.0,
+    "name": "Surabaya Walking",
+    "raw_activity_type": "walking",
+    "raw_type": "walking",
+    "start_date_local": "2026-10-21T09:03:48",
+    "type": "Walk",
+    "year": 2026
   }
 ]
