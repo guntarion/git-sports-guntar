@@ -1,6 +1,158 @@
 {
   "activities": [
     {
+      "aerobic_te": 3.1,
+      "avg_cadence": 154,
+      "avg_ground_contact": 302,
+      "avg_hr": 145,
+      "avg_pace_secs_per_km": 471,
+      "avg_stride_len": 81.65,
+      "avg_vertical_osc": 8.4,
+      "calories": 631,
+      "date": "2026-10-23",
+      "distance": 8929.0,
+      "elevation_gain": 10.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 572,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 1050,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1760,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 818,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24819895820",
+      "max_hr": 161,
+      "moving_time": 4196.7,
+      "name": "Training Sesi # 24 - Long Easy",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 120,
+          "avg_speed_mps": 2.058,
+          "distance": 1000.0,
+          "duration": 484.0,
+          "elevation_gain": 4.0,
+          "max_hr": 132,
+          "pace_secs_per_km": 486
+        },
+        {
+          "avg_hr": 131,
+          "avg_speed_mps": 2.069,
+          "distance": 236.3,
+          "duration": 114.0,
+          "elevation_gain": 1.0,
+          "max_hr": 134,
+          "pace_secs_per_km": 483
+        },
+        {
+          "avg_hr": 136,
+          "avg_speed_mps": 2.1,
+          "distance": 1000.0,
+          "duration": 476.0,
+          "elevation_gain": 1.0,
+          "max_hr": 142,
+          "pace_secs_per_km": 476
+        },
+        {
+          "avg_hr": 141,
+          "avg_speed_mps": 2.152,
+          "distance": 1000.0,
+          "duration": 464.7,
+          "max_hr": 147,
+          "pace_secs_per_km": 465
+        },
+        {
+          "avg_hr": 145,
+          "avg_speed_mps": 2.126,
+          "distance": 1000.0,
+          "duration": 470.0,
+          "max_hr": 152,
+          "pace_secs_per_km": 470
+        },
+        {
+          "avg_hr": 148,
+          "avg_speed_mps": 2.175,
+          "distance": 1000.0,
+          "duration": 459.7,
+          "elevation_gain": 1.0,
+          "max_hr": 152,
+          "pace_secs_per_km": 460
+        },
+        {
+          "avg_hr": 152,
+          "avg_speed_mps": 2.153,
+          "distance": 1000.0,
+          "duration": 464.4,
+          "max_hr": 157,
+          "pace_secs_per_km": 464
+        },
+        {
+          "avg_hr": 153,
+          "avg_speed_mps": 2.14,
+          "distance": 780.5,
+          "duration": 364.0,
+          "max_hr": 158,
+          "pace_secs_per_km": 467
+        },
+        {
+          "avg_hr": 156,
+          "avg_speed_mps": 2.123,
+          "distance": 637.0,
+          "duration": 299.0,
+          "elevation_gain": 1.0,
+          "max_hr": 160,
+          "pace_secs_per_km": 471
+        },
+        {
+          "avg_hr": 157,
+          "avg_speed_mps": 2.114,
+          "distance": 1000.0,
+          "duration": 473.0,
+          "elevation_gain": 1.0,
+          "max_hr": 160,
+          "pace_secs_per_km": 473
+        },
+        {
+          "avg_hr": 160,
+          "avg_speed_mps": 2.149,
+          "distance": 272.9,
+          "duration": 127.0,
+          "max_hr": 161,
+          "pace_secs_per_km": 465
+        },
+        {
+          "avg_hr": 161,
+          "avg_speed_mps": 2.061,
+          "distance": 2.2,
+          "duration": 1.0,
+          "max_hr": 161,
+          "pace_secs_per_km": 485
+        }
+      ],
+      "start_date_local": "2026-10-23T04:59:30",
+      "type": "Run",
+      "vo2_max": 41.0
+    },
+    {
       "aerobic_te": 2.7,
       "avg_cadence": 151,
       "avg_ground_contact": 309,
@@ -28403,7 +28555,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-10-22T06:56:41.995326+00:00",
+  "generated_at": "2026-10-23T06:49:39.379666+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
