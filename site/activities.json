@@ -1,6 +1,226 @@
 {
   "activities": [
     {
+      "aerobic_te": 3.7,
+      "anaerobic_te": 0.7,
+      "avg_cadence": 148,
+      "avg_ground_contact": 289,
+      "avg_hr": 148,
+      "avg_pace_secs_per_km": 453,
+      "avg_stride_len": 87.27,
+      "avg_vertical_osc": 8.1,
+      "calories": 621,
+      "date": "2026-10-27",
+      "distance": 8291.7,
+      "elevation_gain": 1.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 426,
+          "zone": 1
+        },
+        {
+          "low_bpm": 132,
+          "seconds": 776,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 1314,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 1238,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24863128221",
+      "max_hr": 167,
+      "moving_time": 3747.0,
+      "name": "Training Sesi # 26 - Tempo Interval \ud83e\udd73",
+      "raw_type": "running",
+      "splits": [
+        {
+          "avg_hr": 124,
+          "avg_speed_mps": 2.068,
+          "distance": 1000.0,
+          "duration": 480.0,
+          "max_hr": 140,
+          "pace_secs_per_km": 484
+        },
+        {
+          "avg_hr": 136,
+          "avg_speed_mps": 2.107,
+          "distance": 245.5,
+          "duration": 116.5,
+          "max_hr": 140,
+          "pace_secs_per_km": 475
+        },
+        {
+          "avg_hr": 139,
+          "avg_speed_mps": 2.173,
+          "distance": 76.6,
+          "duration": 34.0,
+          "max_hr": 141,
+          "pace_secs_per_km": 460
+        },
+        {
+          "avg_hr": 147,
+          "avg_speed_mps": 2.463,
+          "distance": 1000.0,
+          "duration": 406.0,
+          "max_hr": 151,
+          "pace_secs_per_km": 406
+        },
+        {
+          "avg_hr": 133,
+          "avg_speed_mps": 1.87,
+          "distance": 200.0,
+          "duration": 106.9,
+          "max_hr": 147,
+          "pace_secs_per_km": 535
+        },
+        {
+          "avg_hr": 150,
+          "avg_speed_mps": 2.421,
+          "distance": 1000.0,
+          "duration": 413.0,
+          "max_hr": 155,
+          "pace_secs_per_km": 413
+        },
+        {
+          "avg_hr": 141,
+          "avg_speed_mps": 1.677,
+          "distance": 200.0,
+          "duration": 119.0,
+          "max_hr": 155,
+          "pace_secs_per_km": 596
+        },
+        {
+          "avg_hr": 154,
+          "avg_speed_mps": 2.457,
+          "distance": 1000.0,
+          "duration": 407.0,
+          "max_hr": 162,
+          "pace_secs_per_km": 407
+        },
+        {
+          "avg_hr": 142,
+          "avg_speed_mps": 1.637,
+          "distance": 200.0,
+          "duration": 122.0,
+          "max_hr": 161,
+          "pace_secs_per_km": 611
+        },
+        {
+          "avg_hr": 159,
+          "avg_speed_mps": 2.436,
+          "distance": 1000.0,
+          "duration": 410.5,
+          "max_hr": 165,
+          "pace_secs_per_km": 411
+        },
+        {
+          "avg_hr": 149,
+          "avg_speed_mps": 1.714,
+          "distance": 200.0,
+          "duration": 116.0,
+          "elevation_gain": 1.0,
+          "max_hr": 163,
+          "pace_secs_per_km": 583
+        },
+        {
+          "avg_hr": 162,
+          "avg_speed_mps": 2.398,
+          "distance": 1000.0,
+          "duration": 417.0,
+          "max_hr": 167,
+          "pace_secs_per_km": 417
+        },
+        {
+          "avg_hr": 143,
+          "avg_speed_mps": 1.351,
+          "distance": 200.0,
+          "duration": 148.0,
+          "max_hr": 166,
+          "pace_secs_per_km": 740
+        },
+        {
+          "avg_hr": 132,
+          "avg_speed_mps": 1.412,
+          "distance": 49.0,
+          "duration": 34.0,
+          "max_hr": 136,
+          "pace_secs_per_km": 708
+        },
+        {
+          "avg_hr": 155,
+          "avg_speed_mps": 3.184,
+          "distance": 200.0,
+          "duration": 62.8,
+          "max_hr": 166,
+          "pace_secs_per_km": 314
+        },
+        {
+          "avg_hr": 158,
+          "avg_speed_mps": 1.393,
+          "distance": 82.5,
+          "duration": 58.0,
+          "max_hr": 167,
+          "pace_secs_per_km": 718
+        },
+        {
+          "avg_hr": 158,
+          "avg_speed_mps": 2.954,
+          "distance": 200.0,
+          "duration": 67.7,
+          "max_hr": 166,
+          "pace_secs_per_km": 339
+        },
+        {
+          "avg_hr": 158,
+          "avg_speed_mps": 1.377,
+          "distance": 79.8,
+          "duration": 57.0,
+          "max_hr": 167,
+          "pace_secs_per_km": 726
+        },
+        {
+          "avg_hr": 160,
+          "avg_speed_mps": 2.93,
+          "distance": 200.0,
+          "duration": 68.3,
+          "max_hr": 166,
+          "pace_secs_per_km": 341
+        },
+        {
+          "avg_hr": 161,
+          "avg_speed_mps": 1.386,
+          "distance": 37.8,
+          "duration": 26.0,
+          "max_hr": 166,
+          "pace_secs_per_km": 722
+        },
+        {
+          "avg_hr": 146,
+          "avg_speed_mps": 1.559,
+          "distance": 120.6,
+          "duration": 77.3,
+          "max_hr": 155,
+          "pace_secs_per_km": 641
+        }
+      ],
+      "start_date_local": "2026-10-27T04:52:08",
+      "type": "Run",
+      "vo2_max": 41.0
+    },
+    {
       "aerobic_te": 0.2,
       "avg_hr": 84,
       "calories": 61,
@@ -28753,7 +28973,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-10-26T07:17:56.972664+00:00",
+  "generated_at": "2026-10-27T07:10:02.381928+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
