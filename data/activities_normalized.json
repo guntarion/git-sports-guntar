@@ -8611,5 +8611,43 @@
     "type": "Run",
     "vo2_max": 41.0,
     "year": 2026
+  },
+  {
+    "avg_speed_mps": 1.7174,
+    "calories": 132,
+    "date": "2026-10-28",
+    "distance": 3500.0,
+    "elevation_gain": 0.0,
+    "id": "24878979809",
+    "moving_time": 2038.0,
+    "name": "Pulang dari PJB - njemput jemputan",
+    "raw_activity_type": "walking",
+    "raw_type": "walking",
+    "start_date_local": "2026-10-28T16:44:34",
+    "type": "Walk",
+    "year": 2026
+  },
+  {
+    "aerobic_te": 2.7,
+    "avg_cadence": 156,
+    "avg_ground_contact": 299,
+    "avg_hr": 138,
+    "avg_speed_mps": 2.112,
+    "avg_stride_len": 80.04,
+    "avg_vertical_osc": 8.2,
+    "calories": 376,
+    "date": "2026-10-29",
+    "distance": 5322.41015625,
+    "elevation_gain": 7.0,
+    "id": "24887174110",
+    "max_hr": 157,
+    "moving_time": 2516.332015991211,
+    "name": "Training Sesi # 27 - Easy Run",
+    "raw_activity_type": "running",
+    "raw_type": "running",
+    "start_date_local": "2026-10-29T04:45:17",
+    "type": "Run",
+    "vo2_max": 41.0,
+    "year": 2026
   }
 ]
