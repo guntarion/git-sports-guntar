@@ -8665,12 +8665,29 @@
     "id": "24898980970",
     "max_hr": 161,
     "moving_time": 3861.5440063476562,
-    "name": "Sidoarjo Running",
+    "name": "Training Sesi # 28 - Long Easy",
     "raw_activity_type": "running",
     "raw_type": "running",
     "start_date_local": "2026-10-30T04:51:24",
     "type": "Run",
     "vo2_max": 41.0,
+    "year": 2026
+  },
+  {
+    "aerobic_te": 0.2,
+    "avg_hr": 91,
+    "calories": 106,
+    "date": "2026-10-31",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "24911239556",
+    "max_hr": 118,
+    "moving_time": 1800.552978515625,
+    "name": "Strength",
+    "raw_activity_type": "strength_training",
+    "raw_type": "strength_training",
+    "start_date_local": "2026-10-31T08:57:29",
+    "type": "WeightTraining",
     "year": 2026
   }
 ]

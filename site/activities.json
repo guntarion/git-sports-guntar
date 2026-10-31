@@ -1,6 +1,48 @@
 {
   "activities": [
     {
+      "aerobic_te": 0.2,
+      "avg_hr": 91,
+      "calories": 106,
+      "date": "2026-10-31",
+      "distance": 0.0,
+      "elevation_gain": 0.0,
+      "hr_zones": [
+        {
+          "low_bpm": 57,
+          "seconds": 1801,
+          "zone": 1
+        },
+        {
+          "low_bpm": 131,
+          "seconds": 0,
+          "zone": 2
+        },
+        {
+          "low_bpm": 144,
+          "seconds": 0,
+          "zone": 3
+        },
+        {
+          "low_bpm": 156,
+          "seconds": 0,
+          "zone": 4
+        },
+        {
+          "low_bpm": 169,
+          "seconds": 0,
+          "zone": 5
+        }
+      ],
+      "id": "24911239556",
+      "max_hr": 118,
+      "moving_time": 1800.6,
+      "name": "Strength",
+      "raw_type": "strength_training",
+      "start_date_local": "2026-10-31T08:57:29",
+      "type": "WeightTraining"
+    },
+    {
       "aerobic_te": 3.0,
       "avg_cadence": 155,
       "avg_ground_contact": 299,
@@ -42,7 +84,7 @@
       "id": "24898980970",
       "max_hr": 161,
       "moving_time": 3861.5,
-      "name": "Sidoarjo Running",
+      "name": "Training Sesi # 28 - Long Easy",
       "raw_type": "running",
       "splits": [
         {
@@ -29246,7 +29288,7 @@
       "type": "WeightTraining"
     }
   ],
-  "generated_at": "2026-10-30T07:57:23.396223+00:00",
+  "generated_at": "2026-10-31T07:51:46.641205+00:00",
   "source": "garmin",
   "units": {
     "distance": "km",
